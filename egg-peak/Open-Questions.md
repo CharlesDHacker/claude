@@ -12,6 +12,7 @@ tags: [roblox, planning, todo, egg-peak]
 - Audience and tone: all ages cozy, or slightly edgier?
 - Seasons: **decided, they rotate** (see [Seasons and Events](Seasons-and-Events.md)). Still open: 2 weeks each, or longer?
 - NPCs: do they also chase players when they only *found* an egg, or only thieves? (Current draft: both, with different heat.)
+- Onboarding: is a 30-second first hatch too fast? Should the tutorial teach raiding (to feel the steal) or just warn about it? (Current draft: just warn.)
 - Co-op: team up to raid a high-value lodge?
 
 Related: [Decisions Log](Decisions-Log.md), [Concept and Pitch](Concept-and-Pitch.md)

@@ -16,7 +16,7 @@ NPC skiers chase players who are carrying an egg, scaling with the zone you are 
 ## Chasers by zone
 | Zone | NPC | Behavior | Difficulty |
 |---|---|---|---|
-| Base village | Ski Patrol Rookie | Slow, shouts a warning first | Very easy; a tutorial chaser |
+| Base village | Ski Patrol Rookie (Pip) | Slow, shouts a warning first | Very easy; the tutorial chaser, see [First 10 Minutes](First-10-Minutes.md) |
 | Pine forest | Park Ranger | Medium speed, cuts through trees | Easy |
 | Frozen lake | Ice Fisher | Slows you with thrown snowballs on ice | Medium |
 | Ice caves | Cave Warden | Fast in tunnels, weak outside them | Medium |

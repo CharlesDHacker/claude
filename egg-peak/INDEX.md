@@ -16,5 +16,6 @@ A Roblox "Steal an Egg" game set around a ski lodge at the base of a snowy mount
 - [Seasons and Events](Seasons-and-Events.md): four rotating seasons, seasonal pets and events.
 - [NPC Chasers](NPC-Chasers.md): zone-based NPC skiers, the Egg Heat meter and counterplay.
 - [Progression and Prestige](Progression-and-Prestige.md): lodge tiers, resets, goals, pacing.
+- [First 10 Minutes](First-10-Minutes.md): tutorial and onboarding timeline, return hooks, metrics.
 - [Decisions Log](Decisions-Log.md): calls made so far; veto any.
 - [Open Questions](Open-Questions.md): what is still undecided.

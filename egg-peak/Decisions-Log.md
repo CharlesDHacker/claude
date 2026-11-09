@@ -17,6 +17,8 @@ tags: [roblox, planning, decisions, egg-peak]
 | 8 | **Seasons rotate every 2 weeks (Winter, Spring, Summer, Autumn)** | Content engine; reskin plus egg pool keeps it affordable |
 | 9 | **NPC skiers chase egg carriers, scaled by zone, driven by an Egg Heat meter** | Makes every trip skill-based; user's idea |
 | 10 | **Prestige renamed from Spring Thaw to Fresh Powder** | Spring is now a season; avoids confusion |
+| 11 | **Onboarding: ~4 minutes to first hatch, first egg can't be lost, Pip the Rookie is the guide and first chaser** | Fast reward, zero frustration, reuses the NPC system |
+| 12 | **First hatch is a guaranteed Uncommon; first session ends with a lucky egg** | Strong first payoff and a built-in reason to return |
 | 7 | **Design only; no code yet** | User wants to finish design first |
 
 Related: [Open Questions](Open-Questions.md)
