@@ -9,7 +9,7 @@ tags: [roblox, game-design, progression, retention, egg-peak]
 ## Gear ladder (gates the zones)
 Winter boots -> ice skates -> headlamp and rope -> gondola pass -> heated gear. Gear gates **access**, never raw income, and is never sold directly for Robux.
 
-## Prestige: Spring Thaw
+## Prestige: Fresh Powder
 Late-game reset of coins, lodge and gear in exchange for **Snowflakes**, which give a permanent income multiplier and cosmetics. You keep the collection log and cosmetics.
 
 ## Goals
@@ -21,7 +21,7 @@ Late-game reset of coins, lodge and gear in exchange for **Snowflakes**, which g
 ## Pacing targets (tune)
 - First 10 minutes: first eggs hatched, second incubator bought.
 - First hour: ice skates and frozen lake.
-- First week: summit lodge and first Spring Thaw.
+- First week: summit lodge and first Fresh Powder.
 
 ## Monetization (fair)
 Luck boosts, extra incubator slots, lodge and ski skins, auto-collect. Avoid selling gear tiers or guaranteed rare eggs directly.

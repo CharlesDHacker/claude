@@ -26,6 +26,9 @@ Starting values; all checks server-side.
 - **Avalanche button** buries the lodge entrance briefly.
 - **Warmth sabotage** works both ways: raiders douse fires, owners relight.
 
+## NPC pressure
+NPC skiers chase egg carriers by zone and join the chase on top of the owner. See [NPC Chasers](NPC-Chasers.md).
+
 ## Anti-grief
 - First 20 minutes of play are raid-proof.
 - A lodge cannot lose more than one egg per raid, and a victim can only be raided a few times per 10 minutes.

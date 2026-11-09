@@ -18,6 +18,9 @@ Starting values; tune in playtests.
 | 5 | Blizzard peak | Heated gear | Mythic eggs | Cold meter drains health |
 | E | Event zones | Limited-time | Holiday, aurora, ancient glacier | Varies |
 
+## Seasons
+The mountain reskins each season; see [Seasons and Events](Seasons-and-Events.md). Each zone also has its own NPC chaser: see [NPC Chasers](NPC-Chasers.md).
+
 ## Travel
 - **Lift or gondola** up (waiting is a social moment, and a chance to be ambushed).
 - **Ski or sled** down fast; also the escape route when carrying a stolen egg.

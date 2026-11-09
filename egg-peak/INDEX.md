@@ -13,6 +13,8 @@ A Roblox "Steal an Egg" game set around a ski lodge at the base of a snowy mount
 - [Eggs and Incubation](Eggs-and-Incubation.md): rarity, hatch times, warmth mechanic, mutations, income.
 - [Lodge and Base Design](Lodge-and-Base-Design.md): plots, incubators, upgrades, offline earnings.
 - [Raid and Defense Design](Raid-and-Defense-Design.md): stealing, the downhill chase, defenses, anti-grief.
+- [Seasons and Events](Seasons-and-Events.md): four rotating seasons, seasonal pets and events.
+- [NPC Chasers](NPC-Chasers.md): zone-based NPC skiers, the Egg Heat meter and counterplay.
 - [Progression and Prestige](Progression-and-Prestige.md): lodge tiers, resets, goals, pacing.
 - [Decisions Log](Decisions-Log.md): calls made so far; veto any.
 - [Open Questions](Open-Questions.md): what is still undecided.
