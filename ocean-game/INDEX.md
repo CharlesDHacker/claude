@@ -17,6 +17,9 @@ A Roblox "Steal a ___"-style game set on a shared beach. Scuba or sub into depth
 - [First Two Zones](First-Two-Zones.md): Coral Reef and Twilight Zone in detail (MVP).
 - [Raid and Lock Design](Raid-and-Lock-Design.md): how stealing, locks, protection and anti-grief work.
 - [Decisions Log](Decisions-Log.md): calls made so far; veto any.
+- [Dive and Catch Design](Dive-and-Catch-Design.md): movement, oxygen, catching, spawning, cargo.
+- [Base and Tank Design](Base-and-Tank-Design.md): beach plots, tank sizes, income, offline earnings.
+- [Prestige and Progression](Prestige-and-Progression.md): Tidal Reset, collection log, goals, pacing.
 - [Name Brainstorm](Name-Brainstorm.md): candidate titles and the shortlist.
 - [Monetization and Tech Notes](Monetization-and-Tech-Notes.md): fair monetization, security, performance.
 - [MVP and Roadmap](MVP-and-Roadmap.md): smallest playtestable version and release rhythm.
