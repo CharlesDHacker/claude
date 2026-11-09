@@ -7,6 +7,8 @@ tags: [roblox, planning, todo]
 # Open Questions and Next Steps
 
 ## Open questions
+Several have working answers in [Decisions Log](Decisions-Log.md); the rest are below.
+
 - Stealing mechanic: base raids, sub piracy, or both?
 - Audience and tone: younger kids, teens, all ages? Cozy, spooky or chaotic? (affects name, art, horror, monetization rules)
 - Solo dev or team? (solo favors content that scales without lots of authored assets)

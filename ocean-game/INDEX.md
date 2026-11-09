@@ -14,6 +14,9 @@ A Roblox "Steal a ___"-style game set on a shared beach. Scuba or sub into depth
 - [Zones and Depth Ladder](Zones-and-Depth-Ladder.md): every zone idea, grouped, with hazards and sub gates.
 - [Sub Tier Ladder](Sub-Tier-Ladder.md): gear and sub tiers with starting stats, prices and creature income.
 - [Creatures and Content Ideas](Creatures-and-Content-Ideas.md): rarity, mutations, seasonal and prehistoric content.
+- [First Two Zones](First-Two-Zones.md): Coral Reef and Twilight Zone in detail (MVP).
+- [Raid and Lock Design](Raid-and-Lock-Design.md): how stealing, locks, protection and anti-grief work.
+- [Decisions Log](Decisions-Log.md): calls made so far; veto any.
 - [Name Brainstorm](Name-Brainstorm.md): candidate titles and the shortlist.
 - [Monetization and Tech Notes](Monetization-and-Tech-Notes.md): fair monetization, security, performance.
 - [MVP and Roadmap](MVP-and-Roadmap.md): smallest playtestable version and release rhythm.
