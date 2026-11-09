@@ -12,6 +12,7 @@ A Roblox "Steal a ___"-style game set on a shared beach. Scuba or sub into depth
 - [Genre Analysis: Steal a ___](Genre-Analysis-Steal-a-X.md): how the genre's loop works, why it sells, weaknesses to exploit.
 - [Core Loop and Systems](Core-Loop-and-Systems.md): dive, return, place, earn, defend, prestige, plus sub stats and stealing options.
 - [Zones and Depth Ladder](Zones-and-Depth-Ladder.md): every zone idea, grouped, with hazards and sub gates.
+- [Sub Tier Ladder](Sub-Tier-Ladder.md): gear and sub tiers with starting stats, prices and creature income.
 - [Creatures and Content Ideas](Creatures-and-Content-Ideas.md): rarity, mutations, seasonal and prehistoric content.
 - [Name Brainstorm](Name-Brainstorm.md): candidate titles and the shortlist.
 - [Monetization and Tech Notes](Monetization-and-Tech-Notes.md): fair monetization, security, performance.
