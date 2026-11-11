@@ -1,5 +1,5 @@
 """Synthesize a music bed + sound effects for an episode, timed to its beats.
-Usage: python3 audio.py episodes/ep01.json outprefix   -> outprefix.music.wav, .sfx.wav, .mix.wav
+Usage: python3 audio.py episodes/ep01.json outprefix [voice.wav]   -> outprefix.music.wav, .sfx.wav, .mix.wav
 Per-beat options in the episode JSON: "sfx": [names] overrides the defaults, "quiet": true ducks the music."""
 import sys, json, wave
 import numpy as np
@@ -70,7 +70,7 @@ def place(buf, start, sig, gain=1.0, pan=0.0):
     buf[i:i + len(sig), 0] += sig * gain * min(1, 1 - pan)
     buf[i:i + len(sig), 1] += sig * gain * min(1, 1 + pan)
 
-def build(ep):
+def build(ep, voice=None):
     beats = ep["beats"]; starts = np.concatenate([[0], np.cumsum([b["d"] for b in beats])]); total = starts[-1]
     N = int(total * SR); t = np.arange(N) / SR
     sfx = np.zeros((N, 2)); events = []
@@ -94,6 +94,7 @@ def build(ep):
             names = {"alarm": ["alarm"], "fire": ["rumble", "crackle"], "black": ["hiss"],
                      "fans": ["spindown"] if b.get("stopAt", 0) > 0.05 else []}.get(sc, [])
             if sc == "hatch" and b.get("glow", 0) >= 0.5: names = ["rumble_soft"]
+        dl = b.get("sfxDelay", 0); s, d = s + dl, max(d - dl, 0.2)
         for nm in names:
             if nm == "alarm": ev(nm, s, alarm(d), 0.26)
             elif nm == "rumble": ev(nm, s, rumble(d), 0.32)
@@ -123,7 +124,14 @@ def build(ep):
         if b["scene"] == "card": env[a:z] *= np.linspace(1, 0, z - a) ** 1.5
     k = int(0.08 * SR); env = np.convolve(env, np.ones(k) / k, "same")
     mus = mus / np.abs(mus).max() * 0.34 * env[:, None]
-    mix = np.tanh((mus + sfx) * 1.3); mix = mix / np.abs(mix).max() * 0.7
+    if voice is None:
+        mix = np.tanh((mus + sfx) * 1.3); mix = mix / np.abs(mix).max() * 0.7
+    else:  # duck music and effects under the narration
+        v = np.zeros(N); v[: min(N, len(voice))] = voice[:N]
+        k = int(0.12 * SR); e = np.sqrt(np.convolve(v ** 2, np.ones(k) / k, "same"))
+        duck = np.clip(e / 0.08, 0, 1); k2 = int(0.25 * SR); duck = np.maximum(duck, np.convolve(duck, np.ones(k2) / k2, "same"))
+        mix = v[:, None] + mus * (0.5 * (1 - 0.55 * duck))[:, None] + sfx * (0.75 * (1 - 0.45 * duck))[:, None]
+        mix = np.tanh(mix * 1.1); mix = mix / np.abs(mix).max() * 0.84
     return mus, sfx, mix, events, total
 
 def save(path, x):
@@ -133,7 +141,12 @@ def save(path, x):
 
 if __name__ == "__main__":
     ep = json.load(open(sys.argv[1])); pre = sys.argv[2]
-    mus, sfx, mix, events, total = build(ep)
+    voice = None
+    if len(sys.argv) > 3:
+        with wave.open(sys.argv[3]) as w:
+            assert w.getframerate() == SR and w.getnchannels() == 1
+            voice = np.frombuffer(w.readframes(w.getnframes()), "<i2") / 32768
+    mus, sfx, mix, events, total = build(ep, voice)
     save(pre + ".music.wav", mus); save(pre + ".sfx.wav", np.clip(sfx, -1, 1)); save(pre + ".mix.wav", mix)
     json.dump(events, open(pre + ".audio-events.json", "w"))
     print(f"{total:.1f}s, {len(events)} sound events")

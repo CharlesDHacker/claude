@@ -5,7 +5,8 @@
    "from": 0,
    "to": 6.1,
    "l1": "NO ONE",
-   "l2": "IS COMING TO HELP."
+   "l2": "IS COMING TO HELP.",
+   "toBeat": 4
   }
  ],
  "beats": [
@@ -26,7 +27,8 @@
    "chip": {
     "type": "real",
     "text": "ISS: 400 KM UP \u00b7 28,000 KM/H"
-   }
+   },
+   "say": "Four hundred kilometers above Earth."
   },
   {
    "d": 1.4,
@@ -41,7 +43,8 @@
      -20,
      20
     ]
-   }
+   },
+   "say": "Six people."
   },
   {
    "d": 1.6,
@@ -53,7 +56,8 @@
      1.0,
      1.08
     ]
-   }
+   },
+   "say": "Two escape capsules."
   },
   {
    "d": 1.6,
@@ -66,7 +70,25 @@
      1.1
     ],
     "shake": 2
-   }
+   },
+   "say": "One smoke alarm."
+  },
+  {
+   "d": 1.8,
+   "scene": "orbit",
+   "cap": "AND {r:NO ONE} IS COMING.",
+   "say": "And no one is coming to help.",
+   "cam": {
+    "z": [
+     1.5,
+     1.0
+    ],
+    "y": [
+     20,
+     0
+    ]
+   },
+   "pad": 0.4
   },
   {
    "d": 1.8,
@@ -80,7 +102,8 @@
      1.0,
      1.06
     ]
-   }
+   },
+   "say": "This is Orbit Emergency. Part one."
   },
   {
    "d": 2.2,
@@ -106,7 +129,8 @@
      0,
      -10
     ]
-   }
+   },
+   "say": "Meet Ava. She's in command."
   },
   {
    "d": 2.0,
@@ -132,7 +156,8 @@
      0,
      -10
     ]
-   }
+   },
+   "say": "And Teo. The engineer."
   },
   {
    "d": 1.6,
@@ -147,7 +172,8 @@
      1.0,
      1.1
     ]
-   }
+   },
+   "say": "And Biscuit."
   },
   {
    "d": 2.0,
@@ -160,7 +186,8 @@
      1.12
     ],
     "shake": 3
-   }
+   },
+   "say": "Then the alarm screams."
   },
   {
    "d": 2.0,
@@ -192,7 +219,8 @@
      0,
      -30
     ]
-   }
+   },
+   "say": "Teo floats to the source."
   },
   {
    "d": 1.8,
@@ -204,7 +232,8 @@
      1.0,
      1.1
     ]
-   }
+   },
+   "say": "A sealed hatch."
   },
   {
    "d": 2.2,
@@ -221,7 +250,8 @@
      -120
     ],
     "shake": 2
-   }
+   },
+   "say": "An orange glow behind it."
   },
   {
    "d": 2.2,
@@ -240,7 +270,8 @@
      1.0,
      1.08
     ]
-   }
+   },
+   "say": "Rule one. Never open it."
   },
   {
    "d": 2.0,
@@ -251,7 +282,8 @@
      1.0,
      1.1
     ]
-   }
+   },
+   "say": "Why? Fire needs air."
   },
   {
    "d": 1.4,
@@ -263,7 +295,8 @@
      1.1,
      1.2
     ]
-   }
+   },
+   "say": "In zero gravity,"
   },
   {
    "d": 2.2,
@@ -280,7 +313,8 @@
      1.25
     ],
     "shake": 1
-   }
+   },
+   "say": "flames become blue spheres."
   },
   {
    "d": 1.8,
@@ -296,7 +330,8 @@
      1.1,
      1.0
     ]
-   }
+   },
+   "say": "Smoke doesn't rise."
   },
   {
    "d": 1.8,
@@ -309,7 +344,8 @@
      1.0,
      1.15
     ]
-   }
+   },
+   "say": "It spreads everywhere."
   },
   {
    "d": 2.0,
@@ -325,7 +361,8 @@
      0,
      50
     ]
-   }
+   },
+   "say": "The fire is in the service module."
   },
   {
    "d": 1.6,
@@ -337,7 +374,8 @@
      1.1,
      1.0
     ]
-   }
+   },
+   "say": "Between the crew,"
   },
   {
    "d": 1.6,
@@ -353,7 +391,8 @@
      0,
      80
     ]
-   }
+   },
+   "say": "and capsule B."
   },
   {
    "d": 1.8,
@@ -373,7 +412,8 @@
      0,
      -80
     ]
-   }
+   },
+   "say": "Capsule A seats three."
   },
   {
    "d": 1.8,
@@ -386,7 +426,8 @@
      1.0,
      1.1
     ]
-   }
+   },
+   "say": "There are six people."
   },
   {
    "d": 2.0,
@@ -401,7 +442,8 @@
      1.15
     ],
     "shake": 2
-   }
+   },
+   "say": "Teo reaches for the wheel."
   },
   {
    "d": 1.4,
@@ -419,7 +461,8 @@
      -54.0,
      -54.0
     ]
-   }
+   },
+   "say": "Ava says, no."
   },
   {
    "d": 2.0,
@@ -436,7 +479,8 @@
      1.0,
      1.1
     ]
-   }
+   },
+   "say": "New order. Kill the fans."
   },
   {
    "d": 2.0,
@@ -453,7 +497,8 @@
      1.0,
      1.12
     ]
-   }
+   },
+   "say": "The fans spin down."
   },
   {
    "d": 1.6,
@@ -469,7 +514,9 @@
      1.0
     ]
    },
-   "quiet": true
+   "quiet": true,
+   "say": "Silence.",
+   "pad": 0.9
   },
   {
    "d": 1.8,
@@ -484,7 +531,8 @@
    "sfx": [
     "hiss_rise"
    ],
-   "quiet": true
+   "quiet": true,
+   "say": "Then they hear it."
   },
   {
    "d": 1.8,
@@ -497,7 +545,10 @@
      1.25
     ],
     "shake": 3
-   }
+   },
+   "say": "A hiss.",
+   "pad": 1.3,
+   "sfxDelay": 0.75
   },
   {
    "d": 3.0,
@@ -507,7 +558,10 @@
    "title": "THE HISS",
    "q1": "WOULD YOU OPEN",
    "q2": "THE HATCH?",
-   "follow": "FOLLOW FOR PART 2"
+   "follow": "FOLLOW FOR PART 2",
+   "say": "Would you open the hatch? Follow for part two.",
+   "pad": 0.8,
+   "lead": 0.5
   }
  ]
 }
