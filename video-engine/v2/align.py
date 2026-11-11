@@ -3,7 +3,7 @@ import sys, json, wave, os
 from pocketsphinx import Decoder, get_model_path
 wav, text, out = sys.argv[1], open(sys.argv[2]).read().split(), sys.argv[3]
 mp = get_model_path()
-extra = {"teo": "T EY OW", "ava": "EY V AH"}
+extra = {"teo": "T EY OW", "ava": "EY V AH", "mei": "M EY"}
 dic = os.path.join(os.path.dirname(out), "align.dict")
 have = {}
 for line in open(os.path.join(mp, "en-us", "cmudict-en-us.dict")):

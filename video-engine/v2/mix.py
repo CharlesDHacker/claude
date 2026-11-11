@@ -72,6 +72,10 @@ def snd(tok, s):
     if name == "cough":
         p = os.path.join(sfx_dir, "cough.mp3")
         if os.path.exists(p): ev("cough", at, A.norm(load(p)), .6)
+        else:   # synthesized stand-in: two short breathy bursts
+            for off, g in ((0, .5), (.24, .38)):
+                t = A.tt(0.17); x = A.norm(A.bp(A.noise(len(t)), 350, 2600)) * np.minimum(t / .008, 1) * np.exp(-t * 22) + .4 * np.sin(TAU * np.cumsum(240 - 500 * t) / SR) * np.exp(-t * 30)
+                ev("cough (synth)", at + off, A.norm(x), g)
         return
     if name == "impact": ev("impact", at, A.impact(), .55)
     elif name == "stamp": ev("stamp", at + .05, A.thud(), .4)
