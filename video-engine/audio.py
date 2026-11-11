@@ -105,7 +105,7 @@ def build(ep):
     # ---- music bed: D minor drone, slow pulse, rising tension ----
     mus = np.zeros((N, 2))
     for j, (f, a) in enumerate([(36.71, .5), (73.42, .6), (110.0, .35), (146.83, .3), (174.61, .22), (220.0, .12),
-                              (293.66, .10), (349.23, .07), (440.0, .06)]  # upper notes stay audible on phone speakers):
+                              (293.66, .10), (349.23, .07), (440.0, .06)]):  # upper notes stay audible on phone speakers
         lfo = 0.6 + 0.4 * np.sin(TAU * (0.05 + 0.03 * j) * t + j)
         mus[:, 0] += a * lfo * np.sin(TAU * f * 0.9985 * t); mus[:, 1] += a * lfo * np.sin(TAU * f * 1.0015 * t + 0.5)
     ten = (t / total) ** 2 * 0.3 * (0.75 + 0.25 * np.sin(TAU * 5 * t))
