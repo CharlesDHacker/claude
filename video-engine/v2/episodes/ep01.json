@@ -1,0 +1,641 @@
+{
+ "series": "ORBIT EMERGENCY",
+ "part": 1,
+ "tail": 1.4,
+ "checklist": [
+  "400 KM UP",
+  "6 CREW",
+  "2 ESCAPE CAPSULES",
+  "1 SMOKE ALARM"
+ ],
+ "shots": [
+  {
+   "scene": "orbit",
+   "check": 1,
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ],
+    "y": [
+     0,
+     -14
+    ]
+   },
+   "chunks": [
+    {
+     "cap": "400 KILOMETERS",
+     "say": "400 kilometers"
+    },
+    {
+     "cap": "ABOVE {g:EARTH.}"
+    }
+   ]
+  },
+  {
+   "scene": "crew6",
+   "check": 2,
+   "cam": {
+    "z": [
+     1.0,
+     1.05
+    ]
+   },
+   "chunks": [
+    {
+     "cap": "{g:6} ASTRONAUTS.",
+     "say": "Six astronauts."
+    }
+   ]
+  },
+  {
+   "scene": "capsules",
+   "check": 3,
+   "cam": {
+    "z": [
+     1.0,
+     1.08
+    ]
+   },
+   "chunks": [
+    {
+     "cap": "{g:2} ESCAPE CAPSULES.",
+     "say": "Two escape capsules."
+    }
+   ]
+  },
+  {
+   "scene": "alarmUnit",
+   "check": 4,
+   "cam": {
+    "z": [
+     1.0,
+     1.12
+    ],
+    "hit": 5
+   },
+   "chunks": [
+    {
+     "cap": "{r:1} SMOKE ALARM.",
+     "say": "One smoke alarm."
+    }
+   ]
+  },
+  {
+   "scene": "alone",
+   "cam": {
+    "z": [
+     1.9,
+     1.0
+    ],
+    "y": [
+     -130,
+     0
+    ]
+   },
+   "chunks": [
+    {
+     "cap": "AND {r:NOBODY}"
+    },
+    {
+     "cap": "IS COMING TO HELP."
+    }
+   ]
+  },
+  {
+   "scene": "title",
+   "noCap": true,
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.05
+    ],
+    "hit": 6
+   },
+   "chunks": [
+    {
+     "cap": "ORBIT EMERGENCY.",
+     "say": "This is Orbit Emergency."
+    },
+    {
+     "cap": "PART ONE."
+    }
+   ]
+  },
+  {
+   "scene": "ava",
+   "cam": {
+    "z": [
+     1.0,
+     1.08
+    ]
+   },
+   "chips": [
+    {
+     "type": "tag",
+     "name": "AVA \u00b7 41",
+     "sub": "MISSION COMMANDER",
+     "color": "#e5484d"
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "COMMANDER {g:AVA}"
+    },
+    {
+     "cap": "RUNS THE STATION."
+    }
+   ]
+  },
+  {
+   "scene": "teo",
+   "cam": {
+    "z": [
+     1.0,
+     1.08
+    ]
+   },
+   "chips": [
+    {
+     "type": "tag",
+     "name": "TEO \u00b7 29",
+     "sub": "FLIGHT ENGINEER",
+     "color": "#2f6fed"
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "{g:TEO,} THE ENGINEER,"
+    },
+    {
+     "cap": "KEEPS IT ALIVE."
+    }
+   ]
+  },
+  {
+   "scene": "biscuitFloat",
+   "cam": {
+    "z": [
+     1.0,
+     1.06
+    ]
+   },
+   "chips": [
+    {
+     "type": "real",
+     "text": "CREWS FLY A PLUSH TOY AS A ZERO-G INDICATOR",
+     "at": 1
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "AND {g:BISCUIT...}",
+     "say": "And Biscuit\u2026"
+    },
+    {
+     "cap": "FLOATS."
+    }
+   ]
+  },
+  {
+   "scene": "alarmGo",
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ],
+    "hit": 9,
+    "shake": 1.2
+   },
+   "chunks": [
+    {
+     "cap": "THEN, THE {r:ALARM}"
+    },
+    {
+     "cap": "GOES OFF."
+    }
+   ]
+  },
+  {
+   "scene": "follow",
+   "cam": {
+    "z": [
+     1.0,
+     1.22
+    ],
+    "y": [
+     0,
+     -20
+    ]
+   },
+   "chunks": [
+    {
+     "cap": "TEO FOLLOWS THE SMOKE"
+    },
+    {
+     "cap": "TO A {g:SEALED HATCH.}"
+    }
+   ]
+  },
+  {
+   "scene": "hatchGlow",
+   "cam": {
+    "z": [
+     1.0,
+     1.32
+    ],
+    "y": [
+     0,
+     -84
+    ]
+   },
+   "hitAt": 1,
+   "flashAt": 1,
+   "chunks": [
+    {
+     "cap": "BEHIND IT...",
+     "say": "Behind it\u2026"
+    },
+    {
+     "cap": "AN {r:ORANGE GLOW.}"
+    }
+   ]
+  },
+  {
+   "scene": "rule1",
+   "cam": {
+    "z": [
+     1.32,
+     1.22
+    ],
+    "y": [
+     -84,
+     -60
+    ],
+    "hit": 7
+   },
+   "chips": [
+    {
+     "type": "rule",
+     "no": "RULE #1",
+     "l1": "NEVER OPEN A",
+     "l2": "BURNING HATCH.",
+     "at": 0,
+     "bodyAt": 1
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "RULE {g:ONE.}"
+    },
+    {
+     "cap": "{r:NEVER} OPEN"
+    },
+    {
+     "cap": "A BURNING HATCH."
+    }
+   ]
+  },
+  {
+   "scene": "flame",
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   },
+   "chips": [
+    {
+     "type": "real",
+     "text": "ZERO-G FLAMES FORM BLUE SPHERES",
+     "at": 4
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "ON EARTH,"
+    },
+    {
+     "cap": "FLAMES {g:RISE.}"
+    },
+    {
+     "cap": "IN ORBIT,"
+    },
+    {
+     "cap": "THEY CURL INTO"
+    },
+    {
+     "cap": "{b:BLUE SPHERES.}"
+    }
+   ]
+  },
+  {
+   "scene": "smokeDrift",
+   "cam": {
+    "z": [
+     1.0,
+     1.08
+    ],
+    "hit": 5
+   },
+   "hitAt": 3,
+   "chips": [
+    {
+     "type": "real",
+     "text": "NO GRAVITY = NO \"UP\" FOR SMOKE",
+     "at": 1
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "AND SMOKE"
+    },
+    {
+     "cap": "DOESN'T RISE."
+    },
+    {
+     "cap": "IT DRIFTS...",
+     "say": "It drifts\u2026"
+    },
+    {
+     "cap": "{r:EVERYWHERE.}"
+    }
+   ]
+  },
+  {
+   "scene": "mapFire",
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.06
+    ]
+   },
+   "chunks": [
+    {
+     "cap": "THE FIRE IS IN"
+    },
+    {
+     "cap": "THE {r:SERVICE MODULE.}"
+    }
+   ]
+  },
+  {
+   "scene": "mapRoute",
+   "cont": true,
+   "cam": {
+    "z": [
+     1.06,
+     1.08
+    ],
+    "hit": 6
+   },
+   "hitAt": 2,
+   "chunks": [
+    {
+     "cap": "RIGHT BETWEEN"
+    },
+    {
+     "cap": "THE CREW,"
+    },
+    {
+     "cap": "AND {g:CAPSULE B.}"
+    }
+   ]
+  },
+  {
+   "scene": "seats",
+   "stage": 1,
+   "cam": {
+    "z": [
+     1.0,
+     1.06
+    ]
+   },
+   "chips": [
+    {
+     "type": "real",
+     "text": "A SOYUZ CAPSULE SEATS 3",
+     "at": 1,
+     "delay": 0.3
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "CAPSULE A HAS"
+    },
+    {
+     "cap": "{g:3 SEATS.}",
+     "say": "three seats."
+    }
+   ]
+  },
+  {
+   "scene": "seats",
+   "stage": 2,
+   "cont": true,
+   "cam": {
+    "z": [
+     1.06,
+     1.1
+    ],
+    "hit": 6
+   },
+   "hitAt": 1,
+   "chunks": [
+    {
+     "cap": "THERE ARE"
+    },
+    {
+     "cap": "{r:6 PEOPLE.}",
+     "say": "six people."
+    }
+   ]
+  },
+  {
+   "scene": "reach",
+   "cam": {
+    "z": [
+     1.0,
+     1.16
+    ],
+    "y": [
+     0,
+     30
+    ]
+   },
+   "chunks": [
+    {
+     "cap": "TEO REACHES"
+    },
+    {
+     "cap": "FOR THE WHEEL."
+    }
+   ]
+  },
+  {
+   "scene": "grab",
+   "cam": {
+    "z": [
+     1.0,
+     1.06
+    ],
+    "hit": 12
+   },
+   "hitAt": 1,
+   "flashAt": 1,
+   "chunks": [
+    {
+     "cap": "AVA GRABS"
+    },
+    {
+     "cap": "HIS WRIST."
+    }
+   ]
+  },
+  {
+   "scene": "avaNo",
+   "cam": {
+    "z": [
+     1.0,
+     1.14
+    ]
+   },
+   "chunks": [
+    {
+     "cap": "{r:\"NO.\"}",
+     "say": "No."
+    },
+    {
+     "cap": "\"KILL THE {g:FANS.}\"",
+     "say": "Kill the fans."
+    }
+   ]
+  },
+  {
+   "scene": "rule2",
+   "cam": {
+    "z": [
+     1.0,
+     1.05
+    ]
+   },
+   "chips": [
+    {
+     "type": "rule",
+     "no": "RULE #2",
+     "l1": "STOP THE AIR.",
+     "l2": "STARVE THE FIRE.",
+     "at": 0,
+     "bodyAt": 1
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "RULE {g:TWO.}"
+    },
+    {
+     "cap": "STOP THE AIR."
+    },
+    {
+     "cap": "{r:STARVE} THE FIRE."
+    }
+   ]
+  },
+  {
+   "scene": "fanDown",
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   },
+   "chips": [
+    {
+     "type": "real",
+     "text": "ISS CREWS CUT VENTILATION IN A FIRE",
+     "at": 0,
+     "delay": 0.2
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "THE FANS"
+    },
+    {
+     "cap": "SPIN DOWN."
+    }
+   ]
+  },
+  {
+   "scene": "silence",
+   "cam": {
+    "z": [
+     1.0,
+     1.05
+    ]
+   },
+   "chunks": [
+    {
+     "cap": "SILENCE."
+    }
+   ]
+  },
+  {
+   "scene": "silence",
+   "near": 1,
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   },
+   "chunks": [
+    {
+     "cap": "AND THEN...",
+     "say": "And then\u2026"
+    }
+   ]
+  },
+  {
+   "scene": "hiss",
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ],
+    "hit": 10,
+    "shake": 1.5
+   },
+   "chunks": [
+    {
+     "cap": "A {r:HISS.}"
+    }
+   ]
+  },
+  {
+   "scene": "card",
+   "card": {
+    "series": "ORBIT EMERGENCY",
+    "next": 2,
+    "title": "THE HISS",
+    "q1": "WOULD YOU OPEN",
+    "q2": "THE HATCH?",
+    "follow": "FOLLOW FOR PART 2"
+   },
+   "chunks": [
+    {
+     "cap": "",
+     "say": "Would you open the hatch?"
+    },
+    {
+     "cap": "",
+     "say": "Follow for part two."
+    }
+   ]
+  }
+ ]
+}

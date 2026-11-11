@@ -1,0 +1,52 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'Anton';src:url('fonts/anton-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'BarlowC';font-weight:800;src:url('fonts/barlow-condensed-latin-800-normal.woff2') format('woff2')}
+@font-face{font-family:'BarlowC';font-weight:700;src:url('fonts/barlow-condensed-latin-700-normal.woff2') format('woff2')}
+html,body{margin:0;background:#000;overflow:hidden}svg{display:block}
+text{font-family:'BarlowC','Inter',sans-serif;font-weight:800}.an{font-family:'Anton','BarlowC',sans-serif;font-weight:400}
+</style></head><body><svg id="s" xmlns="http://www.w3.org/2000/svg" width="576" height="1024" viewBox="0 0 576 1024"></svg>
+<script src="lib.js"></script><script src="scenes.js"></script>
+<script>
+let EP=null;
+const markup=s=>s.replace(/\{([grb]):([^}]*)\}/g,(m,k,x)=>`<tspan fill="${k==='g'?GOLD:k==='r'?RED:CY}">${x}</tspan>`);
+window.__load=async ep=>{EP=ep;await Promise.all(['20px Anton','800 20px BarlowC','700 20px BarlowC'].map(x=>document.fonts.load(x)));return ep.total};
+function chips(s,c){
+  let o='';
+  for(const ch of (s.chips||[])){
+    const lt=c.ch(ch.at||0)-(ch.delay||0); if(lt<=0)continue;
+    if(ch.type==='real'){const w=ch.text.length*10.4+92,k=pop(lt,0,.4),y=lerp(-50,128,Math.min(k,1.06));
+      o+=`<g transform="translate(288 ${f(y)})"><rect x="${f(-w/2)}" y="-22" width="${f(w)}" height="44" rx="22" fill="#eafaf1" stroke="${GREEN}" stroke-width="3"/><rect x="${f(-w/2+7)}" y="-15" width="62" height="30" rx="15" fill="${GREEN}"/><text x="${f(-w/2+38)}" y="7" text-anchor="middle" font-size="19" fill="#05331f" letter-spacing="1">REAL</text><text x="${f(-w/2+80)}" y="7.5" font-size="21" font-weight="700" fill="#0b3d2a" letter-spacing=".3">${ch.text}</text></g>`}
+    else if(ch.type==='tag'){const w=Math.max(ch.name.length*22,ch.sub.length*10.5)+44,k=pop(lt,0,.4);
+      o+=`<g transform="translate(${f(lerp(-w,34,Math.min(k,1.05)))} 150) rotate(-2)"><rect width="${f(w)}" height="76" rx="8" fill="#f6f3ea" stroke="#c9c1ad" stroke-width="2"/><rect width="10" height="76" rx="3" fill="${ch.color||RED}"/><text x="24" y="40" class="an" font-size="36" fill="#17171f" letter-spacing="1">${ch.name}</text><text x="24" y="63" font-size="17" fill="#6d6a60" letter-spacing="1.5">${ch.sub}</text></g>`}
+    else if(ch.type==='rule'){const k=clamp(lt/.16),sc=lerp(1.7,1,eo(k)),sh=lt<.3?Math.sin(lt*90)*3*(1-lt/.3):0,body=c.ch(ch.bodyAt??ch.at??0);
+      o+=`<g transform="translate(${f(288+sh)} 196) rotate(${f(lerp(-9,-2,eo(k)))}) scale(${sc.toFixed(3)})" opacity="${clamp(lt/.08)}"><rect x="-236" y="-70" width="472" height="140" rx="10" fill="#f6f3ea" stroke="#c9c1ad" stroke-width="3"/><rect x="-236" y="-70" width="472" height="34" rx="6" fill="#c1121f"/><text x="0" y="-45" text-anchor="middle" font-size="22" fill="#fff" letter-spacing="3">${ch.no}</text>`;
+      if(body>0)o+=`<g opacity="${clamp(body/.12)}"><text x="0" y="8" text-anchor="middle" class="an" font-size="40" fill="#17171f" letter-spacing="1">${ch.l1}</text><text x="0" y="54" text-anchor="middle" class="an" font-size="40" fill="#c1121f" letter-spacing="1">${ch.l2}</text></g>`;
+      o+=`</g>`}
+  }
+  return o;
+}
+function hud(s,c){
+  let o=`<rect x="183" y="34" width="210" height="30" rx="5" fill="#c1121f"/><text x="288" y="56" text-anchor="middle" font-size="20" fill="#fff" letter-spacing="2.2">${EP.series}</text><rect x="244" y="70" width="88" height="22" rx="11" fill="#0b1020" opacity=".85"/><text x="288" y="86.5" text-anchor="middle" font-size="15" fill="${GOLD}" letter-spacing="2">PART ${EP.part}</text>`;
+  if(s.check){EP.checklist.slice(0,s.check).forEach((txt,i)=>{const fresh=i===s.check-1,k=fresh?pop(c.lt,.1,.35):1;if(k<=0)return;const w=txt.length*11.5+62;
+    o+=`<g transform="translate(${f(lerp(-w,28,Math.min(k,1.04)))} ${118+i*42})"><rect width="${f(w)}" height="34" rx="17" fill="#0b1020" opacity=".86" stroke="${fresh?GOLD:'#2b3650'}" stroke-width="2"/><circle cx="19" cy="17" r="10" fill="${GOLD}"/><path d="M13.5 17 L17.5 21.5 L25 12.5" stroke="#0b1020" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="38" y="24" font-size="21" fill="#fff" letter-spacing="1">${txt}</text></g>`})}
+  return o;
+}
+window.__render=t=>{
+  let i=EP.shots.findIndex(s=>t>=s.t0&&t<s.t1);if(i<0)i=t<EP.shots[0].t0?0:EP.shots.length-1;
+  const s=EP.shots[i],lt=t-s.t0,d=s.t1-s.t0,p=clamp(lt/d),ch=k=>k<s.chunks.length?t-s.chunks[k].t0:-1,c={t,lt,d,p,ch,o:s};
+  const cam=s.cam||{},zz=cam.z||[1,1.06],e=eio(p),punch=s.cont?0:.05*(1-eo(lt/.2));
+  const z=lerp(zz[0],zz[1],e)+punch,cx=lerp((cam.x||[0,0])[0],(cam.x||[0,0])[1],e),cy=lerp((cam.y||[0,0])[0],(cam.y||[0,0])[1],e);
+  const hitT=s.hitAt!=null?ch(s.hitAt):lt,amp=(cam.shake||0)+((cam.hit||0)*(hitT>=0?Math.exp(-hitT*7):0)),shx=Math.sin(t*67)*amp,shy=Math.cos(t*59)*amp;
+  let o=DEFS+`<g transform="translate(288 512) scale(${z.toFixed(4)}) translate(${f(-288-cx+shx)} ${f(-512-cy+shy)})">${SC[s.scene](c)}</g><rect width="576" height="1024" fill="url(#gVig)"/>`;
+  if(s.scene!=='card'){o+=hud(s,c)+chips(s,c);}
+  let k=-1;s.chunks.forEach((q,j)=>{if(t>=q.t0)k=j});
+  if(k>=0&&!s.noCap&&s.chunks[k].cap){const since=t-s.chunks[k].t0,sc=.6+.4*pop(since,0,.26);
+    o+=`<g id="capg" data-s="${sc.toFixed(3)}" transform="translate(288 ${s.capY||700}) scale(${sc.toFixed(3)})"><text id="capt" class="an" text-anchor="middle" font-size="62" fill="#fff" stroke="#000" stroke-width="13" stroke-linejoin="round" paint-order="stroke" letter-spacing="1.5" style="paint-order:stroke">${markup(s.chunks[k].cap)}</text></g>`}
+  const fT=s.flashAt!=null?ch(s.flashAt):(s.flash?lt:-1);if(fT>=0&&fT<.12)o+=`<rect width="576" height="1024" fill="#fff" opacity="${(.6*(1-fT/.12)).toFixed(2)}"/>`;
+  document.getElementById('s').innerHTML=o;
+  const g=document.getElementById('capg');
+  if(g){const bw=document.getElementById('capt').getBBox().width,sc=+g.dataset.s,fit=Math.min(1,520/bw);g.setAttribute('transform',`translate(288 ${s.capY||700}) scale(${(sc*fit).toFixed(3)})`)}
+  return i;
+};
+</script></body></html>
