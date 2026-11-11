@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}svg{display:block}</style></head>
+<body><svg id="s" xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1024 1024"></svg>
+<script src="lib.js"></script><script>
+// Channel profile picture: Biscuit floating above Earth. Key content sits inside the centre circle (platforms crop to a circle).
+const t=2.2;
+let o=DEFS+`<rect width="1024" height="1024" fill="url(#gSpace)"/><g transform="scale(1.4 1.05)">${stars(t,150,7)}</g>`;
+o+=`<circle cx="800" cy="170" r="260" fill="url(#gSun)" opacity=".45"/>`;
+o+=`<g transform="translate(224 0)">${earth(t,690,900)}</g>`;
+o+=`<g transform="translate(812 236) rotate(-24) scale(.4)">${station(t)}</g>`;
+o+=`<ellipse cx="512" cy="900" rx="210" ry="30" fill="#000" opacity=".18" filter="url(#b12)"/>`;
+o+=biscuit(500,450,4.9,t,{spin:0,rot:-9});
+o+=`<circle cx="512" cy="512" r="497" fill="none" stroke="${GOLD}" stroke-width="14"/><rect width="1024" height="1024" fill="url(#gVig)" opacity=".5"/>`;
+document.getElementById('s').innerHTML=o;
+</script></body></html>
