@@ -1,0 +1,508 @@
+{
+ "series": "ORBIT EMERGENCY",
+ "pins": [
+  {
+   "from": 0,
+   "to": 6.1,
+   "l1": "NO ONE",
+   "l2": "IS COMING TO HELP."
+  }
+ ],
+ "beats": [
+  {
+   "d": 1.5,
+   "scene": "orbit",
+   "cap": "400 KM ABOVE {g:EARTH.}",
+   "cam": {
+    "z": [
+     1.0,
+     1.12
+    ],
+    "y": [
+     0,
+     -20
+    ]
+   },
+   "chip": {
+    "type": "real",
+    "text": "ISS: 400 KM UP \u00b7 28,000 KM/H"
+   }
+  },
+  {
+   "d": 1.4,
+   "scene": "orbit",
+   "cap": "{g:6} PEOPLE.",
+   "cam": {
+    "z": [
+     1.15,
+     1.5
+    ],
+    "y": [
+     -20,
+     20
+    ]
+   }
+  },
+  {
+   "d": 1.6,
+   "scene": "schematic",
+   "step": 0,
+   "cap": "{g:2} ESCAPE CAPSULES.",
+   "cam": {
+    "z": [
+     1.0,
+     1.08
+    ]
+   }
+  },
+  {
+   "d": 1.6,
+   "scene": "alarm",
+   "cap": "ONE SMOKE {r:ALARM.}",
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ],
+    "shake": 2
+   }
+  },
+  {
+   "d": 1.8,
+   "scene": "faces",
+   "expr": "worry",
+   "expr2": "shock",
+   "cap": "ORBIT EMERGENCY.",
+   "partPop": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.06
+    ]
+   }
+  },
+  {
+   "d": 2.2,
+   "scene": "faces",
+   "expr": "determined",
+   "expr2": "worry",
+   "cap": "MEET {g:AVA.} SHE'S IN COMMAND.",
+   "chip": {
+    "type": "tag",
+    "name": "AVA \u00b7 41",
+    "sub": "MISSION COMMANDER"
+   },
+   "cam": {
+    "z": [
+     1.0,
+     1.12
+    ],
+    "x": [
+     -54.0,
+     -42.0
+    ],
+    "y": [
+     0,
+     -10
+    ]
+   }
+  },
+  {
+   "d": 2.0,
+   "scene": "faces",
+   "expr": "worry",
+   "expr2": "neutral",
+   "cap": "AND {g:TEO.} THE ENGINEER.",
+   "chip": {
+    "type": "tag",
+    "name": "TEO \u00b7 29",
+    "sub": "FLIGHT ENGINEER"
+   },
+   "cam": {
+    "z": [
+     1.0,
+     1.12
+    ],
+    "x": [
+     54.0,
+     42.0
+    ],
+    "y": [
+     0,
+     -10
+    ]
+   }
+  },
+  {
+   "d": 1.6,
+   "scene": "biscuit",
+   "cap": "AND {g:BISCUIT.}",
+   "chip": {
+    "type": "real",
+    "text": "PLUSH TOYS SHOW WHEN CREWS HIT ZERO-G"
+   },
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   }
+  },
+  {
+   "d": 2.0,
+   "scene": "alarm",
+   "cap": "THEN THE ALARM {r:SCREAMS.}",
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.12
+    ],
+    "shake": 3
+   }
+  },
+  {
+   "d": 2.0,
+   "scene": "corridor",
+   "biscuit": true,
+   "people": [
+    {
+     "x": 290,
+     "y": 640,
+     "s": 0.85,
+     "o": {
+      "expr": "worry",
+      "skin": "#d7a477",
+      "hair": "#2a2118",
+      "cap": true,
+      "suit": "#dfe6ee",
+      "seed": 4,
+      "patch": "TEO"
+     }
+    }
+   ],
+   "cap": "TEO FLOATS TO THE SOURCE.",
+   "cam": {
+    "z": [
+     1.0,
+     1.25
+    ],
+    "y": [
+     0,
+     -30
+    ]
+   }
+  },
+  {
+   "d": 1.8,
+   "scene": "hatch",
+   "glow": 0.15,
+   "cap": "A SEALED {g:HATCH.}",
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   }
+  },
+  {
+   "d": 2.2,
+   "scene": "hatch",
+   "glow": 1,
+   "cap": "AN {r:ORANGE GLOW} BEHIND IT.",
+   "cam": {
+    "z": [
+     1.05,
+     1.3
+    ],
+    "y": [
+     0,
+     -120
+    ],
+    "shake": 2
+   }
+  },
+  {
+   "d": 2.2,
+   "scene": "hatch",
+   "glow": 1,
+   "wheel": true,
+   "cap": "{r:NEVER} OPEN IT.",
+   "chip": {
+    "type": "rule",
+    "no": "RULE #1",
+    "l1": "NEVER OPEN A",
+    "l2": "BURNING HATCH."
+   },
+   "cam": {
+    "z": [
+     1.0,
+     1.08
+    ]
+   }
+  },
+  {
+   "d": 2.0,
+   "scene": "fire",
+   "cap": "WHY? FIRE NEEDS {b:AIR.}",
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   }
+  },
+  {
+   "d": 1.4,
+   "scene": "fire",
+   "sphere": 0.5,
+   "cap": "IN ZERO GRAVITY,",
+   "cam": {
+    "z": [
+     1.1,
+     1.2
+    ]
+   }
+  },
+  {
+   "d": 2.2,
+   "scene": "fire",
+   "sphere": 1,
+   "cap": "FLAMES BECOME {b:BLUE SPHERES.}",
+   "chip": {
+    "type": "real",
+    "text": "ZERO-G FLAMES BURN AS BLUE SPHERES"
+   },
+   "cam": {
+    "z": [
+     1.0,
+     1.25
+    ],
+    "shake": 1
+   }
+  },
+  {
+   "d": 1.8,
+   "scene": "fire",
+   "smokeN": 18,
+   "cap": "SMOKE DOESN'T {g:RISE.}",
+   "chip": {
+    "type": "real",
+    "text": "NO CONVECTION IN MICROGRAVITY"
+   },
+   "cam": {
+    "z": [
+     1.1,
+     1.0
+    ]
+   }
+  },
+  {
+   "d": 1.8,
+   "scene": "fire",
+   "smokeN": 28,
+   "cap": "IT {r:SPREADS} EVERYWHERE.",
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.15
+    ]
+   }
+  },
+  {
+   "d": 2.0,
+   "scene": "schematic",
+   "step": 1,
+   "cap": "THE FIRE: {r:SERVICE MODULE.}",
+   "cam": {
+    "z": [
+     1.0,
+     1.18
+    ],
+    "x": [
+     0,
+     50
+    ]
+   }
+  },
+  {
+   "d": 1.6,
+   "scene": "schematic",
+   "step": 2,
+   "cap": "BETWEEN THE CREW...",
+   "cam": {
+    "z": [
+     1.1,
+     1.0
+    ]
+   }
+  },
+  {
+   "d": 1.6,
+   "scene": "schematic",
+   "step": 3,
+   "cap": "AND {g:CAPSULE B.}",
+   "cam": {
+    "z": [
+     1.0,
+     1.18
+    ],
+    "x": [
+     0,
+     80
+    ]
+   }
+  },
+  {
+   "d": 1.8,
+   "scene": "schematic",
+   "step": 4,
+   "cap": "CAPSULE A SEATS {g:3.}",
+   "chip": {
+    "type": "real",
+    "text": "ESCAPE CAPSULES SEAT ONLY 3-4 PEOPLE"
+   },
+   "cam": {
+    "z": [
+     1.0,
+     1.18
+    ],
+    "x": [
+     0,
+     -80
+    ]
+   }
+  },
+  {
+   "d": 1.8,
+   "scene": "faces",
+   "expr": "worry",
+   "expr2": "worry",
+   "cap": "THERE ARE {r:6} PEOPLE.",
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   }
+  },
+  {
+   "d": 2.0,
+   "scene": "hatch",
+   "glow": 1,
+   "wheel": true,
+   "person": "determined",
+   "cap": "TEO REACHES FOR THE WHEEL.",
+   "cam": {
+    "z": [
+     1.0,
+     1.15
+    ],
+    "shake": 2
+   }
+  },
+  {
+   "d": 1.4,
+   "scene": "faces",
+   "expr": "determined",
+   "expr2": "shock",
+   "cap": "AVA: {r:\"NO.\"}",
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.12
+    ],
+    "x": [
+     -54.0,
+     -54.0
+    ]
+   }
+  },
+  {
+   "d": 2.0,
+   "scene": "corridor",
+   "cap": "NEW ORDER: {g:KILL THE FANS.}",
+   "chip": {
+    "type": "rule",
+    "no": "RULE #2",
+    "l1": "POWER DOWN THE",
+    "l2": "VENTILATION."
+   },
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   }
+  },
+  {
+   "d": 2.0,
+   "scene": "fans",
+   "smoke": true,
+   "stopAt": 0.9,
+   "cap": "THE FANS SPIN {g:DOWN.}",
+   "chip": {
+    "type": "real",
+    "text": "CREWS SHUT OFF FANS TO SLOW A FIRE"
+   },
+   "cam": {
+    "z": [
+     1.0,
+     1.12
+    ]
+   }
+  },
+  {
+   "d": 1.6,
+   "scene": "fans",
+   "spin": 0,
+   "stopAt": 0.01,
+   "still": true,
+   "biscuit": true,
+   "cap": "SILENCE.",
+   "cam": {
+    "z": [
+     1.05,
+     1.0
+    ]
+   }
+  },
+  {
+   "d": 1.8,
+   "scene": "alarm",
+   "cap": "THEN THEY HEAR IT.",
+   "cam": {
+    "z": [
+     1.0,
+     1.2
+    ]
+   }
+  },
+  {
+   "d": 1.8,
+   "scene": "black",
+   "cap": "A {r:HISS.}",
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.25
+    ],
+    "shake": 3
+   }
+  },
+  {
+   "d": 3.0,
+   "scene": "card",
+   "series": "ORBIT EMERGENCY",
+   "next": 2,
+   "title": "THE HISS",
+   "q1": "WOULD YOU OPEN",
+   "q2": "THE HATCH?",
+   "follow": "FOLLOW FOR PART 2"
+  }
+ ]
+}
