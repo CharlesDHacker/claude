@@ -35,8 +35,33 @@ fanclip = os.path.join(sfx_dir, "fan.mp3")
 hisses = [A.norm(load(os.path.join(sfx_dir, f))) for f in ("hiss1.mp3", "hiss2.mp3") if os.path.exists(os.path.join(sfx_dir, f))]
 by = lambda scene: [s for s in shots if s["scene"] == scene]
 ct = lambda s, k: s["chunks"][min(k, len(s["chunks"]) - 1)]["t0"]
+def knock():
+    t = A.tt(0.4); return A.norm(np.sin(TAU * 150 * t) * np.exp(-t * 24) + .5 * np.sin(TAU * 410 * t) * np.exp(-t * 40) + .25 * np.sin(TAU * 980 * t) * np.exp(-t * 70) + A.norm(A.bp(A.noise(len(t)), 300, 2500)) * np.exp(-t * 90) * .5)
+def tape():
+    t = A.tt(0.5); return A.norm(A.norm(A.bp(A.noise(len(t)), 1200, 6000)) * np.minimum(t / .02, 1) * np.exp(-t * 6) * (1 + .5 * np.sin(TAU * 45 * t)))
+def leak(d):
+    x = loop(np.concatenate(hisses), d, .12) if hisses else A.hiss(d); tt_ = np.arange(len(x)) / SR
+    return x * (.8 + .2 * np.sin(TAU * .37 * tt_))
+def snd(tok, s):
+    name, _, k = tok.partition("@"); at = ct(s, int(k)) if k else s["t0"]; d = max(s["t1"] - at, .3)
+    if name == "impact": ev("impact", at, A.impact(), .55)
+    elif name == "stamp": ev("stamp", at + .05, A.thud(), .4)
+    elif name == "rumble": ev("fire rumble", at, env(A.rumble(d), .15, .4), .28); ev("fire crackle", at, env(A.crackle(d), .15, .4), .09, -.2)
+    elif name == "hiss": ev("hiss", at, env(leak(d + .3), .01, .3), .42)
+    elif name == "leak": ev("leak", at, env(leak(d), .1, .2), .16)
+    elif name == "tape": ev("tape", at, tape(), .5)
+    elif name == "knocks":
+        ch = s["chunks"][int(k or 0)]; base = ch.get("te", ch["t0"] + .6)
+        for off in (.12, .46, .8): ev("knock", base + off, knock(), .85)
+for b in ep.get("beds", []):
+    a = next(x for x in shots if x.get("id") == b["from"]); z = next(x for x in shots if x.get("id") == b["to"])
+    t0b, t1b = a["t0"], ct(z, b.get("toChunk", 0)) + .25
+    ev("leak bed", t0b, env(leak(t1b - t0b), .4, .25), b.get("gain", .06))
 for i, s in enumerate(shots):
     sc, t0, t1 = s["scene"], s["t0"], s["t1"]; d = t1 - t0
+    if "snd" in s:
+        for tok in s["snd"]: snd(tok, s)
+        continue
     if sc == "alarmUnit": ev("alarm", t0 + .25, env(loop(alarm, d - .25), .02, .25), .2)
     elif sc == "title": ev("impact", t0, A.impact(), .6)
     elif sc == "alarmGo": ev("impact", t0, A.impact(), .6); ev("alarm", t0 + .1, env(loop(alarm, d + .7), .02, .8), .24)
@@ -72,7 +97,7 @@ for j, (f, a) in enumerate([(36.71, .5), (73.42, .6), (110.0, .35), (146.83, .3)
 ten = (t / total) ** 2 * 0.3 * (0.75 + 0.25 * np.sin(TAU * 5 * t))
 for f in (155.56, 311.13): mus[:, 0] += ten * np.sin(TAU * f * t); mus[:, 1] += ten * np.sin(TAU * f * 1.002 * t)
 p0 = by("alarmGo")[0]["t0"] if by("alarmGo") else total / 4; tp = A.tt(0.16); pulse = np.sin(TAU * 55 * tp) * np.exp(-tp * 22)
-quiet = [(s["t0"], s["t1"]) for s in shots if s["scene"] == "silence"]
+quiet = [(s["t0"], s["t1"]) for s in shots if s["scene"] == "silence" or s.get("quiet")]
 for at in np.arange(p0, total - 3, 60 / 84):
     if not any(a <= at < b for a, b in quiet): A.place(mus, at, pulse, 0.5 + 0.5 * (at - p0) / max(total - p0, 1))
 e = np.minimum(t / 0.3, 1.0)

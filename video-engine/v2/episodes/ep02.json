@@ -1,0 +1,608 @@
+{
+ "series": "ORBIT EMERGENCY",
+ "part": 2,
+ "tail": 1.4,
+ "checklist": [
+  "FIRE ON BOARD",
+  "6 CREW",
+  "3 SEATS",
+  "1 HISS"
+ ],
+ "timer": {
+  "from": "math",
+  "fromChunk": 1,
+  "stop": "tape",
+  "stopChunk": 1,
+  "start": 660,
+  "rate": 5
+ },
+ "beds": [
+  {
+   "from": "p1",
+   "to": "tape",
+   "toChunk": 1,
+   "gain": 0.06
+  }
+ ],
+ "shots": [
+  {
+   "scene": "rule1",
+   "check": 1,
+   "flash": true,
+   "cam": {
+    "z": [
+     1.15,
+     1.28
+    ],
+    "y": [
+     -50,
+     -70
+    ],
+    "hit": 6
+   },
+   "snd": [
+    "impact",
+    "rumble"
+   ],
+   "chunks": [
+    {
+     "cap": "A {r:FIRE}"
+    },
+    {
+     "cap": "ON A SPACE STATION."
+    }
+   ]
+  },
+  {
+   "scene": "crew6",
+   "check": 2,
+   "cam": {
+    "z": [
+     1.0,
+     1.05
+    ]
+   },
+   "snd": [],
+   "chunks": [
+    {
+     "cap": "{g:6} ASTRONAUTS.",
+     "say": "Six astronauts."
+    }
+   ]
+  },
+  {
+   "scene": "seats",
+   "instant": 1,
+   "check": 3,
+   "cam": {
+    "z": [
+     1.0,
+     1.05
+    ]
+   },
+   "snd": [],
+   "chunks": [
+    {
+     "cap": "{g:3} SEATS.",
+     "say": "Three seats."
+    }
+   ]
+  },
+  {
+   "scene": "hiss",
+   "noGauge": 1,
+   "check": 4,
+   "cam": {
+    "z": [
+     1.0,
+     1.12
+    ],
+    "shake": 1.2
+   },
+   "snd": [
+    "hiss@1"
+   ],
+   "chunks": [
+    {
+     "cap": "AND NOW...",
+     "say": "And now…"
+    },
+    {
+     "cap": "A {r:HISS.}"
+    }
+   ]
+  },
+  {
+   "scene": "title",
+   "noCap": true,
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.05
+    ],
+    "hit": 6
+   },
+   "snd": [
+    "impact"
+   ],
+   "chunks": [
+    {
+     "cap": "ORBIT EMERGENCY.",
+     "say": "Orbit Emergency."
+    },
+    {
+     "cap": "PART TWO."
+    }
+   ]
+  },
+  {
+   "scene": "pressure",
+   "id": "p1",
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   },
+   "snd": [],
+   "chips": [
+    {
+     "type": "real",
+     "text": "ISS CABIN PRESSURE: 101 kPa, LIKE SEA LEVEL",
+     "at": 1
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "THAT HISS"
+    },
+    {
+     "cap": "IS {b:AIR.}"
+    },
+    {
+     "cap": "{r:LEAVING.}"
+    }
+   ]
+  },
+  {
+   "scene": "math",
+   "id": "math",
+   "cam": {
+    "z": [
+     1.0,
+     1.08
+    ],
+    "hit": 7
+   },
+   "hitAt": 1,
+   "snd": [
+    "stamp@1"
+   ],
+   "chunks": [
+    {
+     "cap": "TEO DOES THE MATH."
+    },
+    {
+     "cap": "{r:11 MINUTES} OF AIR.",
+     "say": "Eleven minutes of air."
+    }
+   ]
+  },
+  {
+   "scene": "crew2",
+   "scan": 1,
+   "cam": {
+    "z": [
+     1.0,
+     1.06
+    ],
+    "hit": 6
+   },
+   "snd": [
+    "stamp"
+   ],
+   "chips": [
+    {
+     "type": "rule",
+     "no": "RULE #3",
+     "l1": "FIND",
+     "l2": "THE LEAK.",
+     "at": 0,
+     "bodyAt": 1
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "RULE {g:THREE.}"
+    },
+    {
+     "cap": "FIND THE {r:LEAK.}"
+    }
+   ]
+  },
+  {
+   "scene": "invisible",
+   "cam": {
+    "z": [
+     1.0,
+     1.08
+    ]
+   },
+   "snd": [],
+   "chunks": [
+    {
+     "cap": "BUT YOU CAN'T"
+    },
+    {
+     "cap": "SEE {b:AIR.}"
+    }
+   ]
+  },
+  {
+   "scene": "tea",
+   "stage": 1,
+   "cam": {
+    "z": [
+     1.0,
+     1.06
+    ]
+   },
+   "snd": [],
+   "chips": [
+    {
+     "type": "real",
+     "text": "2020: ISS CREW TRACKED A LEAK WITH TEA LEAVES",
+     "at": 3
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "IN {g:2020,}",
+     "say": "In 2020,"
+    },
+    {
+     "cap": "A REAL CREW"
+    },
+    {
+     "cap": "FOUND A LEAK"
+    },
+    {
+     "cap": "WITH {g:TEA LEAVES.}"
+    }
+   ]
+  },
+  {
+   "scene": "tea",
+   "stage": 2,
+   "cam": {
+    "z": [
+     1.0,
+     1.14
+    ],
+    "x": [
+     0,
+     60
+    ],
+    "y": [
+     0,
+     -40
+    ]
+   },
+   "snd": [],
+   "chunks": [
+    {
+     "cap": "THEY LET THEM FLOAT...",
+     "say": "They let them float…"
+    },
+    {
+     "cap": "AND WATCHED"
+    },
+    {
+     "cap": "WHERE THEY WENT."
+    }
+   ]
+  },
+  {
+   "scene": "avaBiscuit",
+   "cam": {
+    "z": [
+     1.0,
+     1.07
+    ]
+   },
+   "snd": [],
+   "chunks": [
+    {
+     "cap": "AVA HAS NO TEA."
+    },
+    {
+     "cap": "SHE HAS {g:BISCUIT.}"
+    }
+   ]
+  },
+  {
+   "scene": "drift",
+   "cam": {
+    "z": [
+     1.0,
+     1.06
+    ]
+   },
+   "snd": [],
+   "chunks": [
+    {
+     "cap": "BISCUIT DRIFTS."
+    },
+    {
+     "cap": "SLOWLY...",
+     "say": "Slowly…"
+    },
+    {
+     "cap": "THEN {r:FASTER.}"
+    }
+   ]
+  },
+  {
+   "scene": "corridorBiscuit",
+   "cam": {
+    "z": [
+     1.0,
+     1.2
+    ],
+    "y": [
+     0,
+     -20
+    ]
+   },
+   "snd": [
+    "rumble"
+   ],
+   "chunks": [
+    {
+     "cap": "STRAIGHT TO"
+    },
+    {
+     "cap": "THE {r:BURNING HATCH.}"
+    }
+   ]
+  },
+  {
+   "scene": "seal",
+   "stage": 1,
+   "cam": {
+    "z": [
+     1.35,
+     1.6
+    ],
+    "x": [
+     -120,
+     -140
+    ],
+    "y": [
+     -130,
+     -150
+    ],
+    "hit": 6
+   },
+   "hitAt": 2,
+   "snd": [
+    "rumble",
+    "leak",
+    "impact@2"
+   ],
+   "chunks": [
+    {
+     "cap": "THE SEAL IS {r:WARPED.}"
+    },
+    {
+     "cap": "AIR IS RUSHING IN...",
+     "say": "Air is rushing in…"
+    },
+    {
+     "cap": "AND {r:FEEDING}"
+    },
+    {
+     "cap": "THE FIRE."
+    }
+   ]
+  },
+  {
+   "scene": "finger",
+   "flash": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   },
+   "snd": [],
+   "chips": [
+    {
+     "type": "real",
+     "text": "2018: SOYUZ LEAK FIRST PLUGGED WITH A FINGER",
+     "at": 3
+    }
+   ],
+   "chunks": [
+    {
+     "cap": "IN {g:2018,}",
+     "say": "In 2018,"
+    },
+    {
+     "cap": "AN ASTRONAUT"
+    },
+    {
+     "cap": "PLUGGED A LEAK"
+    },
+    {
+     "cap": "WITH HIS {g:FINGER.}"
+    }
+   ]
+  },
+  {
+   "scene": "seal",
+   "stage": 2,
+   "id": "tape",
+   "cam": {
+    "z": [
+     1.5,
+     1.6
+    ],
+    "x": [
+     -130,
+     -140
+    ],
+    "y": [
+     -140,
+     -150
+    ],
+    "hit": 5
+   },
+   "hitAt": 1,
+   "snd": [
+    "rumble",
+    "tape@1"
+   ],
+   "chunks": [
+    {
+     "cap": "TEO USES"
+    },
+    {
+     "cap": "{g:TAPE.}"
+    }
+   ]
+  },
+  {
+   "scene": "pressure",
+   "stable": 1,
+   "quiet": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.06
+    ]
+   },
+   "snd": [],
+   "chunks": [
+    {
+     "cap": "THE HISS"
+    },
+    {
+     "cap": "{g:STOPS.}"
+    }
+   ]
+  },
+  {
+   "scene": "count",
+   "stage": 1,
+   "cam": {
+    "z": [
+     1.0,
+     1.05
+    ]
+   },
+   "snd": [],
+   "chunks": [
+    {
+     "cap": "AVA COUNTS HEADS."
+    },
+    {
+     "cap": "{g:1.}",
+     "say": "One."
+    },
+    {
+     "cap": "{g:2.}",
+     "say": "Two."
+    },
+    {
+     "cap": "{g:3.}",
+     "say": "Three."
+    },
+    {
+     "cap": "{g:4.}",
+     "say": "Four."
+    },
+    {
+     "cap": "{g:5.}",
+     "say": "Five."
+    }
+   ]
+  },
+  {
+   "scene": "count",
+   "stage": 2,
+   "cont": true,
+   "cam": {
+    "z": [
+     1.05,
+     1.12
+    ],
+    "hit": 7
+   },
+   "hitAt": 1,
+   "snd": [
+    "impact@1"
+   ],
+   "chunks": [
+    {
+     "cap": "THERE ARE"
+    },
+    {
+     "cap": "{r:6 ASTRONAUTS.}",
+     "say": "six astronauts."
+    }
+   ]
+  },
+  {
+   "scene": "knocks",
+   "quiet": true,
+   "cam": {
+    "z": [
+     1.0,
+     1.14
+    ]
+   },
+   "snd": [
+    "knocks@1"
+   ],
+   "chunks": [
+    {
+     "cap": "THEN...",
+     "say": "Then…"
+    },
+    {
+     "cap": "{r:3 KNOCKS.}",
+     "say": "three knocks."
+    },
+    {
+     "cap": "FROM INSIDE"
+    },
+    {
+     "cap": "THE HATCH."
+    }
+   ]
+  },
+  {
+   "scene": "card",
+   "card": {
+    "series": "ORBIT EMERGENCY",
+    "next": 3,
+    "title": "THE SIXTH",
+    "q1": "WOULD YOU OPEN",
+    "q2": "IT NOW?",
+    "follow": "FOLLOW FOR PART 3"
+   },
+   "chunks": [
+    {
+     "cap": "",
+     "say": "Would you open it now?"
+    },
+    {
+     "cap": "",
+     "say": "Follow for part three."
+    }
+   ]
+  }
+ ]
+}

@@ -42,7 +42,7 @@ SC.title = c => {
   o += G(288, 392, .5 + .5 * a, `<text text-anchor="middle" class="an" font-size="164" fill="#fff" letter-spacing="4">ORBIT</text>`);
   o += G(288, 500, .5 + .5 * a, `<text text-anchor="middle" class="an" font-size="96" fill="${RED}" letter-spacing="3">EMERGENCY</text>`);
   o += `<rect x="${f(288 - 190 * eo(c.lt / .5))}" y="524" width="${f(380 * eo(c.lt / .5))}" height="6" fill="#fff"/>`;
-  if (b > 0) o += G(288, 620, b, `<rect x="-110" y="-44" width="220" height="80" rx="12" fill="${GOLD}"/><text y="18" text-anchor="middle" class="an" font-size="62" fill="${INK}" letter-spacing="3">PART 1</text>`, -3);
+  if (b > 0) o += G(288, 620, b, `<rect x="-110" y="-44" width="220" height="80" rx="12" fill="${GOLD}"/><text y="18" text-anchor="middle" class="an" font-size="62" fill="${INK}" letter-spacing="3">PART ${EP.part}</text>`, -3);
   return o;
 };
 SC.ava = c => interior(c.t, { win: 1, seed: 4 }) + person('ava', 268, 500, 2.05, c.t, { expr: c.ch(1) > 0 ? 'determined' : 'neutral', seed: 1, look: [.3, -.2] });
@@ -138,7 +138,7 @@ SC.mapRoute = c => blueprint(c.t) + G(28.8, 44, .9, plan(c, 2));
 SC.seats = c => {
   const st = c.o.stage || 1, S = '#7fb2ff'; let o = G(0, -50, 1, blueprint(c.t));
   o += `<path d="M168 420 L168 300 Q176 150 288 132 Q400 150 408 300 L408 420Z" fill="#0d2150" stroke="${GOLD}" stroke-width="5"/><text x="288" y="118" text-anchor="middle" font-size="24" fill="${GOLD}" letter-spacing="2">CAPSULE A</text>`;
-  const seatT = st == 1 ? c.ch(1) : 1;
+  const seatT = c.o.instant ? c.lt - .1 : st == 1 ? c.ch(1) : 1;
   [[232, 330], [288, 280], [344, 330]].forEach(([x, y], i) => { const k = pop(seatT, i * .12, .32); if (k > 0) o += G(x, y, k, `<rect x="-22" y="-34" width="44" height="60" rx="12" fill="${st == 2 ? '#14532d' : '#12306e'}" stroke="${st == 2 ? GREEN : S}" stroke-width="4"/><rect x="-26" y="20" width="52" height="16" rx="8" fill="${st == 2 ? GREEN : S}"/>`); });
   if (st == 2) ['ava', 'teo', 'c3', 'c4', 'c5', 'c6'].forEach((id, i) => {
     const x = 68 + i * 88, k = pop(c.lt, i * .07, .3), bad = i >= 3 && c.ch(1) > 0, sh = bad ? Math.sin(c.ch(1) * 40) * 5 * Math.max(0, 1 - c.ch(1) / .4) : 0;
@@ -194,7 +194,7 @@ SC.hiss = c => {
   let o = G(v, 0, 1, interior(c.t, { seed: 17, dark: .5 }));
   o += `<path d="M300 380 L322 430 L304 470 L330 520 L312 580" fill="none" stroke="#05070c" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M300 380 L322 430 L304 470 L330 520 L312 580" fill="none" stroke="#fff" stroke-width="2.5" opacity=".7"/>`;
   for (let i = 0; i < 26; i++) { const a = ((c.t * (2.5 + r() * 2) + r()) % 1), y0 = 390 + r() * 180, ang = (r() - .5) * .9, len = 60 + r() * 110, d0 = a * 330 * k; o += `<line x1="${f(318 - Math.cos(ang) * d0)}" y1="${f(y0 + Math.sin(ang) * d0)}" x2="${f(318 - Math.cos(ang) * (d0 + len))}" y2="${f(y0 + Math.sin(ang) * (d0 + len))}" stroke="#fff" stroke-width="${f(2 + r() * 4)}" stroke-linecap="round" opacity="${((1 - a) * .85).toFixed(2)}"/>`; }
-  o += `<rect x="136" y="156" width="304" height="150" rx="16" fill="#0b1020" stroke="${RED}" stroke-width="4" opacity="${k}"/><text x="288" y="194" text-anchor="middle" font-size="22" fill="#9aa5b8" letter-spacing="2" opacity="${k}">CABIN PRESSURE</text><text x="288" y="272" text-anchor="middle" class="an" font-size="72" fill="${Math.sin(c.t * 12) > 0 ? RED : '#fff'}" opacity="${k}">${drop.toFixed(1)} kPa</text>`;
+  if (!c.o.noGauge) o += `<rect x="136" y="156" width="304" height="150" rx="16" fill="#0b1020" stroke="${RED}" stroke-width="4" opacity="${k}"/><text x="288" y="194" text-anchor="middle" font-size="22" fill="#9aa5b8" letter-spacing="2" opacity="${k}">CABIN PRESSURE</text><text x="288" y="272" text-anchor="middle" class="an" font-size="72" fill="${Math.sin(c.t * 12) > 0 ? RED : '#fff'}" opacity="${k}">${drop.toFixed(1)} kPa</text>`;
   return o;
 };
 SC.card = c => {
