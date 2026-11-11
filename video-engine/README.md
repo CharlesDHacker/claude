@@ -16,3 +16,10 @@ Top-level `pins` keep a headline on screen across beats.
 ## Workflow
 1. Write the script and beats (Claude). 2. Render. 3. Record or generate narration from `*.narration.txt`, then re-time `d` values to the audio using `*.timing.json`. 4. Re-render with `--audio`.
 Fact-check every "real" chip before publishing.
+
+## Audio
+    python3 audio.py episodes/ep01.json out      # out.music.wav, out.sfx.wav, out.mix.wav (needs numpy)
+    ffmpeg -i out.mp4 -i out.mix.wav -c:v copy -c:a aac -b:a 192k -shortest out-with-audio.mp4
+
+Sound effects are chosen per beat from the scene and flags (whoosh on cuts, impact on `flash`, alarm, fire rumble, fan spin-down, hiss).
+Override with `"sfx": ["hiss_rise"]` on a beat, and duck the music with `"quiet": true`. Narration is not generated: mix a voice track over `out.mix.wav`, with the music about 18 dB under the voice.
