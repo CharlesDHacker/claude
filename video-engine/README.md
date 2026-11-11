@@ -39,3 +39,9 @@ Beat options: `say`, `pad` (silence after the line), `lead` (silence before it),
     node v2/render.js out.timed.json out.mp4 --audio mix.wav
 
 Narration and word timings come from ElevenLabs (speech, then transcription). Replace IPA spellings and drop `[pause]` tokens in words.json before timing.
+
+### Word timings without ElevenLabs transcription
+`v2/align.py voice16k.wav script.txt words.json` force-aligns a known script to the narration offline with PocketSphinx
+(`pip install pocketsphinx`; audio must be 16 kHz mono WAV, script lowercase words with numbers spelled out).
+Checked against pause positions in the audio it was within about 65 ms. Every video is delivered with audio; if a pause is too short
+for a sound cue (for example the three knocks in part 2), insert silence into the voice track and shift the later word times.
