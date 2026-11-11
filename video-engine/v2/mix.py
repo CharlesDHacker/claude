@@ -42,8 +42,37 @@ def tape():
 def leak(d):
     x = loop(np.concatenate(hisses), d, .12) if hisses else A.hiss(d); tt_ = np.arange(len(x)) / SR
     return x * (.8 + .2 * np.sin(TAU * .37 * tt_))
+def blast():
+    t = A.tt(3.2); n = len(t); body = A.norm(A.bp(A.noise(n), 50, 2600)) * np.minimum(t / .03, 1) * np.exp(-t * 1.5)
+    low = np.sin(TAU * np.cumsum(70 * np.exp(-t * .9) + 24) / SR) * np.exp(-t * 1.2); air = A.norm(A.bp(A.noise(n), 2500, 9000)) * np.exp(-t * 3) * .5
+    return A.norm(body + .8 * low + air)
+def clunk():
+    t = A.tt(0.35); return A.norm(np.sin(TAU * np.cumsum(60 + 80 * np.exp(-t * 40)) / SR) * np.exp(-t * 16) + .6 * np.sin(TAU * 1250 * t) * np.exp(-t * 60) + A.norm(A.bp(A.noise(len(t)), 800, 5000)) * np.exp(-t * 70) * .6)
+def creak():
+    t = A.tt(1.3); f = 160 + 90 * np.sin(TAU * 1.4 * t) + 60 * t; s1 = np.sin(TAU * np.cumsum(f) / SR) * (.6 + .4 * np.sin(TAU * 23 * t))
+    return A.norm((s1 + .5 * A.norm(A.bp(A.noise(len(t)), 300, 1800))) * np.minimum(t / .08, 1) * np.exp(-t * 1.6) + A.norm(A.bp(A.noise(len(t)), 3000, 9000)) * np.exp(-t * 2.5) * .5)
+def beep(f=880):
+    t = A.tt(0.14); return A.fade(np.sin(TAU * f * t) + .3 * np.sin(TAU * f * 2 * t), .004, .03)
+def spark():
+    t = A.tt(0.45); return A.norm(A.norm(A.crackle(.45)) * np.exp(-t * 4) + A.norm(A.bp(A.noise(len(t)), 4000, 12000)) * np.exp(-t * 30) * .7)
 def snd(tok, s):
-    name, _, k = tok.partition("@"); at = ct(s, int(k)) if k else s["t0"]; d = max(s["t1"] - at, .3)
+    name, _, k = tok.partition("@"); use_end = k.endswith("e"); k = k.rstrip("e")
+    at = (s["chunks"][int(k)].get("te", ct(s, int(k)) + .4) if use_end else ct(s, int(k))) if k else s["t0"]; d = max(s["t1"] - at, .3)
+    if name == "knock3":
+        for off in (.15, .5, .85): ev("knock", at + off, knock(), .85)
+        return
+    if name == "knock2":
+        for off in (.05, .33): ev("knock", at + off, knock(), .8)
+        return
+    if name == "blast": ev("vent blast", at, blast(), .95); return
+    if name == "clunk": ev("valve clunk", at, clunk(), .7); return
+    if name == "creak": ev("hatch opening", at, creak(), .5); return
+    if name == "beep": ev("countdown beep", at, beep(1320 if k == "3" else 880), .22); return
+    if name == "spark": ev("sparks", at, spark(), .4); return
+    if name == "cough":
+        p = os.path.join(sfx_dir, "cough.mp3")
+        if os.path.exists(p): ev("cough", at, A.norm(load(p)), .6)
+        return
     if name == "impact": ev("impact", at, A.impact(), .55)
     elif name == "stamp": ev("stamp", at + .05, A.thud(), .4)
     elif name == "rumble": ev("fire rumble", at, env(A.rumble(d), .15, .4), .28); ev("fire crackle", at, env(A.crackle(d), .15, .4), .09, -.2)

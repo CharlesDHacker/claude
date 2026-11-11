@@ -1,0 +1,357 @@
+{
+ "series": "ORBIT EMERGENCY",
+ "part": 3,
+ "tail": 1.4,
+ "shots": [
+  {
+   "scene": "knocks3",
+   "snd": [
+    "knock3",
+    "rumble"
+   ],
+   "chunks": [
+    {
+     "say": "Three knocks."
+    },
+    {
+     "say": "From inside"
+    },
+    {
+     "say": "a burning module."
+    }
+   ]
+  },
+  {
+   "scene": "title",
+   "snd": [
+    "impact"
+   ],
+   "chunks": [
+    {
+     "say": "Orbit Emergency."
+    },
+    {
+     "say": "Part three."
+    }
+   ]
+  },
+  {
+   "scene": "sixth",
+   "snd": [
+    "rumble"
+   ],
+   "chunks": [
+    {
+     "say": "The sixth astronaut"
+    },
+    {
+     "say": "is still in there."
+    }
+   ]
+  },
+  {
+   "scene": "mei",
+   "snd": [
+    "rumble",
+    "impact"
+   ],
+   "chunks": [
+    {
+     "say": "Her name is Mei."
+    }
+   ]
+  },
+  {
+   "scene": "rule1",
+   "snd": [
+    "stamp",
+    "rumble"
+   ],
+   "chunks": [
+    {
+     "say": "Rule one."
+    },
+    {
+     "say": "Never open"
+    },
+    {
+     "say": "a burning hatch."
+    }
+   ]
+  },
+  {
+   "scene": "openIt",
+   "snd": [
+    "impact@1"
+   ],
+   "chunks": [
+    {
+     "say": "Open it,"
+    },
+    {
+     "say": "and fire takes the station."
+    }
+   ]
+  },
+  {
+   "scene": "leaveIt",
+   "snd": [
+    "rumble"
+   ],
+   "chunks": [
+    {
+     "say": "Leave it shut…"
+    },
+    {
+     "say": "and Mei burns."
+    }
+   ]
+  },
+  {
+   "scene": "knockBack",
+   "snd": [
+    "knock2@0e",
+    "rumble"
+   ],
+   "chunks": [
+    {
+     "say": "Ava knocks back."
+    },
+    {
+     "say": "Twice."
+    },
+    {
+     "say": "Hold on."
+    }
+   ]
+  },
+  {
+   "scene": "rule4",
+   "snd": [
+    "stamp@1"
+   ],
+   "chunks": [
+    {
+     "say": "Then she remembers"
+    },
+    {
+     "say": "rule four."
+    },
+    {
+     "say": "Fire can't burn"
+    },
+    {
+     "say": "in a vacuum."
+    }
+   ]
+  },
+  {
+   "scene": "plan",
+   "snd": [
+    "impact@4"
+   ],
+   "chunks": [
+    {
+     "say": "The plan."
+    },
+    {
+     "say": "Vent the module"
+    },
+    {
+     "say": "into space."
+    },
+    {
+     "say": "The fire dies."
+    },
+    {
+     "say": "But so does her air."
+    }
+   ]
+  },
+  {
+   "scene": "vacuum15",
+   "quiet": true,
+   "snd": [],
+   "chunks": [
+    {
+     "say": "In a vacuum,"
+    },
+    {
+     "say": "you stay awake"
+    },
+    {
+     "say": "for about fifteen seconds."
+    }
+   ]
+  },
+  {
+   "scene": "steps",
+   "snd": [
+    "stamp@1",
+    "stamp@2",
+    "stamp@3",
+    "rumble"
+   ],
+   "chunks": [
+    {
+     "say": "Fifteen seconds."
+    },
+    {
+     "say": "Vent."
+    },
+    {
+     "say": "Open."
+    },
+    {
+     "say": "Pull her out."
+    }
+   ]
+  },
+  {
+   "scene": "valve",
+   "snd": [
+    "beep@1",
+    "beep@2",
+    "beep@3",
+    "clunk@3e",
+    "blast@3e",
+    "rumble"
+   ],
+   "chunks": [
+    {
+     "say": "Teo grabs the valve."
+    },
+    {
+     "say": "Three."
+    },
+    {
+     "say": "Two."
+    },
+    {
+     "say": "One."
+    }
+   ]
+  },
+  {
+   "scene": "blast",
+   "snd": [],
+   "chunks": [
+    {
+     "say": "The fire rips out"
+    },
+    {
+     "say": "into space…"
+    },
+    {
+     "say": "and it's gone."
+    }
+   ]
+  },
+  {
+   "scene": "wheel",
+   "snd": [
+    "creak@1"
+   ],
+   "chunks": [
+    {
+     "say": "Ava spins the wheel."
+    },
+    {
+     "say": "The hatch opens."
+    }
+   ]
+  },
+  {
+   "scene": "meiOut",
+   "quiet": true,
+   "snd": [],
+   "chunks": [
+    {
+     "say": "Mei floats out."
+    },
+    {
+     "say": "She isn't moving."
+    }
+   ]
+  },
+  {
+   "scene": "cough",
+   "quiet": true,
+   "snd": [
+    "cough@1"
+   ],
+   "chunks": [
+    {
+     "say": "Then…"
+    },
+    {
+     "say": "she coughs."
+    }
+   ]
+  },
+  {
+   "scene": "six",
+   "snd": [
+    "impact"
+   ],
+   "chunks": [
+    {
+     "say": "Six astronauts."
+    }
+   ]
+  },
+  {
+   "scene": "stuck",
+   "snd": [
+    "spark",
+    "spark@1",
+    "stamp@1"
+   ],
+   "chunks": [
+    {
+     "say": "But the valve"
+    },
+    {
+     "say": "is stuck open."
+    }
+   ]
+  },
+  {
+   "scene": "leaking",
+   "snd": [
+    "leak",
+    "impact"
+   ],
+   "chunks": [
+    {
+     "say": "And now,"
+    },
+    {
+     "say": "the whole station"
+    },
+    {
+     "say": "is leaking."
+    }
+   ]
+  },
+  {
+   "scene": "card",
+   "card": {
+    "series": "ORBIT EMERGENCY",
+    "next": 4,
+    "title": "THE VALVE",
+    "q1": "WOULD YOU GO",
+    "q2": "OUTSIDE?",
+    "follow": "FOLLOW FOR PART 4"
+   },
+   "chunks": [
+    {
+     "say": "Would you go outside to close it?"
+    },
+    {
+     "say": "Follow for part four."
+    }
+   ]
+  }
+ ]
+}
