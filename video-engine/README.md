@@ -30,3 +30,12 @@ Override with `"sfx": ["hiss_rise"]` on a beat, and duck the music with `"quiet"
 Uses Kokoro (`pip install kokoro-onnx soundfile`; model files `kokoro-v1.0.onnx` and `voices-v1.0.bin` from the kokoro-onnx GitHub releases).
 Each beat's `say` text is spoken, the beat length is fitted to the speech, the video is rendered to those timings, and the voice is mixed over ducked music and effects at about -16 LUFS.
 Beat options: `say`, `pad` (silence after the line), `lead` (silence before it), `sfxDelay`. Pins can use `toBeat`.
+
+## v2 engine (current)
+`v2/` is the rebuilt engine: word-timed caption chunks, redrawn scenes, 1080x1920 output, parallel rendering.
+
+    python3 v2/timing.py v2/episodes/ep01.json out.timed.json [words.json]   # words.json = per-word timings of the narration
+    python3 v2/mix.py out.timed.json voice.mp3 SFX_DIR mix.wav               # voice + story sound effects + music bed
+    node v2/render.js out.timed.json out.mp4 --audio mix.wav
+
+Narration and word timings come from ElevenLabs (speech, then transcription). Replace IPA spellings and drop `[pause]` tokens in words.json before timing.
