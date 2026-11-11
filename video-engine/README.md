@@ -23,3 +23,10 @@ Fact-check every "real" chip before publishing.
 
 Sound effects are chosen per beat from the scene and flags (whoosh on cuts, impact on `flash`, alarm, fire rumble, fan spin-down, hiss).
 Override with `"sfx": ["hiss_rise"]` on a beat, and duck the music with `"quiet": true`. Narration is not generated: mix a voice track over `out.mix.wav`, with the music about 18 dB under the voice.
+
+## Narrated build (one command)
+    ./build.sh episodes/ep01.json OUTDIR NAME /path/to/venv/bin/python /path/to/kokoro-model [voice] [speed]
+
+Uses Kokoro (`pip install kokoro-onnx soundfile`; model files `kokoro-v1.0.onnx` and `voices-v1.0.bin` from the kokoro-onnx GitHub releases).
+Each beat's `say` text is spoken, the beat length is fitted to the speech, the video is rendered to those timings, and the voice is mixed over ducked music and effects at about -16 LUFS.
+Beat options: `say`, `pad` (silence after the line), `lead` (silence before it), `sfxDelay`. Pins can use `toBeat`.
