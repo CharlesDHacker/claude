@@ -100,7 +100,7 @@ box(1.9, .5, 1.1, '#f4f1ea', 0, .75, 0, crib); for (let i = 0; i < 9; i++) cyl(.
 const mobile = new THREE.Group(); mobile.position.set(0, 2.6, 0); crib.add(mobile); cyl(.02, .02, .6, '#555', 0, .3, 0, mobile, 4, false); ['#ffc83d', '#62d5ff', '#e5484d'].forEach((c, i) => { const s = new THREE.Mesh(new THREE.SphereGeometry(.14, 12, 10), toon(c)); s.position.set(Math.cos(i * TAU / 3) * .45, -.15, Math.sin(i * TAU / 3) * .45); mobile.add(s); ink(s, .015); });
 const table = new THREE.Group(); table.position.set(0, 0, -1); HOME.add(table);
 cyl(1.1, 1.1, .12, '#8a5a3c', 0, 1.0, 0, table, 32); cyl(.12, .2, 1.0, '#6b4430', 0, .5, 0, table, 12);
-const cake = cyl(.45, .45, .4, '#f7a8c4', 0, 1.26, 0, table, 28); cyl(.47, .47, .08, '#ffffff', 0, .18, 0, cake, 28, false);
+const cake = cyl(.45, .45, .4, '#ee8fb4', 0, 1.26, 0, table, 28); cyl(.47, .47, .08, '#ffd1e3', 0, .18, 0, cake, 28, false);
 cyl(.035, .035, .3, '#62d5ff', 0, .35, 0, cake, 8, false); const candleF = new THREE.Mesh(new THREE.ConeGeometry(.05, .16, 10), new THREE.MeshBasicMaterial({ color: '#ffd24a' })); candleF.position.y = .58; cake.add(candleF); const candleG = sprite(TEX.glowY, .7, true, .9); candleG.position.y = .58; cake.add(candleG);
 const bed = new THREE.Group(); bed.position.set(3.2, 0, -2.6); bed.rotation.y = -.5; HOME.add(bed);
 box(2.4, .5, 1.3, '#8a5a3c', 0, .35, 0, bed); box(2.3, .25, 1.25, '#f4f1ea', 0, .72, 0, bed); box(1.5, .14, 1.28, '#2f6fed', .4, .9, 0, bed); box(.5, .18, .9, '#ffffff', -.85, .92, 0, bed);

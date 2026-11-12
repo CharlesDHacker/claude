@@ -42,6 +42,8 @@ def tape():
 def leak(d):
     x = loop(np.concatenate(hisses), d, .12) if hisses else A.hiss(d); tt_ = np.arange(len(x)) / SR
     return x * (.8 + .2 * np.sin(TAU * .37 * tt_))
+def ding_hi():
+    t = A.tt(.6); return A.norm((np.sin(TAU * 1760 * t) + .5 * np.sin(TAU * 2637 * t)) * np.exp(-t * 7))
 def blast():
     t = A.tt(3.2); n = len(t); body = A.norm(A.bp(A.noise(n), 50, 2600)) * np.minimum(t / .03, 1) * np.exp(-t * 1.5)
     low = np.sin(TAU * np.cumsum(70 * np.exp(-t * .9) + 24) / SR) * np.exp(-t * 1.2); air = A.norm(A.bp(A.noise(n), 2500, 9000)) * np.exp(-t * 3) * .5
@@ -56,6 +58,11 @@ def beep(f=880):
 def spark():
     t = A.tt(0.45); return A.norm(A.norm(A.crackle(.45)) * np.exp(-t * 4) + A.norm(A.bp(A.noise(len(t)), 4000, 12000)) * np.exp(-t * 30) * .7)
 def snd(tok, s):
+    if tok.startswith("hitword@"):
+        key = tok.split("@", 1)[1].lower(); w = next((x for x in ep.get("words", []) if x["text"].lower().startswith(key) and s["t0"] - .05 <= x["start"] < s["t1"]), None)
+        if w:
+            ev("slam riser", w["start"] - .45, env(A.hiss_rise(.45), .01, .02), .12); ev("slam hit", w["start"], A.impact(), .55); ev("slam ring", w["start"], ding_hi(), .12)
+        return
     name, _, k = tok.partition("@"); use_end = k.endswith("e"); k = k.rstrip("e")
     at = (s["chunks"][int(k)].get("te", ct(s, int(k)) + .4) if use_end else ct(s, int(k))) if k else s["t0"]; d = max(s["t1"] - at, .3)
     if name == "launch":

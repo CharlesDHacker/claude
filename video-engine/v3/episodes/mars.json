@@ -25,7 +25,8 @@
     {
      "say": "Mars?!"
     }
-   ]
+   ],
+   "trans": "none"
   },
   {
    "scene": "sky",
@@ -47,7 +48,8 @@
    "scene": "bounce",
    "age": 1,
    "snd": [
-    "boings@1"
+    "boings@1",
+    "hitword@38%"
    ],
    "chunks": [
     {
@@ -64,7 +66,8 @@
   {
    "scene": "bday",
    "snd": [
-    "party@0"
+    "party@0",
+    "hitword@687"
    ],
    "chunks": [
     {
@@ -81,7 +84,9 @@
   {
    "scene": "sleep",
    "age": 4,
-   "snd": [],
+   "snd": [
+    "hitword@forty"
+   ],
    "chunks": [
     {
      "say": "Every day is about forty minutes longer."
@@ -95,7 +100,8 @@
    "scene": "outside",
    "age": 5,
    "snd": [
-    "airlock@0"
+    "airlock@0",
+    "hitword@hundred"
    ],
    "chunks": [
     {
@@ -132,7 +138,8 @@
    "scene": "call",
    "age": 9,
    "snd": [
-    "ui@0"
+    "ui@0",
+    "hitword@22"
    ],
    "chunks": [
     {
@@ -215,5 +222,7 @@
     }
    ]
   }
- ]
+ ],
+ "trans": "whip",
+ "grain": 0.06
 }

@@ -366,13 +366,17 @@ window.__render = async (t) => {
   // camera, with a short blend from the previous shot when both happen in the same place (continuous camera)
   let cm = sh.cam(c);
   const prev = EP.shots[i - 1];
-  if (prev && SHOTS[prev.scene].loc === sh.loc && !s.cut) { const pc = camAt(prev, s.t0 - 1e-3), k = eio(lt / .45); cm = { p: P(pc.p, cm.p, k), at: P(pc.at, cm.at, k), fov: lerp(pc.fov, cm.fov, k), roll: lerp(pc.roll || 0, cm.roll || 0, k) }; }
+  const nxS = EP.shots[i + 1], whipIn = (s.trans || EP.trans) === 'whip' && i > 0, whipOut = nxS && (nxS.trans || EP.trans) === 'whip';
+  if (prev && SHOTS[prev.scene].loc === sh.loc && !s.cut && !whipIn) { const pc = camAt(prev, s.t0 - 1e-3), k = eio(lt / .45); cm = { p: P(pc.p, cm.p, k), at: P(pc.at, cm.at, k), fov: lerp(pc.fov, cm.fov, k), roll: lerp(pc.roll || 0, cm.roll || 0, k) }; }
   const L = LOC[sh.loc].position;
   const hitT = sh.hitAt != null ? (sh.hitEnd ? che(sh.hitAt) : ch(sh.hitAt)) : lt;
   const amp = (sh.shake || 0) + (sh.kick ? sh.kick(c) : 0) + ((sh.hit ?? (s.scene === 'alarmGo' || s.scene === 'grab' || s.scene === 'hiss' ? .06 : 0)) * (hitT >= 0 ? Math.exp(-hitT * 6) : 0));
   const dr = sh.loc === 'EXT' ? .25 : .035;   // slow handheld drift so the camera is never perfectly still
   camera.position.set(L.x + cm.p[0] + Math.sin(t * 61) * amp + Math.sin(t * .7) * dr, cm.p[1] + Math.cos(t * 53) * amp + Math.cos(t * .53) * dr * .7, cm.p[2] + Math.sin(t * .41) * dr);
   camera.fov = cm.fov; camera.updateProjectionMatrix(); camera.lookAt(L.x + cm.at[0], cm.at[1], cm.at[2]); if (cm.roll) camera.rotateZ(cm.roll);
+  const wIn = whipIn ? 1 - eo(clamp(lt / .26)) : 0, wOut = whipOut ? eio(clamp((.2 - (s.t1 - t)) / .2)) : 0, wDir = (i % 2 ? 1 : -1);
+  if (wIn > 0 || wOut > 0) camera.rotateY(wDir * (wIn * .9 - wOut * .9));
+  const wBlur = Math.max(wIn, wOut); document.getElementById('gl').style.filter = `blur(${(wBlur * 9).toFixed(1)}px) saturate(1.14) contrast(1.07)`;
   // characters
   Object.values(BB).forEach(b => b.mesh.visible = false);
   const placed = sh.set ? sh.set(c) : [];
@@ -384,7 +388,7 @@ window.__render = async (t) => {
     b.mesh.position.set(L.x + q.p[0], q.p[1] + bob, q.p[2]);
     b.mesh.quaternion.copy(camera.quaternion);
     if (q.rot) b.mesh.rotateZ(q.rot * Math.PI / 180);
-    const sc = q.s ?? 1; b.mesh.scale.set(q.flip ? -sc : sc, sc, sc);
+    const sc = q.s ?? 1; b.mesh.scale.set((q.flip ? -sc : sc) * (q.sx ?? 1), sc * (q.sy ?? 1), sc);
     const tint = sh.tint ? 1 - sh.tint : 1, red = sh.loc === 'HAB' && HAB.userData.red.intensity > 0 ? .18 * Math.min(1, HAB.userData.red.intensity / 16) : 0;
     if (q.tint) b.mat.color.setRGB(q.tint[0], q.tint[1], q.tint[2]); else b.mat.color.setRGB(tint, tint * (1 - red), tint * (1 - red) * (sh.tint ? 1.15 : 1));
     b.mesh.visible = true;
@@ -404,8 +408,10 @@ window.__render = async (t) => {
   // iris transition into a new location, and out of it before the next one
   const nx = EP.shots[i + 1], newLoc = !prev || SHOTS[prev.scene].loc !== sh.loc, leaving = nx && SHOTS[nx.scene].loc !== sh.loc;
   let ir = 1; if (newLoc && i > 0) ir = Math.min(ir, eo(lt / .32)); if (leaving) ir = Math.min(ir, eo((s.t1 - t) / .2));
+  if (whipIn || whipOut) ir = 1;
+  if (Math.max(wIn, wOut) > .05) { const r9 = rng(Math.floor(t * 60)), k = Math.max(wIn, wOut); for (let j = 0; j < 26; j++) { const y = r9() * 1024, x = r9() * 576, L2 = 120 + r9() * 360; o += `<line x1="${(x - L2 / 2).toFixed(0)}" y1="${y.toFixed(0)}" x2="${(x + L2 / 2).toFixed(0)}" y2="${y.toFixed(0)}" stroke="#fff" stroke-width="${(1 + r9() * 3).toFixed(1)}" opacity="${(k * .45).toFixed(2)}"/>`; } }
   if (ir < 1) { const R = 30 + ir * 640; o += `<path d="M0 0 H576 V1024 H0 Z M288 ${512 - R} a${R} ${R} 0 1 0 0.01 0 Z" fill="#05070c" fill-rule="evenodd"/>`; }
-  OV.innerHTML = `<rect width="576" height="1024" fill="url(#vig)"/>` + o;
+  OV.innerHTML = `<rect width="576" height="1024" fill="url(#vig)"/>` + o + (EP.grain ? `<filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="1" seed="${Math.floor(t * 30) % 97}"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .9 0"/></filter><rect width="576" height="1024" filter="url(#gr)" opacity="${EP.grain}" style="mix-blend-mode:overlay"/>` : '');
   return i;
 };
 window.ENG = { billboard, rasterize, composer, bokeh, bloom, renderer, THREE, scene, camera, LOC, loc, SHOTS, RESETS, GLOBAL_OV, toon, glow, ink, M, box, cyl, canvasTex, TEX, sprite, radial, project, world, P, lerp, clamp, eio, eo, pop, spring, rng, v3, alarmFX, hatchGlow, smokeFX, HAB, EXT, HOLO, LAB, CAPS, IDS, BB, badge, RED, GOLD, GREEN, CYAN, ep: () => EP };
