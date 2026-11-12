@@ -1,0 +1,219 @@
+{
+ "series": "BORN ON MARS",
+ "part": 1,
+ "tail": 1.6,
+ "mood": "wonder",
+ "shots": [
+  {
+   "scene": "globe",
+   "noCap": false,
+   "snd": [
+    "launch@0e"
+   ],
+   "chunks": [
+    {
+     "say": "What if you were born on…"
+    }
+   ]
+  },
+  {
+   "scene": "mhook",
+   "snd": [
+    "impact@0"
+   ],
+   "chunks": [
+    {
+     "say": "Mars?!"
+    }
+   ]
+  },
+  {
+   "scene": "sky",
+   "age": 0,
+   "snd": [],
+   "chunks": [
+    {
+     "say": "The first sky you ever see"
+    },
+    {
+     "say": "isn't blue."
+    },
+    {
+     "say": "It's butterscotch."
+    }
+   ]
+  },
+  {
+   "scene": "bounce",
+   "age": 1,
+   "snd": [
+    "boings@1"
+   ],
+   "chunks": [
+    {
+     "say": "Gravity here is just 38% of Earth's."
+    },
+    {
+     "say": "So your first steps…"
+    },
+    {
+     "say": "are bounces."
+    }
+   ]
+  },
+  {
+   "scene": "bday",
+   "snd": [
+    "party@0"
+   ],
+   "chunks": [
+    {
+     "say": "Your first birthday takes 687 days."
+    },
+    {
+     "say": "On Earth,"
+    },
+    {
+     "say": "you'd already be almost two."
+    }
+   ]
+  },
+  {
+   "scene": "sleep",
+   "age": 4,
+   "snd": [],
+   "chunks": [
+    {
+     "say": "Every day is about forty minutes longer."
+    },
+    {
+     "say": "Extra sleep, forever."
+    }
+   ]
+  },
+  {
+   "scene": "outside",
+   "age": 5,
+   "snd": [
+    "airlock@0"
+   ],
+   "chunks": [
+    {
+     "say": "Outside, the air is over a hundred times thinner than Earth's,"
+    },
+    {
+     "say": "and the average temperature is −60."
+    },
+    {
+     "say": "So you never leave home without a suit."
+    }
+   ]
+  },
+  {
+   "scene": "night",
+   "age": 7,
+   "snd": [],
+   "chunks": [
+    {
+     "say": "Your night sky has two moons."
+    },
+    {
+     "say": "Phobos and Deimos."
+    },
+    {
+     "say": "And one tiny blue star."
+    },
+    {
+     "say": "That's Earth."
+    }
+   ]
+  },
+  {
+   "scene": "call",
+   "age": 9,
+   "snd": [
+    "ui@0"
+   ],
+   "chunks": [
+    {
+     "say": "When you call your grandma there,"
+    },
+    {
+     "say": "your voice takes up to 22 minutes to reach her."
+    }
+   ]
+  },
+  {
+   "scene": "storm",
+   "age": 12,
+   "snd": [
+    "wind@0"
+   ],
+   "chunks": [
+    {
+     "say": "At twelve,"
+    },
+    {
+     "say": "a dust storm swallows the whole planet."
+    },
+    {
+     "say": "For weeks,"
+    },
+    {
+     "say": "the sun is just a dim glow."
+    }
+   ]
+  },
+  {
+   "scene": "leave",
+   "age": 18,
+   "snd": [
+    "rocket@0",
+    "stamp@2"
+   ],
+   "chunks": [
+    {
+     "say": "At eighteen,"
+    },
+    {
+     "say": "you could finally visit Earth."
+    },
+    {
+     "say": "But there,"
+    },
+    {
+     "say": "you'd feel more than twice as heavy as you ever have."
+    }
+   ]
+  },
+  {
+   "scene": "sunset",
+   "age": 18,
+   "quiet": true,
+   "snd": [],
+   "chunks": [
+    {
+     "say": "So maybe you stay."
+    },
+    {
+     "say": "Because here,"
+    },
+    {
+     "say": "the only blue sky…"
+    },
+    {
+     "say": "is the sunset."
+    }
+   ]
+  },
+  {
+   "scene": "mcard",
+   "snd": [],
+   "chunks": [
+    {
+     "say": "Would you trade it for Earth?"
+    }
+   ]
+  }
+ ]
+}

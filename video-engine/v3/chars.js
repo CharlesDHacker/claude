@@ -8,7 +8,12 @@ const CREW = {
   c4: { skin: '#7a4f35', hair: '#15131a', suit: '#f3f4f7', accent: '#f59e0b', style: 'short', patch: 'KOJO' },
   c5: { skin: '#d9a37c', hair: '#8b8f98', suit: '#f3f4f7', accent: '#8b5cf6', style: 'bald', patch: 'IVAN' },
   c6: { skin: '#c58b63', hair: '#5a2d1a', suit: '#f3f4f7', accent: '#06b6d4', style: 'curly', patch: 'MEI' },
+  you: { skin: '#c99067', hair: '#2b1d14', suit: '#f08a3c', accent: '#2f6fed', style: 'short', patch: '' },
+  mom: { skin: '#e3a97f', hair: '#6b2f1a', suit: '#f3f4f7', accent: '#e5484d', style: 'bun', patch: '' },
+  dad: { skin: '#8a5a3c', hair: '#15131a', suit: '#f3f4f7', accent: '#14b8a6', style: 'short', patch: '' },
+  gma: { skin: '#e8b896', hair: '#c9ced6', suit: '#b48ad8', accent: '#f59e0b', style: 'bun', patch: '' },
 };
+const AGE = { baby: [.82, .5], kid: [.9, .72], teen: [.96, .9] };
 const n1 = v => (+v).toFixed(1);
 function charSVG(id, o = {}) {
   const c = CREW[id], t = o.t || 0, SW = (w = 7) => `stroke="${INKC}" stroke-width="${w}" stroke-linejoin="round"`, S = SW();
@@ -47,7 +52,11 @@ function charSVG(id, o = {}) {
   if (o.back) {
     svg = legs + arm(-1, A.l) + arm(1, A.r) + body.replace(/<rect x="12".*?<\/text><circle.*?\/>/, '') + `<circle r="78" fill="${c.hair}" ${S}/>` + (c.style === 'teo' ? `<path d="M-80 0 Q-82 -106 0 -106 Q82 -106 80 0" fill="none" stroke="${INKC}" stroke-width="10"/>` : '');
   } else {
-    svg = legs + arm(-1, A.l) + body + face + arm(1, A.r);
+    const patch = (o.patch ?? c.patch) ? body : body.replace(/<rect x="12".*?<\/text>/, '');
+    const ag = AGE[o.age], wrap = x => ag ? `<g transform="translate(0 80) scale(${ag[0]} ${ag[1]}) translate(0 -80)">${x}</g>` : x;
+    const onesie = o.age === 'baby' ? `<path d="M-60 250 Q-66 120 -30 84 L30 84 Q66 120 60 250 Z" fill="#ffd27a" ${SW(7)}/><circle cx="-18" cy="150" r="9" fill="#fff" ${SW(4)}/><circle cx="18" cy="150" r="9" fill="#fff" ${SW(4)}/>` : '';
+    const helmet = o.helmet ? `<circle r="112" fill="#cfefff" fill-opacity=".22" ${SW(7)}/><path d="M-72 -62 Q-40 -96 6 -100" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round" opacity=".8"/><rect x="-60" y="96" width="120" height="22" rx="8" fill="#9aa6b5" ${SW(5)}/>` : '';
+    svg = wrap(legs + arm(-1, A.l) + (onesie || patch)) + face + helmet + wrap(arm(1, A.r));
     if (hold) svg += `<g transform="translate(${n1(A.r[0])} ${n1(A.r[1])})">${hold}</g>`;
     if (o.sweat) svg += `<path d="M64 -50 Q76 -30 64 -20 Q52 -30 64 -50Z" fill="#8fd3ff" ${SW(4)} transform="translate(0 ${n1((t * 20) % 26)})"/>`;
   }

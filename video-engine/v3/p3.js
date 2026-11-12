@@ -156,4 +156,4 @@ GLOBAL_OV.push((t) => {
 // floating dust in the habitat, for depth
 const motes = []; { const r = rng(91); for (let i = 0; i < 60; i++) { const g = sprite(TEX.glowY, .05 + r() * .05, true, .5); g.userData = { x: (r() - .5) * 4.6, y: (r() - .5) * 4.2, z: -20 + r() * 16, ph: r() * 6, sp: .2 + r() * .4 }; HAB.add(g); motes.push(g); } }
 RESETS.push((c) => { motes.forEach(g => { const d = g.userData; g.position.set(d.x + Math.sin(c.t * d.sp + d.ph) * .3, d.y + Math.cos(c.t * d.sp * .8 + d.ph) * .25, d.z + Math.sin(c.t * d.sp * .5 + d.ph) * .4); }); });
-window.__ready = true;
+window.__p3 = true;

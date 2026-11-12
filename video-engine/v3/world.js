@@ -357,7 +357,7 @@ window.__render = async (t) => {
   let i = EP.shots.findIndex(s => t >= s.t0 && t < s.t1); if (i < 0) i = t < EP.shots[0].t0 ? 0 : EP.shots.length - 1;
   const s = EP.shots[i], sh = SHOTS[s.scene], lt = t - s.t0, d = s.t1 - s.t0, p = clamp(lt / d);
   const ch = k => k < s.chunks.length ? t - s.chunks[k].t0 : -1, che = k => k < s.chunks.length ? t - (s.chunks[k].te ?? s.chunks[k].t0) : -1, c = { t, lt, d, p, ch, che, o: s, i };
-  LOCS.forEach(g => g.visible = g.name === sh.loc);
+  Object.values(LOC).forEach(g => g.visible = g.name === sh.loc);
   // reset per-shot state
   habReset(0, sh.dim || 0); EXT.userData.hA.material.opacity = EXT.userData.hB.material.opacity = 0; EXT.userData.alert.material.opacity = 0;
   CAPS.userData.seats.forEach(x => x.scale.setScalar(1)); const hu = HOLO.userData; hu.st.visible = true; hu.crew.forEach(x => x.visible = true);
@@ -408,4 +408,4 @@ window.__render = async (t) => {
   OV.innerHTML = `<rect width="576" height="1024" fill="url(#vig)"/>` + o;
   return i;
 };
-window.ENG = { THREE, scene, camera, LOC, loc, SHOTS, RESETS, GLOBAL_OV, toon, glow, ink, M, box, cyl, canvasTex, TEX, sprite, radial, project, world, P, lerp, clamp, eio, eo, pop, spring, rng, v3, alarmFX, hatchGlow, smokeFX, HAB, EXT, HOLO, LAB, CAPS, IDS, BB, badge, RED, GOLD, GREEN, CYAN, ep: () => EP };
+window.ENG = { billboard, rasterize, composer, bokeh, bloom, renderer, THREE, scene, camera, LOC, loc, SHOTS, RESETS, GLOBAL_OV, toon, glow, ink, M, box, cyl, canvasTex, TEX, sprite, radial, project, world, P, lerp, clamp, eio, eo, pop, spring, rng, v3, alarmFX, hatchGlow, smokeFX, HAB, EXT, HOLO, LAB, CAPS, IDS, BB, badge, RED, GOLD, GREEN, CYAN, ep: () => EP };
