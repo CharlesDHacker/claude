@@ -1,0 +1,186 @@
+{
+ "series": "EVERY PLANET RANKED",
+ "part": 1,
+ "tail": 2.6,
+ "mood": "deep",
+ "trans": "soft",
+ "blend": 0.9,
+ "capStyle": "serif",
+ "grain": 0.05,
+ "sat": 1.06,
+ "con": 1.05,
+ "shots": [
+  {
+   "scene": "pintro",
+   "chunks": [
+    {
+     "say": "Every planet\u2026 ranked by how fast it would kill you."
+    }
+   ]
+  },
+  {
+   "scene": "pearth",
+   "chunks": [
+    {
+     "say": "Number eight. Earth."
+    },
+    {
+     "say": "You'd last about eighty years."
+    },
+    {
+     "say": "Not bad."
+    }
+   ]
+  },
+  {
+   "scene": "pmars",
+   "chunks": [
+    {
+     "say": "Number seven. Mars."
+    },
+    {
+     "say": "The air is so thin, the saliva on your tongue starts to boil."
+    },
+    {
+     "say": "You'd black out in fifteen seconds\u2026"
+    },
+    {
+     "say": "and be dead in about two minutes."
+    }
+   ],
+   "snd": [
+    "wind@0"
+   ]
+  },
+  {
+   "scene": "pmercury",
+   "chunks": [
+    {
+     "say": "Number six. Mercury."
+    },
+    {
+     "say": "No air at all."
+    },
+    {
+     "say": "Four hundred thirty degrees in the sun."
+    },
+    {
+     "say": "Minus one hundred eighty in the shade."
+    },
+    {
+     "say": "About ninety seconds."
+    }
+   ]
+  },
+  {
+   "scene": "puranus",
+   "chunks": [
+    {
+     "say": "Number five. Uranus."
+    },
+    {
+     "say": "There's no ground."
+    },
+    {
+     "say": "You'd fall into clouds at minus two hundred twenty-four degrees\u2026"
+    },
+    {
+     "say": "that smell like rotten eggs."
+    },
+    {
+     "say": "About a minute."
+    }
+   ],
+   "snd": [
+    "wind@0"
+   ]
+  },
+  {
+   "scene": "psaturn",
+   "chunks": [
+    {
+     "say": "Number four. Saturn."
+    },
+    {
+     "say": "Winds of eighteen hundred kilometers an hour."
+    },
+    {
+     "say": "You'd be torn apart in seconds."
+    }
+   ],
+   "snd": [
+    "wind@0"
+   ]
+  },
+  {
+   "scene": "pneptune",
+   "chunks": [
+    {
+     "say": "Number three. Neptune."
+    },
+    {
+     "say": "The fastest winds in the solar system."
+    },
+    {
+     "say": "Faster than the speed of sound."
+    }
+   ],
+   "snd": [
+    "wind@0",
+    "hitword@sound"
+   ]
+  },
+  {
+   "scene": "pjupiter",
+   "chunks": [
+    {
+     "say": "Number two. Jupiter."
+    },
+    {
+     "say": "Storms bigger than Earth."
+    },
+    {
+     "say": "Radiation strong enough to fry a spacecraft."
+    },
+    {
+     "say": "And the deeper you fall, the harder it crushes you."
+    }
+   ],
+   "snd": [
+    "rumble@0"
+   ]
+  },
+  {
+   "scene": "pvenus",
+   "chunks": [
+    {
+     "say": "But number one\u2026 is Venus."
+    },
+    {
+     "say": "Four hundred sixty-five degrees."
+    },
+    {
+     "say": "Ninety times Earth's pressure."
+    },
+    {
+     "say": "Clouds of sulfuric acid."
+    },
+    {
+     "say": "You'd be crushed and cooked\u2026 in less than a second."
+    }
+   ],
+   "snd": [
+    "rumble@0",
+    "blast@4e"
+   ]
+  },
+  {
+   "scene": "pend",
+   "chunks": [
+    {
+     "say": "So\u2026 which planet would you pick?"
+    }
+   ]
+  }
+ ]
+}

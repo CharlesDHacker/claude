@@ -24,5 +24,6 @@ html,body{margin:0;background:#000;overflow:hidden;width:720px;height:1280px}
 <script type="module" src="mars2.js"></script>
 <script type="module" src="uranus.js"></script>
 <script type="module" src="ocean.js"></script>
-<script type="module">while (!window.__uranus || !window.__ocean) await new Promise(r => setTimeout(r, 10)); window.__ready = true;</script>
+<script type="module" src="planets.js"></script>
+<script type="module">while (!window.__uranus || !window.__ocean || !window.__planets) await new Promise(r => setTimeout(r, 10)); window.__ready = true;</script>
 </body></html>

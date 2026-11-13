@@ -252,7 +252,7 @@ if card: a, b = (int(card[0]["t0"] * SR) if card[0]["scene"] == "card" else max(
 k = int(0.1 * SR); e = np.convolve(e, np.ones(k) / k, "same")
 mus = mus / np.abs(mus).max() * 0.34 * e[:, None]
 if ep.get("mood") == "deep":
-    under = [x for x in shots if x["scene"] not in ("ospace", "obeam", "oanswer", "oboil")]
+    under = [x for x in shots if x["scene"].startswith("o") and x["scene"] not in ("ospace", "obeam", "oanswer", "oboil")]
     for x in under:
         dd = x["t1"] - x["t0"]; n = int(dd * SR); tn = np.arange(n) / SR; amb = A.norm(A.bp(A.noise(n), 40, 260)) * (.8 + .2 * np.sin(TAU * .15 * tn))
         A.place(sfx, x["t0"], env(amb, .3, .3), .12, 0)
