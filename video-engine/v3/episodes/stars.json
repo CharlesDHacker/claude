@@ -1,0 +1,131 @@
+{
+ "series": "EVERY STAR RANKED",
+ "part": 1,
+ "tail": 2.6,
+ "mood": "tender",
+ "trans": "soft",
+ "blend": 1.1,
+ "capStyle": "serif",
+ "grain": 0.05,
+ "sat": 1.06,
+ "con": 1.05,
+ "shots": [
+  {
+   "scene": "sintro",
+   "chunks": [
+    {
+     "say": "Every star\u2026 ranked by size."
+    }
+   ]
+  },
+  {
+   "scene": "ssun",
+   "chunks": [
+    {
+     "say": "Let's start with ours. The Sun."
+    },
+    {
+     "say": "You could fit one point three million Earths inside it.",
+     "cap": "You could fit 1.3 million Earths inside it."
+    }
+   ]
+  },
+  {
+   "scene": "ssirius",
+   "chunks": [
+    {
+     "say": "Sirius. The brightest star in our night sky."
+    },
+    {
+     "say": "Almost twice as wide as the Sun."
+    }
+   ]
+  },
+  {
+   "scene": "spollux",
+   "chunks": [
+    {
+     "say": "Pollux. Nine times wider."
+    }
+   ]
+  },
+  {
+   "scene": "sarcturus",
+   "chunks": [
+    {
+     "say": "Arcturus. Twenty-five times."
+    },
+    {
+     "say": "Next to it, the Sun is a marble."
+    }
+   ]
+  },
+  {
+   "scene": "saldebaran",
+   "chunks": [
+    {
+     "say": "Aldebaran. Forty-four times."
+    }
+   ]
+  },
+  {
+   "scene": "srigel",
+   "chunks": [
+    {
+     "say": "Rigel. Seventy-nine times wider\u2026 and over a hundred thousand times brighter."
+    }
+   ]
+  },
+  {
+   "scene": "santares",
+   "chunks": [
+    {
+     "say": "Antares."
+    },
+    {
+     "say": "Put it where the Sun is\u2026 and it would swallow Mars."
+    }
+   ],
+   "snd": [
+    "hitword@mars"
+   ]
+  },
+  {
+   "scene": "sbetelgeuse",
+   "chunks": [
+    {
+     "say": "Betelgeuse. It could explode any time in the next hundred thousand years\u2026"
+    },
+    {
+     "say": "and we'd see it in broad daylight."
+    }
+   ]
+  },
+  {
+   "scene": "sst218",
+   "chunks": [
+    {
+     "say": "And the biggest star we know\u2026 Stephenson two eighteen.",
+     "cap": "And the biggest star we know\u2026 Stephenson 2-18."
+    },
+    {
+     "say": "If it sat in our solar system\u2026 it would reach past Saturn."
+    },
+    {
+     "say": "Light would take nine hours just to fly around it once."
+    }
+   ],
+   "snd": [
+    "impact@0e"
+   ]
+  },
+  {
+   "scene": "send",
+   "chunks": [
+    {
+     "say": "And the Sun? From here\u2026 you can't even see it."
+    }
+   ]
+  }
+ ]
+}

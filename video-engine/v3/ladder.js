@@ -19,7 +19,7 @@ const skyMat = new THREE.ShaderMaterial({ side: THREE.BackSide, depthWrite: fals
   fragmentShader: `uniform float h, time; uniform vec3 sunDir; varying vec3 vP;
     float hash(vec3 p){ p = fract(p * .3183099 + .1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
     float noise(vec3 x){ vec3 i = floor(x), f = fract(x); f = f*f*(3.-2.*f); return mix(mix(mix(hash(i), hash(i+vec3(1,0,0)), f.x), mix(hash(i+vec3(0,1,0)), hash(i+vec3(1,1,0)), f.x), f.y), mix(mix(hash(i+vec3(0,0,1)), hash(i+vec3(1,0,1)), f.x), mix(hash(i+vec3(0,1,1)), hash(i+vec3(1,1,1)), f.x), f.y), f.z); }
-    float fbm(vec3 p){ float v = 0., a = .5; for (int i = 0; i < 5; i++){ v += a * noise(p); p = p * 2.02 + 3.1; a *= .5; } return v; }
+    float fbm(vec3 p){ float v = 0., a = .5; for (int i = 0; i < 3; i++){ v += a * noise(p); p = p * 2.02 + 3.1; a *= .5; } return v; }
     void main(){
       const float R = 6371000.0; vec3 d = normalize(vP); vec3 c = vec3(0., R + h, 0.);
       float air = exp(-h / 8000.0), fade = pow(air, .35);
@@ -28,7 +28,7 @@ const skyMat = new THREE.ShaderMaterial({ side: THREE.BackSide, depthWrite: fals
       float b = dot(c, d), cc = dot(c, c) - R * R, disc = b * b - cc; vec3 col;
       if (disc > 0. && -b - sqrt(disc) > 0.) {
         float t = -b - sqrt(disc); vec3 n = normalize(c + d * t);
-        float land = fbm(n * 7.0 + 1.3), cl = fbm(n * 26.0 + vec3(time * .002, 0., 0.)), detail = fbm(n * 900.0);
+        float land = fbm(n * 7.0 + 1.3), cl = fbm(n * 26.0 + vec3(time * .002, 0., 0.)), detail = noise(n * 900.0);
         vec3 g = land > .53 ? mix(vec3(.25, .42, .2), vec3(.55, .48, .32), smoothstep(.55, .7, land)) : vec3(.06, .22, .45);
         g *= .85 + .3 * detail; g = mix(g, vec3(.95), smoothstep(.55, .72, cl) * .9);
         float lit = clamp(dot(n, normalize(sunDir)) * 1.2 + .25, .05, 1.); g *= lit;
