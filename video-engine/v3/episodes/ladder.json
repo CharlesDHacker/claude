@@ -1,0 +1,161 @@
+{
+ "series": "LADDER TO SPACE",
+ "part": 1,
+ "tail": 2.6,
+ "mood": "tender",
+ "trans": "soft",
+ "blend": 0.9,
+ "capStyle": "serif",
+ "grain": 0.05,
+ "sat": 1.06,
+ "con": 1.05,
+ "shots": [
+  {
+   "scene": "lintro",
+   "chunks": [
+    {
+     "say": "What if you built a ladder\u2026 all the way to space?"
+    }
+   ]
+  },
+  {
+   "scene": "lclimb",
+   "chunks": [
+    {
+     "say": "Let's say you climb eight hours a day."
+    }
+   ]
+  },
+  {
+   "scene": "lburj",
+   "chunks": [
+    {
+     "say": "Two hours in, you pass the tallest building on Earth."
+    }
+   ]
+  },
+  {
+   "scene": "leverest",
+   "chunks": [
+    {
+     "say": "Day three. Mount Everest."
+    },
+    {
+     "say": "Up here, there's only a third of the air."
+    },
+    {
+     "say": "Without an oxygen tank\u2026 you'd already be dying."
+    }
+   ],
+   "snd": [
+    "wind@0"
+   ]
+  },
+  {
+   "scene": "lplane",
+   "chunks": [
+    {
+     "say": "Same day, planes fly under your feet."
+    },
+    {
+     "say": "Minus fifty-six degrees."
+    }
+   ],
+   "snd": [
+    "rumble@0"
+   ]
+  },
+  {
+   "scene": "larmstrong",
+   "chunks": [
+    {
+     "say": "Day five. Nineteen kilometers."
+    },
+    {
+     "say": "Without a pressure suit, the water in your body would start to boil."
+    }
+   ],
+   "snd": [
+    "bubbles@1"
+   ]
+  },
+  {
+   "scene": "lfelix",
+   "chunks": [
+    {
+     "say": "Day ten. This is where Felix Baumgartner jumped from a balloon\u2026"
+    },
+    {
+     "say": "and broke the sound barrier on the way down."
+    }
+   ],
+   "snd": [
+    "impact@1"
+   ]
+  },
+  {
+   "scene": "lkarman",
+   "chunks": [
+    {
+     "say": "Day twenty-five. One hundred kilometers."
+    },
+    {
+     "say": "Officially\u2026 you're in space."
+    }
+   ],
+   "snd": [
+    "hitword@space"
+   ]
+  },
+  {
+   "scene": "lgravity",
+   "chunks": [
+    {
+     "say": "But here's the thing."
+    },
+    {
+     "say": "Gravity up here is almost as strong as on the ground."
+    },
+    {
+     "say": "Let go\u2026 and you fall all the way back down."
+    }
+   ]
+  },
+  {
+   "scene": "liss",
+   "chunks": [
+    {
+     "say": "Day one hundred. The Space Station screams past at twenty-eight thousand kilometers an hour."
+    },
+    {
+     "say": "That's the real trick to staying up here."
+    },
+    {
+     "say": "Not height\u2026 speed."
+    }
+   ],
+   "snd": [
+    "launch@0"
+   ]
+  },
+  {
+   "scene": "lmoon",
+   "chunks": [
+    {
+     "say": "And if you kept climbing to the Moon?"
+    },
+    {
+     "say": "Two hundred and sixty-three years."
+    }
+   ]
+  },
+  {
+   "scene": "lend",
+   "chunks": [
+    {
+     "say": "Your great-great-great-grandkids would get there\u2026 if they don't look down."
+    }
+   ]
+  }
+ ]
+}
