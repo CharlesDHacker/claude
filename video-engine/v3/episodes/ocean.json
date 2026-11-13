@@ -1,0 +1,218 @@
+{
+ "series": "FLASHLIGHT TO THE OCEAN FLOOR",
+ "part": 1,
+ "tail": 2.4,
+ "mood": "deep",
+ "trans": "soft",
+ "blend": 0.9,
+ "capStyle": "serif",
+ "grain": 0.05,
+ "sat": 1.06,
+ "con": 1.05,
+ "shots": [
+  {
+   "scene": "ospace",
+   "chunks": [
+    {
+     "say": "How bright would a flashlight need to be\u2026"
+    },
+    {
+     "say": "to see the bottom of the ocean\u2026"
+    },
+    {
+     "say": "from space?"
+    }
+   ]
+  },
+  {
+   "scene": "obeam",
+   "chunks": [
+    {
+     "say": "Let's point it straight down."
+    },
+    {
+     "say": "Into the deepest spot on Earth."
+    }
+   ],
+   "snd": [
+    "impact@0"
+   ]
+  },
+  {
+   "scene": "osun",
+   "chunks": [
+    {
+     "say": "Zero meters."
+    },
+    {
+     "say": "Most ocean life lives right here, in the sunlight."
+    }
+   ],
+   "snd": [
+    "splash@0"
+   ]
+  },
+  {
+   "scene": "otwi",
+   "chunks": [
+    {
+     "say": "Two hundred meters."
+    },
+    {
+     "say": "The twilight zone."
+    },
+    {
+     "say": "Your flashlight has already lost almost all of its light."
+    }
+   ]
+  },
+  {
+   "scene": "oscuba",
+   "chunks": [
+    {
+     "say": "Three hundred thirty-two meters."
+    },
+    {
+     "say": "The deepest any human has ever scuba dived."
+    }
+   ],
+   "snd": [
+    "bubbles@0"
+   ]
+  },
+  {
+   "scene": "omid",
+   "chunks": [
+    {
+     "say": "One thousand meters."
+    },
+    {
+     "say": "The midnight zone."
+    },
+    {
+     "say": "The only light down here\u2026 is made by animals."
+    }
+   ]
+  },
+  {
+   "scene": "owhale",
+   "chunks": [
+    {
+     "say": "Two thousand meters."
+    },
+    {
+     "say": "A sperm whale, hunting giant squid."
+    }
+   ],
+   "snd": [
+    "whale@1"
+   ]
+  },
+  {
+   "scene": "otitanic",
+   "chunks": [
+    {
+     "say": "Three thousand eight hundred meters."
+    },
+    {
+     "say": "The Titanic."
+    }
+   ],
+   "snd": [
+    "creak@1"
+   ]
+  },
+  {
+   "scene": "ovent",
+   "chunks": [
+    {
+     "say": "Down here, volcanic vents blast water at four hundred degrees Celsius."
+    },
+    {
+     "say": "Hot enough to melt lead."
+    },
+    {
+     "say": "It doesn't boil\u2026 because of the pressure."
+    }
+   ],
+   "snd": [
+    "rumble@0",
+    "hitword@four"
+   ]
+  },
+  {
+   "scene": "osnail",
+   "chunks": [
+    {
+     "say": "Eight thousand three hundred meters."
+    },
+    {
+     "say": "The deepest fish ever filmed."
+    },
+    {
+     "say": "A snailfish."
+    }
+   ]
+  },
+  {
+   "scene": "obottom",
+   "chunks": [
+    {
+     "say": "Ten thousand nine hundred thirty-five meters."
+    },
+    {
+     "say": "The bottom."
+    },
+    {
+     "say": "Mount Everest would fit down here\u2026 with two kilometers to spare."
+    }
+   ],
+   "snd": [
+    "impact@1"
+   ]
+  },
+  {
+   "scene": "oanswer",
+   "chunks": [
+    {
+     "say": "So\u2026 how bright does the flashlight need to be?"
+    },
+    {
+     "say": "A number with almost two hundred zeros."
+    },
+    {
+     "say": "Brighter than every star in the universe\u2026 combined."
+    }
+   ],
+   "snd": [
+    "hitword@number"
+   ]
+  },
+  {
+   "scene": "oboil",
+   "chunks": [
+    {
+     "say": "And the moment you switched it on\u2026"
+    },
+    {
+     "say": "you'd boil the entire ocean."
+    }
+   ],
+   "snd": [
+    "blast@0e",
+    "boil@1"
+   ]
+  },
+  {
+   "scene": "oend",
+   "chunks": [
+    {
+     "say": "So you would see the bottom."
+    },
+    {
+     "say": "Just\u2026 not the fish."
+    }
+   ]
+  }
+ ]
+}

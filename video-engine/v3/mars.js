@@ -215,5 +215,5 @@ GLOBAL_OV.push((t, c) => {
   const k = pop(c.lt, 0, .3), mars = age / 1.88;
   return `<g transform="translate(28 34) scale(${k.toFixed(3)})"><rect width="200" height="64" rx="12" fill="#0b1020" fill-opacity=".88" stroke="#ff7a3c" stroke-width="3"/><text x="16" y="27" font-family="BarlowC" font-weight="800" font-size="18" fill="#9aa5b8" letter-spacing="2">YOUR AGE</text><text x="184" y="30" text-anchor="end" font-family="Anton" font-size="28" fill="#fff">${age === 0 ? 'DAY 1' : age}</text><text x="16" y="52" font-family="BarlowC" font-weight="800" font-size="17" fill="#ff7a3c" letter-spacing="1">${age === 0 ? 'FIRST HUMAN BORN HERE' : mars.toFixed(1) + ' MARS YEARS'}</text></g>`;
 });
-E.GLOBE_PARTS = { marsBall, marsHalo, mTex, MARSP, pin };
+E.GLOBE_PARTS = { marsBall, marsHalo, mTex, MARSP, pin, earthG, atmo };
 window.__mars = true;

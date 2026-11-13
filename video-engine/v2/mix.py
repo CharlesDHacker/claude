@@ -96,6 +96,24 @@ def snd(tok, s):
         x = A.norm(x) * np.minimum(tt_ / (.8 if name == "crowd" else .15), 1)
         if name == "cheer": x *= np.exp(-tt_ * .5) * 1.4
         ev(name, at, env(x, .1, .8), .16 if name == "crowd" else .22); return
+    if name == "splash":
+        t = A.tt(1.6); x = A.norm(A.bp(A.noise(len(t)), 200, 5000)) * np.minimum(t / .01, 1) * np.exp(-t * 4) + .6 * A.norm(A.bp(A.noise(len(t)), 80, 600)) * np.exp(-t * 1.5)
+        ev("splash", at, A.norm(x), .5)
+        for j in range(10):
+            tb = A.tt(.12); f0 = 500 + 900 * np.random.default_rng(j).random(); ev("bubble", at + .4 + j * .09, np.sin(TAU * np.cumsum(f0 + 3000 * tb) / SR) * np.exp(-tb * 30), .06)
+        return
+    if name == "bubbles":
+        rr = np.random.default_rng(4); j = 0
+        while at + j * .23 < s["t1"] - .2:
+            tb = A.tt(.1); f0 = 400 + 700 * rr.random(); ev("bubble", at + j * .23 + rr.random() * .1, np.sin(TAU * np.cumsum(f0 + 2500 * tb) / SR) * np.exp(-tb * 35), .07); j += 1
+        return
+    if name == "whale":
+        rr = np.random.default_rng(9); t0_ = at; k2 = 0
+        while t0_ < s["t1"] - .2:
+            tb = A.tt(.03); ev("sperm whale click", t0_, A.norm(A.bp(A.noise(len(tb)), 800, 6000)) * np.exp(-tb * 200), .25); t0_ += .18 + .05 * rr.random(); k2 += 1
+        return
+    if name == "boil":
+        dd = max(s["t1"] - at, .5); ev("boil rumble", at, env(A.rumble(dd), .2, .8), .45); ev("boil crackle", at, env(A.crackle(dd), .3, .8), .2); ev("steam hiss", at + .3, env(A.hiss(dd - .3), .5, .8), .3); return
     if name == "rocket":
         ev("rocket idle", at, env(A.rumble(d), .6, .5), .25); return
     if name == "knock3":
@@ -177,7 +195,7 @@ if WONDER:
             mus[a0:a1, 0] += g_ * e_ * np.sin(TAU * f * .999 * tt_); mus[a0:a1, 1] += g_ * e_ * np.sin(TAU * f * 1.001 * tt_ + .7)
         for j, f in enumerate(CH[i0 % 4][2:]):   # soft bell arpeggio
             tb = A.tt(1.6); A.place(mus, i0 * seg + j * .5 + .25, np.sin(TAU * f * 2 * tb) * np.exp(-tb * 3) * .5, .5, (-.3, 0, .3)[j])
-TENDER = ep.get("mood") == "tender"
+TENDER = ep.get("mood") in ("tender", "deep")
 if TENDER:   # soft piano + pad, I-V-vi-IV in C, louder at the sunset and the sunrise, sparse in the long night
     def note(f, d=3.0, v=1.0):
         tn = A.tt(d); y = sum((.6 / h) * np.sin(TAU * f * h * tn) * np.exp(-tn * (1.6 + h * .9)) for h in (1, 2, 3, 4)); return y * np.minimum(tn / .006, 1) * v
@@ -189,9 +207,9 @@ if TENDER:   # soft piano + pad, I-V-vi-IV in C, louder at the sunset and the su
     beat = 60 / 72; t_ = .6; i0 = 0; rr = np.random.default_rng(3)
     while t_ < total - .5:
         sc_ = sect(t_); bar = int(t_ / (beat * 4)); ch = PROG[bar % 4]
-        loud = {"usunset": 1.25, "ugather": 1.1, "urise": 1.3, "ubday": 1.25, "uend": 1.0, "unight": .55, "udeep": .55}.get(sc_, .8)
+        loud = {"usunset": 1.25, "ugather": 1.1, "urise": 1.3, "ubday": 1.25, "uend": 1.0, "unight": .55, "udeep": .55, "omid": .5, "owhale": .5, "otitanic": .5, "ovent": .55, "osnail": .5, "obottom": .8, "oanswer": 1.2, "oboil": 1.3, "oend": 1.0}.get(sc_, .8)
         if i0 % 4 == 0: A.place(mus, t_, note(ch[0] / 2, 4.0, .9 * loud), .5, 0); A.place(mus, t_, note(ch[0] / 4, 4.0, .6 * loud), .5, 0)
-        if sc_ in ("unight", "udeep"):
+        if sc_ in ("unight", "udeep", "omid", "owhale", "otitanic", "ovent", "osnail"):
             if i0 % 2 == 0: A.place(mus, t_, note(ch[(i0 // 2) % 3] * 2, 3.0, .45), .5, (-.4, .4)[(i0 // 2) % 2])
         else:
             pat = [0, 1, 2, 1]; A.place(mus, t_, note(ch[pat[i0 % 4]] * (2 if i0 % 8 >= 4 else 1), 2.5, (.55 + .1 * rr.random()) * loud), .5, (-.25, 0, .25, 0)[i0 % 4])
@@ -219,6 +237,11 @@ card = by("card") or by("uend")
 if card: a, b = (int(card[0]["t0"] * SR) if card[0]["scene"] == "card" else max(N - int(2.2 * SR), 0)), N; e[a:b] *= np.linspace(1, 0, b - a) ** 1.2
 k = int(0.1 * SR); e = np.convolve(e, np.ones(k) / k, "same")
 mus = mus / np.abs(mus).max() * 0.34 * e[:, None]
+if ep.get("mood") == "deep":
+    under = [x for x in shots if x["scene"] not in ("ospace", "obeam", "oanswer", "oboil")]
+    for x in under:
+        dd = x["t1"] - x["t0"]; n = int(dd * SR); tn = np.arange(n) / SR; amb = A.norm(A.bp(A.noise(n), 40, 260)) * (.8 + .2 * np.sin(TAU * .15 * tn))
+        A.place(sfx, x["t0"], env(amb, .3, .3), .12, 0)
 # ---- voice + ducking ----
 v = np.zeros(N); x = load(voice_path); x = x / np.abs(x).max() * 0.9; v[:min(N, len(x))] = x[:N]
 k = int(0.12 * SR); lev = np.sqrt(np.convolve(v ** 2, np.ones(k) / k, "same"))

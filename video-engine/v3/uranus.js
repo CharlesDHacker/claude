@@ -398,4 +398,5 @@ function bdayCrowd(c) {
 }
 function confettiFX(c) { confetti.visible = true; const m = new THREE.Matrix4(), q = new THREE.Quaternion(), r = rng(3); for (let i = 0; i < 220; i++) { const x = (r() - .5) * 10, z = -9.5 + (r() - .5) * 8, sp = .6 + r() * .7, f = (c.lt * sp * .35 + r()) % 1; q.setFromEuler(new THREE.Euler(c.t * 3 + i, c.t * 2 + i * .5, 0)); m.compose(V(x + Math.sin(c.t + i) * .3, 6 - f * 6.5, z), q, V(1, 1, 1)); confetti.setMatrixAt(i, m); } confetti.instanceMatrix.needsUpdate = true; }
 
+E.VOX = { vox, pose, put, age, std, blk, faceTex, BOX, uRings };
 window.__uranus = true;
