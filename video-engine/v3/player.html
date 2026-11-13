@@ -5,6 +5,12 @@
 @font-face{font-family:'Anton';src:url('fonts/anton-latin-400-normal.woff2') format('woff2')}
 @font-face{font-family:'BarlowC';font-weight:800;src:url('fonts/barlow-condensed-latin-800-normal.woff2') format('woff2')}
 @font-face{font-family:'BarlowC';font-weight:700;src:url('fonts/barlow-condensed-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'EBG';font-weight:400;font-style:normal;src:url('fonts/eb-garamond-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'EBG';font-weight:400;font-style:italic;src:url('fonts/eb-garamond-latin-400-italic.woff2') format('woff2')}
+@font-face{font-family:'EBG';font-weight:500;font-style:normal;src:url('fonts/eb-garamond-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'EBG';font-weight:500;font-style:italic;src:url('fonts/eb-garamond-latin-500-italic.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:800;src:url('fonts/inter-latin-800-normal.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;src:url('fonts/inter-latin-600-normal.woff2') format('woff2')}
 html,body{margin:0;background:#000;overflow:hidden;width:720px;height:1280px}
 #gl,#ovs{position:absolute;left:0;top:0;width:720px;height:1280px}
 </style>
@@ -16,5 +22,6 @@ html,body{margin:0;background:#000;overflow:hidden;width:720px;height:1280px}
 <script type="module" src="p3.js"></script>
 <script type="module" src="mars.js"></script>
 <script type="module" src="mars2.js"></script>
-<script type="module">window.__ready = true;</script>
+<script type="module" src="uranus.js"></script>
+<script type="module">while (!window.__uranus) await new Promise(r => setTimeout(r, 10)); window.__ready = true;</script>
 </body></html>

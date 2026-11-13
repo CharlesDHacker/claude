@@ -331,11 +331,23 @@ function captionSVG(t) {
   return `<g transform="translate(288 700) scale(${s.toFixed(3)})"><text text-anchor="middle" font-family="Nunito" font-weight="900" font-size="44" fill="#fff" stroke="#15151c" stroke-width="9" stroke-linejoin="round" paint-order="stroke" style="paint-order:stroke">${txt}</text></g>`;
 }
 
+// sentence captions in a small italic serif (EP.capStyle === 'serif'): one line per spoken chunk
+const esc = x => x.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+function serifCap(t) {
+  const all = []; EP.shots.forEach(s => { if (!SHOTS[s.scene].noCap) s.chunks.forEach(k => all.push(k)); });
+  let k = null, nx = null; for (let i = 0; i < all.length; i++) if (t >= all[i].t0 - .05) { k = all[i]; nx = all[i + 1]; }
+  if (!k) return ''; const end = Math.min(nx ? nx.t0 - .05 : 1e9, (k.te ?? k.t1 ?? k.t0 + 2) + .9); if (t > end) return '';
+  const a = clamp((t - k.t0 + .05) / .22) * clamp((end - t) / .18), txt = esc(k.cap ?? k.say).replace(/\s*\/\s*/g, ' ');
+  const lines = []; let cur = ''; txt.split(' ').forEach(wd => { if ((cur + ' ' + wd).trim().length > 34) { lines.push(cur.trim()); cur = wd; } else cur += ' ' + wd; }); if (cur.trim()) lines.push(cur.trim());
+  const y0 = 690 - (lines.length - 1) * 15;
+  return `<g opacity="${a.toFixed(3)}" transform="translate(0 ${(6 * (1 - eo(clamp((t - k.t0) / .3)))).toFixed(1)})">` + lines.map((l, i) => `<text x="288" y="${y0 + i * 30}" text-anchor="middle" font-family="EBG" font-style="italic" font-weight="500" font-size="25" fill="#fff" style="filter:drop-shadow(0 0 2px rgba(0,0,0,.9)) drop-shadow(0 1px 6px rgba(0,0,0,.6))">${l}</text>`).join('') + '</g>';
+}
+
 // ---------- frame ----------
 let EP = null; const RESETS = [], GLOBAL_OV = [];
 window.__load = async (ep) => {
   EP = ep;
-  await Promise.all(['900 20px Nunito', '20px Anton', '800 20px BarlowC', '700 20px BarlowC'].map(f => document.fonts.load(f)));
+  await Promise.all(['900 20px Nunito', '20px Anton', '800 20px BarlowC', '700 20px BarlowC', 'italic 400 20px EBG', '400 20px EBG', 'italic 500 20px EBG', '500 20px EBG', '800 20px Inter', '600 20px Inter'].map(f => document.fonts.load(f)));
   // caption groups: one or two words at a time, function words glued to the next word
   const glue = new Set(['a', 'an', 'the', 'to', 'in', 'on', 'of', 'and', 'is', 'it', 'his', 'her', 'for', 'at', 'there', 'are', 'has', 'into', 'nobody', 'right', 'part', 'kill', 'rule', 'this', 'one', 'two', 'six', 'three', 'stop', 'follow', 'would', 'you']);
   const w = ep.words, G = [];
@@ -367,7 +379,8 @@ window.__render = async (t) => {
   let cm = sh.cam(c);
   const prev = EP.shots[i - 1];
   const nxS = EP.shots[i + 1], whipIn = (s.trans || EP.trans) === 'whip' && i > 0, whipOut = nxS && (nxS.trans || EP.trans) === 'whip';
-  if (prev && SHOTS[prev.scene].loc === sh.loc && !s.cut && !whipIn) { const pc = camAt(prev, s.t0 - 1e-3), k = eio(lt / .45); cm = { p: P(pc.p, cm.p, k), at: P(pc.at, cm.at, k), fov: lerp(pc.fov, cm.fov, k), roll: lerp(pc.roll || 0, cm.roll || 0, k) }; }
+  const softIn = (s.trans || EP.trans) === 'soft' && prev && SHOTS[prev.scene].loc !== sh.loc, softOut = nxS && (nxS.trans || EP.trans) === 'soft' && SHOTS[nxS.scene].loc !== sh.loc;
+  if (prev && SHOTS[prev.scene].loc === sh.loc && !s.cut && !whipIn) { const pc = camAt(prev, s.t0 - 1e-3), k = eio(lt / (EP.blend || .45)); cm = { p: P(pc.p, cm.p, k), at: P(pc.at, cm.at, k), fov: lerp(pc.fov, cm.fov, k), roll: lerp(pc.roll || 0, cm.roll || 0, k) }; }
   const L = LOC[sh.loc].position;
   const hitT = sh.hitAt != null ? (sh.hitEnd ? che(sh.hitAt) : ch(sh.hitAt)) : lt;
   const amp = (sh.shake || 0) + (sh.kick ? sh.kick(c) : 0) + ((sh.hit ?? (s.scene === 'alarmGo' || s.scene === 'grab' || s.scene === 'hiss' ? .06 : 0)) * (hitT >= 0 ? Math.exp(-hitT * 6) : 0));
@@ -376,7 +389,8 @@ window.__render = async (t) => {
   camera.fov = cm.fov; camera.updateProjectionMatrix(); camera.lookAt(L.x + cm.at[0], cm.at[1], cm.at[2]); if (cm.roll) camera.rotateZ(cm.roll);
   const wIn = whipIn ? 1 - eo(clamp(lt / .26)) : 0, wOut = whipOut ? eio(clamp((.2 - (s.t1 - t)) / .2)) : 0, wDir = (i % 2 ? 1 : -1);
   if (wIn > 0 || wOut > 0) camera.rotateY(wDir * (wIn * .9 - wOut * .9));
-  const wBlur = Math.max(wIn, wOut); document.getElementById('gl').style.filter = `blur(${(wBlur * 9).toFixed(1)}px) saturate(1.14) contrast(1.07)`;
+  const sIn = softIn ? 1 - eo(clamp(lt / .35)) : 0, sOut = softOut ? eio(clamp((.3 - (s.t1 - t)) / .3)) : 0, sB = Math.max(sIn, sOut);
+  const wBlur = Math.max(wIn, wOut, sB); document.getElementById('gl').style.filter = `blur(${(wBlur * 9).toFixed(1)}px) saturate(${EP.sat ?? 1.14}) contrast(${EP.con ?? 1.07}) brightness(${(1 + sB * .5).toFixed(3)})`;
   // characters
   Object.values(BB).forEach(b => b.mesh.visible = false);
   const placed = sh.set ? sh.set(c) : [];
@@ -402,16 +416,16 @@ window.__render = async (t) => {
   if (sh.ov) o += sh.ov(c);
   (sh.chips || []).forEach(x => o += chipSVG(x, c));
   GLOBAL_OV.forEach(f => o += f(t, c, sh));
-  if (!sh.noCap) o += captionSVG(t);
+  if (!sh.noCap && !s.noCap) o += EP.capStyle === 'serif' ? serifCap(t) : captionSVG(t);
   const fT = sh.flashAt != null ? (sh.flashEnd ? che(sh.flashAt) : ch(sh.flashAt)) : (sh.flash || ['alarmGo', 'title', 'mapFire', 'hiss'].includes(s.scene) ? lt : -1);
   if (fT >= 0 && fT < .12) o += `<rect width="576" height="1024" fill="#fff" opacity="${(.55 * (1 - fT / .12)).toFixed(2)}"/>`;
   // iris transition into a new location, and out of it before the next one
   const nx = EP.shots[i + 1], newLoc = !prev || SHOTS[prev.scene].loc !== sh.loc, leaving = nx && SHOTS[nx.scene].loc !== sh.loc;
   let ir = 1; if (newLoc && i > 0) ir = Math.min(ir, eo(lt / .32)); if (leaving) ir = Math.min(ir, eo((s.t1 - t) / .2));
-  if (whipIn || whipOut) ir = 1;
+  if (whipIn || whipOut || EP.trans === 'soft') ir = 1;
   if (Math.max(wIn, wOut) > .05) { const r9 = rng(Math.floor(t * 60)), k = Math.max(wIn, wOut); for (let j = 0; j < 26; j++) { const y = r9() * 1024, x = r9() * 576, L2 = 120 + r9() * 360; o += `<line x1="${(x - L2 / 2).toFixed(0)}" y1="${y.toFixed(0)}" x2="${(x + L2 / 2).toFixed(0)}" y2="${y.toFixed(0)}" stroke="#fff" stroke-width="${(1 + r9() * 3).toFixed(1)}" opacity="${(k * .45).toFixed(2)}"/>`; } }
   if (ir < 1) { const R = 30 + ir * 640; o += `<path d="M0 0 H576 V1024 H0 Z M288 ${512 - R} a${R} ${R} 0 1 0 0.01 0 Z" fill="#05070c" fill-rule="evenodd"/>`; }
-  OV.innerHTML = `<rect width="576" height="1024" fill="url(#vig)"/>` + o + (EP.grain ? `<filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="1" seed="${Math.floor(t * 30) % 97}"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .9 0"/></filter><rect width="576" height="1024" filter="url(#gr)" opacity="${EP.grain}" style="mix-blend-mode:overlay"/>` : '');
+  OV.innerHTML = `<rect width="576" height="1024" fill="url(#vig)"/>` + o + (sh.post ? sh.post(c) : '') + (EP.grain ? `<filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="1" seed="${Math.floor(t * 30) % 97}"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .9 0"/></filter><rect width="576" height="1024" filter="url(#gr)" opacity="${EP.grain}" style="mix-blend-mode:overlay"/>` : '');
   return i;
 };
 window.ENG = { billboard, rasterize, composer, bokeh, bloom, renderer, THREE, scene, camera, LOC, loc, SHOTS, RESETS, GLOBAL_OV, toon, glow, ink, M, box, cyl, canvasTex, TEX, sprite, radial, project, world, P, lerp, clamp, eio, eo, pop, spring, rng, v3, alarmFX, hatchGlow, smokeFX, HAB, EXT, HOLO, LAB, CAPS, IDS, BB, badge, RED, GOLD, GREEN, CYAN, ep: () => EP };

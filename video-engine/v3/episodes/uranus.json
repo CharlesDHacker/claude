@@ -1,0 +1,254 @@
+{
+ "series": "BORN ON URANUS",
+ "part": 1,
+ "tail": 2.6,
+ "mood": "tender",
+ "trans": "soft",
+ "blend": 0.9,
+ "capStyle": "serif",
+ "grain": 0.05,
+ "sat": 1.05,
+ "con": 1.04,
+ "dest": "uranus",
+ "shots": [
+  {
+   "scene": "globe",
+   "chunks": [
+    {
+     "say": "What if you were born on\u2026"
+    }
+   ],
+   "noCap": true,
+   "snd": [
+    "launch@0e"
+   ]
+  },
+  {
+   "scene": "uhook",
+   "chunks": [
+    {
+     "say": "Uranus?!"
+    }
+   ],
+   "snd": [
+    "impact@0"
+   ]
+  },
+  {
+   "scene": "uclouds",
+   "chunks": [
+    {
+     "say": "There's no ground here."
+    },
+    {
+     "say": "Just clouds, all the way down."
+    }
+   ],
+   "yr": [
+    0,
+    0.002
+   ],
+   "snd": [
+    "wind@0"
+   ]
+  },
+  {
+   "scene": "ucity",
+   "chunks": [
+    {
+     "say": "So your whole city floats."
+    }
+   ],
+   "yr": [
+    0.002,
+    0.004
+   ]
+  },
+  {
+   "scene": "unursery",
+   "chunks": [
+    {
+     "say": "Uranus is tipped on its side."
+    },
+    {
+     "say": "So near the pole,"
+    },
+    {
+     "say": "the sun doesn't set for forty-two years."
+    }
+   ],
+   "yr": [
+    0.004,
+    1.2
+   ]
+  },
+  {
+   "scene": "usun",
+   "chunks": [
+    {
+     "say": "And it's tiny."
+    },
+    {
+     "say": "Four hundred times dimmer than on Earth."
+    }
+   ],
+   "yr": [
+    3,
+    3.05
+   ]
+  },
+  {
+   "scene": "usmell",
+   "chunks": [
+    {
+     "say": "The clouds smell like rotten eggs."
+    },
+    {
+     "say": "Seriously."
+    }
+   ],
+   "yr": [
+    7,
+    7.04
+   ]
+  },
+  {
+   "scene": "uwind",
+   "chunks": [
+    {
+     "say": "The wind can hit nine hundred kilometers an hour."
+    }
+   ],
+   "yr": [
+    12,
+    12.02
+   ],
+   "snd": [
+    "wind@0"
+   ]
+  },
+  {
+   "scene": "urings",
+   "chunks": [
+    {
+     "say": "Your sky has rings,"
+    },
+    {
+     "say": "and more than two dozen moons,"
+    },
+    {
+     "say": "named after Shakespeare characters."
+    }
+   ],
+   "yr": [
+    18,
+    18.05
+   ]
+  },
+  {
+   "scene": "ugather",
+   "chunks": [
+    {
+     "say": "Then, at forty-two,"
+    },
+    {
+     "say": "the whole city comes outside"
+    }
+   ],
+   "yr": [
+    41.995,
+    41.9992
+   ],
+   "snd": [
+    "crowd@0"
+   ]
+  },
+  {
+   "scene": "usunset",
+   "chunks": [
+    {
+     "say": "for the first sunset of your life."
+    }
+   ],
+   "yr": [
+    41.9992,
+    42.0004
+   ],
+   "snd": [
+    "crowd@0"
+   ]
+  },
+  {
+   "scene": "unight",
+   "chunks": [
+    {
+     "say": "Night lasts forty-two years."
+    },
+    {
+     "say": "Minus two hundred twenty-four degrees."
+    }
+   ],
+   "yr": [
+    42.2,
+    55
+   ]
+  },
+  {
+   "scene": "udeep",
+   "chunks": [
+    {
+     "say": "Somewhere far below,"
+    },
+    {
+     "say": "it might be raining diamonds."
+    }
+   ],
+   "yr": [
+    60,
+    70
+   ]
+  },
+  {
+   "scene": "urise",
+   "chunks": [
+    {
+     "say": "At eighty-four, the sun finally rises again."
+    },
+    {
+     "say": "You've lived exactly one year on Uranus."
+    }
+   ],
+   "yr": [
+    83.9985,
+    84.0002
+   ],
+   "snd": [
+    "cheer@0e"
+   ]
+  },
+  {
+   "scene": "ubday",
+   "chunks": [
+    {
+     "say": "Happy first birthday."
+    }
+   ],
+   "yr": [
+    84.0002,
+    84.0006
+   ],
+   "snd": [
+    "party@0"
+   ]
+  },
+  {
+   "scene": "uend",
+   "chunks": [
+    {
+     "say": "Would you wait forty-two years for a sunrise?"
+    }
+   ],
+   "noCap": true
+  }
+ ]
+}

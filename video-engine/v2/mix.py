@@ -88,6 +88,14 @@ def snd(tok, s):
     if name == "wind":
         x = A.norm(A.bp(A.noise(int(d * SR)), 120, 1400)); tt_ = np.arange(len(x)) / SR
         ev("storm wind", at, env(x * (.6 + .4 * np.sin(TAU * .35 * tt_)) * np.minimum(tt_ / 1.2, 1), .5, .6), .35); return
+    if name in ("crowd", "cheer"):
+        dd = d if name == "crowd" else min(d, 3.5); n = int(dd * SR); tt_ = np.arange(n) / SR; x = np.zeros(n); rr = np.random.default_rng(7)
+        for j in range(18):   # many voices: formant-ish band noise with slow syllable rhythm
+            f0 = 300 + rr.random() * 900; m = .5 + .5 * np.sin(TAU * (2 + rr.random() * 3) * tt_ + rr.random() * 6)
+            x += A.norm(A.bp(A.noise(n), f0, f0 * 2.2)) * m ** 2
+        x = A.norm(x) * np.minimum(tt_ / (.8 if name == "crowd" else .15), 1)
+        if name == "cheer": x *= np.exp(-tt_ * .5) * 1.4
+        ev(name, at, env(x, .1, .8), .16 if name == "crowd" else .22); return
     if name == "rocket":
         ev("rocket idle", at, env(A.rumble(d), .6, .5), .25); return
     if name == "knock3":
@@ -169,26 +177,53 @@ if WONDER:
             mus[a0:a1, 0] += g_ * e_ * np.sin(TAU * f * .999 * tt_); mus[a0:a1, 1] += g_ * e_ * np.sin(TAU * f * 1.001 * tt_ + .7)
         for j, f in enumerate(CH[i0 % 4][2:]):   # soft bell arpeggio
             tb = A.tt(1.6); A.place(mus, i0 * seg + j * .5 + .25, np.sin(TAU * f * 2 * tb) * np.exp(-tb * 3) * .5, .5, (-.3, 0, .3)[j])
-for j, (f, a) in enumerate([] if WONDER else [(36.71, .5), (73.42, .6), (110.0, .35), (146.83, .3), (174.61, .22), (220.0, .12), (293.66, .10), (349.23, .07), (440.0, .06)]):
+TENDER = ep.get("mood") == "tender"
+if TENDER:   # soft piano + pad, I-V-vi-IV in C, louder at the sunset and the sunrise, sparse in the long night
+    def note(f, d=3.0, v=1.0):
+        tn = A.tt(d); y = sum((.6 / h) * np.sin(TAU * f * h * tn) * np.exp(-tn * (1.6 + h * .9)) for h in (1, 2, 3, 4)); return y * np.minimum(tn / .006, 1) * v
+    PROG = [(261.63, 329.63, 392.0), (196.0, 246.94, 293.66), (220.0, 261.63, 329.63), (174.61, 220.0, 261.63)]
+    def sect(t_):
+        for sh_ in shots:
+            if sh_["t0"] <= t_ < sh_["t1"]: return sh_["scene"]
+        return ""
+    beat = 60 / 72; t_ = .6; i0 = 0; rr = np.random.default_rng(3)
+    while t_ < total - .5:
+        sc_ = sect(t_); bar = int(t_ / (beat * 4)); ch = PROG[bar % 4]
+        loud = {"usunset": 1.25, "ugather": 1.1, "urise": 1.3, "ubday": 1.25, "uend": 1.0, "unight": .55, "udeep": .55}.get(sc_, .8)
+        if i0 % 4 == 0: A.place(mus, t_, note(ch[0] / 2, 4.0, .9 * loud), .5, 0); A.place(mus, t_, note(ch[0] / 4, 4.0, .6 * loud), .5, 0)
+        if sc_ in ("unight", "udeep"):
+            if i0 % 2 == 0: A.place(mus, t_, note(ch[(i0 // 2) % 3] * 2, 3.0, .45), .5, (-.4, .4)[(i0 // 2) % 2])
+        else:
+            pat = [0, 1, 2, 1]; A.place(mus, t_, note(ch[pat[i0 % 4]] * (2 if i0 % 8 >= 4 else 1), 2.5, (.55 + .1 * rr.random()) * loud), .5, (-.25, 0, .25, 0)[i0 % 4])
+            if sc_ in ("usunset", "urise", "ubday") and i0 % 4 == 2: A.place(mus, t_, note(ch[2] * 2, 3.5, .5 * loud), .5, .3)
+        t_ += beat; i0 += 1
+    pad = np.zeros(N)
+    for bi in range(int(total / (beat * 4)) + 1):
+        a0 = int(bi * beat * 4 * SR); a1 = min(a0 + int(beat * 4.5 * SR), N)
+        if a0 >= N: break
+        tn = np.arange(a1 - a0) / SR; e_ = np.minimum(tn / .6, 1) * np.minimum((len(tn) / SR - tn) / .6, 1)
+        for f in PROG[bi % 4]: pad[a0:a1] += .12 * e_ * np.sin(TAU * f * tn) * (.8 + .2 * np.sin(TAU * .3 * tn))
+    mus[:, 0] += pad; mus[:, 1] += pad
+for j, (f, a) in enumerate([] if (WONDER or TENDER) else [(36.71, .5), (73.42, .6), (110.0, .35), (146.83, .3), (174.61, .22), (220.0, .12), (293.66, .10), (349.23, .07), (440.0, .06)]):
     lfo = 0.6 + 0.4 * np.sin(TAU * (0.05 + 0.03 * j) * t + j)
     mus[:, 0] += a * lfo * np.sin(TAU * f * 0.9985 * t); mus[:, 1] += a * lfo * np.sin(TAU * f * 1.0015 * t + 0.5)
-ten = (0 if WONDER else 1) * (t / total) ** 2 * 0.3 * (0.75 + 0.25 * np.sin(TAU * 5 * t))
+ten = (0 if (WONDER or TENDER) else 1) * (t / total) ** 2 * 0.3 * (0.75 + 0.25 * np.sin(TAU * 5 * t))
 for f in (155.56, 311.13): mus[:, 0] += ten * np.sin(TAU * f * t); mus[:, 1] += ten * np.sin(TAU * f * 1.002 * t)
 p0 = by("alarmGo")[0]["t0"] if by("alarmGo") else total / 4; tp = A.tt(0.16); pulse = np.sin(TAU * 55 * tp) * np.exp(-tp * 22)
 quiet = [(s["t0"], s["t1"]) for s in shots if s["scene"] == "silence" or s.get("quiet")]
-for at in ([] if WONDER else np.arange(p0, total - 3, 60 / 84)):
+for at in ([] if (WONDER or TENDER) else np.arange(p0, total - 3, 60 / 84)):
     if not any(a <= at < b for a, b in quiet): A.place(mus, at, pulse, 0.5 + 0.5 * (at - p0) / max(total - p0, 1))
 e = np.minimum(t / 0.3, 1.0)
 for a, b in quiet: e[int(a * SR):int(b * SR)] *= 0.05
-card = by("card")
-if card: a, b = int(card[0]["t0"] * SR), N; e[a:b] *= np.linspace(1, 0, b - a) ** 1.2
+card = by("card") or by("uend")
+if card: a, b = (int(card[0]["t0"] * SR) if card[0]["scene"] == "card" else max(N - int(2.2 * SR), 0)), N; e[a:b] *= np.linspace(1, 0, b - a) ** 1.2
 k = int(0.1 * SR); e = np.convolve(e, np.ones(k) / k, "same")
 mus = mus / np.abs(mus).max() * 0.34 * e[:, None]
 # ---- voice + ducking ----
 v = np.zeros(N); x = load(voice_path); x = x / np.abs(x).max() * 0.9; v[:min(N, len(x))] = x[:N]
 k = int(0.12 * SR); lev = np.sqrt(np.convolve(v ** 2, np.ones(k) / k, "same"))
 duck = np.clip(lev / 0.06, 0, 1); k2 = int(0.3 * SR); duck = np.maximum(duck, np.convolve(duck, np.ones(k2) / k2, "same"))
-mix = v[:, None] + mus * (0.5 * (1 - 0.6 * duck))[:, None] + sfx * (0.8 * (1 - 0.5 * duck))[:, None]
+mix = v[:, None] + mus * ((0.9 * (1 - 0.72 * duck)) if ep.get("mood") == "tender" else (0.5 * (1 - 0.6 * duck)))[:, None] + sfx * (0.8 * (1 - 0.5 * duck))[:, None]
 mix = np.tanh(mix * 1.1); mix = mix / np.abs(mix).max() * 0.84
 A.save(out, mix); json.dump(sorted(log), open(out.replace(".wav", ".events.json"), "w"))
 print(f"{total:.2f}s mix, {len(log)} sound events:", ", ".join(sorted({n for _, n in log})))
