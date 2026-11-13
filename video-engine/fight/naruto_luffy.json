@@ -1,0 +1,480 @@
+{
+ "shots": [
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Naruto versus Luffy.",
+     "imgs": [
+      "standoff",
+      "naruto_face",
+      "luffy_face"
+     ],
+     "fx": [
+      "flash",
+      "dust"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Naruto opens with a thousand shadow clones,",
+     "imgs": [
+      "clones",
+      "naruto_face"
+     ],
+     "fx": [
+      "dust"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "and the whole valley turns orange.",
+     "imgs": [
+      "clones"
+     ],
+     "fx": [
+      "dust"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "But Luffy has future sight.",
+     "imgs": [
+      "futuresight",
+      "luffy_face"
+     ],
+     "fx": [
+      "rgb"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "He sees every punch before it's thrown,",
+     "imgs": [
+      "futuresight",
+      "weave"
+     ],
+     "fx": []
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "and slips through all thousand clones without taking a single hit.",
+     "imgs": [
+      "weave",
+      "clones"
+     ],
+     "fx": [
+      "dash"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "So Naruto goes Sage Mode.",
+     "imgs": [
+      "sage"
+     ],
+     "fx": [
+      "flash"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Now he can sense Luffy too.",
+     "imgs": [
+      "sage",
+      "naruto_face"
+     ],
+     "fx": []
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Rasenshuriken.",
+     "imgs": [
+      "rasenshuriken"
+     ],
+     "fx": [
+      "flash",
+      "speed"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "A storm of wind blades that cuts down to the cells.",
+     "imgs": [
+      "windblast",
+      "rasenshuriken"
+     ],
+     "fx": [
+      "shake",
+      "dust"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "But Luffy's already gone.",
+     "imgs": [
+      "behind"
+     ],
+     "fx": [
+      "dash"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "This is a guy who fought Kizaru, a man who moves at the speed of light, and kept up.",
+     "imgs": [
+      "dodge",
+      "weave",
+      "luffy_face"
+     ],
+     "fx": [
+      "dash",
+      "rgb"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "To Luffy, Naruto is moving in slow motion.",
+     "imgs": [
+      "behind",
+      "naruto_face"
+     ],
+     "fx": []
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Kurama Link Mode.",
+     "imgs": [
+      "kcm"
+     ],
+     "fx": [
+      "flash",
+      "embers"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "A fox the size of a mountain.",
+     "imgs": [
+      "kurama"
+     ],
+     "fx": [
+      "embers"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Tailed Beast Bomb.",
+     "imgs": [
+      "bijudama"
+     ],
+     "fx": [
+      "shake",
+      "speed"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Luffy goes Gear Five.",
+     "imgs": [
+      "gear5"
+     ],
+     "fx": [
+      "flash"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "He catches the bomb, stretches it like rubber,",
+     "imgs": [
+      "stretch",
+      "gear5"
+     ],
+     "fx": [
+      "shake"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "and throws it into the sky.",
+     "imgs": [
+      "sky_boom"
+     ],
+     "fx": [
+      "flash",
+      "shake"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Six Paths Sage Mode.",
+     "imgs": [
+      "sixpaths"
+     ],
+     "fx": [
+      "flash"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Truth-seeking balls that erase anything they touch.",
+     "imgs": [
+      "tsb",
+      "sixpaths"
+     ],
+     "fx": [
+      "rgb"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "But Luffy coats his fist in Ryou.",
+     "imgs": [
+      "ryou_fist"
+     ],
+     "fx": [
+      "rgb"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Haki that doesn't hit the surface. It destroys you from the inside.",
+     "imgs": [
+      "ryou_hit",
+      "ryou_fist"
+     ],
+     "fx": [
+      "shake"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Chakra shroud? Doesn't matter. Durability? Doesn't matter.",
+     "imgs": [
+      "ryou_hit",
+      "kcm"
+     ],
+     "fx": [
+      "shake",
+      "speed"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Naruto plays his last card. Baryon Mode.",
+     "imgs": [
+      "baryon"
+     ],
+     "fx": [
+      "flash",
+      "embers"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Every hit burns away Luffy's lifespan.",
+     "imgs": [
+      "baryon",
+      "dodge"
+     ],
+     "fx": [
+      "embers"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "But you can't burn what you can't touch.",
+     "imgs": [
+      "dodge",
+      "luffy_face"
+     ],
+     "fx": [
+      "dash"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Luffy sees the final punch coming, and moves first.",
+     "imgs": [
+      "futuresight",
+      "dodge"
+     ],
+     "fx": [
+      "rgb"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Bajrang Gun. A fist the size of an island.",
+     "imgs": [
+      "bajrang"
+     ],
+     "fx": [
+      "flash",
+      "shake",
+      "speed"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Naruto's down.",
+     "imgs": [
+      "crater"
+     ],
+     "fx": [
+      "dust"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "f",
+   "chunks": [
+    {
+     "say": "Speed. Ryou. Future sight. Luffy wins.",
+     "imgs": [
+      "victory",
+      "ryou_fist",
+      "futuresight",
+      "victory"
+     ],
+     "fx": [
+      "dust"
+     ]
+    }
+   ]
+  }
+ ],
+ "tail": 1.5,
+ "title": [
+  "NARUTO",
+  "LUFFY"
+ ],
+ "titleEnd": 1.6,
+ "hits": [
+  "rasenshuriken",
+  "bomb",
+  "ryou",
+  "inside",
+  "gun",
+  "island",
+  "down"
+ ],
+ "ext": ".svg"
+}

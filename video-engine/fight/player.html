@@ -1,0 +1,84 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'Inter';font-weight:800;src:url('inter-latin-800-normal.woff2') format('woff2')}
+html,body{margin:0;background:#000;overflow:hidden}
+canvas{display:block}
+</style></head><body><canvas id="c" width="1920" height="1080"></canvas>
+<script>
+// Anime fight reel player: AI keyframe stills animated with fast cuts (~0.6 s), Ken Burns pushes and pans,
+// camera shake, anime impact frames, speed lines, flashes, chromatic splits and one-word captions.
+const W = 1920, H = 1080, cv = document.getElementById('c'), g = cv.getContext('2d');
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, k) => a + (b - a) * k;
+const eio = x => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }, eo = x => 1 - Math.pow(1 - clamp(x), 3);
+function rng(seed) { let s = seed >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+let EP, IMG = {}, CUTS = [], HITS = [];
+const MOVES = ['in', 'out', 'panL', 'panR', 'up', 'in', 'panL', 'panR'];
+window.__load = async (ep) => {
+  EP = ep; await document.fonts.load('800 80px Inter');
+  const names = [...new Set(ep.chunks.flatMap(c => c.imgs))];
+  await Promise.all(names.map(n => new Promise((res, rej) => { const im = new Image(); im.onload = () => { IMG[n] = im; res(); }; im.onerror = () => rej(new Error('missing ' + n)); im.src = 'img/' + n + (ep.ext || '.png'); })));
+  // cuts: each spoken chunk is split into ~0.6 s cuts, cycling through its images with a fresh crop and move each time
+  const r = rng(7);
+  ep.chunks.forEach((c, k) => {
+    const t0 = k ? c.t0 : 0, t1 = k + 1 < ep.chunks.length ? ep.chunks[k + 1].t0 : ep.total, d = t1 - t0, len = c.cut || ep.cut || .62;
+    const n = Math.max(1, Math.round(d / len));
+    for (let i = 0; i < n; i++) CUTS.push({ k, i, t0: t0 + d * i / n, t1: t0 + d * (i + 1) / n, img: c.imgs[i % c.imgs.length], move: c.move || MOVES[Math.floor(r() * MOVES.length)], z: c.zoom || (1.1 + r() * .22), ox: (r() - .5) * .5, oy: (r() - .5) * .35, fx: c.fx || [], first: i === 0, seed: Math.floor(r() * 1e6) });
+  });
+  HITS = (ep.hits || []).map(h => { const w = ep.words.find(x => x.text.toLowerCase().replace(/[^a-z0-9]/g, '') === h.toLowerCase() && !HITS_USED.has(x.start)); if (w) HITS_USED.add(w.start); return w ? w.start : null; }).filter(x => x != null);
+  return ep.total;
+};
+const HITS_USED = new Set();
+function drawImg(im, cx, cy, sc, filter) {
+  const iw = im.naturalWidth || im.width, ih = im.naturalHeight || im.height, base = Math.max(W / iw, H / ih) * sc, w = iw * base, h = ih * base;
+  const x = W / 2 - w / 2 - cx * (w - W) / 2, y = H / 2 - h / 2 - cy * (h - H) / 2;
+  g.filter = filter || 'none'; g.drawImage(im, x, y, w, h); g.filter = 'none';
+}
+window.__render = async (t) => {
+  const c = CUTS.find(x => t >= x.t0 && t < x.t1) || CUTS[CUTS.length - 1], p = clamp((t - c.t0) / (c.t1 - c.t0)), lt = t - c.t0, ch = EP.chunks[c.k];
+  const im = IMG[c.img], R = rng(c.seed + Math.floor(t * 30));
+  // camera move inside the cut
+  let sc = c.z, ox = c.ox, oy = c.oy; const e = eio(p) * .9 + p * .1;
+  if (c.move === 'in') sc = lerp(c.z, c.z + .12, e); else if (c.move === 'out') sc = lerp(c.z + .14, c.z, e);
+  else if (c.move === 'panL') ox = lerp(c.ox - .35, c.ox + .35, e); else if (c.move === 'panR') ox = lerp(c.ox + .35, c.ox - .35, e); else if (c.move === 'up') oy = lerp(c.oy + .3, c.oy - .3, e);
+  // punch-in at each cut start (snap), plus shake on hits and on 'shake' chunks
+  const snap = Math.exp(-lt * 14) * .06; sc += snap;
+  const hit = HITS.map(h => t - h).filter(a => a >= 0 && a < .6).sort((a, b) => a - b)[0];
+  let sh = (c.fx.includes('shake') ? 6 : 1.2) + (hit != null ? 26 * Math.exp(-hit * 7) : 0);
+  const sx = (R() - .5) * 2 * sh, sy = (R() - .5) * 2 * sh;
+  g.setTransform(1, 0, 0, 1, sx, sy);
+  g.fillStyle = '#000'; g.fillRect(-60, -60, W + 120, H + 120);
+  const blur = lt < .06 ? 6 * (1 - lt / .06) : 0, grade = `contrast(1.08) saturate(1.12)${blur ? ` blur(${blur.toFixed(1)}px)` : ''}`;
+  const impact = hit != null && hit < .1;
+  if (impact) drawImg(im, clamp(ox, -1, 1), clamp(oy, -1, 1), sc * 1.05, 'grayscale(1) invert(1) contrast(4)');
+  else {
+    drawImg(im, clamp(ox, -1, 1), clamp(oy, -1, 1), sc, grade);
+    if (c.fx.includes('rgb') || (hit != null && hit < .35)) { const k = hit != null ? 1 - hit / .35 : .5; g.globalAlpha = .28 * k; g.globalCompositeOperation = 'screen'; drawImg(im, clamp(ox + .012, -1, 1), clamp(oy, -1, 1), sc, 'sepia(1) hue-rotate(-50deg) saturate(6)'); drawImg(im, clamp(ox - .012, -1, 1), clamp(oy, -1, 1), sc, 'sepia(1) hue-rotate(160deg) saturate(6)'); g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1; }
+  }
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  // speed lines
+  if (c.fx.includes('speed') || (hit != null && hit < .25)) { const r2 = rng(Math.floor(t * 24)); g.strokeStyle = '#fff'; for (let i = 0; i < 70; i++) { const a = r2() * Math.PI * 2, d0 = 380 + r2() * 420, L = 200 + r2() * 600; g.globalAlpha = .18 + r2() * .35; g.lineWidth = 1 + r2() * 5; g.beginPath(); g.moveTo(W / 2 + Math.cos(a) * d0, H / 2 + Math.sin(a) * d0 * .7); g.lineTo(W / 2 + Math.cos(a) * (d0 + L), H / 2 + Math.sin(a) * (d0 + L) * .7); g.stroke(); } g.globalAlpha = 1; }
+  // horizontal motion streaks for 'dash'
+  if (c.fx.includes('dash')) { const r3 = rng(Math.floor(t * 30)); g.strokeStyle = '#fff'; for (let i = 0; i < 26; i++) { const y = r3() * H, x = r3() * W, L = 200 + r3() * 700; g.globalAlpha = .12 + r3() * .3; g.lineWidth = 1 + r3() * 3; g.beginPath(); g.moveTo(x, y); g.lineTo(x + L, y); g.stroke(); } g.globalAlpha = 1; }
+  // embers / dust
+  if (c.fx.includes('embers') || c.fx.includes('dust')) { const emb = c.fx.includes('embers'); for (let i = 0; i < 60; i++) { const r4 = rng(i * 13 + c.k), sp = 60 + r4() * 160, x = (r4() * W + t * sp * (emb ? .3 : 1.2)) % W, y = emb ? H - ((r4() * H + t * sp) % H) : (r4() * H + Math.sin(t + i) * 20); g.globalAlpha = (emb ? .8 : .25) * (.4 + .6 * Math.sin(t * 3 + i) ** 2); g.fillStyle = emb ? '#ffb347' : '#e8d8b8'; g.beginPath(); g.arc(x, y, emb ? 2 + r4() * 3 : 3 + r4() * 6, 0, 7); g.fill(); } g.globalAlpha = 1; }
+  // flashes: start of 'flash' chunks and on hit words
+  let fl = 0; if (c.first && c.fx.includes('flash')) fl = Math.max(fl, .85 * Math.exp(-lt * 9)); if (hit != null) fl = Math.max(fl, .6 * Math.exp(-hit * 14));
+  if (fl > .01) { g.fillStyle = `rgba(255,252,240,${fl.toFixed(3)})`; g.fillRect(0, 0, W, H); }
+  // vignette + grain-ish noise
+  const vg = g.createRadialGradient(W / 2, H / 2, H * .45, W / 2, H / 2, H * 1.05); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.45)'); g.fillStyle = vg; g.fillRect(0, 0, W, H);
+  // one-word caption
+  const w = EP.words.filter(x => t >= x.start - .02).pop();
+  if (w && t < (EP.words[EP.words.indexOf(w) + 1]?.start ?? w.end + .5) && t < w.end + .45) {
+    const txt = w.text.toUpperCase().replace(/[^A-Z0-9'?!-]/g, ''), a = t - w.start, s = 1 + .14 * Math.exp(-a * 16);
+    g.save(); g.translate(W / 2, H * .885); g.scale(s, s); g.font = '800 92px Inter'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineJoin = 'round';
+    g.shadowColor = 'rgba(0,0,0,.55)'; g.shadowBlur = 14; g.lineWidth = 16; g.strokeStyle = '#000'; g.strokeText(txt, 0, 0); g.shadowBlur = 0; g.fillStyle = '#fff'; g.fillText(txt, 0, 0); g.restore();
+  }
+  // title card on the first beat
+  if (EP.title && t < EP.titleEnd) { const a = clamp(t / .2) * clamp((EP.titleEnd - t) / .25); g.globalAlpha = a; g.save(); g.translate(W / 2, H * .42); const k = 1 + .2 * Math.exp(-t * 8); g.scale(k, k); g.font = '800 150px Inter'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineWidth = 22; g.strokeStyle = '#000'; g.lineJoin = 'round';
+    const [l, rr] = EP.title; g.font = '800 150px Inter'; const wl = g.measureText(l).width, wr = g.measureText(rr).width; g.font = '800 90px Inter'; const wv = g.measureText('VS').width, gap = 36, tot = wl + wv + wr + gap * 2; let x = -tot / 2; g.textAlign = 'left';
+    const put = (txt, f, col, dy) => { g.font = f; g.strokeText(txt, x, dy); g.fillStyle = col; g.fillText(txt, x, dy); x += g.measureText(txt).width + gap; };
+    put(l, '800 150px Inter', '#ff8a1a', 0); put('VS', '800 90px Inter', '#fff', 8); put(rr, '800 150px Inter', '#e8343a', 0); g.restore(); g.globalAlpha = 1; }
+  return CUTS.indexOf(c);
+};
+window.__ready = true;
+</script></body></html>

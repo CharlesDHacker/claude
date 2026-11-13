@@ -231,6 +231,20 @@ p0 = by("alarmGo")[0]["t0"] if by("alarmGo") else total / 4; tp = A.tt(0.16); pu
 quiet = [(s["t0"], s["t1"]) for s in shots if s["scene"] == "silence" or s.get("quiet")]
 for at in ([] if (WONDER or TENDER) else np.arange(p0, total - 3, 60 / 84)):
     if not any(a <= at < b for a, b in quiet): A.place(mus, at, pulse, 0.5 + 0.5 * (at - p0) / max(total - p0, 1))
+if ep.get("mood") == "fight":   # driving 140 bpm taiko-ish drums + D minor bass ostinato, building toward the finisher
+    bpm = 140; bt = 60 / bpm; tk = A.tt(.35); kick = np.sin(TAU * np.cumsum(55 + 90 * np.exp(-tk * 30)) / SR) * np.exp(-tk * 9)
+    tn = A.tt(.25); snare = A.norm(A.bp(A.noise(len(tn)), 900, 7000)) * np.exp(-tn * 18) + .5 * np.sin(TAU * 190 * tn) * np.exp(-tn * 20)
+    tt3 = A.tt(.6); tom = np.sin(TAU * np.cumsum(90 + 60 * np.exp(-tt3 * 12)) / SR) * np.exp(-tt3 * 5)
+    bass = [73.42, 73.42, 87.31, 73.42, 65.41, 73.42, 98.0, 87.31]; i8 = 0; tb = .25
+    while tb < total - .8:
+        build = 0.55 + 0.45 * min(tb / (total * .85), 1)
+        if i8 % 2 == 0: A.place(mus, tb, kick, .9 * build, 0)
+        if i8 % 4 == 2: A.place(mus, tb, snare, .45 * build, .1)
+        if i8 % 8 in (3, 7): A.place(mus, tb, tom, .6 * build, -.3 if i8 % 16 < 8 else .3)
+        tbs = A.tt(bt * .9); f = bass[(i8 // 2) % 8]; A.place(mus, tb, np.tanh(2.5 * np.sin(TAU * f * tbs)) * np.exp(-tbs * 3) * .5, .7 * build, 0)
+        tb += bt; i8 += 1
+    tp = np.arange(N) / SR; pad = sum(np.sin(TAU * f * tp + j) for j, f in enumerate((146.83, 174.61, 220.0))) * .06 * (0.5 + 0.5 * np.minimum(tp / total, 1))
+    mus[:, 0] += pad; mus[:, 1] += pad
 e = np.minimum(t / 0.3, 1.0)
 for a, b in quiet: e[int(a * SR):int(b * SR)] *= 0.05
 card = by("card") or by("uend")
@@ -246,7 +260,7 @@ if ep.get("mood") == "deep":
 v = np.zeros(N); x = load(voice_path); x = x / np.abs(x).max() * 0.9; v[:min(N, len(x))] = x[:N]
 k = int(0.12 * SR); lev = np.sqrt(np.convolve(v ** 2, np.ones(k) / k, "same"))
 duck = np.clip(lev / 0.06, 0, 1); k2 = int(0.3 * SR); duck = np.maximum(duck, np.convolve(duck, np.ones(k2) / k2, "same"))
-mix = v[:, None] + mus * ((0.9 * (1 - 0.72 * duck)) if ep.get("mood") == "tender" else (0.5 * (1 - 0.6 * duck)))[:, None] + sfx * (0.8 * (1 - 0.5 * duck))[:, None]
+mix = v[:, None] + mus * ((0.9 * (1 - 0.72 * duck)) if ep.get("mood") == "tender" else (0.62 * (1 - 0.55 * duck)) if ep.get("mood") == "fight" else (0.5 * (1 - 0.6 * duck)))[:, None] + sfx * (0.8 * (1 - 0.5 * duck))[:, None]
 mix = np.tanh(mix * 1.1); mix = mix / np.abs(mix).max() * 0.84
 A.save(out, mix); json.dump(sorted(log), open(out.replace(".wav", ".events.json"), "w"))
 print(f"{total:.2f}s mix, {len(log)} sound events:", ", ".join(sorted({n for _, n in log})))
