@@ -3,7 +3,7 @@ import sys, json, wave, os
 from pocketsphinx import Decoder, get_model_path
 wav, text, out = sys.argv[1], open(sys.argv[2]).read().split(), sys.argv[3]
 mp = get_model_path()
-extra = {"teo": "T EY OW", "ava": "EY V AH", "mei": "M EY", "butterscotch": "B AH T ER S K AA CH", "phobos": "F OW B AA S", "deimos": "D EY M AH S", "snailfish": "S N EY L F IH SH", "baumgartner": "B AW M G AA R T N ER", "sirius": "S IH R IY AH S", "pollux": "P AA L AH K S", "arcturus": "AA R K T UH R AH S", "aldebaran": "AE L D EH B ER AH N", "rigel": "R AY JH AH L", "antares": "AE N T EH R IY Z", "betelgeuse": "B IY T AH L JH UW S", "stephenson": "S T IY V AH N S AH N"}
+extra = {"teo": "T EY OW", "ava": "EY V AH", "mei": "M EY", "butterscotch": "B AH T ER S K AA CH", "phobos": "F OW B AA S", "deimos": "D EY M AH S", "snailfish": "S N EY L F IH SH", "baumgartner": "B AW M G AA R T N ER", "sirius": "S IH R IY AH S", "pollux": "P AA L AH K S", "arcturus": "AA R K T UH R AH S", "aldebaran": "AE L D EH B ER AH N", "rigel": "R AY JH AH L", "antares": "AE N T EH R IY Z", "betelgeuse": "B IY T AH L JH UW S", "stephenson": "S T IY V AH N S AH N", "hazmat": "HH AE Z M AE T"}
 dic = os.path.join(os.path.dirname(out), "align.dict")
 have = {}
 for line in open(os.path.join(mp, "en-us", "cmudict-en-us.dict")):
