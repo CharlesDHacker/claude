@@ -178,4 +178,5 @@ GLOBAL_OV.push((t, c, sh) => { if (!isMine()) return ''; const S = STATUS[c.o.sc
   const clock = c.o.scene === 'awow' ? '6EQUJ5' : `T+${String(Math.floor(since / 3600)).padStart(2, '0')}:${String(Math.floor(since / 60) % 60).padStart(2, '0')}:${String(Math.floor(since) % 60).padStart(2, '0')}`;
   return `<g transform="translate(26 392)" opacity="${k.toFixed(2)}" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,.8))"><text x="0" y="0" font-family="Inter" font-weight="800" font-size="13" fill="${ORANGE}" letter-spacing="2.4">FIRST CONTACT · ${S[0]}</text>
     <text x="0" y="48" font-family="Inter" font-weight="800" font-size="40" fill="#fff">${clock}</text><text x="0" y="72" font-family="Inter" font-weight="800" font-size="13" fill="#fff" letter-spacing="1.4">${S[1]} <tspan fill="${GREEN}">${S[2]}</tspan></text></g>`; });
+E.ALIEN = { screenG, screenT, bigScreen, screenGlow, crowd, scientists, phoneL, billboard, starsPts, nightSky, MC, CITY, pathCam };
 window.__alien = true;

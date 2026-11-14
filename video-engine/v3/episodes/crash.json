@@ -1,0 +1,179 @@
+{
+ "series": "ALIEN CRASH",
+ "part": 1,
+ "tail": 2.6,
+ "mood": "tender",
+ "trans": "soft",
+ "blend": 0.9,
+ "capStyle": "serif",
+ "grain": 0.05,
+ "sat": 1.06,
+ "con": 1.05,
+ "shots": [
+  {
+   "scene": "chook",
+   "chunks": [
+    {
+     "say": "What if an alien ship crashed on Earth?"
+    }
+   ]
+  },
+  {
+   "scene": "cradar",
+   "chunks": [
+    {
+     "say": "Three twelve a.m.",
+     "cap": "3:12 a.m."
+    },
+    {
+     "say": "Radar picks up something falling over Kansas."
+    },
+    {
+     "say": "Too slow to be a meteor\u2026 and it's slowing down."
+    }
+   ],
+   "snd": [
+    "beep@1"
+   ]
+  },
+  {
+   "scene": "cfall",
+   "chunks": [
+    {
+     "say": "It hits a wheat field."
+    }
+   ],
+   "snd": [
+    "blast@0e"
+   ]
+  },
+  {
+   "scene": "ccordon",
+   "chunks": [
+    {
+     "say": "Within twenty minutes, the military seals off ten miles in every direction."
+    }
+   ],
+   "snd": [
+    "rumble@0"
+   ]
+  },
+  {
+   "scene": "cviral",
+   "chunks": [
+    {
+     "say": "But a farmer filmed it."
+    },
+    {
+     "say": "By sunrise\u2026 two hundred million people have seen it."
+    }
+   ],
+   "snd": [
+    "hitword@two"
+   ]
+  },
+  {
+   "scene": "cplanes",
+   "chunks": [
+    {
+     "say": "Every plane in the sky is ordered to land."
+    },
+    {
+     "say": "The last time that happened was nine eleven.",
+     "cap": "The last time that happened was 9/11."
+    }
+   ],
+   "snd": [
+    "crowd@0"
+   ]
+  },
+  {
+   "scene": "cmarket",
+   "chunks": [
+    {
+     "say": "Markets open\u2026 and crash so fast, trading is shut down in minutes."
+    }
+   ],
+   "snd": [
+    "hitword@shut"
+   ]
+  },
+  {
+   "scene": "cpanic",
+   "chunks": [
+    {
+     "say": "Supermarket shelves empty."
+    }
+   ],
+   "snd": [
+    "crowd@0"
+   ]
+  },
+  {
+   "scene": "chighway",
+   "chunks": [
+    {
+     "say": "Highways out of every major city\u2026 jam solid."
+    }
+   ]
+  },
+  {
+   "scene": "cun",
+   "chunks": [
+    {
+     "say": "At noon, the UN Security Council meets in an emergency session."
+    },
+    {
+     "say": "And here's the scary part."
+    },
+    {
+     "say": "There is no official plan for this."
+    },
+    {
+     "say": "None."
+    }
+   ],
+   "snd": [
+    "hitword@none"
+   ]
+  },
+  {
+   "scene": "chazmat",
+   "chunks": [
+    {
+     "say": "Day three. A team in hazmat suits finally reaches the ship."
+    },
+    {
+     "say": "The hatch is open."
+    }
+   ]
+  },
+  {
+   "scene": "cempty",
+   "chunks": [
+    {
+     "say": "And it's empty."
+    }
+   ],
+   "snd": [
+    "impact@0"
+   ]
+  },
+  {
+   "scene": "cwalked",
+   "chunks": [
+    {
+     "say": "Whatever was flying it\u2026 already walked away."
+    }
+   ]
+  },
+  {
+   "scene": "cend",
+   "chunks": [
+    {
+     "say": "So\u2026 where would you go?"
+    }
+   ]
+  }
+ ]
+}
