@@ -1,0 +1,170 @@
+{
+ "series": "FIRST CONTACT",
+ "part": 1,
+ "tail": 2.6,
+ "mood": "tender",
+ "trans": "soft",
+ "blend": 0.9,
+ "capStyle": "serif",
+ "grain": 0.05,
+ "sat": 1.06,
+ "con": 1.05,
+ "shots": [
+  {
+   "scene": "awow",
+   "chunks": [
+    {
+     "say": "In nineteen seventy-seven, a telescope heard a signal from space for seventy-two seconds\u2026",
+     "cap": "In 1977, a telescope heard a signal from space for 72 seconds\u2026"
+    },
+    {
+     "say": "and never heard it again."
+    }
+   ]
+  },
+  {
+   "scene": "areturn",
+   "chunks": [
+    {
+     "say": "What if it came back?"
+    }
+   ],
+   "snd": [
+    "impact@0"
+   ]
+  },
+  {
+   "scene": "adish",
+   "chunks": [
+    {
+     "say": "Tonight, a radio telescope picks it up."
+    },
+    {
+     "say": "Same frequency. Same patch of sky."
+    },
+    {
+     "say": "And this time\u2026 it doesn't stop."
+    }
+   ],
+   "snd": [
+    "ui@1"
+   ]
+  },
+  {
+   "scene": "agalaxy",
+   "chunks": [
+    {
+     "say": "It's coming from a planet fourteen hundred light-years away."
+    }
+   ]
+  },
+  {
+   "scene": "aworld",
+   "chunks": [
+    {
+     "say": "This message was sent long before anyone on Earth had a telescope."
+    }
+   ]
+  },
+  {
+   "scene": "aphones",
+   "chunks": [
+    {
+     "say": "Within an hour, every phone on the planet is buzzing."
+    }
+   ],
+   "snd": [
+    "crowd@0"
+   ]
+  },
+  {
+   "scene": "aprimes",
+   "chunks": [
+    {
+     "say": "Scientists find a pattern."
+    },
+    {
+     "say": "Prime numbers."
+    },
+    {
+     "say": "Two, three, five, seven."
+    },
+    {
+     "say": "Nature doesn't count in primes. Someone made this."
+    }
+   ],
+   "snd": [
+    "beep@2"
+   ]
+  },
+  {
+   "scene": "amap",
+   "chunks": [
+    {
+     "say": "Then the numbers become a picture."
+    },
+    {
+     "say": "A map. Fourteen pulsars\u2026 all pointing to one tiny star."
+    }
+   ]
+  },
+  {
+   "scene": "aours",
+   "chunks": [
+    {
+     "say": "Ours."
+    }
+   ],
+   "snd": [
+    "impact@0"
+   ]
+  },
+  {
+   "scene": "aradio",
+   "chunks": [
+    {
+     "say": "But here's the problem."
+    },
+    {
+     "say": "Our first radio signals have only traveled about a hundred light-years."
+    },
+    {
+     "say": "They can't have heard us."
+    },
+    {
+     "say": "So how did they know we were here?"
+    }
+   ]
+  },
+  {
+   "scene": "aoxygen",
+   "chunks": [
+    {
+     "say": "They didn't hear us. They saw our air."
+    },
+    {
+     "say": "Oxygen. The fingerprint of life\u2026 that Earth has been breathing out for two billion years."
+    }
+   ]
+  },
+  {
+   "scene": "areply",
+   "chunks": [
+    {
+     "say": "We could answer. But a reply would take fourteen hundred years to get there."
+    }
+   ],
+   "snd": [
+    "launch@0"
+   ]
+  },
+  {
+   "scene": "aend",
+   "chunks": [
+    {
+     "say": "So\u2026 would you reply?"
+    }
+   ]
+  }
+ ]
+}
