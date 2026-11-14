@@ -1,0 +1,98 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:'Inter';font-weight:800;src:url('/comp/inter-latin-800-normal.woff2') format('woff2')}
+html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}
+</style></head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// Layered 2D compositor in the "2D characters in painted 3D sets" style:
+// painted background (camera push/pan/tilt) + green-screened character cutouts (matched grade, contact shadow, idle life,
+// expression swaps, walk cycles) + effects (particles, glows, flashes, light flicker) + soft dissolves + 1-2 word captions.
+const W = 1080, H = 1920, cv = document.getElementById('c'), g = cv.getContext('2d');
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), lerp = (a, b, k) => a + (b - a) * k;
+const eio = x => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }, eo = x => 1 - Math.pow(1 - clamp(x), 3);
+function rng(seed) { let s = seed >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let t = s; t = Math.imul(t ^ t >>> 15, t | 1); t ^= t + Math.imul(t ^ t >>> 7, t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const IMG = {}, load = src => new Promise((res, rej) => { if (IMG[src]) return res(IMG[src]); const im = new Image(); im.onload = () => { IMG[src] = im; res(im); }; im.onerror = () => rej(new Error('missing ' + src)); im.src = src; });
+const off = document.createElement('canvas'), og = off.getContext('2d');
+let EP, SHOTS, CAPS, META;
+
+// ---------- camera + background ----------
+// cam: {cx, cy, z} — centre of view in background-normalised coords, z = zoom over "cover" fit.
+function camXf(bg, cam) { const s = Math.max(W / bg.width, H / bg.height) * cam.z, vw = W / s, vh = H / s;
+  const cx = clamp(cam.cx * bg.width, vw / 2, bg.width - vw / 2), cy = clamp(cam.cy * bg.height, vh / 2, bg.height - vh / 2);
+  return { s, ox: W / 2 - cx * s, oy: H / 2 - cy * s, bw: bg.width, bh: bg.height }; }
+const toScreen = (xf, x, y) => [xf.ox + x * xf.bw * xf.s, xf.oy + y * xf.bh * xf.s];
+function lerpCam(keys, c) { // keys: [{t (sec into shot), cx, cy, z}]
+  let a = keys[0], b = keys[0], k = 0; for (let i = 0; i < keys.length - 1; i++) if (c.lt >= keys[i].t) { a = keys[i]; b = keys[i + 1]; k = clamp((c.lt - a.t) / Math.max(b.t - a.t, .01)); }
+  if (c.lt >= keys[keys.length - 1].t) { a = b = keys[keys.length - 1]; k = 0; } const e = eio(k);
+  return { cx: lerp(a.cx, b.cx, e), cy: lerp(a.cy, b.cy, e), z: lerp(a.z, b.z, e) }; }
+
+// ---------- characters ----------
+// a placement: {set:'farmer', i:2, x, y (feet, bg-normalised), h (height of the set's tallest figure, fraction of bg height),
+//   flip, ph (phase), pop (time of last expression change), walk:{a,b,rate}, rot}
+function drawChar(xf, p, t, grade, c) {
+  const set = META[p.set], idx = p.walk ? (Math.floor(t * (p.walk.rate || 5.5)) % 2 ? p.walk.b : p.walk.a) : p.i, info = set[idx], im = IMG[`/stills/crash/chars/${info.file}`];
+  const unit = Math.max(...set.map(s => s.h)), sc = p.h * xf.bh * xf.s / unit, w = info.w * sc, h = info.h * sc;
+  const [fx, fy] = toScreen(xf, p.x, p.y), ph = p.ph || 0;
+  const breathe = 1 + .012 * Math.sin(t * 2.1 + ph), bob = p.walk ? -Math.abs(Math.sin(t * Math.PI * (p.walk.rate || 5.5) / 2)) * h * .035 : 0;
+  const popK = p.pop != null && t >= p.pop ? 1 + .09 * Math.exp(-(t - p.pop) * 10) * Math.cos((t - p.pop) * 22) : 1;
+  const sway = (p.rot || 0) + .018 * Math.sin(t * 1.3 + ph * 1.7) + (p.walk ? .03 * Math.sin(t * Math.PI * (p.walk.rate || 5.5)) : 0);
+  // contact shadow
+  g.save(); g.globalAlpha = (grade.shadow ?? .38) * (p.alpha ?? 1); g.fillStyle = '#000'; g.filter = `blur(${Math.max(2, w * .04).toFixed(1)}px)`;
+  g.beginPath(); g.ellipse(fx, fy - h * .005, w * .42, Math.max(4, h * .028), 0, 0, Math.PI * 2); g.fill(); g.restore();
+  // graded sprite on an offscreen canvas: base grade + colour tint + flicker rim
+  const pw = Math.ceil(w) + 4, phh = Math.ceil(h) + 4; off.width = pw; off.height = phh; og.clearRect(0, 0, pw, phh);
+  og.filter = `brightness(${grade.b ?? 1}) saturate(${grade.s ?? 1}) contrast(${grade.k ?? 1})`; og.drawImage(im, 2, 2, w, h); og.filter = 'none';
+  og.globalCompositeOperation = 'source-atop';
+  if (grade.tint) { og.globalAlpha = grade.tint[1]; og.fillStyle = grade.tint[0]; og.fillRect(0, 0, pw, phh); }
+  if (grade.rim) { const rr = grade.rim(t, p); if (rr) { og.globalAlpha = rr[1]; const gr = og.createLinearGradient(rr[2] < 0 ? 0 : pw, 0, rr[2] < 0 ? pw * .6 : pw * .4, 0); gr.addColorStop(0, rr[0]); gr.addColorStop(1, 'rgba(0,0,0,0)'); og.fillStyle = gr; og.fillRect(0, 0, pw, phh); } }
+  og.globalAlpha = 1; og.globalCompositeOperation = 'source-over';
+  g.save(); g.globalAlpha = p.alpha ?? 1; g.translate(fx, fy); g.rotate(sway); g.scale((p.flip ? -1 : 1) * popK, breathe * popK); g.translate(0, bob);
+  g.drawImage(off, -pw / 2, -phh + 2); g.restore();
+  return { fx, fy, w, h };
+}
+
+// ---------- effects helpers ----------
+const glow = (x, y, r, col, a = 1) => { const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, col); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.save(); g.globalAlpha = a; g.globalCompositeOperation = 'lighter'; g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2); g.restore(); };
+function motes(t, n, seed, col, a, area = [0, 0, W, H], size = [2, 5], drift = [8, -14]) { const r = rng(seed); g.save(); g.globalCompositeOperation = 'lighter'; for (let i = 0; i < n; i++) { const x = area[0] + ((r() * area[2] + t * drift[0] * (.5 + r())) % area[2]), y = area[1] + (((r() * area[3] + t * drift[1] * (.5 + r())) % area[3]) + area[3]) % area[3], s = size[0] + r() * (size[1] - size[0]); g.globalAlpha = a * (.4 + .6 * Math.abs(Math.sin(t * (1 + r()) + i))); g.fillStyle = col; g.beginPath(); g.arc(x, y, s, 0, 6.283); g.fill(); } g.restore(); }
+function smoke(xf, t, x, y, n, seed, col = '120,120,120', a = .25, rise = 260, spread = 120, size = 120) { const [sx, sy] = toScreen(xf, x, y), r = rng(seed); g.save(); for (let i = 0; i < n; i++) { const ph = (t * (.07 + r() * .05) + r()) % 1, px = sx + (r() - .5) * 40 + ph * spread * (r() - .3), py = sy - ph * rise * xf.s, rad = (size * (.4 + ph)) * xf.s; const gr = g.createRadialGradient(px, py, 0, px, py, rad); gr.addColorStop(0, `rgba(${col},${(a * Math.sin(ph * Math.PI)).toFixed(3)})`); gr.addColorStop(1, `rgba(${col},0)`); g.fillStyle = gr; g.fillRect(px - rad, py - rad, rad * 2, rad * 2); } g.restore(); }
+function flash(a, col = '255,252,240') { if (a > .005) { g.fillStyle = `rgba(${col},${a.toFixed(3)})`; g.fillRect(0, 0, W, H); } }
+
+// ---------- frame ----------
+function shotCtx(s, t) { const lt = t - s.t0, d = s.t1 - s.t0; return { t, lt, d, p: clamp(lt / d), s, ch: k => k < s.chunks.length ? t - s.chunks[k].t0 : -1, che: k => k < s.chunks.length ? t - (s.chunks[k].te ?? s.chunks[k].t0) : -1 }; }
+function renderShot(s, t) { const def = SHOTS[s.scene], c = shotCtx(s, t); def(c); }
+window.__load = async (ep) => {
+  EP = ep; META = await (await fetch('/stills/crash/chars/meta.json')).json();
+  await document.fonts.load('800 80px Inter');
+  const files = new Set(); Object.values(META).forEach(v => v.forEach(f => files.add(`/stills/crash/chars/${f.file}`)));
+  ['bg01_farm', 'bg02_radar', 'bg03_fall', 'bg04_impact', 'bg05_roadblock', 'bg06_airport', 'bg07_market', 'bg08_supermarket', 'bg09_highway', 'bg10_un', 'bg11_hazmat', 'bg12_cockpit'].forEach(b => files.add(`/stills/crash/bg/${b}.jpg`));
+  await Promise.all([...files].map(load));
+  SHOTS = window.CRASH_SHOTS(); CAPS = buildCaps(ep); return ep.total;
+};
+// captions: display tokens of each chunk spread over that chunk's aligned words; 1–2 words per caption like the references
+function buildCaps(ep) { const out = [], words = ep.words;
+  ep.shots.forEach(s => s.chunks.forEach(ch => { const disp = (ch.cap || ch.say).replace(/…/g, '').split(/\s+/).filter(Boolean); const t0 = ch.t0 + .04, te = ch.te ?? (t0 + disp.length * .3);
+    const inside = words.filter(w => w.start >= t0 - .08 && w.end <= te + .1); let times;
+    if (inside.length === disp.length) times = inside.map(w => [w.start, w.end]); else { const L = disp.map(d => d.length + 2), tot = L.reduce((a, b) => a + b, 0); let x = t0; times = L.map(l => { const a = x; x += (te - t0) * l / tot; return [a, x]; }); }
+    for (let i = 0; i < disp.length; i++) { let txt = disp[i], a = times[i][0], b = times[i][1]; if (i + 1 < disp.length && (disp[i].length <= 3 || disp[i + 1].length <= 2) && (txt + ' ' + disp[i + 1]).length <= 11 && !/[.,?!]$/.test(txt)) { txt += ' ' + disp[i + 1]; b = times[i + 1][1]; i++; } out.push({ txt, a, b }); } }));
+  out.forEach((c, i) => c.b = Math.min(i + 1 < out.length ? out[i + 1].a : c.b + .5, c.b + .35)); return out; }
+function drawCaption(t) { const c = CAPS.find(x => t >= x.a - .02 && t < x.b); if (!c) return; const a = t - c.a, s = 1 + .1 * Math.exp(-a * 18);
+  g.save(); g.translate(W / 2, H * .64); g.scale(s, s); g.font = '800 82px Inter'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineJoin = 'round';
+  g.shadowColor = 'rgba(0,0,0,.45)'; g.shadowBlur = 16; g.lineWidth = 14; g.strokeStyle = '#000'; g.strokeText(c.txt, 0, 0); g.shadowBlur = 0; g.fillStyle = '#fff'; g.fillText(c.txt, 0, 0); g.restore(); }
+const TRANS = .4;
+window.__render = async (t) => {
+  const i = Math.max(0, EP.shots.findIndex(s => t >= s.t0 && t < s.t1)), s = EP.shots[i] || EP.shots[EP.shots.length - 1];
+  g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.filter = 'none'; g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
+  renderShot(s, t);
+  // soft dissolve from the previous shot
+  const prev = EP.shots[i - 1], into = t - s.t0;
+  if (prev && into < TRANS && !(SHOTS[s.scene].hardIn)) { const snap = document.createElement('canvas'); snap.width = W; snap.height = H; snap.getContext('2d').drawImage(cv, 0, 0); g.fillStyle = '#000'; g.fillRect(0, 0, W, H); renderShot(prev, t); g.globalAlpha = eio(into / TRANS); g.drawImage(snap, 0, 0); g.globalAlpha = 1; }
+  // vignette + fade out
+  const vg = g.createRadialGradient(W / 2, H / 2, H * .38, W / 2, H / 2, H * .78); vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.38)'); g.fillStyle = vg; g.fillRect(0, 0, W, H);
+  if (t > EP.total - .7) flash((t - (EP.total - .7)) / .7, '0,0,0');
+  drawCaption(t);
+  return i;
+};
+window.__ready = true;
+</script>
+<script src="/comp/crash.js"></script>
+</body></html>

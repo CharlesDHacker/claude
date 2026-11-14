@@ -1,0 +1,162 @@
+{
+ "diplomat": [
+  {
+   "file": "diplomat_0.png",
+   "w": 188,
+   "h": 520
+  },
+  {
+   "file": "diplomat_1.png",
+   "w": 224,
+   "h": 520
+  },
+  {
+   "file": "diplomat_2.png",
+   "w": 247,
+   "h": 520
+  },
+  {
+   "file": "diplomat_3.png",
+   "w": 220,
+   "h": 520
+  },
+  {
+   "file": "diplomat_4.png",
+   "w": 192,
+   "h": 520
+  },
+  {
+   "file": "diplomat_5.png",
+   "w": 188,
+   "h": 520
+  }
+ ],
+ "family": [
+  {
+   "file": "family_0.png",
+   "w": 170,
+   "h": 464
+  },
+  {
+   "file": "family_1.png",
+   "w": 261,
+   "h": 467
+  },
+  {
+   "file": "family_2.png",
+   "w": 162,
+   "h": 350
+  },
+  {
+   "file": "family_3.png",
+   "w": 171,
+   "h": 464
+  },
+  {
+   "file": "family_4.png",
+   "w": 178,
+   "h": 467
+  },
+  {
+   "file": "family_5.png",
+   "w": 172,
+   "h": 350
+  }
+ ],
+ "farmer": [
+  {
+   "file": "farmer_0.png",
+   "w": 195,
+   "h": 639
+  },
+  {
+   "file": "farmer_1.png",
+   "w": 196,
+   "h": 639
+  },
+  {
+   "file": "farmer_2.png",
+   "w": 195,
+   "h": 639
+  },
+  {
+   "file": "farmer_3.png",
+   "w": 195,
+   "h": 639
+  },
+  {
+   "file": "farmer_4.png",
+   "w": 195,
+   "h": 639
+  },
+  {
+   "file": "farmer_5.png",
+   "w": 226,
+   "h": 639
+  }
+ ],
+ "hazmat": [
+  {
+   "file": "hazmat_0.png",
+   "w": 188,
+   "h": 509
+  },
+  {
+   "file": "hazmat_1.png",
+   "w": 197,
+   "h": 508
+  },
+  {
+   "file": "hazmat_2.png",
+   "w": 199,
+   "h": 508
+  },
+  {
+   "file": "hazmat_3.png",
+   "w": 212,
+   "h": 509
+  },
+  {
+   "file": "hazmat_4.png",
+   "w": 199,
+   "h": 509
+  },
+  {
+   "file": "hazmat_5.png",
+   "w": 244,
+   "h": 510
+  }
+ ],
+ "soldier": [
+  {
+   "file": "soldier_0.png",
+   "w": 221,
+   "h": 593
+  },
+  {
+   "file": "soldier_1.png",
+   "w": 217,
+   "h": 593
+  },
+  {
+   "file": "soldier_2.png",
+   "w": 193,
+   "h": 593
+  },
+  {
+   "file": "soldier_3.png",
+   "w": 220,
+   "h": 593
+  },
+  {
+   "file": "soldier_4.png",
+   "w": 212,
+   "h": 597
+  },
+  {
+   "file": "soldier_5.png",
+   "w": 204,
+   "h": 597
+  }
+ ]
+}
