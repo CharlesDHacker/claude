@@ -343,6 +343,23 @@ function serifCap(t) {
   return `<g opacity="${a.toFixed(3)}" transform="translate(0 ${(6 * (1 - eo(clamp((t - k.t0) / .3)))).toFixed(1)})">` + lines.map((l, i) => `<text x="288" y="${y0 + i * 30}" text-anchor="middle" font-family="EBG" font-style="italic" font-weight="500" font-size="25" fill="#fff" style="filter:drop-shadow(0 0 2px rgba(0,0,0,.9)) drop-shadow(0 1px 6px rgba(0,0,0,.6))">${l}</text>`).join('') + '</g>';
 }
 
+// kinetic headline (explainer style): kicker label + word-by-word reveal, upcoming words faded, keywords coloured
+function kineticCap(t) {
+  const all = []; EP.shots.forEach(s => s.chunks.forEach(k => all.push(k)));
+  let k = null, nx = null; for (let i = 0; i < all.length; i++) if (t >= all[i].t0 - .08) { k = all[i]; nx = all[i + 1]; } if (!k) return '';
+  const words = EP.words.filter(w => w.start >= k.t0 - .02 && w.start < (k.te ?? k.t0 + 3) - .01), disp = k.say.split(/\s+/);
+  const hi = new Set((k.hi || []).map(x => x.toLowerCase())), out = clamp(((nx ? nx.t0 : 1e9) - t) / .08);
+  const M = kineticCap.m || (kineticCap.m = document.createElement('canvas').getContext('2d')); M.font = '800 40px Inter'; M.letterSpacing = '-0.6px'; const ww = w => M.measureText(w.toUpperCase()).width + 11;
+  const lines = []; let cur = [], cw = 0; disp.forEach((w, i) => { const wd = ww(w); if (cw + wd > 540 && cur.length) { lines.push(cur); cur = []; cw = 0; } cur.push(i); cw += wd; }); if (cur.length) lines.push(cur);
+  let o = `<rect width="576" height="300" fill="url(#kgrad)"/><defs><linearGradient id="kgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05070d" stop-opacity=".78"/><stop offset="1" stop-color="#05070d" stop-opacity="0"/></linearGradient></defs>`;
+  o += `<rect x="18" y="38" width="6" height="6" fill="#ff3a3a"/><text x="30" y="44.5" font-family="Inter" font-weight="800" font-size="9.5" fill="#ffffff" fill-opacity=".85" letter-spacing="2.4">${esc(k.kicker || '')}</text>`;
+  lines.forEach((ln, li) => { let x = 18; const y = 92 + li * 44; ln.forEach(i => { const w = disp[i], wt = words[i] ? words[i].start : k.t0 + i * .3, on = t >= wt - .02, a = on ? 1 : .32, pk = on ? 1 + .06 * Math.exp(-(t - wt) * 18) : 1;
+      const key = hi.has(w.toLowerCase()), col = on && key ? (k.col || '#ff3a3a') : '#ffffff', glow = key && on ? `filter:drop-shadow(0 0 8px ${k.col || '#ff3a3a'}88)` : '';
+      const txt = esc(w.toUpperCase()), wpx = ww(w);
+      o += `<text x="${x.toFixed(1)}" y="${y}" font-family="Inter" font-weight="800" font-size="40" fill="${col}" fill-opacity="${(a * out).toFixed(2)}" transform="translate(${((x) * (1 - pk)).toFixed(1)} ${((y) * (1 - pk)).toFixed(1)}) scale(${pk.toFixed(3)})" style="${glow}" letter-spacing="-.6">${txt}</text>`; x += wpx; }); });
+  return o;
+}
+
 // ---------- frame ----------
 let EP = null; const RESETS = [], GLOBAL_OV = [];
 window.__load = async (ep) => {
@@ -416,7 +433,7 @@ window.__render = async (t) => {
   if (sh.ov) o += sh.ov(c);
   (sh.chips || []).forEach(x => o += chipSVG(x, c));
   GLOBAL_OV.forEach(f => o += f(t, c, sh));
-  if (!sh.noCap && !s.noCap) o += EP.capStyle === 'serif' ? serifCap(t) : captionSVG(t);
+  if (!sh.noCap && !s.noCap) o += EP.capStyle === 'serif' ? serifCap(t) : EP.capStyle === 'kinetic' ? kineticCap(t) : captionSVG(t);
   const fT = sh.flashAt != null ? (sh.flashEnd ? che(sh.flashAt) : ch(sh.flashAt)) : (sh.flash || ['alarmGo', 'title', 'mapFire', 'hiss'].includes(s.scene) ? lt : -1);
   if (fT >= 0 && fT < .12) o += `<rect width="576" height="1024" fill="#fff" opacity="${(.55 * (1 - fT / .12)).toFixed(2)}"/>`;
   // iris transition into a new location, and out of it before the next one
