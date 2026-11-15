@@ -11,9 +11,9 @@ srv.listen(0, '127.0.0.1', async () => {
   const open = async () => { const pg = await br.newPage({ viewport: { width: 720, height: 1280 } }); pg.on('pageerror', e => { console.error('PAGE ERROR', e.message); process.exitCode = 1; }); await pg.goto(url); await pg.waitForFunction(() => window.__ready); await pg.evaluate(e => window.__load(e), E); return pg; };
   try {
     if (dbg) { const pg = await open(); for (const s of dbg.split(',')) { await pg.evaluate(t => window.__render(t), +s); await pg.screenshot({ path: `${out}_${(+s).toFixed(2).padStart(6, '0')}.png` }); } return; }
-    const n = Math.round(E.total * fps), dir = fs.mkdtempSync(path.join(os.tmpdir(), 'frames3d-')), t0 = Date.now();
-    await Promise.all(Array.from({ length: workers }, async (_, w) => { const pg = await open(); for (let f = w; f < n; f += workers) { await pg.evaluate(t => window.__render(t), f / fps); await pg.screenshot({ path: path.join(dir, String(f).padStart(6, '0') + '.jpg'), type: 'jpeg', quality: 93 }); if (w === 0 && f % 300 === 0) console.log(`frame ${f}/${n} ${((Date.now() - t0) / 1000).toFixed(0)}s`); } }));
-    const ff = ['-v', 'error', '-y', '-framerate', String(fps), '-i', path.join(dir, '%06d.jpg')]; if (audio) ff.push('-i', audio);
+    const rng0 = opt('--range', null), [fa, fb] = rng0 ? rng0.split(',').map(x => Math.round(+x * fps)) : [0, Math.round(E.total * fps)], n = Math.round(E.total * fps), dir = fs.mkdtempSync(path.join(os.tmpdir(), 'frames3d-')), t0 = Date.now();
+    await Promise.all(Array.from({ length: workers }, async (_, w) => { const pg = await open(); for (let f = fa + w; f < fb; f += workers) { await pg.evaluate(t => window.__render(t), f / fps); await pg.screenshot({ path: path.join(dir, String(f).padStart(6, '0') + '.jpg'), type: 'jpeg', quality: 93 }); if (w === 0 && f % 300 === 0) console.log(`frame ${f}/${n} ${((Date.now() - t0) / 1000).toFixed(0)}s`); } }));
+    const ff = ['-v', 'error', '-y', '-framerate', String(fps), '-start_number', String(fa), '-i', path.join(dir, '%06d.jpg')]; if (audio) ff.push('-i', audio);
     ff.push('-vf', 'scale=1080:1920:flags=lanczos', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '17', '-preset', 'medium', '-r', String(fps)); if (audio) ff.push('-c:a', 'aac', '-b:a', '192k', '-shortest'); ff.push(out);
     const r = spawnSync('ffmpeg', ff, { stdio: 'inherit' }); fs.rmSync(dir, { recursive: true, force: true });
     console.log(r.status === 0 ? `done ${n} frames ${E.total.toFixed(1)}s in ${((Date.now() - t0) / 1000).toFixed(0)}s` : 'ffmpeg failed');
