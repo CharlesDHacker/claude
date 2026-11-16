@@ -401,7 +401,7 @@ window.__render = async (t) => {
   const L = LOC[sh.loc].position;
   const hitT = sh.hitAt != null ? (sh.hitEnd ? che(sh.hitAt) : ch(sh.hitAt)) : lt;
   const amp = (sh.shake || 0) + (sh.kick ? sh.kick(c) : 0) + ((sh.hit ?? (s.scene === 'alarmGo' || s.scene === 'grab' || s.scene === 'hiss' ? .06 : 0)) * (hitT >= 0 ? Math.exp(-hitT * 6) : 0));
-  const dr = sh.loc === 'EXT' ? .25 : .035;   // slow handheld drift so the camera is never perfectly still
+  const dr = sh.drift ?? (sh.loc === 'EXT' ? .25 : .035);   // slow handheld drift so the camera is never perfectly still
   camera.position.set(L.x + cm.p[0] + Math.sin(t * 61) * amp + Math.sin(t * .7) * dr, cm.p[1] + Math.cos(t * 53) * amp + Math.cos(t * .53) * dr * .7, cm.p[2] + Math.sin(t * .41) * dr);
   camera.fov = cm.fov; camera.updateProjectionMatrix(); camera.lookAt(L.x + cm.at[0], cm.at[1], cm.at[2]); if (cm.roll) camera.rotateZ(cm.roll);
   const wIn = whipIn ? 1 - eo(clamp(lt / .26)) : 0, wOut = whipOut ? eio(clamp((.2 - (s.t1 - t)) / .2)) : 0, wDir = (i % 2 ? 1 : -1);
