@@ -352,7 +352,7 @@ function drawPOV(prev, cur, k, t, rip) {
   const gr = SG.createLinearGradient(0, 0, 600, 1300); gr.addColorStop(0, 'rgba(255,255,255,.08)'); gr.addColorStop(.4, 'rgba(255,255,255,0)'); SG.fillStyle = gr; SG.fillRect(0, 0, 600, 1300); scrTex.needsUpdate = true;
 }
 const c2l = (x, y) => V((x / 600 - .5) * SCREEN_W, (.5 - y / 1300) * SCREEN_H, 0);   // canvas px -> phone local
-const REST = V(.03, -.035, .012);
+const REST = V(.038, -.052, .011);
 // ---------- phone placement + camera ----------
 const EYE = V(.02, 1.36, .62), PBASE = V(0, 1.08, .26);
 function placePhone(t) { PHONE.position.copy(PBASE).add(V(Math.sin(t * .9) * .004, Math.sin(t * 1.3) * .003, 0)); PHONE.lookAt(R.localToWorld(EYE.clone())); PHONE.rotateZ(-.04 + Math.sin(t * .7) * .012); PHONE.rotateX(Math.sin(t * .5) * .015); PHONE.updateMatrixWorld(true); }
@@ -391,3 +391,37 @@ Object.assign(SHOTS, {
     { ov: c => pill(288, CAPOV, 'QR CODE IN MY HIGHLIGHTS', LIME, c.ch(0) + .05, 24) }),
 });
 RESETS.push(() => { const m = isMine(); G.visible = false; J.arm.forEach(A => [A.up, A.lo, A.el, A.cuff, A.hand].forEach(x => x.visible = false)); DESK.visible = HAND.visible = PHONE.visible = m; });
+
+// ---------- DM chat screen (skit episodes) ----------
+const MSG = [['f', 'bro my wardrobe is SO bad'], ['f', 'same 3 hoodies every single day'], ['f', 'how are you in a new fit every week??'], ['m', 'ok ill put you on'], ['m', 'you heard of TikTok Pro?'], ['f', 'tiktok what'],
+  ['f', 'wait thats actually crazy'], ['f', 'say less. downloading rn'], ['m', 'go cop something that isnt a hoodie']];
+function scrChat(g, t, n, a = 9) {
+  g.fillStyle = '#0b0b0f'; g.fillRect(0, 0, 600, 1300); statusBar(g, 1);
+  g.strokeStyle = '#fff'; g.lineWidth = 5; g.beginPath(); g.moveTo(52, 110); g.lineTo(36, 128); g.lineTo(52, 146); g.stroke();
+  const av = g.createLinearGradient(80, 100, 150, 160); av.addColorStop(0, '#ff7a5a'); av.addColorStop(1, '#c03a8a'); g.fillStyle = av; g.beginPath(); g.arc(112, 128, 32, 0, 7); g.fill(); g.fillStyle = '#fff'; g.font = font(800, 30); g.textAlign = 'center'; g.fillText('J', 112, 139); g.textAlign = 'left';
+  g.font = font(800, 30); g.fillText('Jay', 160, 122); g.fillStyle = '#3cff8a'; g.beginPath(); g.arc(166, 148, 6, 0, 7); g.fill(); g.fillStyle = '#9aa0ae'; g.font = font(600, 22); g.fillText('Active now', 180, 156);
+  g.fillStyle = '#1b1c22'; g.fillRect(0, 186, 600, 2);
+  rr(g, 30, 1190, 470, 70, 35); g.fillStyle = '#1b1c22'; g.fill(); g.fillStyle = '#6a6e7a'; g.font = font(600, 26); g.fillText('Message...', 60, 1234); g.fillStyle = LIME; g.beginPath(); g.arc(545, 1225, 32, 0, 7); g.fill(); g.fillStyle = '#111'; g.beginPath(); g.moveTo(533, 1210); g.lineTo(562, 1225); g.lineTo(533, 1240); g.closePath(); g.fill();
+  g.font = font(600, 38); const wrap = s => { const w = s.split(' '), L = []; let cur = ''; w.forEach(x => { if (g.measureText((cur + ' ' + x).trim()).width > 400) { L.push(cur); cur = x; } else cur = (cur + ' ' + x).trim(); }); L.push(cur); return L; };
+  let y = 1160; for (let i = n - 1; i >= 0; i--) { const [who, txt] = MSG[i], L = wrap(txt), w = Math.max(...L.map(l => g.measureText(l).width)) + 48, h = L.length * 48 + 34, me = who === 'm';
+    y -= h; const x = me ? 570 - w : 30; const pop = i === n - 1 ? Math.min(1, E.spring(a / .25 * .9)) : 1; if (y + h < 190) break;
+    g.save(); g.translate(me ? x + w : x, y + h); g.scale(pop, pop); g.translate(-(me ? x + w : x), -(y + h));
+    rr(g, x, y, w, h, 30); g.fillStyle = me ? LIME : '#26272e'; g.fill(); g.fillStyle = me ? '#111' : '#fff'; L.forEach((l, j) => g.fillText(l, x + 24, y + 54 + j * 48)); g.restore(); y -= 16; }
+}
+SCRF.chat = scrChat;
+const chatN = (base, extra = []) => (c, a) => { const i = c.o.chunks.findIndex((_, j) => c.ch(j) >= 0 && (j + 1 >= c.o.chunks.length || c.ch(j + 1) < 0)); return [base, Math.max(0, a)]; };
+const chatB = (n, d = .29, pt = [300, 960]) => ({ scr: ['chat', (c, a) => [n, Math.max(0, a)]], d, pt });
+Object.assign(SHOTS, {
+  wchat1: povShot([{ scr: ['chat', (c, a) => [a < 2.4 ? 1 : 2, a < 2.4 ? a : a - 2.4]], d: .29, pt: [300, 980] }, chatB(3), chatB(4), chatB(5), chatB(6)]),
+  wwhat: povShot([{ scr: ['app', (c, a) => [clamp((a - 1.2) / .5)]], d: .42 }, { scr: ['balance'], pt: [230, 300], d: .22, snap: 1 }]),
+  wearn: povShot([{ scr: ['checkin', (c, a) => [clamp((a - .9) / .4)]], d: .42, tap: [300, 830, .9] }, { scr: ['coupons', (c, a) => [clamp(a / .8)]], d: .42, tap: [300, 950, 1.1] }, { scr: ['checkin', () => [1]], d: .36 }, { scr: ['event'], d: .36, tap: [160, 535, .4] }],
+    { ov: c => on(c, 1) ? tradeGfx(c.ch(1) + .1, c.t) : '' }),
+  wproof: povShot([{ scr: ['history', (c, a) => [null, 0, lerp(80, 0, sm(0, .6, a))]], d: .42, scroll: 1 }, { scr: ['history', (c, a) => [[3, clamp(a / .25)], 0]], pt: [300, ROWY(3)], d: .2, snap: 1 }, { scr: ['history', (c, a) => [[5, clamp(a / .25)], 0]], pt: [300, ROWY(5)], d: .2, snap: 1 }, { scr: ['history', (c, a) => [null, clamp(a / .8)]], d: .42 }],
+    { ov: c => c.ch(3) >= 0 ? stat(CAPOV + 20, '4.5M', 'STARS → SHOP COUPONS', LIME, c.ch(3)) : '' }),
+  wchat2: povShot([chatB(7)]),
+  wqr: povShot([{ scr: ['qr', () => [0]], pt: [300, 600], d: .28 }, { scr: ['profile', (c, a) => [clamp(a / .5)]], d: .38, tap: [95, 680, .4] }, { scr: ['qr', (c, a) => [clamp(a / .4)]], pt: [300, 330], d: .21, snap: 1 }, { scr: ['qr', () => [1]], d: .42 }],
+    { ov: c => c.ch(3) >= 0 ? stat(CAPOV + 20, '450K ≈ $45', 'NEW USER REWARD · IN STARS', MINT, c.ch(3)) : '' }),
+  wchat3: povShot([chatB(8), chatB(9, .4, [300, 700])],
+    { ov: c => c.ch(1) >= 0 ? pill(288, CAPOV, 'QR CODE IN MY HIGHLIGHTS', LIME, c.ch(1) - .6, 24) : '' }),
+});
+window.__tpro = true;
