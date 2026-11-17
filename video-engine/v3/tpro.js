@@ -142,8 +142,8 @@ function scrBalance(g, t) { g.fillStyle = '#0d0e12'; g.fillRect(0, 0, 600, 1300)
   tiles.forEach(([a, b, c], i) => { const x = 40 + (i % 2) * 270, y = 500 + Math.floor(i / 2) * 300; rr(g, x, y, 250, 280, 26); g.fillStyle = '#1b1d24'; g.fill(); rr(g, x + 20, y + 20, 210, 150, 18); const gr = g.createLinearGradient(x, y, x + 250, y + 170); gr.addColorStop(0, c); gr.addColorStop(1, '#1b1d24'); g.fillStyle = gr; g.fill();
     g.fillStyle = '#fff'; g.font = font(800, 40); g.fillText(i === 2 ? 'GIFT' : '% OFF', x + 40, y + 115); g.font = font(800, 26); g.fillText(a, x + 22, y + 215); g.fillStyle = '#9aa0ae'; g.font = font(600, 22); g.fillText(b, x + 22, y + 250); });
   rr(g, 40, 1130, 520, 90, 45); g.fillStyle = LIME; g.fill(); g.fillStyle = '#111'; g.textAlign = 'center'; g.font = font(800, 32); g.fillText('Redeem Stars', 300, 1188); g.textAlign = 'left'; }
-const HIST_ROWS = 9, HIST_Y = 170, HSC = 600 / 1170;
-function scrHistory(g, t, hl, all) { g.fillStyle = '#f8f8f8'; g.fillRect(0, 0, 600, 1300); statusBar(g, 0); g.fillStyle = '#111'; g.font = font(800, 38); g.fillText('Stars history', 40, 135);
+const HIST_ROWS = 9, HSC = 600 / 1170;
+function scrHistory(g, t, hl, all, off = 0) { const HIST_Y = 170 + off; g.fillStyle = '#f8f8f8'; g.fillRect(0, 0, 600, 1300); statusBar(g, 0); g.fillStyle = '#111'; g.font = font(800, 38); g.fillText('Stars history', 40, 135);
   if (IMG_HIST) g.drawImage(IMG_HIST, 0, 0, 1170, 2001, 0, HIST_Y, 600, 2001 * HSC);
   const rowH = 2001 / HIST_ROWS * HSC; const box = (i, col, a) => { g.globalAlpha = a; g.lineWidth = 9; g.strokeStyle = col; rr(g, 12, HIST_Y + i * rowH + 6, 576, rowH - 12, 18); g.stroke(); g.fillStyle = col; g.globalAlpha = a * .16; g.fill(); g.globalAlpha = 1; };
   if (hl) { box(hl[0], '#12c24a', hl[1]); box(hl[0], '#12c24a', hl[1] * .6); } if (all > 0) for (let i = 2; i < 9; i++) box(i, '#18b84a', clamp(all * 3 - (i - 2) * .25)); }
@@ -248,11 +248,11 @@ const pill = (x, y, txt, col, k, size = 22) => { if (k <= 0) return ''; const sc
 const stat = (y, big, sub, col, k) => { if (k <= 0) return ''; const sc = Math.min(1, E.spring(k / .3 * .9)); return `<g transform="translate(288 ${y}) scale(${sc.toFixed(3)})" style="filter:drop-shadow(0 8px 20px rgba(0,0,0,.6))"><rect x="-240" y="-70" width="480" height="140" rx="22" fill="#0b0d14" fill-opacity=".9" stroke="${col}" stroke-opacity=".6" stroke-width="2"/><text y="16" text-anchor="middle" font-family="Inter" font-weight="800" font-size="60" fill="${col}">${big}</text><text y="50" text-anchor="middle" font-family="Inter" font-weight="800" font-size="16" fill="#d8dce8" letter-spacing="1.5">${sub}</text></g>`; };
 const coinSVG = (x, y, r) => `<g transform="translate(${x} ${y})"><circle r="${r}" fill="#6cc426" stroke="#2f7a10" stroke-width="${r * .12}"/><circle r="${r * .8}" fill="#9be03a"/><path d="${Array.from({ length: 10 }, (_, i) => { const a = -Math.PI / 2 + i * Math.PI / 5, q = i % 2 ? r * .27 : r * .6; return (i ? 'L' : 'M') + f1(Math.cos(a) * q) + ' ' + f1(Math.sin(a) * q); }).join('')}Z" fill="#fffbe0"/></g>`;
 function linkGfx(k, t) { if (k <= 0) return ''; const a = eo(clamp(k / .4)), dash = clamp((k - .3) / .5);
-  return `<g opacity="${a.toFixed(2)}" transform="translate(0 ${(20 * (1 - a)).toFixed(1)})" style="filter:drop-shadow(0 6px 14px rgba(0,0,0,.6))"><rect x="70" y="760" width="170" height="90" rx="20" fill="#0b0d14" fill-opacity=".9" stroke="#fff" stroke-opacity=".5"/><text x="155" y="814" text-anchor="middle" font-family="Inter" font-weight="800" font-size="22" fill="#fff">YOUR TIKTOK</text>
+  return `<g opacity="${a.toFixed(2)}" transform="translate(0 ${(20 * (1 - a) - 50).toFixed(1)})" style="filter:drop-shadow(0 6px 14px rgba(0,0,0,.6))"><rect x="70" y="760" width="170" height="90" rx="20" fill="#0b0d14" fill-opacity=".9" stroke="#fff" stroke-opacity=".5"/><text x="155" y="814" text-anchor="middle" font-family="Inter" font-weight="800" font-size="22" fill="#fff">YOUR TIKTOK</text>
     <rect x="336" y="760" width="170" height="90" rx="20" fill="#0b0d14" fill-opacity=".9" stroke="${LIME}"/>${coinSVG(372, 805, 18)}<text x="448" y="814" text-anchor="middle" font-family="Inter" font-weight="800" font-size="22" fill="${LIME}">PRO</text>
     <line x1="246" y1="805" x2="${f1(246 + 84 * dash)}" y2="805" stroke="${LIME}" stroke-width="5" stroke-dasharray="10 7"/>${dash >= 1 ? `<circle cx="288" cy="805" r="16" fill="${LIME}"/><path d="M280 805 l6 6 l11 -12" stroke="#111" stroke-width="4" fill="none"/>` : ''}</g>`; }
 function tradeGfx(k, t) { if (k <= 0) return ''; const a = eo(clamp(k / .4)), m = clamp((k - .4) / .5);
-  return `<g opacity="${a.toFixed(2)}" style="filter:drop-shadow(0 6px 14px rgba(0,0,0,.6))">${coinSVG(150, 820, 46)}<text x="150" y="900" text-anchor="middle" font-family="Inter" font-weight="800" font-size="20" fill="#fff">STARS</text>
+  return `<g opacity="${a.toFixed(2)}" transform="translate(0 -60)" style="filter:drop-shadow(0 6px 14px rgba(0,0,0,.6))">${coinSVG(150, 820, 46)}<text x="150" y="900" text-anchor="middle" font-family="Inter" font-weight="800" font-size="20" fill="#fff">STARS</text>
     <path d="M220 820 h${f1(110 * m)}" stroke="${GOLDC}" stroke-width="7" stroke-linecap="round"/>${m >= 1 ? `<path d="M318 806 l16 14 l-16 14" stroke="${GOLDC}" stroke-width="7" fill="none" stroke-linecap="round"/>` : ''}
     <g opacity="${m.toFixed(2)}" transform="translate(430 820) rotate(-6)"><rect x="-80" y="-48" width="160" height="96" rx="12" fill="#ff2f6a"/><circle cx="-80" cy="0" r="14" fill="#1a1a22"/><circle cx="80" cy="0" r="14" fill="#1a1a22"/><line x1="-30" y1="-40" x2="-30" y2="40" stroke="#fff" stroke-dasharray="5 5" stroke-opacity=".7"/><text x="22" y="10" text-anchor="middle" font-family="Inter" font-weight="800" font-size="26" fill="#fff">% OFF</text></g>
     <text x="430" y="900" text-anchor="middle" font-family="Inter" font-weight="800" font-size="20" fill="#fff" opacity="${m.toFixed(2)}">COUPONS</text></g>`; }
@@ -292,3 +292,102 @@ window.__tpro = true;
 CAMS.face = () => ({ p: [0, 1.7, .55], at: [0, 1.68, 0], fov: 30 });
 CAMS.side = () => ({ p: [.9, 1.5, 1.2], at: [0, 1.4, 0], fov: 38 });
 SHOTS.tdbg = shot([['show', 'face', 'app', c => [1]], ['show', 'side', 'app', c => [1]], ['show', 'med', 'app', c => [1]], ['look', 'med', 'app', c => [1]]], { ap: .0001 });
+
+// ======================================================================
+// POV VERSION: first-person hand holding the phone over a glowing desk.
+// The camera is built relative to the phone, so punch-ins aim at a point on the screen.
+// ======================================================================
+const DESK = new THREE.Group(); R.add(DESK);
+{
+  const top = boxm(1.7, .04, .85, std('#2a2420', { roughness: .45 }), 0, .72, -.25, DESK);
+  boxm(1.7, .012, .012, emis('#b04cff', 2.4), 0, .70, .175, DESK);
+  const monT = canvasTex(640, 360, (g, w, h) => { const gr = g.createLinearGradient(0, 0, w, h); gr.addColorStop(0, '#20206a'); gr.addColorStop(.6, '#7a2aa0'); gr.addColorStop(1, '#ff7a4a'); g.fillStyle = gr; g.fillRect(0, 0, w, h); g.fillStyle = 'rgba(255,255,255,.18)'; for (let i = 0; i < 7; i++) g.fillRect(40, 40 + i * 42, 180 + (i * 97) % 260, 20); g.fillStyle = 'rgba(0,0,0,.35)'; g.fillRect(380, 60, 220, 240); });
+  boxm(.92, .54, .03, '#0a0a0e', .05, 1.07, -.6, DESK); mesh(new THREE.PlaneGeometry(.88, .5), new THREE.MeshBasicMaterial({ map: monT, toneMapped: false }), .05, 1.07, -.584, DESK);
+  boxm(.05, .3, .05, '#0a0a0e', .05, .86, -.62, DESK); boxm(.26, .015, .18, '#0a0a0e', .05, .745, -.6, DESK);
+  // RGB keyboard
+  const kb = boxm(.46, .022, .15, '#121218', -.02, .75, -.22, DESK); const keyT = canvasTex(512, 168, (g, w, h) => { g.fillStyle = '#0c0c10'; g.fillRect(0, 0, w, h); for (let r = 0; r < 5; r++) for (let c = 0; c < 16; c++) { g.fillStyle = `hsl(${(c * 18 + r * 25) % 360},90%,60%)`; g.fillRect(8 + c * 31.5, 10 + r * 31, 26, 24); g.fillStyle = '#16161c'; g.fillRect(10 + c * 31.5, 12 + r * 31, 22, 18); } });
+  const kt = mesh(new THREE.PlaneGeometry(.45, .14), new THREE.MeshBasicMaterial({ map: keyT, toneMapped: false }), -.02, .7615, -.22, DESK); kt.rotation.x = -Math.PI / 2;
+  const mouse = mesh(new THREE.SphereGeometry(.035, 20, 14), std('#15151b', { roughness: .3 }), .36, .755, -.2, DESK); mouse.scale.set(.85, .45, 1.3); boxm(.008, .004, .03, emis('#2ad8ff', 2), .36, .772, -.225, DESK);
+  boxm(.32, .004, .26, std('#1b1b26', { roughness: 1 }), .36, .742, -.2, DESK);
+  const mug = mesh(new THREE.CylinderGeometry(.045, .04, .1, 24), std('#e8e2d8', { roughness: .4 }), -.48, .79, -.12, DESK); const hnd = mesh(new THREE.TorusGeometry(.025, .007, 8, 16), std('#e8e2d8'), -.525, .79, -.12, DESK); hnd.rotation.y = Math.PI / 2;
+  mesh(new THREE.CircleGeometry(.04, 20), std('#3a2216', { roughness: .2 }), -.48, .835, -.12, DESK).rotation.x = -Math.PI / 2;
+  // headphones stand, small plant, figure
+  boxm(.012, .26, .012, '#202028', -.62, .86, -.45, DESK); const hp = mesh(new THREE.TorusGeometry(.07, .014, 8, 24, Math.PI), std('#111'), -.62, .99, -.45, DESK); [-1, 1].forEach(s => mesh(new THREE.CylinderGeometry(.035, .035, .03, 18), std('#111'), -.62 + s * .07, .95, -.45, DESK).rotation.z = Math.PI / 2);
+  const pot = mesh(new THREE.CylinderGeometry(.05, .04, .08, 16), std('#d8d2c4'), .58, .78, -.48, DESK); for (let i = 0; i < 7; i++) { const lf = mesh(new THREE.SphereGeometry(.04, 10, 8), std('#2e8d3a'), .58 + Math.cos(i * 2) * .04, .85 + (i % 3) * .03, -.48 + Math.sin(i * 2) * .04, DESK); lf.scale.set(.5, 1.5, .25); lf.rotation.z = Math.cos(i * 2) * .7; }
+  const fig = mesh(new THREE.CapsuleGeometry(.025, .06, 6, 12), std(LIME, { roughness: .4 }), .4, .79, -.5, DESK); mesh(new THREE.SphereGeometry(.028, 14, 10), std(LIME, { roughness: .4 }), .4, .855, -.5, DESK);
+  const deskL = new THREE.PointLight('#ff6ad8', 3, 2.5, 1.6); deskL.position.set(.3, 1.3, -.3); DESK.add(deskL);
+  const monL = new THREE.PointLight('#7a6aff', 3, 2, 1.6); monL.position.set(.05, 1.05, -.4); DESK.add(monL);
+  const fill = new THREE.PointLight('#ffe8d8', 1.6, 1.6, 1.4); fill.position.set(-.1, 1.5, .9); DESK.add(fill);
+}
+// ---------- the hand (child of the phone; phone-local: x right, y up, +z out of the screen) ----------
+const SKINH = new THREE.MeshStandardMaterial({ color: '#c99073', roughness: .6, emissive: '#2a0e06', emissiveIntensity: .06 }), NAIL = std('#e8c4b4', { roughness: .25 });
+const HAND = new THREE.Group(); PHONE.add(HAND);
+const limb = (r, mat, parent = HAND) => mesh(new THREE.CapsuleGeometry(r, 1, 6, 14), mat, 0, 0, 0, parent);
+const seg2 = (m, a, b, r) => { const d = b.clone().sub(a), L = d.length(); m.position.copy(a).add(b).multiplyScalar(.5); m.scale.set(1, Math.max(L / (1 + 2 * r), .01), 1); m.quaternion.setFromUnitVectors(up, d.normalize()); };
+const HP = { palm: mesh(new RoundedBoxGeometry(.078, .09, .03, 4, .013), SKINH, .012, -.052, -.024, HAND) };
+HP.palm.rotation.z = -.35;
+// fingers wrap round the left edge: proximal along the back, middle round the edge, tip on the front
+HP.fing = [0, 1, 2, 3].map(i => { const r = .0088 - i * .0007; return { r, a: limb(r, SKINH), b: limb(r * .95, SKINH), c: limb(r * .9, SKINH), nail: mesh(new THREE.SphereGeometry(r * .6, 10, 8), NAIL, 0, 0, 0, HAND) }; });
+HP.th = { a: limb(.0098, SKINH), b: limb(.0088, SKINH), nail: mesh(new THREE.SphereGeometry(.0068, 10, 8), NAIL, 0, 0, 0, HAND) };
+HP.wrist = limb(.026, SKINH); HP.sleeve = mesh(new THREE.CylinderGeometry(.05, .058, 1, 22, 1, true), std('#17181f', { roughness: .95, side: THREE.DoubleSide }), 0, 0, 0, HAND); HP.cuff = mesh(new THREE.TorusGeometry(.047, .009, 8, 22), std('#22242e'), 0, 0, 0, HAND);
+const PW = SCREEN_W / 2 + .0025, PHH = .0775;
+function poseHand(t, thumb) {
+  HP.fing.forEach((f, i) => { const y = .01 - i * .024 - (i === 3 ? .004 : 0), back = V(-.006, y - .008, -.03), edge = V(-PW - .004, y, -.006), tip = V(-PW + .0015 - i * .0006, y + .003, .0058);
+    const mid = V(-PW - .006, y + .002, -.016); seg2(f.a, back, mid, f.r); seg2(f.b, mid, edge, f.r); seg2(f.c, edge, tip, f.r); f.nail.position.copy(tip).add(V(.0005, 0, .002)); f.nail.scale.set(1, .8, .35); });
+  const base = V(PW - .004, -PHH + .02, -.018), knuckle = V(PW + .006, -PHH + .042, -.002); const tip = thumb.clone();
+  const mid = knuckle.clone().lerp(tip, .5).add(V(.006, 0, .006 + thumb.z * .2));
+  seg2(HP.th.a, base, knuckle, .0098); seg2(HP.th.b, knuckle, tip, .0088); HP.th.nail.position.copy(tip).add(V(0, .002, .006)); HP.th.nail.scale.set(.9, 1.1, .35); HP.th.nail.quaternion.copy(HP.th.b.quaternion);
+  const w0 = V(.03, -PHH - .028, -.028), w1 = V(.1, -PHH - .2, .11); seg2(HP.wrist, w0, w1, .026);
+  const s0 = V(.058, -PHH - .1, .045), s1 = V(.16, -PHH - .36, .26); seg2(HP.sleeve, s0, s1, 0); HP.sleeve.scale.x = HP.sleeve.scale.z = 1; HP.cuff.position.copy(s0); HP.cuff.quaternion.copy(HP.sleeve.quaternion); HP.cuff.rotateX(Math.PI / 2);
+}
+// ---------- screen compositing: slide between screens, tap ripples ----------
+const OFFA = document.createElement('canvas'), OFFB = document.createElement('canvas'); [OFFA, OFFB].forEach(c => { c.width = 600; c.height = 1300; });
+const SCRF = { app: scrApp, balance: scrBalance, history: scrHistory, qr: scrQR, profile: scrProfile, checkin: scrCheckin, event: scrEvent, coupons: scrCoupons };
+function drawPOV(prev, cur, k, t, rip) {
+  const ga = OFFB.getContext('2d'); ga.save(); ga.textAlign = 'left'; SCRF[cur[0]](ga, t, ...(cur[1] || [])); ga.restore();
+  SG.clearRect(0, 0, 600, 1300);
+  if (prev && k < 1 && prev[0] !== cur[0]) { const gb = OFFA.getContext('2d'); gb.save(); gb.textAlign = 'left'; SCRF[prev[0]](gb, t, ...(prev[1] || [])); gb.restore(); const e = eio(k); SG.drawImage(OFFA, -600 * e, 0); SG.drawImage(OFFB, 600 * (1 - e), 0); }
+  else SG.drawImage(OFFB, 0, 0);
+  if (rip) { const [x, y, a] = rip; if (a >= 0 && a < .6) { SG.globalAlpha = .45 * (1 - a / .6); SG.fillStyle = '#fff'; SG.beginPath(); SG.arc(x, y, 30 + a * 160, 0, 7); SG.fill(); SG.globalAlpha = 1; } }
+  const gr = SG.createLinearGradient(0, 0, 600, 1300); gr.addColorStop(0, 'rgba(255,255,255,.08)'); gr.addColorStop(.4, 'rgba(255,255,255,0)'); SG.fillStyle = gr; SG.fillRect(0, 0, 600, 1300); scrTex.needsUpdate = true;
+}
+const c2l = (x, y) => V((x / 600 - .5) * SCREEN_W, (.5 - y / 1300) * SCREEN_H, 0);   // canvas px -> phone local
+const REST = V(.03, -.035, .012);
+// ---------- phone placement + camera ----------
+const EYE = V(.02, 1.36, .62), PBASE = V(0, 1.08, .26);
+function placePhone(t) { PHONE.position.copy(PBASE).add(V(Math.sin(t * .9) * .004, Math.sin(t * 1.3) * .003, 0)); PHONE.lookAt(R.localToWorld(EYE.clone())); PHONE.rotateZ(-.04 + Math.sin(t * .7) * .012); PHONE.rotateX(Math.sin(t * .5) * .015); PHONE.updateMatrixWorld(true); }
+// camera aims at a phone-local point from distance d; the point lands ~33% down the frame (captions sit at 62%)
+function povCam(pt, d) { const w = PHONE.localToWorld(pt.clone()), n = PHONE.localToWorld(V(pt.x, pt.y, 1)).sub(w).normalize(), upw = PHONE.localToWorld(V(pt.x, pt.y + 1, 0)).sub(w).normalize(); R.worldToLocal(w);
+  const ofs = upw.clone().multiplyScalar(-.118 * d), p = w.clone().add(n.multiplyScalar(d)).add(ofs), at = w.clone().add(ofs); return { p: [p.x, p.y, p.z], at: [at.x, at.y, at.z], fov: 38 }; }
+// one shot = list of beats (one per chunk): { scr:[mode,args(c)], pt:[x,y canvas px], d, tap:[x,y canvas px, at], scroll }
+function povShot(beats, o = {}) {
+  const beatOf = c => { let i = 0; beats.forEach((_, j) => { if (c.ch(j) >= 0) i = j; }); return i; };
+  const camB = (c, i) => { const b = beats[i]; return povCam(b.pt ? c2l(...b.pt) : V(0, -.004, 0), b.d || .42); };
+  return { loc: 'TPRO', aperture: .00035, drift: .0025, cut: true, focus: undefined, noCap: false,
+    fx: c => { placePhone(c.t); const i = beatOf(c), b = beats[i], pb = beats[Math.max(0, i - 1)], k = i ? clamp(c.ch(i) / .38) : 1;
+      const args = b.scr[1] ? b.scr[1](c, c.ch(i)) : [], pargs = pb.scr[1] && i ? pb.scr[1](c, c.ch(i - 1)) : args;
+      let thumb = REST.clone(), rip = null;
+      if (b.tap) { const a = c.ch(i) - b.tap[2], tp = c2l(b.tap[0], b.tap[1]); const go = sm(-.35, 0, a), back = sm(.35, .7, a); thumb.lerp(tp.clone().add(V(.004, -.012, .0105)), go * (1 - back)); thumb.z -= .004 * Math.max(0, 1 - Math.abs(a) / .08); rip = [b.tap[0], b.tap[1], a]; }
+      if (b.scroll) { const a = c.ch(i); const s = sm(.1, 1.4, a); thumb = c2l(330, lerp(900, 650, s)).add(V(.004, -.012, .0105 + (s > 0 && s < 1 ? -.003 : .003))); }
+      poseHand(c.t, thumb); drawPOV([pb.scr[0], pargs], [b.scr[0], args], k, c.t, rip); },
+    cam: c => { const i = beatOf(c), a = camB(c, i); if (!i) return a; const b = camB(c, i - 1), k = eio(clamp(c.ch(i) / (beats[i].snap ? .22 : .45))); return { p: P(b.p, a.p, k), at: P(b.at, a.at, k), fov: 38 }; }, ...o };
+}
+const ROWY = i => 170 + 2001 / 9 * HSC * (i + .5);
+const CAPOV = 745;
+Object.assign(SHOTS, {
+  thook: povShot([{ scr: ['balance'], pt: [230, 300], d: .19 }, { scr: ['balance'], d: .42 }, { scr: ['history', (c, a) => [null, clamp(a / 1.2), 0]], d: .42 }],
+    { ov: c => c.ch(2) >= 0 ? pill(288, CAPOV, '4.5M STARS → COUPONS', LIME, c.ch(2) - .3, 22) : '' }),
+  twhat: povShot([{ scr: ['app', () => [0]], d: .42 }, { scr: ['app', (c, a) => [clamp(a / .5)]], pt: [300, 700], d: .32 }, { scr: ['balance'], pt: [100, 300], d: .24, snap: 1 }],
+    { ov: c => c.ch(1) >= 0 && c.ch(2) < 0 ? linkGfx(c.ch(1) + .1, c.t).replace(/translate\(0 /, 'translate(0 ') : '' }),
+  tstars: povShot([{ scr: ['checkin', (c, a) => [clamp((a - .9) / .4)]], d: .42, tap: [300, 830, 1.0] }, { scr: ['coupons', (c, a) => [clamp(a / .8)]], d: .42, tap: [300, 950, 1.1] }],
+    { ov: c => tradeGfx(c.ch(1) + .1, c.t).replace(/translate\(0 /g, 'translate(0 ') }),
+  tproof: povShot([{ scr: ['history', (c, a) => [null, 0, lerp(120, 0, sm(.1, 1.2, a))]], d: .42, scroll: 1 }, { scr: ['history', (c, a) => [[3, clamp(a / .25)], 0]], pt: [300, ROWY(3)], d: .2, snap: 1 }, { scr: ['history', (c, a) => [[5, clamp(a / .25)], 0]], pt: [300, ROWY(5)], d: .2, snap: 1 }, { scr: ['history', (c, a) => [[6, clamp(a / .25)], 0]], pt: [300, ROWY(6)], d: .2, snap: 1 }, { scr: ['history', (c, a) => [null, clamp(a / .8)]], d: .42 }],
+    { ov: c => c.ch(4) >= 0 ? stat(CAPOV + 20, '4.5M', 'STARS → SHOP COUPONS', LIME, c.ch(4)) : '' }),
+  ttips: povShot([{ scr: ['checkin', () => [0]], d: .42 }, { scr: ['checkin', (c, a) => [clamp((a - .7) / .4)]], d: .36, tap: [300, 830, .8] }, { scr: ['event'], d: .36, tap: [160, 535, 1.0] }, { scr: ['coupons', (c, a) => [clamp(a / 1)]], pt: [300, 950], d: .3, tap: [300, 950, 1.2] }],
+    { ov: c => [1, 2, 3].map(i => on(c, i) ? tipCard(i, ['OPEN IT EVERY DAY', 'LIMITED-TIME EVENTS', 'SAVE FOR BIGGER COUPONS'][i - 1], c.ch(i)).replace('translate(288 860)', `translate(288 ${CAPOV + 10})`) : '').join('') }),
+  tqr: povShot([{ scr: ['profile', () => [0]], d: .42 }, { scr: ['qr', () => [0]], pt: [300, 600], d: .26 }, { scr: ['profile', (c, a) => [clamp(a / .5)]], d: .36, tap: [95, 680, .5] }, { scr: ['qr', (c, a) => [clamp(a / .4)]], pt: [300, 330], d: .21, snap: 1 }, { scr: ['qr', () => [1]], d: .42 }, { scr: ['qr', () => [1]], d: .38 }],
+    { ov: c => c.ch(4) >= 0 ? stat(CAPOV + 20, '450K ≈ $45', 'NEW USER REWARD · IN STARS', MINT, c.ch(4)) : '' }),
+  tout: povShot([{ scr: ['profile', () => [1]], d: .42 }, { scr: ['profile', () => [1]], pt: [95, 680], d: .3 }],
+    { ov: c => pill(288, CAPOV, 'QR CODE IN MY HIGHLIGHTS', LIME, c.ch(0) + .05, 24) }),
+});
+RESETS.push(() => { const m = isMine(); G.visible = false; J.arm.forEach(A => [A.up, A.lo, A.el, A.cuff, A.hand].forEach(x => x.visible = false)); DESK.visible = HAND.visible = PHONE.visible = m; });

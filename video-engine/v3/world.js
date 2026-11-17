@@ -360,6 +360,15 @@ function kineticCap(t) {
   return o;
 }
 
+// TikTok-style centred pop captions (EP.capStyle === 'pop'): 1-2 words at a time at EP.capY, keywords coloured
+function popCap(t) {
+  const G = EP.capGroups || []; const g = G.find(x => t >= x.t0 && t < x.t1); if (!g) return '';
+  const all = []; EP.shots.forEach(s => s.chunks.forEach(k => all.push(k))); let k = null; for (const c of all) if (g.t0 + .06 >= c.t0) k = c;
+  const bare = w => w.toLowerCase().replace(/[^a-z0-9']/g, ''), hi = new Set(((k && k.hi) || []).map(bare)), key = g.text.split(/\s+/).some(w => hi.has(bare(w)));
+  const M = popCap.m || (popCap.m = document.createElement('canvas').getContext('2d')); M.font = '900 60px Nunito'; const txt = g.text.toUpperCase().replace(/[,.]$/, ''), w = M.measureText(txt).width, fit = Math.min(1, 500 / w);
+  const since = t - g.t0, sc = fit * (.82 + .18 * spring(since / .16 * .9)), y = EP.capY || 640, col = key ? (k.col || '#b8ec3c') : '#ffffff';
+  return `<g transform="translate(288 ${y}) scale(${sc.toFixed(3)})" style="filter:drop-shadow(0 4px 10px rgba(0,0,0,.55))"><text text-anchor="middle" font-family="Nunito" font-weight="900" font-size="60" fill="${col}" stroke="#000" stroke-width="11" stroke-linejoin="round" paint-order="stroke" style="paint-order:stroke">${esc(txt)}</text></g>`;
+}
 // ---------- frame ----------
 let EP = null; const RESETS = [], GLOBAL_OV = [];
 window.__load = async (ep) => {
@@ -433,7 +442,7 @@ window.__render = async (t) => {
   if (sh.ov) o += sh.ov(c);
   (sh.chips || []).forEach(x => o += chipSVG(x, c));
   GLOBAL_OV.forEach(f => o += f(t, c, sh));
-  if (!sh.noCap && !s.noCap) o += EP.capStyle === 'serif' ? serifCap(t) : EP.capStyle === 'kinetic' ? kineticCap(t) : captionSVG(t);
+  if (!sh.noCap && !s.noCap) o += EP.capStyle === 'serif' ? serifCap(t) : EP.capStyle === 'kinetic' ? kineticCap(t) : EP.capStyle === 'pop' ? popCap(t) : captionSVG(t);
   const fT = sh.flashAt != null ? (sh.flashEnd ? che(sh.flashAt) : ch(sh.flashAt)) : (sh.flash || ['alarmGo', 'title', 'mapFire', 'hiss'].includes(s.scene) ? lt : -1);
   if (fT >= 0 && fT < .12) o += `<rect width="576" height="1024" fill="#fff" opacity="${(.55 * (1 - fT / .12)).toFixed(2)}"/>`;
   // iris transition into a new location, and out of it before the next one
