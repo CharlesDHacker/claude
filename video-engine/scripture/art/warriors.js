@@ -18,17 +18,19 @@ function warrior(g, o) {
   g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), o.s || 1);
   if (o.shadow !== false) ell(g, 0, 2, 150 * b, 18, 'rgba(20,10,5,.3)');
   if (pose === 'fall') { g.rotate(-eio(k) * 1.45); }
+  if (o.rot) { g.translate(0, -350); g.rotate(o.rot); g.translate(0, 350); }
   const lean = pose === 'charge' ? .18 : pose === 'thrust' ? .1 : pose === 'faint' ? -.05 : 0;
-  const drop = pose === 'kneel' || pose === 'faint' ? 130 : 0, br = Math.sin(t * (pose === 'faint' ? 3.2 : 1.8) + ph) * (pose === 'faint' ? 5 : 2.5);
+  const kneelish = pose === 'kneel' || pose === 'faint' || pose === 'pray' || pose === 'sulk';
+  const drop = kneelish ? 130 : 0, br = Math.sin(t * (pose === 'faint' ? 3.2 : 1.8) + ph) * (pose === 'faint' ? 5 : 2.5);
   const hipY = -330 + drop, shY = -565 + drop + br;
   // ---- legs
   const run = pose === 'stride' ? 5 : pose === 'charge' ? 11 : 0, p = t * run + ph;
   let feet;
   if (run) feet = [[-30 + Math.sin(p) * 80, -Math.max(0, Math.cos(p)) * 26], [40 - Math.sin(p) * 80, -Math.max(0, -Math.cos(p)) * 26]];
   else if (pose === 'raise' || pose === 'thrust' || pose === 'sling') feet = [[-85, 0], [90, 0]];
-  else if (pose === 'kneel' || pose === 'faint') feet = [[-120, 0], [70, 0]];
+  else if (kneelish) feet = [[-120, 0], [70, 0]];
   else feet = [[-34, 0], [38, 0]];
-  const leg = (hx, f, back) => { const kneeX = pose === 'kneel' || pose === 'faint' ? (back ? -60 : 70) : (hx + f[0]) / 2 + 22, kneeY = pose === 'kneel' || pose === 'faint' ? (back ? -8 : -150) : (hipY + f[1]) / 2;
+  const leg = (hx, f, back) => { const kneeX = kneelish ? (back ? -60 : 70) : (hx + f[0]) / 2 + 22, kneeY = kneelish ? (back ? -8 : -150) : (hipY + f[1]) / 2;
     limb(g, [hx, hipY, kneeX, kneeY], 40 * b, back ? mix(C.skin, '#000', .2) : C.skin, 6); limb(g, [kneeX, kneeY, f[0], f[1] - 14], 34 * b, back ? mix(C.skin, '#000', .2) : C.skin, 6);
     sh(g, `M${f[0] - 26 * b} ${f[1] - 30} L${f[0] + 34 * b} ${f[1] - 30} Q${f[0] + 46 * b} ${f[1] - 6} ${f[0] + 40 * b} ${f[1] + 2} L${f[0] - 28 * b} ${f[1] + 2} Z`, C.boots, 5);
     if (C.armor === 'scale') limb(g, [kneeX, kneeY + 6, f[0], f[1] - 30], 30 * b, back ? mix(C.armorCol, '#000', .3) : C.armorCol, 4); };
@@ -43,6 +45,10 @@ function warrior(g, o) {
     if (pose === 'sling') { const an = t * 15; return [[-110 * b, sy + 120], [20 + Math.cos(an) * 30, sy - 210 + Math.sin(an) * 14]]; }
     if (pose === 'faint') return [[20, hipY + 40], [40, shY - 30]];
     if (pose === 'kneel') return [[60, hipY + 40], [120, sy + 120]];
+    if (pose === 'pray') return [[70, sy - 150], [130, sy - 170]];
+    if (pose === 'sulk') return [[50, sy + 70], [90, sy + 60]];
+    if (pose === 'flail') { const w = Math.sin(t * 9); return [[-150, sy - 120 + w * 40], [170, sy - 140 - w * 40]]; }
+    if (pose === 'preach') return [[-90 * b, sy + 200], [sx + 120, sy - 160]];
     if (pose === 'charge') return [[-140 * b, sy + 120], [sx + 140, sy - 60]];
     if (run) return [[-60 * b - Math.sin(p) * 60, sy + 200], [sx + 30 + Math.sin(p) * 60, sy + 200]];
     return [[-70 * b, sy + 210], [sx + 34, sy + 200]];

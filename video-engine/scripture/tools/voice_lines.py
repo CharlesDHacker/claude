@@ -9,7 +9,7 @@ ep_path, adir, kdir = sys.argv[1:4]
 ep = json.load(open(ep_path))
 out = os.path.join(adir, "lines"); os.makedirs(out, exist_ok=True)
 # ElevenLabs takes already split per line (tools/split_takes.py), by speaker
-takes = {who: os.path.join(adir, d) for who, d in ep.get("takes", {}).items()}
+takes = {who: os.path.join(adir, d) for who, d in ep.get("takes", {}).items() if os.path.isdir(os.path.join(adir, d))}
 words = {}
 for d in takes.values():
     wp = os.path.join(d, "words.json")
@@ -22,6 +22,7 @@ KOKORO = {
     "donkey": dict(voice="bf_emma", speed=0.86, semi=-1.0, fx=""),
     "angel":  dict(voice="am_onyx", speed=0.80, semi=-3.0, fx="aecho=0.8:0.7:90|180:0.35|0.22,"),
     "toby":   dict(voice="af_nicole", speed=1.05, semi=3.0, fx=""),  # only used if no ElevenLabs take
+    "jonah":  dict(voice="bm_lewis", speed=1.0, semi=-1.0, fx=""),
 }
 k = None
 def kokoro():

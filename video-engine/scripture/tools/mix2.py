@@ -125,6 +125,13 @@ for s in shots:
             at = R.uniform(0, d - .4); tc = tt(.12); f0 = R.uniform(2800, 4200); place(amb, a + at, np.sin(TAU * np.cumsum(f0 + 900 * np.sin(TAU * 18 * tc)) / SR) * np.exp(-tc * 25), .08)
     else:
         wnd = lp(noise(len(t)), 350) * (.6 + .4 * np.sin(TAU * .15 * t + a)); place(amb, a - .3, wnd * env * .5)
+    if s.get("amb") == "storm":
+        st = lp(noise(len(t)), 900) * (.7 + .3 * np.sin(TAU * .3 * t)) + hp(noise(len(t)), 4000) * .25
+        place(amb, a - .3, st * env * 1.4)
+    if s.get("amb") == "belly":
+        place(amb, a - .3, lp(noise(len(t)), 120) * (1 + .5 * np.sin(TAU * 1.1 * t)) * env * 1.2)
+    if s["scene"] == "beach":
+        surf = lp(noise(len(t)), 1200) * (0.4 + .6 * np.clip(np.sin(TAU * .14 * t + a), 0, 1) ** 2); place(amb, a - .3, surf * env * .8)
     if s.get("amb") == "fire":
         c = np.zeros(len(t))
         for _ in range(int(d * 18)): k = int(R.uniform(0, len(t) - 600)); c[k:k + 400] += bp(noise(400), 1200, 6000) * np.exp(-np.arange(400) / 50) * R.uniform(.2, 1)
@@ -174,7 +181,16 @@ def march(d=2.8):
     out = np.zeros(int(d * SR))
     for k in range(int(d / (BEAT / 2))): place(out, k * BEAT / 2, stomp(), .5); place(out, k * BEAT / 2, bp(noise(int(.15 * SR)), 300, 2000) * np.exp(-tt(.15) * 30), .4)
     return norm(out)
-LIB = dict(boom=(boom, 1.0), braam=(braam, .8), crack=(crack, .8), hit=(hit, .8), clash=(clash, .6), crowd=(crowd, .35), horn=(horn, .45), roar=(roar, .65), stomp=(stomp, .75),
+def splash(d=1.4): t = tt(d); return norm(bp(noise(len(t)), 300, 7000) * np.exp(-t * 4) * np.minimum(t / .02, 1) + lp(noise(len(t)), 200) * np.exp(-t * 6) * .8)
+def gulp(): t = tt(.7); f = 140 * np.exp(-t * 3); return norm(np.sin(TAU * np.cumsum(f) / SR) * np.exp(-t * 4) + lp(noise(len(t)), 300) * np.exp(-t * 5) * .6)
+def spit(): t = tt(.8); return norm(bp(noise(len(t)), 200, 3000) * np.exp(-t * 6) * np.minimum(t / .05, 1) + np.sin(TAU * np.cumsum(90 + 200 * np.exp(-t * 8)) / SR) * np.exp(-t * 5))
+def thump(): t = tt(.7); return norm(np.sin(TAU * np.cumsum(55 + 50 * np.exp(-t * 20)) / SR) * np.exp(-t * 8) + lp(noise(len(t)), 400) * np.exp(-t * 12) * .6)
+def moo(d=1.6): t = tt(d); f = 140 - 30 * (t / d); ph = TAU * np.cumsum(f) / SR; s = sum(np.sin(k * ph) / k for k in range(1, 12)); return norm(bp(s, 200, 1500) * np.minimum(t / .2, 1) * np.clip((d - t) / .5, 0, 1))
+def snore(d=2.4): t = tt(d); return norm(bp(noise(len(t)), 100, 900) * np.clip(np.sin(TAU * t / 2.4), 0, 1) ** 2)
+def underwater(d=4.5): t = tt(d); return norm(lp(noise(len(t)), 250) * (1 + .3 * np.sin(TAU * .5 * t)) * np.minimum(t / .5, 1) * np.clip((d - t) / .5, 0, 1))
+def stone_roll(d=1.8): t = tt(d); return norm(lp(noise(len(t)), 300) * (1 + np.sin(TAU * 7 * t) * .5) * np.minimum(t / .2, 1) * np.clip((d - t) / .4, 0, 1))
+LIB = dict(splash=(splash, .7), gulp=(gulp, .9), spit=(spit, .7), thump=(thump, .7), moo=(moo, .55), snore=(snore, .3), underwater=(underwater, .6), stone=(stone_roll, .7),
+           boom=(boom, 1.0), braam=(braam, .8), crack=(crack, .8), hit=(hit, .8), clash=(clash, .6), crowd=(crowd, .35), horn=(horn, .45), roar=(roar, .65), stomp=(stomp, .75),
            heartbeat=(heartbeat, .8), riser=(riser, .4), thunder=(thunder, .7), clank=(clank, .5), tick6=(tickn, .35), sparkle=(sparkle, .3), sling=(sling, .4), march=(march, .45),
            whoosh=(whoosh, .5), choir=(lambda: choir([62, 66, 69, 74], 4.0) * np.minimum(tt(4.0) / .8, 1) * np.clip((4.0 - tt(4.0)) / 1.5, 0, 1), .35))
 sfx = np.zeros(N)
