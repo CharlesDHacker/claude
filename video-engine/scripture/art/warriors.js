@@ -46,6 +46,9 @@ function warrior(g, o) {
     if (pose === 'faint') return [[20, hipY + 40], [40, shY - 30]];
     if (pose === 'kneel') return [[60, hipY + 40], [120, sy + 120]];
     if (pose === 'pray') return [[70, sy - 150], [130, sy - 170]];
+    if (pose === 'hug') return [[150, sy + 40], [190, sy + 10]];
+    if (pose === 'cross') return [[60, sy + 90], [10, sy + 80]];
+    if (pose === 'beg') return [[130, sy + 90], [170, sy + 70]];
     if (pose === 'sulk') return [[50, sy + 70], [90, sy + 60]];
     if (pose === 'flail') { const w = Math.sin(t * 9); return [[-150, sy - 120 + w * 40], [170, sy - 140 - w * 40]]; }
     if (pose === 'preach') return [[-90 * b, sy + 200], [sx + 120, sy - 160]];

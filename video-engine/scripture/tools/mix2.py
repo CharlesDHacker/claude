@@ -196,6 +196,10 @@ LIB = dict(splash=(splash, .7), gulp=(gulp, .9), spit=(spit, .7), thump=(thump, 
            boom=(boom, 1.0), braam=(braam, .8), crack=(crack, .8), hit=(hit, .8), clash=(clash, .6), crowd=(crowd, .35), horn=(horn, .45), roar=(roar, .65), stomp=(stomp, .75),
            heartbeat=(heartbeat, .8), riser=(riser, .4), thunder=(thunder, .7), clank=(clank, .5), tick6=(tickn, .35), sparkle=(sparkle, .3), sling=(sling, .4), march=(march, .45),
            whoosh=(whoosh, .5), choir=(lambda: choir([62, 66, 69, 74], 4.0) * np.minimum(tt(4.0) / .8, 1) * np.clip((4.0 - tt(4.0)) / 1.5, 0, 1), .35))
+def oink(): t = tt(.5); f = 300 + 80 * np.sin(TAU * 18 * t); ph = TAU * np.cumsum(f) / SR; return norm(bp(sum(np.sin(k * ph) / k for k in range(1, 10)) + noise(len(t)) * .4, 300, 2500) * np.exp(-t * 6) * np.minimum(t / .02, 1))
+def stomach(d=1.4): t = tt(d); f = 70 + 40 * np.sin(TAU * 1.5 * t); return norm(lp(np.sin(TAU * np.cumsum(f) / SR) + noise(len(t)) * .3, 300) * np.sin(np.pi * t / d) ** 2)
+def wind(d=4.0): t = tt(d); return norm(bp(noise(len(t)), 200, 1200) * (0.6 + .4 * np.sin(TAU * .4 * t)) * np.minimum(t / .6, 1) * np.clip((d - t) / .8, 0, 1))
+LIB.update(oink=(oink, .55), stomach=(stomach, .5), wind=(wind, .4))
 LIB.update(sword=LIB["clash"], shimmer=LIB["sparkle"], crunch=LIB["hit"])  # names used by episode 1
 sfx = np.zeros(N)
 for i, s in enumerate(shots):

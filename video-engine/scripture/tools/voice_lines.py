@@ -23,6 +23,8 @@ KOKORO = {
     "angel":  dict(voice="am_onyx", speed=0.80, semi=-3.0, fx="aecho=0.8:0.7:90|180:0.35|0.22,"),
     "toby":   dict(voice="af_nicole", speed=1.05, semi=3.0, fx=""),  # only used if no ElevenLabs take
     "jonah":  dict(voice="bm_lewis", speed=1.0, semi=-1.0, fx=""),
+    "father": dict(voice="bm_george", speed=0.92, semi=-1.0, fx=""),
+    "son":    dict(voice="am_puck", speed=1.0, semi=0.0, fx=""),
 }
 k = None
 def kokoro():
