@@ -74,6 +74,9 @@ MOODS = {
     "hope":   dict(pad=[50, 57, 62, 66, 69, 74], bright=1300, arp=[74, 69, 66, 62], arpEvery=1.0, drum="soft", shaker=False, bass=38, choir=[62, 66, 69], lvl=.9),
     "glory":  dict(pad=[50, 57, 62, 66, 69, 74, 78], bright=2200, arp=[74, 78, 81, 86], arpEvery=.5, drum="glory", shaker=True, bass=26, brass=[62, 66, 69, 74], choir=[62, 66, 69, 74], lvl=1.2),
 }
+ALIAS = {"story": "legend", "tense": "dread", "wonder": "hope"}
+for _s in ep["shots"]:
+    if "music" in _s: _s["music"] = ALIAS.get(_s["music"], _s["music"])
 shots = ep["shots"]; segs = []; mood = None
 for s in shots:
     m = s.get("music", mood or "warm")
@@ -193,6 +196,7 @@ LIB = dict(splash=(splash, .7), gulp=(gulp, .9), spit=(spit, .7), thump=(thump, 
            boom=(boom, 1.0), braam=(braam, .8), crack=(crack, .8), hit=(hit, .8), clash=(clash, .6), crowd=(crowd, .35), horn=(horn, .45), roar=(roar, .65), stomp=(stomp, .75),
            heartbeat=(heartbeat, .8), riser=(riser, .4), thunder=(thunder, .7), clank=(clank, .5), tick6=(tickn, .35), sparkle=(sparkle, .3), sling=(sling, .4), march=(march, .45),
            whoosh=(whoosh, .5), choir=(lambda: choir([62, 66, 69, 74], 4.0) * np.minimum(tt(4.0) / .8, 1) * np.clip((4.0 - tt(4.0)) / 1.5, 0, 1), .35))
+LIB.update(sword=LIB["clash"], shimmer=LIB["sparkle"], crunch=LIB["hit"])  # names used by episode 1
 sfx = np.zeros(N)
 for i, s in enumerate(shots):
     if i: place(sfx, s["t0"] - .22, whoosh(.5, s.get("tr") == "whip"), .55 if s.get("tr") == "whip" else .18)

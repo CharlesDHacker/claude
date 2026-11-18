@@ -11,6 +11,8 @@ html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}
 // Compositor: shot -> scene + camera (handheld drift, zoom punches) -> transitions (fade, flash, whip) -> bloom + grade + light leak
 // -> grain/vignette -> word-by-word captions, title card, pop words, name labels.
 const cv = document.getElementById('c'), G = cv.getContext('2d');
+// TikTok safe area (1080x1920): keep text below the top tabs, left of the like/comment/share column, above the caption/sound bar.
+const SAFE = { top: 240, bottom: 1470, left: 60, right: 900, cx: 480, w: 800 };
 let EP = null; const CAP = { white: '#fffaf0', toby: '#ffb65c', selah: '#ffe39a', g: '#ffd36a', r: '#ff6b57', o: '#ffad5a' };
 function voiceAt(who, T) { for (const l of EP.lines) if (l.who === who && T >= l.t0 && T < l.t1) { const f = (T - l.t0) * 30, i = Math.floor(f), k = f - i, e = l.env; return lerp(e[i] || 0, e[i + 1] || 0, k); } return 0; }
 function camAt(sh, lt) { const K = sh.cam || [[540, 960, 1]], d = sh.t1 - sh.t0; if (K.length === 1) return K[0].slice(); const k = (sh.camEase === 'lin' ? clamp(lt / d) : eio(lt / d)) * (K.length - 1), i = Math.min(Math.floor(k), K.length - 2), f = k - i; return [0, 1, 2].map(j => lerp(K[i][j], K[i + 1][j], f)); }
@@ -47,8 +49,8 @@ function drawCaptions(g, T) {
   const fadeOut = 1 - smooth(end - .12, end, T);
   g.save(); g.font = "900 58px Nunito"; g.textBaseline = 'middle';
   const sp = g.measureText(' ').width; const rows = [[]]; let wid = 0;
-  words.forEach(w => { const ww = g.measureText(w[0]).width; if (wid + ww > 900 && rows[rows.length - 1].length) { rows.push([]); wid = 0; } rows[rows.length - 1].push([w, ww]); wid += ww + sp; });
-  rows.forEach((r, ri) => { const tw = r.reduce((s, [, ww]) => s + ww + sp, -sp); let x = W / 2 - tw / 2; const y = 300 + ri * 70;
+  words.forEach(w => { const ww = g.measureText(w[0]).width; if (wid + ww > SAFE.w && rows[rows.length - 1].length) { rows.push([]); wid = 0; } rows[rows.length - 1].push([w, ww]); wid += ww + sp; });
+  rows.forEach((r, ri) => { const tw = r.reduce((s, [, ww]) => s + ww + sp, -sp); let x = SAFE.cx - tw / 2; const titleOn = EP.title && T < EP.title.t1 + .6; const y = (titleOn ? 420 : 330) + ri * 70;
     r.forEach(([w, ww]) => { const k = (T - w[2]) / .16; if (k < 0) { x += ww + sp; return; } const s = 1 + (1 - eo(clamp(k))) * .35, col = w[1] === 'base' ? base : CAP[w[1]] || base;
       g.save(); g.translate(x + ww / 2, y - (1 - eo(clamp(k))) * 14); g.scale(s, s); g.globalAlpha = fadeOut * clamp(k * 2.5);
       g.lineJoin = 'round'; g.lineWidth = 10; g.strokeStyle = 'rgba(25,12,6,.85)'; g.strokeText(w[0], -ww / 2, 3); g.shadowColor = 'rgba(0,0,0,.6)'; g.shadowBlur = 16; g.fillStyle = col; g.fillText(w[0], -ww / 2, 0);
@@ -62,9 +64,9 @@ function drawPops(g, T) {
     const l = EP.lines.find(x => x.id === p.line); const txt = (p.text || l.caps.map(c => (c.text.match(/\{pop:([^}]*)\}/) || [])[1]).find(Boolean) || '').toUpperCase(); if (!txt) continue;
     const t0 = l.t0 + .02, t1 = Math.max(l.t1 + .45, t0 + 1.1); if (T < t0 || T > t1 + .3) continue;
     const fade = 1 - smooth(t1, t1 + .3, T); const lt = T - t0, n = txt.length, per = Math.min(.06, (l.t1 - l.t0) * .5 / n);
-    g.save(); g.translate(p.x, p.y); g.rotate(p.rot || 0); g.font = `500 ${p.size || 170}px Garamond`; g.textBaseline = 'middle'; g.globalAlpha = fade;
+    g.save(); g.translate(clamp(p.x, 360, 520), clamp(p.y, 560, 900)); g.rotate(p.rot || 0); g.font = `500 ${p.size || 170}px Garamond`; g.textBaseline = 'middle'; g.globalAlpha = fade;
     const widths = [...txt].map(ch => g.measureText(ch).width + 6), tw = widths.reduce((a, b) => a + b, 0); let x = -tw / 2;
-    if (tw > 1000) { const s = 1000 / tw; g.scale(s, s); }
+    if (tw > 780) { const s = 780 / tw; g.scale(s, s); }
     const wob = Math.sin(lt * 30) * Math.exp(-lt * 5) * 6;
     [...txt].forEach((ch, i) => { const k = clamp((lt - i * per) / .18); if (k <= 0) { x += widths[i]; return; } const s = 1 + (1 - eo(k)) * 1.1, dy = (1 - eo(k)) * -90;
       g.save(); g.translate(x + widths[i] / 2 + wob, dy); g.scale(s, s); g.globalAlpha = fade * clamp(k * 2);
@@ -80,12 +82,12 @@ function goldText(g, draw, a) { g.save(); g.globalAlpha = a; g.shadowColor = 'rg
 function drawTitle(g, T) {
   const ti = EP.title; if (!ti || T > ti.t1 + .6) return; const a = smooth(ti.t0, ti.t0 + .5, T) * (1 - smooth(ti.t1, ti.t1 + .6, T)), sp = 8 + 10 * eo((T - ti.t0) / 3);
   g.textBaseline = 'alphabetic'; g.textAlign = 'left';
-  goldText(g, (dx, dy) => { let fs = 96; g.font = `500 ${fs}px Garamond`; const sp2 = ti.text.length > 12 ? sp * .45 : sp; while (fs > 40 && g.measureText(ti.text).width + sp2 * ti.text.length > 1000) { fs -= 2; g.font = `500 ${fs}px Garamond`; } spaced(g, ti.text, W / 2 + dx, 168 + dy, sp2); }, a);
-  goldText(g, (dx, dy) => { g.font = "italic 500 36px Garamond"; spaced(g, '— ' + ti.sub + ' —', W / 2 + dx, 222 + dy, 2); }, a * .95);
+  goldText(g, (dx, dy) => { let fs = 96; g.font = `500 ${fs}px Garamond`; const sp2 = ti.text.length > 12 ? sp * .45 : sp; while (fs > 40 && g.measureText(ti.text).width + sp2 * ti.text.length > 900) { fs -= 2; g.font = `500 ${fs}px Garamond`; } spaced(g, ti.text, W / 2 + dx, 300 + dy, sp2); }, a);
+  goldText(g, (dx, dy) => { g.font = "italic 500 36px Garamond"; spaced(g, '— ' + ti.sub + ' —', W / 2 + dx, 356 + dy, 2); }, a * .95);
 }
 function drawLabels(g, T) {
   for (const sh of EP.shots) if (sh.label) { const t0 = sh.t0 + (sh.labelAt ?? .4), t1 = Math.min(t0 + (sh.labelDur ?? 2.6), sh.t1 + .2); if (T < t0 || T > t1) continue; const a = smooth(t0, t0 + .35, T) * (1 - smooth(t1 - .35, t1, T));
-    goldText(g, (dx, dy) => { g.font = "500 66px Garamond"; spaced(g, sh.label, W / 2 + dx, (sh.labelY ?? 1700) + dy, 10 + 8 * eo((T - t0) / 2)); }, a * .95); }
+    goldText(g, (dx, dy) => { g.font = "500 66px Garamond"; spaced(g, sh.label, SAFE.cx + dx, Math.min(sh.labelY ?? 1400, 1400) + dy, 6 + 6 * eo((T - t0) / 2)); }, a * .95); }
 }
 // ---------- grain + vignette ----------
 const NZ = document.createElement('canvas'); NZ.width = 540; NZ.height = 960; { const x = NZ.getContext('2d'), d = x.createImageData(540, 960), r = rng(5); for (let i = 0; i < d.data.length; i += 4) { const v = 110 + r() * 40; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } x.putImageData(d, 0, 0); }
@@ -110,8 +112,11 @@ window.__render = T => {
   for (const ft of (sh.flashes || [])) if (lt >= ft && lt < ft + .3) { G.save(); G.globalAlpha = (1 - (lt - ft) / .3) * .85; G.fillStyle = '#fff8e8'; G.fillRect(0, 0, W, H); G.restore(); }
   if (T < .25) { G.save(); G.globalAlpha = 1 - T / .25; G.fillStyle = '#000'; G.fillRect(0, 0, W, H); G.restore(); }
   if (T > EP.total - .5) { G.save(); G.globalAlpha = smooth(EP.total - .5, EP.total, T); G.fillStyle = '#000'; G.fillRect(0, 0, W, H); G.restore(); }
-  G.save(); G.setTransform(1, 0, 0, 1, 0, 0); drawTitle(G, T); drawLabels(G, T); drawCaptions(G, T); drawPops(G, T); G.restore();
+  G.save(); G.setTransform(1, 0, 0, 1, 0, 0); drawTitle(G, T); drawLabels(G, T); drawCaptions(G, T); drawPops(G, T); if (window.__ui) tiktokOverlay(G); G.restore();
 };
+function tiktokOverlay(g) { g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = 'rgba(255,0,80,.22)'; g.fillRect(0, 0, W, SAFE.top); g.fillRect(SAFE.right + 40, 640, W - SAFE.right - 40, 900); g.fillRect(0, SAFE.bottom, W, H - SAFE.bottom);
+  g.fillStyle = 'rgba(255,255,255,.85)'; g.font = '800 34px Nunito'; g.textAlign = 'center'; g.fillText('Following   For You', 540, 130); [700, 860, 1020, 1180, 1340].forEach(y => { g.beginPath(); g.arc(1000, y, 42, 0, 7); g.fill(); });
+  g.textAlign = 'left'; g.fillText('@tobyandselah', 40, 1650); g.font = '800 28px Nunito'; g.fillText('Bible stories you never heard... #bible', 40, 1700); g.fillText('\u266b original sound', 40, 1760); g.restore(); }
 window.__load = e => { EP = e; };
 document.fonts.load("900 58px Nunito").then(() => document.fonts.load("500 96px Garamond")).then(() => document.fonts.load("italic 500 36px Garamond")).then(() => { window.__ready = true; });
 </script></body></html>

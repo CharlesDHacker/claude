@@ -6,7 +6,7 @@ const fps = 30, audio = opt('--audio', null), dbg = opt('--frames', null), worke
 const srv = http.createServer((q, s) => { const p = path.join(root, decodeURIComponent(q.url.split('?')[0])); if (!p.startsWith(root)) { s.writeHead(403); s.end(); return; } fs.readFile(p, (e, d) => { if (e) { s.writeHead(404); s.end(); return; } s.writeHead(200, { 'Content-Type': types[path.extname(p)] || 'application/octet-stream' }); s.end(d); }); });
 srv.listen(0, '127.0.0.1', async () => {
   const url = `http://127.0.0.1:${srv.address().port}/player.html`, E = JSON.parse(fs.readFileSync(ep, 'utf8')), br = await chromium.launch();
-  const open = async () => { const pg = await br.newPage({ viewport: { width: 1080, height: 1920 } }); pg.on('pageerror', e => { console.error('PAGE ERROR', e.message); process.exitCode = 1; }); await pg.goto(url); await pg.waitForFunction(() => window.__ready); await pg.evaluate(e => window.__load(e), E); return pg; };
+  const open = async () => { const pg = await br.newPage({ viewport: { width: 1080, height: 1920 } }); pg.on('pageerror', e => { console.error('PAGE ERROR', e.message); process.exitCode = 1; }); await pg.goto(url); await pg.waitForFunction(() => window.__ready); await pg.evaluate(e => window.__load(e), E); if (args.includes('--ui')) await pg.evaluate(() => { window.__ui = true; }); return pg; };
   try {
     if (dbg) { const pg = await open(); for (const s of dbg.split(',')) { await pg.evaluate(t => window.__render(t), +s); await pg.screenshot({ path: `${out}_${(+s).toFixed(2).padStart(6, '0')}.jpg`, type: 'jpeg', quality: 85 }); } return; }
     const n = Math.round(E.total * fps), dir = fs.mkdtempSync(path.join(os.tmpdir(), 'scripture-')), t0 = Date.now();

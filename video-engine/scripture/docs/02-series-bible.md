@@ -39,6 +39,13 @@
 - Captions: Nunito Black 50 px, white with soft shadow, 300 px from the top. Toby's lines are orange `#ffb65c`; Selah's present-day lines are pale gold `#ffe39a`; keywords are `{g:gold}`, `{r:red}` and `{o:orange}`.
 - Title cards, name labels and pop words: EB Garamond, spaced caps, gold gradient with a dark outline; pop words type in letter by letter.
 
+## TikTok safe area (1080×1920)
+TikTok draws its own UI on top of the video, so nothing important goes under it:
+- **Top 240 px:** "Following / For You" tabs, LIVE and search. The title card sits just below this (title baseline at y 300, subtitle at 356).
+- **Right column, x > 900, y ≈ 640–1540:** profile, like, comment, save, share. Captions are centered at x 480 and capped at 800 px wide (60–900); pop words are clamped to the same zone.
+- **Bottom ~450 px (y > 1470):** username, description, sound, nav bar. Name labels sit at y 1400; ground and feet can go below this line, faces cannot.
+Captions start at y 330 (y 420 while the title is showing). Render review frames with the UI overlay: `node render.js build/X.timed.json /tmp/f --frames 3,10 --ui`.
+
 ## Voices
 | Character | ElevenLabs (preferred) | Offline fallback (Kokoro) |
 |---|---|---|
