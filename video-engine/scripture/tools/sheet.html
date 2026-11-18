@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}</style></head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script src="../art/lib.js"></script><script src="../art/chars.js"></script>
+<script>
+const g=document.getElementById('c').getContext('2d');
+g.fillStyle='#e9d3ae';g.fillRect(0,0,1080,1920);
+toby(g,{x:200,y:600,s:.9,expr:'shout',hands:'up',t:.3});
+toby(g,{x:520,y:600,s:.9,expr:'worry',hands:'mouth',t:.3});
+toby(g,{x:860,y:600,s:.9,expr:'happy',hands:'shrug',t:.3,talk:.6});
+donkey(g,{x:260,y:1100,s:.75,t:.2,expr:'calm'});
+donkey(g,{x:760,y:1100,s:.75,t:.2,pose:'sit',expr:'smug',talk:.5});
+donkey(g,{x:260,y:1450,s:.65,t:.2,pose:'lie',c:ASS,expr:'hurt'});
+balaam(g,{x:700,y:1500,s:.6,t:.2,expr:'angry',pose:'raise'});
+balaam(g,{x:930,y:1500,s:.6,t:.2,expr:'greedy'});
+angel(g,{x:200,y:1910,s:.3,t:.2,eyesOpen:true});
+balak(g,{x:520,y:1910,s:.55,t:.2,offer:true});
+balaam(g,{x:880,y:1900,s:.6,pose:'prostrate'});
+servant(g,{x:420,y:1600,s:.8});
+window.__done=true;
+</script></body></html>
