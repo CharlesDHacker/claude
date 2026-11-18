@@ -10,8 +10,19 @@ E = json.load(open(lines_p)); S = json.load(open(shots_p)); SR = 44100; FPS = 30
 def load(p):
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", p, "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"], capture_output=True, check=True).stdout
     return np.frombuffer(raw, "<i2").astype(np.float64) / 32768
-lead_of = {sh["at"]: sh.get("lead", S.get("lead", .35)) for sh in S["shots"]}
+lead_of = {sh["at"]: sh.get("lead", S.get("lead", .35)) for sh in S["shots"] if "atc" not in sh}
 gaps = S.get("gaps", {}); t = 0.35; L = []; clips = []
+import os
+WORDS = json.load(open(os.path.join(clip_dir, "words.json"))) if os.path.exists(os.path.join(clip_dir, "words.json")) else {}
+def cap_words(text):  # [(word, colour key)] from caption markup
+    out = []
+    for m in re.finditer(r"\{(\w+):([^}]*)\}|([^{]+)", text):
+        key, body = (m.group(1), m.group(2)) if m.group(1) else ("base", m.group(3))
+        for w in body.split():
+            if out and not re.search(r"[A-Za-z0-9]", w) and not body.startswith(w + " ") : out[-1] = (out[-1][0] + w, out[-1][1])
+            elif out and not re.search(r"[A-Za-z0-9]", w): out[-1] = (out[-1][0] + w, out[-1][1])
+            else: out.append((w, key))
+    return out
 for i, ln in enumerate(E["lines"]):
     y = load(f"{clip_dir}/{ln['id']}.wav")
     if i and ln["id"] in lead_of: t += max(lead_of[ln["id"]] - .15, 0)
@@ -37,8 +48,17 @@ for i, ln in enumerate(E["lines"]):
     else:  # by word count
         w = [len(re.sub(r"\{\w+:([^}]*)\}", r"\1", c).split()) for c in caps]; cw = np.cumsum(w) / sum(w); bounds = [d * x for x in cw[:-1]]
     edges = [0] + bounds + [d]
-    L.append(dict(id=ln["id"], who=ln["who"], t0=round(t, 3), t1=round(t + d, 3), env=[round(float(v), 2) for v in env],
-                  caps=[dict(text=c, t0=round(t + edges[j], 3), t1=round(t + edges[j + 1], 3)) for j, c in enumerate(caps)]))
+    sw = WORDS.get(ln["id"])
+    if sw: edges = [0] + [sw[min(len(sw) - 1, round(len(sw) * sum(len(cap_words(c)) for c in caps[:j + 1]) / max(1, sum(len(cap_words(c)) for c in caps))))][1] - .05 for j in range(len(caps) - 1)] + [d]
+    capl = []; allw = [w for c in caps for w in cap_words(c)]; gi = 0
+    for j, c in enumerate(caps):
+        cw = cap_words(c); ws = []
+        for i, (w, key) in enumerate(cw):
+            if sw: tt0 = sw[min(len(sw) - 1, int(gi * len(sw) / max(1, len(allw))))][1]
+            else: tt0 = edges[j] + (edges[j + 1] - edges[j]) * i / max(1, len(cw)) * .85
+            ws.append([w, key, round(t + max(tt0, edges[j]) - .03, 3)]); gi += 1
+        capl.append(dict(text=c, t0=round(t + edges[j], 3), t1=round(t + edges[j + 1], 3), words=ws))
+    L.append(dict(id=ln["id"], who=ln["who"], t0=round(t, 3), t1=round(t + d, 3), env=[round(float(v), 2) for v in env], caps=capl))
     clips.append((t, y)); t += d + gaps.get(ln["id"], .32)
 total = L[-1]["t1"] + S.get("tail", 2.5)
 byid = {l["id"]: l for l in L}
@@ -53,15 +73,16 @@ def res(x, base):
 shots = []
 for i, sh in enumerate(S["shots"]):
     l = byid[sh["at"]]; t0 = 0.0 if i == 0 else round(l["t0"] - sh.get("lead", S.get("lead", .35)), 3)
+    if "atc" in sh: t0 = round(at(sh["atc"], 0), 3)
     shots.append(dict(sh, t0=t0))
 for i, sh in enumerate(shots):
     sh["t1"] = shots[i + 1]["t0"] if i + 1 < len(shots) else round(total, 3)
     base = sh["t0"]
     for k in ("o", "sfx"):
         if k in sh: sh[k] = res(sh[k], base)
-    for k in ("shakeAt", "labelAt"):
-        if k in sh: sh[k] = at(sh[k], base)
-    if "pops" in sh: sh["pops"] = [dict(line=lid, x=p[0], y=p[1], rot=p[2]) for lid, p in sh["pops"].items()]
+    for k in ("shakeAt", "labelAt", "kicks", "flashes"):
+        if k in sh: sh[k] = [at(v, base) for v in sh[k]] if isinstance(sh[k], list) else at(sh[k], base)
+    if "pops" in sh: sh["pops"] = [dict(line=lid, x=p[0], y=p[1], rot=p[2], **({"size": p[3]} if len(p) > 3 else {})) for lid, p in sh["pops"].items()]
 ti = S.get("title"); title = dict(text=ti["text"], sub=ti["sub"], t0=0.15, t1=byid[ti["until"]]["t1"] + .3) if ti else None
 json.dump(dict(total=round(total, 3), title=title, lines=L, shots=shots), open(out_p, "w"), indent=0)
 v = np.zeros(int((total + 1) * SR))

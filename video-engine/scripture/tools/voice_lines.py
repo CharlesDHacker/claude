@@ -9,7 +9,12 @@ ep_path, adir, kdir = sys.argv[1:4]
 ep = json.load(open(ep_path))
 out = os.path.join(adir, "lines"); os.makedirs(out, exist_ok=True)
 # ElevenLabs takes already split per line (tools/split_takes.py), by speaker
-takes = {"toby": os.path.join(adir, "take_b")}
+takes = {who: os.path.join(adir, d) for who, d in ep.get("takes", {}).items()}
+words = {}
+for d in takes.values():
+    wp = os.path.join(d, "words.json")
+    if os.path.exists(wp): words.update(json.load(open(wp)))
+json.dump(words, open(os.path.join(out, "words.json"), "w"))
 # Offline cast: kokoro voice, speed, pitch shift (semitones), extra ffmpeg filter
 KOKORO = {
     "selah":  dict(voice="af_heart", speed=0.92, semi=0.0, fx=""),

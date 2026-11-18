@@ -10,13 +10,15 @@ function toby(g, o) {
   // shadow
   ell(g, 0, 2, 120, 16, 'rgba(40,20,10,.28)');
   // legs + sandals
-  limb(g, [-30, -100, -32, -54, -36, -16], 30, C.skin, 6); limb(g, [30, -100, 32, -54, 36, -16], 30, C.skin, 6);
+  if (!o.noLegs) { limb(g, [-30, -100, -32, -54, -36, -16], 30, C.skin, 6); limb(g, [30, -100, 32, -54, 36, -16], 30, C.skin, 6);
   ell(g, -42, -8, 34, 13, '#5c3520', 5); ell(g, 42, -8, 34, 13, '#5c3520', 5);
-  line(g, [-56, -18, -30, -30], 5, '#5c3520'); line(g, [56, -18, 30, -30], 5, '#5c3520');
+  line(g, [-56, -18, -30, -30], 5, '#5c3520'); line(g, [56, -18, 30, -30], 5, '#5c3520'); }
+  else { limb(g, [20, -100, 60, -40, 70, 30], 30, C.skin, 6); }
   g.save(); g.scale(1, br); g.translate(0, (1 - br) * 100);
   const hands = { down: [[-92, -150], [92, -150]], up: [[-140, -430], [140, -430]], mouth: [[-60, -330], [60, -330]], hips: [[-104, -190], [104, -190]],
     point: [[-92, -150], [190, -330]], rope: [[-92, -150], [175, -205]], hug: [[-40, -230], [190, -260]], shrug: [[-150, -250], [150, -250]], chin: [[-92, -150], [30, -318]] };
-  const [hl, hr] = o.hands ? (hands[o.hands] || o.hands) : hands.down;
+  let [hl, hr] = o.hands ? (hands[o.hands] || o.hands) : hands.down;
+  if (o.sling) { const an = t * 16; hr = [120 + Math.cos(an) * 26, -480 + Math.sin(an) * 10]; }
   const sw = Math.sin(t * 1.7 + (o.ph || 0)) * 5;
   const arm = (sx, h, s) => { const mx = (sx + h[0]) / 2 + s * 26, my = (-262 + h[1]) / 2 + 18; limb(g, [sx, -262, mx, my, h[0] + sw * s, h[1]], 24, C.skin, 6); ell(g, h[0] + sw * s, h[1], 19, 19, C.skin, 5); };
   arm(-58, hl, -1);
@@ -26,6 +28,7 @@ function toby(g, o) {
   sh(g, 'M-80 -94 Q0 -80 80 -94 L82 -112 Q0 -98 -82 -112 Z', C.stripe);
   line(g, [-84, -172, 0, -160, 84, -172], 11, '#ead6a8'); line(g, [-84, -172, 0, -160, 84, -172], 2.5, INK);
   arm(58, hr, 1);
+  if (o.sling) { const an = t * 16, sx = hr[0] + Math.cos(an) * 150, sy = hr[1] - 30 + Math.sin(an) * 60; g.save(); g.globalAlpha = .4; g.beginPath(); g.ellipse(hr[0], hr[1] - 30, 150, 60, 0, 0, Math.PI * 2); g.lineWidth = 4; g.strokeStyle = '#fff6dc'; g.stroke(); g.restore(); line(g, [hr[0], hr[1], (hr[0] + sx) / 2, (hr[1] + sy) / 2 + 18, sx, sy], 5, '#6a4a2a'); ell(g, sx, sy, 15, 15, '#cfc6ba', 4); }
   if (o.staff) { const h = hr; limb(g, [h[0] + 6, h[1] - 230, h[0] + 6, h[1] + 120], 11, '#7a5432', 5); }
   g.restore();
   // head

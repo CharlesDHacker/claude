@@ -20,6 +20,21 @@ node render.js build/ep01.timed.json /tmp/f --frames 3.2,40.5     # debug stills
 Needs Node with Playwright/Chromium, ffmpeg, and Python with numpy, scipy and librosa (librosa only for the analysis tools).
 Kokoro: `pip install kokoro-onnx soundfile` plus `kokoro-v1.0.onnx` and `voices-v1.0.bin` from the kokoro-onnx GitHub releases.
 
+## Episode 2 pipeline (current)
+```
+# ElevenLabs batch takes (one per speaker, lines joined with [long pause]) -> per-line clips + word timings by forced alignment
+python3 -I tools/align_split.py audio/ep02/raw/selah_a.mp3 episodes/ep02-giants.lines.json selah audio/ep02/selah_a
+python3 -I tools/voice_lines.py episodes/ep02-giants.lines.json audio/ep02 /path/to/kokoro      # uses "takes" from lines.json
+python3 -I tools/timeline.py episodes/ep02-giants.lines.json episodes/ep02-giants.shots.json audio/ep02/lines build/ep02.timed.json build/ep02.voice.wav
+python3 -I tools/mix2.py build/ep02.timed.json build/ep02.voice.wav build/ep02.mix.wav           # continuous score, never silent, -14 LUFS
+node render.js build/ep02.timed.json build/ep02.mp4 --audio build/ep02.mix.wav
+```
+`scene: "stage"` shots are composed entirely in JSON: a sky preset (`sunset`, `blood`, `gold`, `day`, `night`, `storm`) plus `far` and `actors` lists
+(`w` warrior with a look from `WAR` in `art/warriors.js`, `army`, `banner`, `stone`, `burst`, `dust`, `lamp`, `gate`, `scale`, `hand`, `foot`, `fire`, `tent`, `glow`, `rays`).
+Any numeric property can be animated: `{"a": from, "b": to, "t0": s, "t1": s, "e": "io"|"o"|"i"|"lin"}`. `"sil": true` draws a rim-lit silhouette.
+Shot extras: `tr` (`fade`, `flash`, `whip`, `zoom`), `kicks` (zoom punches), `flashes`, `shakeAt`, `rumble`, `speed` (speed lines), `woozy`, `grade`
+(`warm`, `teal`, `blood`, `night`, `gold`, `cold`), `bloom`, `leak`, `atc` (start a shot mid-line, e.g. `"@L12.1-0.1"`), `music` mood (`warm`, `legend`, `dread`, `battle`, `hope`, `glory`), `sfx`.
+
 ## Files
 - `episodes/*.lines.json`: the script. Each line has `who`, `say` (spoken text with ElevenLabs v4 audio tags) and `cap` (caption chunks; markup `{g:gold}`, `{r:red}`, `{o:orange}`, `{pop:BIG WORD}`).
 - `episodes/*.shots.json`: one shot per line (`at`). It sets `scene`, `cam` keyframes `[x, y, zoom]`, transition `tr` (`fade`/`flash`), scene options `o`, `pops`, `label`, `music` mood, `sfx`, `shake`/`shakeAt`, `amb`; `gaps` sets the pause after each line.
@@ -28,7 +43,7 @@ Kokoro: `pip install kokoro-onnx soundfile` plus `kokoro-v1.0.onnx` and `voices-
 - `player.html`: compositor (camera, dissolves, flashes, captions, title card, pop words, labels, grain, vignette).
 
 ## Voices
-The pilot's Toby lines are ElevenLabs (Piku). The other four characters were rendered with offline Kokoro because the ElevenLabs account
+Episode 2 is fully ElevenLabs (Selah: Imogen, Toby: Piku, Abishai: Connery). The pilot's Toby lines are ElevenLabs (Piku). The other four characters were rendered with offline Kokoro because the ElevenLabs account
 refused further generations (free tier disabled for "unusual activity"). Once the account works, generate one take per speaker with the
 `[long pause]`-joined prompts (see `voice_lines.py`), split them with `split_takes.py` into `audio/ep01/take_<x>/`, add those directories
 to `takes` in `voice_lines.py`, and re-run steps 1–4: everything re-times automatically.

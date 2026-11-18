@@ -10,7 +10,16 @@ Full script and shot list: `episodes/ep01-balaam.lines.json`, `episodes/ep01-bal
 Hook: the donkey everyone beat was saving his life. Payoff: "If God can speak through a donkey..." / "Even you." / "HEY!"
 
 ---
-## EP02 · THE BRONZE SERPENT, *one look, and you live*
+## EP02 · GOLIATH HAD BROTHERS, *the giants David couldn't fight alone* (produced: `build/ep02-goliath-had-brothers.mp4`)
+1 Samuel 17:40, 49–50; 2 Samuel 21:15–22; 1 Chronicles 20:4–8 · reference shape: Atlas/Alexander (a famous figure, a little-known chapter)
+Hook: "Then why did David pick up five stones?" → "Maybe because Goliath... had brothers." Old King David faints fighting the giant Ishbi-benob
+(spearhead 300 shekels ≈ 3.4 kg, about a newborn), Abishai saves him, his men make him swear off battle "so the lamp of Israel is never put out";
+Sibbecai, Elhanan and Jonathan take down the rest, including the six-fingered, six-toed giant of Gath. Payoff: "the boy who beat a giant by himself
+...grew into a king who needed his friends." Button: "So who's MY Abishai?" / "Who carried you all the way out here?"
+Full script and shots: `episodes/ep02-giants.lines.json`, `episodes/ep02-giants.shots.json`. (The five-stones-for-five-giants idea is a popular reading, framed as "maybe".)
+
+---
+## EP03 · THE BRONZE SERPENT, *one look, and you live*
 Numbers 21:4–9; John 3:14–15; 2 Kings 18:4 · reference shape: Medusa (one look...)
 
 *Night desert. Toby frozen, staring at the sand by his feet.*
@@ -39,7 +48,7 @@ A snake made of bronze. | Lifted high on a pole. | *Glint of gold over the camp.
 Post caption footnote: Israel later started worshipping the bronze snake itself, so King Hezekiah smashed it (2 Kings 18:4). Look *through* it, not *at* it.
 
 ---
-## EP03 · THE WELL OF BETHLEHEM, *the water David poured away*
+## EP04 · THE WELL OF BETHLEHEM, *the water David poured away*
 2 Samuel 23:13–17 (1 Chronicles 11:15–19) · reference shape: Alexander (direct parallel)
 
 *A cave. Firelight. David holds a dripping helmet and slowly tips it.*
@@ -64,7 +73,7 @@ Three of his mighty men heard him. | *Three silhouettes run at night.* That nigh
 **TOBY:** ...Can I drink the rest?
 
 ---
-## EP04 · SAMSON'S RIDDLE, *out of the strong came something sweet*
+## EP05 · SAMSON'S RIDDLE, *out of the strong came something sweet*
 Judges 13:4–5, 14:5–18; Numbers 6:6 · reference shape: Sphinx (interactive riddle with a 3·2·1 countdown)
 
 *Vineyards of Timnah. A lion's skeleton in the grass, bees humming.*
@@ -92,7 +101,7 @@ Later, bees had built a hive in its body. | So he scooped out the honey... | and
 **TOBY:** ...Honey.
 
 ---
-## EP05 · THE ROOSTER, *the sound that made a grown man cry*
+## EP06 · THE ROOSTER, *the sound that made a grown man cry*
 Luke 22:31–34, 54–62; John 18:15–27; John 21:9–19 · reference shape: Eos / dew (a sound or object hiding a sorrow), Siren (grief → wings)
 
 *Dawn over a village. A rooster crows right next to Toby's ear.*
@@ -117,7 +126,7 @@ Three times he said no. | Three times he got to say yes.
 **TOBY:** ...Okay. I'll be nicer to roosters.
 
 ---
-## EP06 · THE GARDENER, *one word*
+## EP07 · THE GARDENER, *one word*
 John 20:1–18; John 10:3–4 · reference shape: Sphinx ("Man.") one-word payoff
 
 *Dawn hillside. Toby calls one name and only his sheep comes running.*
