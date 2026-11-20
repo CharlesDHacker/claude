@@ -16,8 +16,9 @@ function lg(g, x0, y0, x1, y1, stops) { const gr = g.createLinearGradient(x0, y0
 function rg(g, x, y, r0, r1, stops) { const gr = g.createRadialGradient(x, y, r0, x, y, r1); stops.forEach(([o, c]) => gr.addColorStop(o, c)); return gr; }
 function glow(g, x, y, r, col, a = 1) { g.save(); g.globalAlpha *= a; g.globalCompositeOperation = 'lighter'; g.fillStyle = rg(g, x, y, 0, r, [[0, col], [1, 'rgba(0,0,0,0)']]); g.fillRect(x - r, y - r, r * 2, r * 2); g.restore(); }
 function rays(g, x, y, r, n, col, a, t = 0, spread = .09) { g.save(); g.globalCompositeOperation = 'lighter'; for (let i = 0; i < n; i++) { const an = i / n * Math.PI * 2 + t * .05, w = spread * (0.6 + .4 * Math.sin(i * 2.3)); g.globalAlpha = a * (0.5 + .5 * Math.sin(i * 1.7 + t * .8)); g.fillStyle = rg(g, x, y, 0, r, [[0, col], [1, 'rgba(0,0,0,0)']]); g.beginPath(); g.moveTo(x, y); g.arc(x, y, r, an - w, an + w); g.closePath(); g.fill(); } g.restore(); }
-function hexA(hex, a) { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; }
-function mix(h1, h2, k) { const a = parseInt(h1.slice(1), 16), b = parseInt(h2.slice(1), 16); const c = s => Math.round(lerp(a >> s & 255, b >> s & 255, k)); return '#' + ((1 << 24) + (c(16) << 16) + (c(8) << 8) + c(0)).toString(16).slice(1); }
+function hexA(hex, a) { const n = parseInt(hx6(hex).slice(1), 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; }
+const hx6 = h => h.length === 4 ? '#' + h[1] + h[1] + h[2] + h[2] + h[3] + h[3] : h;
+function mix(h1, h2, k) { const a = parseInt(hx6(h1).slice(1), 16), b = parseInt(hx6(h2).slice(1), 16); const c = s => Math.round(lerp(a >> s & 255, b >> s & 255, k)); return '#' + ((1 << 24) + (c(16) << 16) + (c(8) << 8) + c(0)).toString(16).slice(1); }
 // draw fn into an offscreen layer, then optionally flatten it to a single colour (silhouettes) — returns the canvas
 const LAYERS = [];
 function layer(i) { if (!LAYERS[i]) { const c = document.createElement('canvas'); c.width = W; c.height = H; LAYERS[i] = c; } const c = LAYERS[i], x = c.getContext('2d'); x.setTransform(1, 0, 0, 1, 0, 0); x.clearRect(0, 0, W, H); x.globalAlpha = 1; x.globalCompositeOperation = 'source-over'; x.filter = 'none'; return [c, x]; }

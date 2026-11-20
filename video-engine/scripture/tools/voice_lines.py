@@ -25,6 +25,9 @@ KOKORO = {
     "jonah":  dict(voice="bm_lewis", speed=1.0, semi=-1.0, fx=""),
     "father": dict(voice="bm_george", speed=0.92, semi=-1.0, fx=""),
     "son":    dict(voice="am_puck", speed=1.0, semi=0.0, fx=""),
+    "darius": dict(voice="am_michael", speed=0.95, semi=-1.0, fx=""),
+    "daniel": dict(voice="bm_george", speed=0.88, semi=-1.5, fx=""),
+    "official": dict(voice="bm_fable", speed=1.0, semi=0.0, fx=""),
 }
 k = None
 def kokoro():

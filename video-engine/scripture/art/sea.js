@@ -116,6 +116,7 @@ drawActor = function (g, a, c, P, o) {
 // stage: sea instead of ground, rain, front waves
 const _stage = SC.stage;
 SC.stage = (g, o, c) => {
+  o = avAll(o, c.lt);
   if (!o.sea) { _stage(g, o, c); if (o.rain) rain(g, c.T, o.rain); return; }
   const P = Object.assign({}, SKY[o.sky || 'sunset'], o.pal || {});
   skyLayer(g, c, P, o);

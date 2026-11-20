@@ -15,13 +15,13 @@ hills = function (g, y, amp, col, seed, x0 = -900, x1 = 1980, step = 60) {
   // haze at the base
   g.fillStyle = lg(g, 0, y - amp * 2, 0, y + 80, [[0, 'rgba(255,255,255,0)'], [1, hexA(mix(col, '#ffffff', .35), .55)]]); g.fillRect(x0, y - amp * 2, x1 - x0 + 200, amp * 2 + 80);
 };
-function cloudBank(g, x0, x1, y, r0, r1, top, bot, seed, hang = false, a = 1) {
+function cloudBank(g, x0, x1, y, r0, r1, top, bot, seed, hang = false, a = 1, depth = 3000) {
   const r = rng(seed); g.save(); g.globalAlpha *= a;
   for (let row = 0; row < 3; row++) { const yy = y + (hang ? -row : row) * r0 * .55, cols = [mix(top, bot, row * .3), mix(top, bot, .4 + row * .25)];
     let x = x0 - r1; g.beginPath(); const arcs = [];
     while (x < x1 + r1) { const rr = r0 + r() * (r1 - r0); arcs.push([x + rr * .7, yy, rr]); x += rr * 1.25; }
     arcs.forEach(([cx, cy, rr]) => { g.moveTo(cx + rr, cy); g.arc(cx, cy, rr, 0, Math.PI * 2); });
-    if (hang) g.rect(x0 - r1, yy - 3000, x1 - x0 + r1 * 2, 3000); else g.rect(x0 - r1, yy, x1 - x0 + r1 * 2, 3000);
+    if (hang) g.rect(x0 - r1, yy - depth, x1 - x0 + r1 * 2, depth); else g.rect(x0 - r1, yy, x1 - x0 + r1 * 2, depth);
     g.fillStyle = lg(g, 0, yy - r1, 0, yy + r1, hang ? [[0, cols[1]], [1, cols[0]]] : [[0, cols[0]], [1, cols[1]]]); g.fill();
     g.lineWidth = 2.2; g.strokeStyle = hexA(mix(bot, '#140a20', .45), .55);
     arcs.forEach(([cx, cy, rr]) => { g.beginPath(); if (hang) g.arc(cx, cy, rr, .15, Math.PI - .15); else g.arc(cx, cy, rr, Math.PI + .15, -.15); g.stroke();
@@ -46,7 +46,7 @@ skyLayer = function (g, c, P, o) {
     if (o.rays) rays(g, sx, sy, 2200, 26, 'rgba(255,230,170,.5)', o.rays, T); });
   // canopy of scalloped cloud hanging from the top, slowly drifting
   if (o.clouds !== false) par(g, c, .15, () => { const d = T * 6; cloudBank(g, -900 + d % 200, 2000, (o.canopyY ?? 120), 80, 170, mix(P.s[0], '#ffffff', .22), mix(P.s[1], P.s[0], .35), 8, true, o.canopy ?? 1);
-    const r = rng(5); for (let i = 0; i < 5; i++) { const x = ((r() * 2600 + T * (8 + r() * 10)) % 2600) - 800, y = 150 + r() * (hz - 600); cloudBank(g, x, x + 260 + r() * 260, y, 26, 46, mix(P.s[2], '#ffffff', .25), mix(P.s[1], P.s[2], .5), 20 + i, false, .55); } });
+    const r = rng(5); for (let i = 0; i < 5; i++) { const x = ((r() * 2600 + T * (8 + r() * 10)) % 2600) - 800, y = 150 + r() * (hz - 600); cloudBank(g, x, x + 260 + r() * 260, y, 26, 46, mix(P.s[2], '#ffffff', .25), mix(P.s[1], P.s[2], .5), 20 + i, false, .55, 40); } });
   if (o.lightning) { const f = (T * 1.7) % 4.3; if (f < .12 || (f > .25 && f < .32)) { g.save(); g.globalAlpha = .55; g.fillStyle = '#e8e0ff'; g.fillRect(-1600, -1600, 4300, 4300); g.restore(); } }
   par(g, c, .25, () => hills(g, hz - 90, 70, P.m1, 3, -1600, 2700, 50));
   par(g, c, .45, () => { hills(g, hz - 20, 42, P.m2, 4, -1600, 2700, 50); if (o.lowClouds !== false) cloudBank(g, -1600, 2700, hz + 6, 34, 64, mix(P.m2, '#ffffff', .35), mix(P.m2, P.s[2], .4), 41, false, .45); });

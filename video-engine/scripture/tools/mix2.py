@@ -199,7 +199,12 @@ LIB = dict(splash=(splash, .7), gulp=(gulp, .9), spit=(spit, .7), thump=(thump, 
 def oink(): t = tt(.5); f = 300 + 80 * np.sin(TAU * 18 * t); ph = TAU * np.cumsum(f) / SR; return norm(bp(sum(np.sin(k * ph) / k for k in range(1, 10)) + noise(len(t)) * .4, 300, 2500) * np.exp(-t * 6) * np.minimum(t / .02, 1))
 def stomach(d=1.4): t = tt(d); f = 70 + 40 * np.sin(TAU * 1.5 * t); return norm(lp(np.sin(TAU * np.cumsum(f) / SR) + noise(len(t)) * .3, 300) * np.sin(np.pi * t / d) ** 2)
 def wind(d=4.0): t = tt(d); return norm(bp(noise(len(t)), 200, 1200) * (0.6 + .4 * np.sin(TAU * .4 * t)) * np.minimum(t / .6, 1) * np.clip((d - t) / .8, 0, 1))
-LIB.update(oink=(oink, .55), stomach=(stomach, .5), wind=(wind, .4))
+def stamp(): t = tt(.5); return norm(lp(noise(len(t)), 900) * np.exp(-t * 30) + np.sin(TAU * np.cumsum(120 + 80 * np.exp(-t * 40)) / SR) * np.exp(-t * 18))
+def lionroar(d=2.4):
+    t = tt(d); f = 95 + 35 * np.sin(np.pi * t / d) - 20 * (t / d); ph = TAU * np.cumsum(f) / SR; s = sum(np.sin(k * ph) / k for k in range(1, 26)) + bp(noise(len(t)), 150, 2000) * 1.6
+    s = bp(s, 80, 1800) * (1 + .5 * np.sin(TAU * 31 * t)); return norm(s * np.minimum(t / .12, 1) * np.clip((d - t) / .9, 0, 1) ** 1.5)
+LIB.update(oink=(oink, .55), stomach=(stomach, .5), wind=(wind, .4), stamp=(stamp, .7))
+LIB["roar"] = (lionroar, .8)
 LIB.update(sword=LIB["clash"], shimmer=LIB["sparkle"], crunch=LIB["hit"])  # names used by episode 1
 sfx = np.zeros(N)
 for i, s in enumerate(shots):

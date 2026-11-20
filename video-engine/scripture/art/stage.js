@@ -77,6 +77,7 @@ function drawActor(g, a, c, P, o) {
   else if (A.type === 'rock') rock(g, A.x, A.y, A.w || 120, A.h || 80, A.col || '#7a5a44');
 }
 SC.stage = (g, o, c) => {
+  o = avAll(o, c.lt);
   const P = Object.assign({}, SKY[o.sky || 'sunset'], o.pal || {}), lt = c.lt;
   skyLayer(g, c, P, o);
   for (const a of (o.far || [])) par(g, c, a.par ?? .6, () => drawActor(g, a, c, P, o));
