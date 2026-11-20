@@ -216,7 +216,11 @@ amb *= vr / rms(amb) * 10 ** (-22 / 20)
 sfx *= vr / (np.percentile(np.abs(sfx[np.abs(sfx) > 1e-3]), 99.5) + 1e-9) * 10 ** (4 / 20)
 env = lfilter([1 - .9995], [1, -.9995], np.abs(voice)); env = env / (env.max() + 1e-9); duck = 1 - .35 * np.clip(env * 6, 0, 1)
 mix = voice + music * duck + amb + sfx * (1 - .25 * np.clip(env * 6, 0, 1))
-mix = mix[:int(total * SR)]; fo = int(.6 * SR); mix[-fo:] *= np.linspace(1, 0, fo); mix[:int(.05 * SR)] *= np.linspace(0, 1, int(.05 * SR))
+mix = mix[:int(total * SR)]
+if ep.get("loop"):  # seamless loop: no long fades, just 30 ms to avoid clicks at the wrap
+    f3 = int(.03 * SR); mix[:f3] *= np.linspace(0, 1, f3); mix[-f3:] *= np.linspace(1, 0, f3)
+else:
+    fo = int(.6 * SR); mix[-fo:] *= np.linspace(1, 0, fo); mix[:int(.05 * SR)] *= np.linspace(0, 1, int(.05 * SR))
 mix = np.tanh(mix / (np.abs(mix).max() + 1e-9) * 1.6) * .92  # gentle saturation glues the bed
 tmp = out_p + ".pre.wav"
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "s16le", "-ar", str(SR), "-ac", "1", "-i", "-", tmp], input=(mix * 32767).astype("<i2").tobytes(), check=True)

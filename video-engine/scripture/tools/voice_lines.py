@@ -38,7 +38,7 @@ def plain(say):  # drop ElevenLabs audio tags, keep punctuation for pacing
     return s[0].upper() + s[1:] if s and s[0] != "." else s
 for ln in ep["lines"]:
     dst = os.path.join(out, ln["id"] + ".wav"); who = ln["who"]
-    src = os.path.join(takes.get(who, "/nonexistent"), ln["id"] + ".wav")
+    src = os.path.join(os.path.join(adir, ln["take"]) if ln.get("take") else takes.get(who, "/nonexistent"), ln["id"] + ".wav")
     if os.path.exists(src):
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-ac", "1", "-ar", "44100", dst], check=True)
         print(f"{ln['id']} {who:7s} elevenlabs"); continue

@@ -84,7 +84,7 @@ for i, sh in enumerate(shots):
         if k in sh: sh[k] = [at(v, base) for v in sh[k]] if isinstance(sh[k], list) else at(sh[k], base)
     if "pops" in sh: sh["pops"] = [dict(line=lid, x=p[0], y=p[1], rot=p[2], **({"size": p[3]} if len(p) > 3 else {})) for lid, p in sh["pops"].items()]
 ti = S.get("title"); title = dict(text=ti["text"], sub=ti["sub"], t0=0.15, t1=byid[ti["until"]]["t1"] + .3) if ti else None
-json.dump(dict(total=round(total, 3), title=title, lines=L, shots=shots), open(out_p, "w"), indent=0)
+json.dump(dict(total=round(total, 3), title=title, lines=L, shots=shots, loop=S.get("loop", False)), open(out_p, "w"), indent=0)
 v = np.zeros(int((total + 1) * SR))
 for t0, y in clips: a = int(t0 * SR); v[a:a + len(y)] += y
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "s16le", "-ar", str(SR), "-ac", "1", "-i", "-", voice_p], input=(np.clip(v, -1, 1) * 32767).astype("<i2").tobytes(), check=True)

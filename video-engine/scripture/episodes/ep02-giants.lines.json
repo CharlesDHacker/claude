@@ -309,6 +309,15 @@
    "cap": [
     "{g:Still here, though.}"
    ]
+  },
+  {
+   "id": "L35",
+   "who": "toby",
+   "take": "toby_loop",
+   "say": "[mischievously] Okay... ONE more time!",
+   "cap": [
+    "Okay... {o:ONE} more time!"
+   ]
   }
  ]
 }

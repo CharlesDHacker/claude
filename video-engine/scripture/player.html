@@ -6,7 +6,7 @@
 @font-face{font-family:'Garamond';font-style:italic;font-weight:500;src:url('fonts/eb-garamond-latin-500-italic.woff2') format('woff2')}
 html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}
 </style></head><body><canvas id="c" width="1080" height="1920"></canvas>
-<script src="art/lib.js"></script><script src="art/chars.js"></script><script src="art/warriors.js"></script><script src="art/scenes.js"></script><script src="art/stage.js"></script><script src="art/sea.js"></script><script src="art/village.js"></script>
+<script src="art/lib.js"></script><script src="art/chars.js"></script><script src="art/warriors.js"></script><script src="art/figure.js"></script><script src="art/scenes.js"></script><script src="art/stage.js"></script><script src="art/sea.js"></script><script src="art/village.js"></script><script src="art/painter.js"></script>
 <script>
 // Compositor: shot -> scene + camera (handheld drift, zoom punches) -> transitions (fade, flash, whip) -> bloom + grade + light leak
 // -> grain/vignette -> word-by-word captions, title card, pop words, name labels.
@@ -91,7 +91,11 @@ function drawLabels(g, T) {
 }
 // ---------- grain + vignette ----------
 const NZ = document.createElement('canvas'); NZ.width = 540; NZ.height = 960; { const x = NZ.getContext('2d'), d = x.createImageData(540, 960), r = rng(5); for (let i = 0; i < d.data.length; i += 4) { const v = 110 + r() * 40; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } x.putImageData(d, 0, 0); }
-function post(g, T) { g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalCompositeOperation = 'overlay'; g.globalAlpha = .14; const f = Math.floor(T * 15); g.drawImage(NZ, -(f * 37 % 200), -(f * 53 % 300), 1620, 2880);
+const PAPER = document.createElement('canvas'); PAPER.width = 540; PAPER.height = 960; { const x = PAPER.getContext('2d'), r = rng(17); x.fillStyle = '#808080'; x.fillRect(0, 0, 540, 960);
+  for (let i = 0; i < 2600; i++) { const v = 100 + r() * 60 | 0; x.strokeStyle = `rgba(${v},${v},${v},.35)`; x.lineWidth = .6 + r() * 1.2; const px = r() * 540, py = r() * 960, a = r() * Math.PI, l = 4 + r() * 18; x.beginPath(); x.moveTo(px, py); x.lineTo(px + Math.cos(a) * l, py + Math.sin(a) * l); x.stroke(); }
+  x.filter = 'blur(.6px)'; x.drawImage(PAPER, 0, 0); }
+function post(g, T) {
+  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalCompositeOperation = 'soft-light'; g.globalAlpha = .55; g.drawImage(PAPER, 0, 0, W, H); g.restore(); g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalCompositeOperation = 'overlay'; g.globalAlpha = .14; const f = Math.floor(T * 15); g.drawImage(NZ, -(f * 37 % 200), -(f * 53 % 300), 1620, 2880);
   g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1; g.fillStyle = rg(g, W / 2, H * .48, H * .3, H * .8, [[0, 'rgba(0,0,0,0)'], [1, 'rgba(15,6,3,.6)']]); g.fillRect(0, 0, W, H); g.restore(); }
 function shotAt(T) { for (const s of EP.shots) if (T >= s.t0 && T < s.t1) return s; return EP.shots[EP.shots.length - 1]; }
 const BUF = document.createElement('canvas'); BUF.width = W; BUF.height = H; const BG = BUF.getContext('2d');
@@ -110,8 +114,8 @@ window.__render = T => {
   grade(G, sh, T); post(G, T);
   if (sh.tr === 'flash' && lt < .45) { G.save(); G.globalAlpha = 1 - eo(lt / .45); G.fillStyle = '#fff8e8'; G.fillRect(0, 0, W, H); G.restore(); }
   for (const ft of (sh.flashes || [])) if (lt >= ft && lt < ft + .3) { G.save(); G.globalAlpha = (1 - (lt - ft) / .3) * .85; G.fillStyle = '#fff8e8'; G.fillRect(0, 0, W, H); G.restore(); }
-  if (T < .25) { G.save(); G.globalAlpha = 1 - T / .25; G.fillStyle = '#000'; G.fillRect(0, 0, W, H); G.restore(); }
-  if (T > EP.total - .5) { G.save(); G.globalAlpha = smooth(EP.total - .5, EP.total, T); G.fillStyle = '#000'; G.fillRect(0, 0, W, H); G.restore(); }
+  if (!EP.loop && T < .25) { G.save(); G.globalAlpha = 1 - T / .25; G.fillStyle = '#000'; G.fillRect(0, 0, W, H); G.restore(); }
+  if (!EP.loop && T > EP.total - .5) { G.save(); G.globalAlpha = smooth(EP.total - .5, EP.total, T); G.fillStyle = '#000'; G.fillRect(0, 0, W, H); G.restore(); }
   G.save(); G.setTransform(1, 0, 0, 1, 0, 0); drawTitle(G, T); drawLabels(G, T); drawCaptions(G, T); drawPops(G, T); if (window.__ui) tiktokOverlay(G); G.restore();
 };
 function tiktokOverlay(g) { g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = 'rgba(255,0,80,.22)'; g.fillRect(0, 0, W, SAFE.top); g.fillRect(SAFE.right + 40, 640, W - SAFE.right - 40, 900); g.fillRect(0, SAFE.bottom, W, H - SAFE.bottom);
