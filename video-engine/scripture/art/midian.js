@@ -15,11 +15,9 @@ Object.assign(WAR, {
   const C = typeof o.c === 'string' ? WAR[o.c] : o.c || {};
   if (C.helmet !== 'turban') return base(g, o);
   base(g, Object.assign({}, o, { c: Object.assign({}, C, { helmet: null }) }));
-  const pose = o.pose || 'stand', kneel = ['kneel', 'faint', 'pray', 'sulk'].includes(pose), drop = kneel ? 150 : 0;
+  const pose = o.pose || 'stand', kneel = ['kneel', 'faint', 'pray', 'sulk'].includes(pose), drop = kneel ? 150 : pose === 'sit' ? 130 : 0;
   const shY = -620 + drop + Math.sin((o.t || 0) * 1.7 + (o.ph || 0)) * 2, hs = (C.head || 1) * .86, hy = shY - 62 * hs, w = C.wrap || '#d8c8a0';
-  g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), (o.s || 1) * (C.tall || 1)); if (pose === 'fall') g.rotate(-eio(o.k ?? 1) * 1.45);
-  if (o.rot) { g.translate(0, -380); g.rotate(o.rot); g.translate(0, 380); } g.rotate(pose === 'charge' ? .16 : pose === 'thrust' ? .08 : 0);
-  g.translate(14, hy); g.scale(hs, hs); if (o.headRot) g.rotate(o.headRot);
+  g.save(); g.setTransform(FIG_HEAD);
   const sw = Math.sin((o.t || 0) * 2.4) * 8;
   sh(g, `M-58 -40 Q-80 ${10 + sw} -70 ${70 + sw} L-52 ${66 + sw} Q-58 10 -44 -30 Z`, mix(w, '#000', .2), 3.4);
   sh(g, 'M-62 -26 C-70 -96 -10 -126 30 -116 C66 -106 72 -66 64 -30 Q0 -48 -62 -26 Z', lg(g, 0, -126, 0, -26, [[0, mix(w, '#fff', .25)], [1, w]]), 4);

@@ -12,11 +12,9 @@ Object.assign(WAR, {
   if (C.helmet !== 'kidaris' && C.helmet !== 'felt') return base(g, o);
   const kind = C.helmet; const c2 = Object.assign({}, C, { helmet: null }); base(g, Object.assign({}, o, { c: c2 }));
   // redraw the hat on top using the same head transform as figure v2
-  const b = C.bulk || 1, pose = o.pose || 'stand', kneel = ['kneel', 'faint', 'pray', 'sulk'].includes(pose), drop = kneel ? 150 : 0;
+  const b = C.bulk || 1, pose = o.pose || 'stand', kneel = ['kneel', 'faint', 'pray', 'sulk'].includes(pose), drop = kneel ? 150 : pose === 'sit' ? 130 : 0;
   const shY = -620 + drop + Math.sin((o.t || 0) * 1.7 + (o.ph || 0)) * 2, hs = (C.head || 1) * .86, hy = shY - 62 * hs;
-  g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), (o.s || 1) * (C.tall || 1)); if (pose === 'fall') g.rotate(-eio(o.k ?? 1) * 1.45);
-  if (o.rot) { g.translate(0, -380); g.rotate(o.rot); g.translate(0, 380); } g.rotate(pose === 'charge' ? .16 : pose === 'thrust' ? .08 : 0);
-  g.translate(14, hy); g.scale(hs, hs); if (o.headRot) g.rotate(o.headRot);
+  g.save(); g.setTransform(FIG_HEAD);
   if (kind === 'kidaris') { sh(g, 'M-54 -40 L-50 -150 L-30 -128 L-12 -158 L6 -128 L24 -158 L42 -128 L58 -150 L56 -40 Q0 -54 -54 -40 Z', lg(g, -54, -158, 56, -40, [[0, '#fff2b0'], [.5, '#e0b04a'], [1, '#9a6a1e']]), 4);
     for (let i = 0; i < 3; i++) line(g, [-52, -60 - i * 26, 56, -60 - i * 26], 2, 'rgba(120,70,10,.6)', 'round', true); [-30, 6, 42].forEach(x => ell(g, x, -90, 6, 6, '#3a6ac8', 1.6)); glow(g, 0, -100, 110, 'rgba(255,220,120,1)', .25); }
   else { sh(g, 'M-56 -30 C-60 -90 -20 -118 20 -112 C56 -104 64 -70 58 -32 Q0 -48 -56 -30 Z', lg(g, 0, -118, 0, -30, [[0, mix(C.cape || '#5a3a2a', '#fff', .2)], [1, C.cape || '#5a3a2a']]), 3.6); line(g, [-56, -34, 0, -50, 58, -36], 3, mix(C.trim || '#c0902a', '#000', .1), 'round', true); sh(g, 'M-56 -30 C-70 0 -64 40 -44 60 L-30 40 C-40 20 -40 -6 -36 -24 Z', C.cape || '#5a3a2a', 3); }

@@ -1,7 +1,7 @@
 // Heroes v2: Toby and Selah redrawn at the illustrated standard (tapered limbs with hands, shaded forms, fabric folds and
 // patterned hems, detailed eyes, curls and fur strokes). Same options as chars.js, which these replace.
 toby = function (g, o) {
-  const C = TOBY, t = o.t || 0, ex = o.expr || 'neutral', talk = o.talk || 0, [lx, ly] = o.look || [0, 0], ph = o.ph || 0;
+  const C = TOBY, t = o.t || 0, ex = o.expr || 'neutral', talk = o.talk || 0, ph = o.ph || 0, glT = Math.floor(t * .55 + ph * 3.1), glance = ((((glT * 9301 + 49297) % 233280) / 233280) - .5) * 2, [lx0, ly0] = o.look || [0, 0], lx = clamp(lx0 + glance * .35, -1, 1), ly = ly0 + Math.sin(t * .4 + ph) * .1;
   const skin = '#c58552', skinD = '#9c6038', skinL = '#dca274';
   g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), o.s || 1);
   const br = 1 + .012 * Math.sin(t * 2.2 + ph), hop = o.hop ? -Math.abs(Math.sin(t * 9)) * 18 * o.hop : 0;
@@ -35,7 +35,8 @@ toby = function (g, o) {
   if (o.sling) { const an = t * 16, sx = hr[0] + Math.cos(an) * 150, sy = hr[1] - 30 + Math.sin(an) * 60; g.save(); g.globalAlpha = .4; g.beginPath(); g.ellipse(hr[0], hr[1] - 30, 150, 60, 0, 0, Math.PI * 2); g.lineWidth = 3; g.strokeStyle = '#fff6dc'; g.stroke(); g.restore(); line(g, [hr[0], hr[1], (hr[0] + sx) / 2, (hr[1] + sy) / 2 + 18, sx, sy], 3.4, '#6a4a2a', 'round', true); ell(g, sx, sy, 14, 14, lg(g, sx - 14, sy - 14, sx + 14, sy + 14, [[0, '#e0d8cc'], [1, '#7a7268']]), 3); }
   g.restore();
   // head
-  g.save(); g.translate(0, -400 + (1 - br) * 300); if (o.tilt) g.rotate(o.tilt);
+  const nodT = talk * (.06 * Math.sin(t * 8.6 + ph) + .02) + .025 * Math.sin(t * .7 + ph * 2.3);
+  g.save(); g.translate(0, -400 + (1 - br) * 300 - talk * 6); g.rotate((o.tilt || 0) + nodT);
   taper(g, 0, 90, 0, 124, 44, 46, skinD);
   // back curls
   const curls = [[-98, -40, 40], [-62, -94, 44], [-10, -114, 46], [46, -98, 44], [92, -52, 40], [-110, 6, 30], [108, 2, 30]];
@@ -120,7 +121,8 @@ donkey = function (g, o) {
   { const cx = (n1[0] + a[0]) / 2 - 22, cy = (n1[1] + a[1]) / 2 - 26; line(g, [n1[0] - 4, n1[1] + 6, cx, cy, a[0] + 8, a[1] - 2], 36, INK, 'round', true); line(g, [n1[0] - 4, n1[1] + 6, cx, cy, a[0] + 8, a[1] - 2], 30, C.mane, 'round', true);
     for (let i = 2; i < 12; i += 3) { const k = i / 12, x = (1 - k) * (1 - k) * (n1[0] - 4) + 2 * k * (1 - k) * cx + k * k * (a[0] + 8), y = (1 - k) * (1 - k) * (n1[1] + 6) + 2 * k * (1 - k) * cy + k * k * (a[1] - 2); line(g, [x, y, x - 20, y - 20 - Math.sin(t * 2 + i) * 3], 6, C.mane, 'round', true); } }
   // head
-  g.save(); g.translate(hx, hy); g.rotate(hr);
+  const nodS = (o.talk || 0) * (.05 * Math.sin(t * 7.9 + (o.ph || 0)) + .02) + .02 * Math.sin(t * .6 + (o.ph || 0) * 1.9);
+  g.save(); g.translate(hx, hy - (o.talk || 0) * 5); g.rotate(hr + nodS);
   const ew = Math.sin(t * 1.3 + (o.ph || 0)) * .06 + (o.ears || 0);
   const ear = (bx, by, ang, len, front) => { g.save(); g.translate(bx, by); g.rotate(ang + ew);
     sh(g, `M-22 0 C-34 ${-len * .45} -20 ${-len * .9} 0 ${-len} C20 ${-len * .9} 30 ${-len * .45} 20 0 Z`, lg(g, -22, 0, 22, 0, [[0, front ? body : bodyD], [1, front ? bodyL : body]]), 4.5);
@@ -147,7 +149,7 @@ donkey = function (g, o) {
   if (ex === 'smile' || ex === 'happy' || blink) { line(g, [-20, 2, 0, ex === 'smile' || ex === 'happy' ? -12 : 4, 20, 2], 5);  }
   else { const wide = ex === 'wide' || ex === 'fear', er = wide ? 32 : 27;
     ell(g, 0, 0, er, er * 1.08, lg(g, 0, -er, 0, er, [[0, '#ffffff'], [1, '#ebe2d4']]), 4);
-    const [lx, ly] = o.look || [.3, 0], ix = lx * 8, iy = ly * 7 + 3, ir = wide ? 11 : 16;
+    const glS = Math.floor(t * .5 + (o.ph || 0) * 2.7), gS = ((((glS * 9301 + 49297) % 233280) / 233280) - .5) * 2, [lx0, ly] = o.look || [.3, 0], lx = clamp(lx0 + gS * .3, -1, 1), ix = lx * 8, iy = ly * 7 + 3, ir = wide ? 11 : 16;
     ell(g, ix, iy, ir, ir * 1.06, rg(g, ix, iy, 2, ir, [[0, '#7a4a2a'], [.7, '#3a2214'], [1, '#160c08']])); ell(g, ix, iy, ir * .5, ir * .55, '#0e0806'); ell(g, ix + 6, iy - 5, 5.5, 5.5, '#fff');
     if (o.eyeGlow) { glow(g, ix, iy, 26, 'rgba(255,214,120,1)', o.eyeGlow); ell(g, ix - 2, iy + 4, 3 + 3 * o.eyeGlow, 6 + 4 * o.eyeGlow, `rgba(255,236,170,${o.eyeGlow})`); }
     const lid = { calm: .3, smug: .4, sad: .38, wide: 0, fear: 0, hurt: .24 }[ex] ?? .3;

@@ -62,3 +62,19 @@ A synthesised bed in a Hijaz-flavoured mode (D, E♭, F♯, G, A, B♭, C) with 
 
 ## Pipeline (see README.md)
 lines.json (script and voices) → voice_lines.py (clips) → timeline.py (timing, captions, lip sync) → mix.py (music and SFX) → render.js (1080×1920 MP4).
+
+## Animation & staging standards (from the reference motion study, 24 fps)
+Applied to every character rig from EP07 on (`art/figure.js`, `art/heroes.js`, `art/people.js`):
+- **True profile.** Narrow torso; the near arm hangs along the side, the far arm stays behind the body; both feet point forward
+  and, under long robes, only the toes peek from the hem. Seated pose (`sit`) folds the legs with the robe draped over the lap.
+- **Natural gestures.** Speakers gesture from the chest (forearm forward, open palm, hand at chest height): `gesture`, `explain`,
+  `shout`. Arms only go overhead to hold something up (`raise`). Seated hands rest on the lap or armrests.
+- **Pose blending.** `pose` + `pose2` + animated `mix` blends hands smoothly; big moves (`raise`, `thrust`) ease out with a small
+  overshoot instead of snapping.
+- **Speech life.** Head nods with the syllables, brows lift on emphasis, mouth shape varies in width and height, hands make small beats.
+- **Eyes.** Blinks plus glances every second or two; `look` points at whoever is speaking.
+- **Idle life.** Breathing and a slow weight-shift sway around the hips; walking adds a step bob.
+- **Cloth.** Folds fan from the waist gather with diagonal tension folds and lit edges; curved hems with beaded trim.
+- **Staging.** Every set (`art/sets.js`, scene `set`) shares a floor line (y = 1880): feet always land on the floor, nothing stands
+  in front of a structure's base. Each location is its own filled set (hall, street, chamber, banquet, home, gate) instead of
+  reusing one backdrop; texture, wall-floor contact shadow and depth haze are added by the detail pass.

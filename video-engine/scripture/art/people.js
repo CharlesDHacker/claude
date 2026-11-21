@@ -98,7 +98,8 @@ function person(g, o) {
   if (pose === 'cross') { arm(1, P[1]); arm(-1, P[0]); } else { arm(-1, P[0]); if (o.item && pose === 'hold') HOLD2(g, o, 0, shY + 130, t); if (pose !== 'raise') arm(1, P[1]); }
   if (o.item && pose !== 'hold' && pose !== 'raise') HOLD2(g, o, P[1][2], P[1][3], t);
   // head
-  g.save(); g.translate(0, hy); g.scale(hs, hs); g.rotate(tilt); face(g, L, o, t); g.restore();
+  const nodP = (o.talk || 0) * (.05 * Math.sin(t * 8.2 + ph) + .02), glP = Math.floor(t * .5 + ph * 2.9), gP = ((((glP * 9301 + 49297) % 233280) / 233280) - .5) * 2, oL = o.look || [0, 0];
+  g.save(); g.translate(0, hy - (o.talk || 0) * 5); g.scale(hs, hs); g.rotate(tilt + nodP); face(g, L, Object.assign({}, o, { look: [clamp(oL[0] + gP * .35, -1, 1), oL[1]] }), t); g.restore();
   if (pose === 'raise') { arm(1, P[1]); if (o.item) HOLD2(g, o, P[1][2], P[1][3], t); }
   g.restore();
 }

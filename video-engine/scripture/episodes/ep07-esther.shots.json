@@ -228,41 +228,23 @@
   },
   {
    "at": "L04",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
-     1350,
+     1250,
      1.0
     ],
     [
      540,
-     1300,
-     1.12
+     1200,
+     1.1
     ]
    ],
    "o": {
-    "sky": "gold",
-    "sunX": 800,
-    "sunY": 900,
-    "sunR": 150,
-    "horizon": 1350,
-    "actors": [
-     {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
-     {
-      "type": "glow",
-      "x": 540,
-      "y": 1200,
-      "r": 800,
-      "col": "rgba(255,200,120,1)",
-      "a": 0.35
-     }
-    ]
+    "set": "street",
+    "actors": [],
+    "tod": "day"
    },
    "tr": "whip",
    "grade": "gold",
@@ -272,38 +254,28 @@
   },
   {
    "at": "L04",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      560,
      1300,
-     1.1
+     1.05
     ],
     [
      560,
      1300,
-     1.2
+     1.12
     ]
    ],
    "o": {
-    "sky": "sunset",
-    "sunX": 800,
-    "sunY": 900,
-    "sunR": 150,
-    "horizon": 1350,
+    "set": "home",
     "actors": [
-     {
-      "type": "house",
-      "x": 540,
-      "y": 1500,
-      "s": 0.9
-     },
      {
       "type": "w",
       "c": "estherGirl",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
-      "x": 430,
+      "x": 420,
       "expr": "smile",
       "look": [
        1,
@@ -313,9 +285,9 @@
      {
       "type": "w",
       "c": "mordecai",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
-      "x": 700,
+      "x": 680,
       "flip": true,
       "pose": "hug",
       "expr": "smile"
@@ -330,7 +302,7 @@
   },
   {
    "at": "L05",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -340,54 +312,49 @@
     [
      520,
      1300,
-     1.1
+     1.08
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "hall",
     "actors": [
      {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
-     {
-      "type": "throne",
-      "x": 760,
-      "y": 1820,
-      "s": 0.75
-     },
-     {
-      "type": "w",
-      "c": "xerxes",
-      "y": 1860,
-      "s": 1.05,
-      "x": 800,
-      "flip": true,
-      "expr": "smile"
+      "type": "throne2",
+      "x": 700,
+      "y": 1720,
+      "s": 0.92,
+      "king": "xerxes",
+      "kingOpts": {
+       "flip": true,
+       "expr": "smile"
+      }
      },
      {
       "type": "w",
       "c": "esther",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
       "x": {
-       "a": 150,
-       "b": 380,
+       "a": 80,
+       "b": 330,
        "t0": 0,
        "t1": "@L05.1",
        "e": "o"
       },
       "pose": "stride",
+      "pose2": "stand",
+      "mix": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L05.1-0.2",
+       "t1": "@L05.1+0.3",
+       "e": "io"
+      },
       "expr": "smile"
      },
      {
       "type": "rays",
-      "x": 380,
+      "x": 330,
       "y": 1300,
       "r": 1500,
       "a": {
@@ -402,7 +369,7 @@
    },
    "tr": "flash",
    "grade": "gold",
-   "bloom": 0.5,
+   "bloom": 0.4,
    "label": "KING XERXES",
    "labelAt": 0.4,
    "sfx": [
@@ -414,58 +381,49 @@
   },
   {
    "at": "L06",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      560,
-     1250,
-     1.2
+     1280,
+     1.15
     ],
     [
      560,
-     1250,
-     1.3
+     1280,
+     1.22
     ]
    ],
    "o": {
-    "sky": "night",
-    "sunX": 300,
-    "sunY": 520,
-    "sunR": 80,
-    "horizon": 1360,
+    "set": "home",
     "actors": [
-     {
-      "type": "lamp",
-      "x": 540,
-      "y": 1700
-     },
      {
       "type": "w",
       "c": "mordecai",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
       "x": 380,
-      "pose": "beg",
+      "pose": "explain",
       "expr": "neutral"
      },
      {
       "type": "w",
       "c": "estherGirl",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
-      "x": 720,
+      "x": 700,
       "flip": true,
       "expr": "shock"
      }
     ]
    },
    "tr": "fade",
-   "grade": "night",
+   "grade": "warm",
    "leak": false
   },
   {
    "at": "L07",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -475,35 +433,25 @@
     [
      580,
      1300,
-     1.08
+     1.06
     ]
    ],
    "o": {
-    "sky": "sunset",
-    "sunX": 800,
-    "sunY": 900,
-    "sunR": 150,
-    "horizon": 1350,
+    "set": "street",
     "actors": [
-     {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
      {
       "type": "w",
       "c": "man300b",
-      "y": 1860,
-      "s": 0.85,
+      "y": 1880,
+      "s": 0.9,
       "x": 150,
       "pose": "pray"
      },
      {
       "type": "w",
-      "c": "satrap2",
-      "y": 1860,
-      "s": 0.85,
+      "c": "scribe",
+      "y": 1880,
+      "s": 0.9,
       "x": 330,
       "pose": "pray",
       "flip": true
@@ -511,11 +459,11 @@
      {
       "type": "w",
       "c": "haman",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
       "x": {
-       "a": 1100,
-       "b": 600,
+       "a": 1050,
+       "b": 620,
        "t0": 0,
        "t1": 3.5,
        "e": "lin"
@@ -526,14 +474,15 @@
      },
      {
       "type": "w",
-      "c": "scribe",
-      "y": 1860,
-      "s": 0.85,
-      "x": 900,
+      "c": "satrap2",
+      "y": 1880,
+      "s": 0.9,
+      "x": 930,
       "pose": "pray",
       "flip": true
      }
-    ]
+    ],
+    "tod": "day"
    },
    "tr": "whip",
    "grade": "warm",
@@ -543,7 +492,7 @@
   },
   {
    "at": "L08",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -551,37 +500,27 @@
      1.0
     ],
     [
-     480,
+     470,
      1250,
-     1.25
+     1.22
     ]
    ],
    "o": {
-    "sky": "sunset",
-    "sunX": 800,
-    "sunY": 900,
-    "sunR": 150,
-    "horizon": 1350,
+    "set": "street",
     "actors": [
-     {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
      {
       "type": "w",
       "c": "man300b",
-      "y": 1860,
-      "s": 0.85,
-      "x": 150,
+      "y": 1880,
+      "s": 0.9,
+      "x": 140,
       "pose": "pray"
      },
      {
       "type": "w",
       "c": "satrap2",
-      "y": 1860,
-      "s": 0.85,
+      "y": 1880,
+      "s": 0.9,
       "x": 780,
       "pose": "pray",
       "flip": true
@@ -589,21 +528,22 @@
      {
       "type": "w",
       "c": "mordecai",
-      "y": 1860,
+      "y": 1880,
       "s": 1.05,
-      "x": 460,
+      "x": 440,
       "expr": "neutral"
      },
      {
       "type": "w",
       "c": "haman",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
-      "x": 900,
+      "x": 920,
       "flip": true,
       "expr": "angry"
      }
-    ]
+    ],
+    "tod": "day"
    },
    "tr": "whip",
    "grade": "warm",
@@ -619,7 +559,7 @@
   },
   {
    "at": "L09",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -633,11 +573,7 @@
     ]
    ],
    "o": {
-    "sky": "blood",
-    "sunX": 300,
-    "sunY": 520,
-    "sunR": 80,
-    "horizon": 1360,
+    "set": "street",
     "actors": [
      {
       "type": "glow",
@@ -645,7 +581,7 @@
       "y": 1100,
       "r": 800,
       "col": "rgba(255,60,40,1)",
-      "a": 0.4
+      "a": 0.35
      },
      {
       "type": "w",
@@ -656,14 +592,15 @@
       "expr": "angry",
       "who": "haman"
      }
-    ]
+    ],
+    "tod": "dusk"
    },
    "tr": "flash",
    "grade": "blood"
   },
   {
    "at": "L10",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -677,10 +614,7 @@
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "hall",
     "actors": [
      {
       "type": "glow",
@@ -688,7 +622,7 @@
       "y": 1100,
       "r": 800,
       "col": "rgba(255,80,60,1)",
-      "a": 0.35
+      "a": 0.3
      },
      {
       "type": "decree",
@@ -794,105 +728,73 @@
   },
   {
    "at": "L12",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
-     560,
+     540,
      1300,
      1.05
     ],
     [
-     560,
+     540,
      1280,
      1.15
     ]
    ],
    "o": {
-    "sky": "night",
-    "sunX": 300,
-    "sunY": 520,
-    "sunR": 80,
-    "horizon": 1360,
+    "set": "gate",
     "actors": [
-     {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
      {
       "type": "w",
       "c": "mordecai",
-      "y": 1860,
-      "s": 1.0,
-      "x": 420,
+      "y": 1880,
+      "s": 1.05,
+      "x": 540,
       "pose": "beg",
       "expr": "tired"
-     },
-     {
-      "type": "w",
-      "c": "esther",
-      "y": 1860,
-      "s": 1.0,
-      "x": 760,
-      "flip": true,
-      "expr": "shock"
      }
-    ]
+    ],
+    "tod": "dusk"
    },
    "tr": "fade",
-   "grade": "night",
+   "grade": "warm",
    "leak": false
   },
   {
    "at": "L13",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      480,
-     1250,
-     1.15
+     1260,
+     1.12
     ],
     [
      480,
-     1240,
-     1.25
+     1250,
+     1.22
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "hall",
     "actors": [
      {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
-     {
-      "type": "throne",
-      "x": 800,
-      "y": 1700,
-      "s": 0.55
-     },
-     {
-      "type": "w",
-      "c": "xerxes",
-      "y": 1700,
+      "type": "throne2",
+      "x": 720,
+      "y": 1640,
       "s": 0.7,
-      "x": 800,
-      "flip": true,
-      "expr": "neutral",
-      "sil": true
+      "king": "xerxes",
+      "kingOpts": {
+       "flip": true,
+       "expr": "smile"
+      }
      },
      {
       "type": "w",
       "c": "esther",
-      "y": 1950,
+      "y": 1960,
       "s": 1.2,
-      "x": 330,
+      "x": 300,
       "expr": "shock",
       "who": "esther",
       "look": [
@@ -908,7 +810,7 @@
   },
   {
    "at": "L14",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -922,17 +824,8 @@
     ]
    ],
    "o": {
-    "sky": "night",
-    "sunX": 300,
-    "sunY": 520,
-    "sunR": 80,
-    "horizon": 1360,
+    "set": "gate",
     "actors": [
-     {
-      "type": "lamp",
-      "x": 300,
-      "y": 1700
-     },
      {
       "type": "w",
       "c": "mordecai",
@@ -941,9 +834,10 @@
       "x": 540,
       "expr": "neutral",
       "who": "mordecai",
-      "pose": "preach"
+      "pose": "gesture"
      }
-    ]
+    ],
+    "tod": "dusk"
    },
    "tr": "fade",
    "grade": "warm",
@@ -1009,38 +903,28 @@
   },
   {
    "at": "L15",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
-     560,
+     540,
      1300,
-     1.1
+     1.05
     ],
     [
-     560,
+     540,
      1280,
-     1.2
+     1.12
     ]
    ],
    "o": {
-    "sky": "night",
-    "sunX": 300,
-    "sunY": 520,
-    "sunR": 80,
-    "horizon": 1360,
+    "set": "chamber",
     "actors": [
-     {
-      "type": "lampstand",
-      "x": 760,
-      "y": 1820,
-      "s": 1.0
-     },
      {
       "type": "w",
       "c": "esther",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
-      "x": 460,
+      "x": 400,
       "pose": "pray",
       "expr": "tired",
       "look": [
@@ -1048,7 +932,8 @@
        -1
       ]
      }
-    ]
+    ],
+    "lampX": 640
    },
    "tr": "fade",
    "grade": "night",
@@ -1058,7 +943,7 @@
   },
   {
    "at": "L16",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -1072,18 +957,8 @@
     ]
    ],
    "o": {
-    "sky": "sunset",
-    "sunX": 800,
-    "sunY": 900,
-    "sunR": 150,
-    "horizon": 1350,
+    "set": "gate",
     "actors": [
-     {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
      {
       "type": "w",
       "c": "esther",
@@ -1093,7 +968,8 @@
       "expr": "fierce",
       "who": "esther"
      }
-    ]
+    ],
+    "tod": "dusk"
    },
    "tr": "whip",
    "grade": "warm",
@@ -1164,7 +1040,7 @@
   },
   {
    "at": "L18",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -1172,75 +1048,63 @@
      1.0
     ],
     [
-     620,
-     1250,
-     1.15
+     600,
+     1260,
+     1.12
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "hall",
     "actors": [
      {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
-     {
-      "type": "throne",
-      "x": 800,
-      "y": 1820,
-      "s": 0.75
-     },
-     {
-      "type": "w",
-      "c": "xerxes",
-      "y": 1860,
-      "s": 1.05,
-      "x": 800,
-      "flip": true,
-      "expr": {
-       "a": "neutral",
-       "b": "neutral",
-       "t0": 0,
-       "t1": 1,
-       "e": "io"
-      },
-      "pose": "thrust",
-      "k": {
-       "a": 0,
-       "b": 1,
-       "t0": "@L18.1",
-       "t1": "@L18.1+0.5",
-       "e": "io"
-      },
-      "hold": "scepter",
-      "holdRot": -1.4,
-      "glow": {
-       "a": 0,
-       "b": 1.4,
-       "t0": "@L18.1",
-       "t1": "@L18.1+0.6",
-       "e": "io"
+      "type": "throne2",
+      "x": 700,
+      "y": 1720,
+      "s": 0.92,
+      "king": "xerxes",
+      "kingOpts": {
+       "flip": true,
+       "expr": "neutral",
+       "hold": "scepter",
+       "holdRot": {
+        "a": -0.1,
+        "b": -1.15,
+        "t0": "@L18.1",
+        "t1": "@L18.1+0.6",
+        "e": "o"
+       },
+       "glow": {
+        "a": 0.3,
+        "b": 1.5,
+        "t0": "@L18.1",
+        "t1": "@L18.1+0.6",
+        "e": "io"
+       }
       }
      },
      {
       "type": "w",
       "c": "esther",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
       "x": {
-       "a": 80,
-       "b": 380,
+       "a": 60,
+       "b": 330,
        "t0": 0,
        "t1": "@L18.1",
        "e": "o"
       },
       "pose": "stride",
-      "expr": "shock"
+      "pose2": "stand",
+      "mix": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L18.1-0.2",
+       "t1": "@L18.1+0.3",
+       "e": "io"
+      },
+      "expr": "shock",
+      "k": 1
      }
     ]
    },
@@ -1325,53 +1189,38 @@
   },
   {
    "at": "L20",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
-     560,
+     540,
      1300,
-     1.05
+     1.02
     ],
     [
-     560,
+     540,
      1290,
-     1.15
+     1.1
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "chamber",
     "actors": [
-     {
-      "type": "room",
-      "x": 540,
-      "y": 1900,
-      "s": 1.0
-     },
-     {
-      "type": "lampstand",
-      "x": 200,
-      "y": 1840,
-      "s": 0.9
-     },
      {
       "type": "w",
       "c": "xerxes",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
-      "x": 640,
+      "x": 360,
       "expr": "tired"
      },
      {
       "type": "w",
       "c": "scribe",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
       "x": {
-       "a": 1200,
-       "b": 880,
+       "a": 1250,
+       "b": 640,
        "t0": "@L20.2",
        "t1": "@L20.2+0.8",
        "e": "o"
@@ -1379,7 +1228,8 @@
       "flip": true,
       "hold": "scroll"
      }
-    ]
+    ],
+    "lampX": 200
    },
    "tr": "fade",
    "grade": "night",
@@ -1394,43 +1244,28 @@
   },
   {
    "at": "L21",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
      1200,
-     1.3
+     1.28
     ],
     [
      520,
      1180,
-     1.45
+     1.42
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "chamber",
     "actors": [
-     {
-      "type": "room",
-      "x": 540,
-      "y": 1900,
-      "s": 1.0
-     },
-     {
-      "type": "lampstand",
-      "x": 200,
-      "y": 1840,
-      "s": 0.9
-     },
      {
       "type": "w",
       "c": "xerxes",
       "y": 1960,
       "s": 1.25,
-      "x": 560,
+      "x": 430,
       "expr": "shock",
       "look": [
        1,
@@ -1440,13 +1275,14 @@
      {
       "type": "w",
       "c": "scribe",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
-      "x": 900,
+      "x": 820,
       "flip": true,
       "hold": "scroll"
      }
-    ]
+    ],
+    "lampX": 200
    },
    "tr": "whip",
    "grade": "warm",
@@ -1462,53 +1298,40 @@
   },
   {
    "at": "L22",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
      1300,
-     1.05
+     1.02
     ],
     [
      540,
      1290,
-     1.12
+     1.1
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "hall",
     "actors": [
      {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
-     {
-      "type": "throne",
-      "x": 780,
-      "y": 1820,
-      "s": 0.75
-     },
-     {
-      "type": "w",
-      "c": "xerxes",
-      "y": 1860,
-      "s": 1.05,
-      "x": 780,
-      "flip": true,
-      "expr": "smile",
+      "type": "throne2",
+      "x": 700,
+      "y": 1720,
+      "s": 0.92,
+      "king": "xerxes",
+      "kingOpts": {
+       "flip": true,
+       "expr": "smile"
+      },
       "who": "king"
      },
      {
       "type": "w",
       "c": "haman",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
-      "x": 330,
+      "x": 300,
       "expr": "smile"
      }
     ]
@@ -1571,7 +1394,7 @@
   },
   {
    "at": "L24",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -1579,30 +1402,19 @@
      1.0
     ],
     [
-     640,
+     620,
      1300,
-     1.08
+     1.06
     ]
    ],
    "o": {
-    "sky": "day",
-    "sunX": 800,
-    "sunY": 900,
-    "sunR": 150,
-    "horizon": 1350,
+    "set": "street",
     "actors": [
      {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95,
-      "par": 0.7
-     },
-     {
       "type": "w",
-      "c": "israelite",
-      "y": 1860,
-      "s": 0.8,
+      "c": "man300b",
+      "y": 1880,
+      "s": 0.85,
       "x": 120,
       "pose": "raise",
       "k": 1
@@ -1610,9 +1422,9 @@
      {
       "type": "w",
       "c": "satrap2",
-      "y": 1860,
-      "s": 0.8,
-      "x": 980,
+      "y": 1880,
+      "s": 0.85,
+      "x": 990,
       "pose": "raise",
       "k": 1,
       "flip": true,
@@ -1621,13 +1433,13 @@
      {
       "type": "horse",
       "x": {
-       "a": 220,
-       "b": 820,
+       "a": 230,
+       "b": 800,
        "t0": 0,
        "t1": 6,
        "e": "lin"
       },
-      "y": 1860,
+      "y": 1880,
       "s": 0.85,
       "walk": true,
       "rider": "mordecaiR",
@@ -1637,19 +1449,21 @@
      {
       "type": "w",
       "c": "haman",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
       "x": {
        "a": 520,
-       "b": 1120,
+       "b": 1090,
        "t0": 0,
        "t1": 6,
        "e": "lin"
       },
-      "pose": "preach",
+      "pose": "shout",
       "expr": "angry"
      }
-    ]
+    ],
+    "tod": "day",
+    "stall": false
    },
    "tr": "whip",
    "grade": "warm",
@@ -1735,69 +1549,52 @@
   },
   {
    "at": "L26",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
      1300,
-     1.05
+     1.02
     ],
     [
      540,
      1290,
-     1.12
+     1.1
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "banquet",
     "actors": [
-     {
-      "type": "glow",
-      "x": 540,
-      "y": 1300,
-      "r": 900,
-      "col": "rgba(255,190,110,1)",
-      "a": 0.4
-     },
-     {
-      "type": "lanterns",
-      "y": 700,
-      "x0": -60,
-      "x1": 1140
-     },
      {
       "type": "w",
       "c": "xerxes",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
-      "x": 280,
+      "x": 270,
       "expr": "smile"
      },
      {
       "type": "w",
       "c": "haman",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
-      "x": 780,
+      "x": 800,
       "expr": "smile",
       "flip": true
      },
      {
       "type": "w",
       "c": "esther",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
       "x": 530,
       "expr": "neutral",
-      "pose": "preach"
+      "pose": "gesture"
      },
      {
       "type": "table",
       "x": 540,
-      "y": 1760,
+      "y": 1840,
       "s": 1.1
      }
     ]
@@ -1808,7 +1605,7 @@
   },
   {
    "at": "L27",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -1822,10 +1619,7 @@
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "banquet",
     "actors": [
      {
       "type": "glow",
@@ -1833,7 +1627,7 @@
       "y": 1100,
       "r": 800,
       "col": "rgba(255,90,60,1)",
-      "a": 0.4
+      "a": 0.35
      },
      {
       "type": "w",
@@ -1857,37 +1651,28 @@
   },
   {
    "at": "L28",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      560,
      1250,
-     1.15
+     1.12
     ],
     [
      620,
      1250,
-     1.3
+     1.26
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "banquet",
     "actors": [
-     {
-      "type": "lanterns",
-      "y": 700,
-      "x0": -60,
-      "x1": 1140
-     },
      {
       "type": "w",
       "c": "esther",
-      "y": 1900,
+      "y": 1920,
       "s": 1.15,
-      "x": 330,
+      "x": 320,
       "expr": "fierce",
       "who": "esther",
       "pose": "thrust"
@@ -1895,9 +1680,9 @@
      {
       "type": "w",
       "c": "haman",
-      "y": 1890,
+      "y": 1910,
       "s": 1.1,
-      "x": 800,
+      "x": 790,
       "flip": true,
       "expr": "shock",
       "pose": "faint",
@@ -2002,7 +1787,7 @@
   },
   {
    "at": "L29",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -2012,22 +1797,12 @@
     [
      540,
      1280,
-     1.08
+     1.06
     ]
    ],
    "o": {
-    "sky": "gold",
-    "sunX": 800,
-    "sunY": 900,
-    "sunR": 150,
-    "horizon": 1350,
+    "set": "street",
     "actors": [
-     {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
      {
       "type": "rays",
       "x": 540,
@@ -2037,19 +1812,19 @@
      },
      {
       "type": "w",
-      "c": "israelite",
-      "y": 1860,
+      "c": "man300b",
+      "y": 1880,
       "s": 0.85,
-      "x": 180,
+      "x": 160,
       "pose": "raise",
       "k": 1
      },
      {
       "type": "w",
       "c": "estherGirl",
-      "y": 1860,
+      "y": 1880,
       "s": 0.85,
-      "x": 380,
+      "x": 360,
       "pose": "raise",
       "k": 1,
       "ph": 1
@@ -2057,7 +1832,7 @@
      {
       "type": "w",
       "c": "esther",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
       "x": 540,
       "expr": "smile"
@@ -2065,7 +1840,7 @@
      {
       "type": "w",
       "c": "mordecaiR",
-      "y": 1860,
+      "y": 1880,
       "s": 1.0,
       "x": 720,
       "expr": "smile",
@@ -2075,7 +1850,7 @@
      {
       "type": "w",
       "c": "man300",
-      "y": 1860,
+      "y": 1880,
       "s": 0.85,
       "x": 920,
       "pose": "raise",
@@ -2083,7 +1858,9 @@
       "flip": true,
       "ph": 2
      }
-    ]
+    ],
+    "tod": "day",
+    "stall": false
    },
    "atc": "@L29.2",
    "tr": "flash",
@@ -2268,46 +2045,32 @@
   },
   {
    "at": "L31",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
-     560,
+     520,
      1200,
      1.3
     ],
     [
-     560,
+     520,
      1190,
      1.4
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "chamber",
     "actors": [
-     {
-      "type": "room",
-      "x": 540,
-      "y": 1900,
-      "s": 1.0
-     },
-     {
-      "type": "lampstand",
-      "x": 200,
-      "y": 1840,
-      "s": 0.9
-     },
      {
       "type": "w",
       "c": "xerxes",
       "y": 1940,
       "s": 1.2,
-      "x": 600,
+      "x": 420,
       "expr": "tired"
      }
-    ]
+    ],
+    "lampX": 200
    },
    "atc": "@L31.1+1.3",
    "tr": "whip",
@@ -2316,41 +2079,33 @@
   },
   {
    "at": "L31",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
-     540,
+     520,
      1200,
      1.3
     ],
     [
-     540,
+     520,
      1190,
      1.4
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "chamber",
     "actors": [
-     {
-      "type": "room",
-      "x": 540,
-      "y": 1900,
-      "s": 1.0
-     },
      {
       "type": "w",
       "c": "scribe",
       "y": 1940,
       "s": 1.2,
-      "x": 540,
+      "x": 420,
       "hold": "scroll",
       "expr": "smile"
      }
-    ]
+    ],
+    "lampX": 200
    },
    "atc": "@L31.2",
    "tr": "whip",
@@ -2358,43 +2113,35 @@
   },
   {
    "at": "L31",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
-     600,
-     1200,
+     620,
+     1250,
      1.2
     ],
     [
-     620,
-     1190,
+     640,
+     1240,
      1.3
     ]
    ],
    "o": {
-    "sky": "night",
-    "sun": false,
-    "clouds": false,
-    "horizon": 2600,
+    "set": "hall",
     "actors": [
      {
-      "type": "throne",
-      "x": 800,
-      "y": 1820,
-      "s": 0.75
-     },
-     {
-      "type": "w",
-      "c": "xerxes",
-      "y": 1860,
-      "s": 1.05,
-      "x": 800,
-      "flip": true,
-      "pose": "thrust",
-      "hold": "scepter",
-      "holdRot": -1.4,
-      "glow": 1.4,
-      "expr": "smile"
+      "type": "throne2",
+      "x": 700,
+      "y": 1720,
+      "s": 0.92,
+      "king": "xerxes",
+      "kingOpts": {
+       "flip": true,
+       "expr": "smile",
+       "hold": "scepter",
+       "holdRot": -1.15,
+       "glow": 1.5
+      }
      }
     ]
    },
@@ -2405,40 +2152,32 @@
   },
   {
    "at": "L32",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
-     1300,
+     1250,
      1.0
     ],
     [
      540,
-     1250,
+     1200,
      1.1
     ]
    ],
    "o": {
-    "sky": "gold",
-    "sunX": 800,
-    "sunY": 1150,
-    "sunR": 150,
-    "horizon": 1350,
+    "set": "street",
     "actors": [
-     {
-      "type": "palace",
-      "x": 540,
-      "y": 1900,
-      "s": 0.95
-     },
      {
       "type": "rays",
       "x": 540,
-      "y": 1100,
+      "y": 950,
       "r": 2200,
       "a": 0.5
      }
-    ]
+    ],
+    "tod": "dusk",
+    "stall": false
    },
    "tr": "fade",
    "grade": "gold",
