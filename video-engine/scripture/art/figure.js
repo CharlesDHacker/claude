@@ -71,6 +71,10 @@ warrior = function (g, o) {
     if (pz === 'sulk') return [[56, sy + 80], [96, sy + 70]];
     if (pz === 'hug') return [[160, sy + 50], [196, sy + 20]];
     if (pz === 'cross') return [[66, sy + 100], [14, sy + 90]];
+    if (pz === 'warm') { const rub = Math.sin(t * 2.4) * 6; return [[132, sy + 150 + rub], [156, sy + 140 - rub]]; }   // both hands held out to a fire, waist-high
+    if (pz === 'heart') return [[0, hipY + 46], [64, sy + 70]];   // front hand flat on the chest
+    if (pz === 'point') return [[0, hipY + 46], [sx + 190, sy + 40 + by * .3]];   // accusing: arm straight out at shoulder height
+    if (pz === 'reach') return [[0, hipY + 46], [sx + 150, sy + 120]];   // open hand offered forward
     if (pz === 'beg') return [[118, sy + 110], [150, sy + 96]];
     if (pz === 'hips') return [[-30, sy + 150], [sx + 46, hipY - 30]];
     if (pz === 'flail') { const w = Math.sin(t * 9); return [[-160, sy - 130 + w * 40], [180, sy - 150 - w * 40]]; }
@@ -178,15 +182,18 @@ warrior = function (g, o) {
   if (C.headband && !C.helmet) { sh(g, 'M-56 -30 Q0 -58 52 -40 L52 -28 Q0 -46 -56 -16 Z', C.headband, 3); }
   // eye
   const blink = ((t * .6 + ph) % 4.1) < .1;
-  if (ex === 'tired' || blink) line(g, [24, -14, 40, -12], 2.6);
+  if (ex === 'cry') { line(g, [22, -13, 34, -21, 47, -13], 3.2); line(g, [26, -9, 36, -7, 44, -9], 1.6, 'rgba(60,30,30,.45)', 'round', true); }
+  else if (ex === 'tired' || blink) line(g, [24, -14, 40, -12], 2.6);
   else if (C.eyes === 'big') { const sk = ex === 'shock' ? 4 : 0; ell(g, 36, -15, 13, 15 + sk, '#fbf6ec', 2.6); ell(g, 40, -14, 7, 8, '#3a2214'); ell(g, 40, -14, 3.6, 4, '#0e0806'); ell(g, 43, -18, 2.6, 2.6, '#fff'); line(g, [22, -24 - sk, 36, -31 - sk, 50, -22 - sk], 2.6); }
   else { sh(g, `M22 -16 Q34 ${ex === 'shock' ? -28 : -24} 46 -14 Q34 -8 22 -16 Z`, '#f8f2e6', 2.4); ell(g, 39 + glance * 2.4 + (o.look ? o.look[0] * 2 : 0), -15 + (o.look ? o.look[1] * 2 : 0), ex === 'roar' || ex === 'angry' ? 3 : 4, 4.5, '#1a1220'); line(g, [22, -16, 46, -15], 2.2); }
   if (C.female && !(ex === 'tired' || blink)) { sh(g, `M22 -17 Q34 ${ex === 'shock' ? -29 : -25} 47 -15`, null, 3.2, '#1a1214'); line(g, [46, -16, 52, -20], 2.2, '#1a1214', 'round', true); line(g, [44, -19, 49, -24], 2.2, '#1a1214', 'round', true); }
   const browLift = -talk * 7 * (Math.sin(t * 5.1 + ph) > .3 ? 1 : .3);
-  const BR0 = { angry: [20, -34, 46, -22], roar: [18, -36, 46, -20], fierce: [18, -32, 46, -24], tired: [18, -26, 46, -30], shock: [18, -38, 46, -36], smile: [18, -30, 46, -30] }[ex] || [18, -29, 46, -28];
+  const BR0 = { angry: [20, -34, 46, -22], roar: [18, -36, 46, -20], fierce: [18, -32, 46, -24], tired: [18, -26, 46, -30], sad: [18, -25, 46, -35], cry: [18, -24, 46, -37], shock: [18, -38, 46, -36], smile: [18, -30, 46, -30] }[ex] || [18, -29, 46, -28];
   const BR = [BR0[0], BR0[1] + browLift, BR0[2], BR0[3] + browLift];
   line(g, [BR[0], BR[1] - (C.eyes === 'big' ? 8 : 0), (BR[0] + BR[2]) / 2, Math.min(BR[1], BR[3]) - 4 - (C.eyes === 'big' ? 8 : 0), BR[2], BR[3] - (C.eyes === 'big' ? 8 : 0)], 3.6 * (C.brow || (C.female ? .7 : 1)), hairCol === '#e8e4dc' || hairCol === '#d8d2c8' ? '#7a7068' : INK, 'round', true);
   if (C.glasses) { ell(g, 36, -14, 20, 18, 'rgba(220,240,255,.18)', 3.2, 0, C.glasses); line(g, [16, -16, -16, -6], 3.2, C.glasses, 'round', true); line(g, [56, -16, 64, -14], 3, C.glasses, 'round', true); }
+  if (ex === 'sad') line(g, [22, -19, 34, -21, 46, -16], 2.4);   // heavy upper lid
+  if (ex === 'cry') { for (let i = 0; i < 2; i++) { const q = (t * .7 + i * .5) % 1; line(g, [44, -10, 46, 6, 40 + i * 2, 22 + q * 26], 4, 'rgba(170,215,240,.75)', 'round', true); ell(g, 41 + i * 2, 24 + q * 40, 3.6, 5.4, 'rgba(190,225,245,.9)', 1.2, 0, 'rgba(90,140,180,.6)'); } }
   if (ex === 'tired') { line(g, [24, -6, 40, -4], 1.4, 'rgba(60,30,30,.4)', 'round', true); const k2 = (t * .5) % 1; ell(g, -4, -24 + k2 * 40, 3.5, 6, 'rgba(170,215,240,.85)', 1.5); }
   // mouth + beard
   const op = Math.max(talk, ex === 'roar' ? .9 : ex === 'shock' ? .16 : 0);
@@ -197,7 +204,8 @@ warrior = function (g, o) {
     if (C.beard === 'braided') { for (let i = 0; i < 4; i++) ell(g, 22, 120 + i * 18, 9, 10, C.beardCol, 2.4); [124, 160].forEach(y => line(g, [14, y, 30, y], 3, '#e0b648', 'round', true)); } }
   if (op > .05) { const vw = 1 + .35 * Math.sin(t * 13.7 + ph); ell(g, 46, 34 + op * 4, (9 + op * 3) * vw, (3 + op * 12) / Math.sqrt(vw), '#3a1418', 2.4); if (ex === 'roar') { line(g, [38, 28, 54, 28], 2.4, '#f4eee2', 'round', true); } }
   else if (C.female) { sh(g, ex === 'smile' ? 'M36 31 Q46 40 57 30 Q46 35 36 31 Z' : 'M38 33 Q47 30 56 33 Q47 38 38 33 Z', C.lips || '#b8505a', 2); }
-  else line(g, ex === 'smile' ? [36, 32, 46, 37, 56, 31] : ex === 'tired' ? [38, 37, 46, 34, 54, 37] : [38, 34, 56, 33], 2.6);
+  else if (ex === 'cry') sh(g, `M37 38 Q46 ${29 + Math.sin(t * 9) * 1.5} 56 37 Q46 35 37 38 Z`, '#3a1418', 2.4);
+  else line(g, ex === 'smile' ? [36, 32, 46, 37, 56, 31] : ex === 'tired' || ex === 'sad' ? [38, 37, 46, 34, 54, 37] : [38, 34, 56, 33], 2.6);
   if (C.beard && C.beard !== 'stubble' && C.beard !== 'goatee') sh(g, 'M30 22 Q46 14 62 24 Q48 30 38 28 Z', mix(C.beardCol, '#fff', .08), 2.2);
   // helmets
   if (C.helmet === 'feather') { for (let i = -7; i <= 7; i++) { const a = i * .1 - .12, len = 104 + Math.cos(i * .3) * 14, wob = Math.sin(t * 3 + i) * .02; g.save(); g.translate(-4, -56); g.rotate(a + wob); sh(g, `M-7 0 Q-11 ${-len * .6} 0 ${-len} Q11 ${-len * .6} 7 0 Z`, i % 2 ? '#f4ead6' : '#ddcdaa', 2.2); line(g, [0, -4, 0, -len + 8], 1, 'rgba(120,100,70,.6)', 'round', true); g.restore(); }

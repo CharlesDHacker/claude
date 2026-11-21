@@ -223,6 +223,13 @@ def bpop(): t = tt(.18); return norm(np.sin(TAU * np.cumsum(500 + 900 * np.exp(-
 def honk(d=.7):
     t = tt(d); s = np.sign(np.sin(TAU * 350 * t)) * .5 + np.sign(np.sin(TAU * 440 * t)) * .5; return norm(lp(s, 2500) * np.minimum(t / .02, 1) * np.clip((d - t) / .08, 0, 1))
 LIB.update(bell=(bellring, .7), pop=(bpop, .5), honk=(honk, .45))
+def rooster():  # recorded-style crow (ElevenLabs sound effect), audio/sfx/rooster.wav
+    import wave, os
+    w = wave.open(os.path.join(os.path.dirname(__file__), "..", "audio", "sfx", "rooster.wav")); x = np.frombuffer(w.readframes(w.getnframes()), np.int16) / 32768.0
+    if w.getframerate() != SR: x = np.interp(np.arange(int(len(x) * SR / w.getframerate())) * w.getframerate() / SR, np.arange(len(x)), x)
+    return norm(x)
+def waves(d=4.0): t = tt(d); return norm(lp(noise(len(t)), 700) * (.55 + .45 * np.sin(TAU * .3 * t) ** 2) * np.minimum(t / .8, 1) * np.clip((d - t) / .8, 0, 1))
+LIB.update(rooster=(rooster, 1.0), waves=(waves, .35))
 LIB.update(sword=LIB["clash"], shimmer=LIB["sparkle"], crunch=LIB["hit"])  # names used by episode 1
 sfx = np.zeros(N)
 for i, s in enumerate(shots):

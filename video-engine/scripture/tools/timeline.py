@@ -11,7 +11,7 @@ def load(p):
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", p, "-ac", "1", "-ar", str(SR), "-f", "s16le", "-"], capture_output=True, check=True).stdout
     return np.frombuffer(raw, "<i2").astype(np.float64) / 32768
 lead_of = {sh["at"]: sh.get("lead", S.get("lead", .35)) for sh in S["shots"] if "atc" not in sh}
-gaps = S.get("gaps", {}); t = 0.35; L = []; clips = []
+gaps = S.get("gaps", {}); t = S.get("start", 0.35); L = []; clips = []
 import os
 WORDS = json.load(open(os.path.join(clip_dir, "words.json"))) if os.path.exists(os.path.join(clip_dir, "words.json")) else {}
 def cap_words(text):  # [(word, colour key)] from caption markup
@@ -64,7 +64,7 @@ total = L[-1]["t1"] + S.get("tail", 2.5)
 byid = {l["id"]: l for l in L}
 def at(v, base):
     if not isinstance(v, str) or not v.startswith("@"): return v
-    m = re.match(r"@(L\d+)\.(\d+)([+-][\d.]+)?$", v); l = byid[m.group(1)]
+    m = re.match(r"@([A-Za-z]+\d+)\.(\d+)([+-][\d.]+)?$", v); l = byid[m.group(1)]
     return round(l["caps"][int(m.group(2))]["t0"] + float(m.group(3) or 0) - base, 3)
 def res(x, base):
     if isinstance(x, dict): return {k: res(v, base) for k, v in x.items()}

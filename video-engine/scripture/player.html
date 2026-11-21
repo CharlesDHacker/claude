@@ -6,7 +6,7 @@
 @font-face{font-family:'Garamond';font-style:italic;font-weight:500;src:url('fonts/eb-garamond-latin-500-italic.woff2') format('woff2')}
 html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}
 </style></head><body><canvas id="c" width="1080" height="1920"></canvas>
-<script src="art/lib.js"></script><script src="art/chars.js"></script><script src="art/warriors.js"></script><script src="art/figure.js"></script><script src="art/heroes.js"></script><script src="art/scenes.js"></script><script src="art/stage.js"></script><script src="art/sea.js"></script><script src="art/village.js"></script><script src="art/painter.js"></script><script src="art/babylon.js"></script><script src="art/midian.js"></script><script src="art/brawl.js"></script><script src="art/essay.js"></script><script src="art/people.js"></script><script src="art/top10.js"></script><script src="art/persia.js"></script><script src="art/sets.js"></script>
+<script src="art/lib.js"></script><script src="art/chars.js"></script><script src="art/warriors.js"></script><script src="art/figure.js"></script><script src="art/heroes.js"></script><script src="art/scenes.js"></script><script src="art/stage.js"></script><script src="art/sea.js"></script><script src="art/village.js"></script><script src="art/painter.js"></script><script src="art/babylon.js"></script><script src="art/midian.js"></script><script src="art/brawl.js"></script><script src="art/essay.js"></script><script src="art/people.js"></script><script src="art/top10.js"></script><script src="art/persia.js"></script><script src="art/sets.js"></script><script src="art/creators.js"></script><script src="art/galilee.js"></script>
 <script>
 // Compositor: shot -> scene + camera (handheld drift, zoom punches) -> transitions (fade, flash, whip) -> bloom + grade + light leak
 // -> grain/vignette -> word-by-word captions, title card, pop words, name labels.
@@ -50,7 +50,7 @@ function drawCaptions(g, T) {
   g.save(); g.font = "900 58px Nunito"; g.textBaseline = 'middle';
   const sp = g.measureText(' ').width; const rows = [[]]; let wid = 0;
   words.forEach(w => { const ww = g.measureText(w[0]).width; if (wid + ww > SAFE.w && rows[rows.length - 1].length) { rows.push([]); wid = 0; } rows[rows.length - 1].push([w, ww]); wid += ww + sp; });
-  rows.forEach((r, ri) => { const tw = r.reduce((s, [, ww]) => s + ww + sp, -sp); let x = SAFE.cx - tw / 2; const titleOn = EP.title && T < EP.title.t1 + .6; const y = (titleOn ? 420 : 330) + ri * 70;
+  rows.forEach((r, ri) => { const tw = r.reduce((s, [, ww]) => s + ww + sp, -sp); let x = SAFE.cx - tw / 2; const titleOn = EP.title && T < EP.title.t1 + .6; const y = (titleOn ? (EP.title.text.includes('\n') ? 500 : 420) : 330) + ri * 70;
     r.forEach(([w, ww]) => { const k = (T - w[2]) / .16; if (k < 0) { x += ww + sp; return; } const s = 1 + (1 - eo(clamp(k))) * .35, col = w[1] === 'base' ? base : CAP[w[1]] || base;
       g.save(); g.translate(x + ww / 2, y - (1 - eo(clamp(k))) * 14); g.scale(s, s); g.globalAlpha = fadeOut * clamp(k * 2.5);
       g.lineJoin = 'round'; g.lineWidth = 10; g.strokeStyle = 'rgba(25,12,6,.85)'; g.strokeText(w[0], -ww / 2, 3); g.shadowColor = 'rgba(0,0,0,.6)'; g.shadowBlur = 16; g.fillStyle = col; g.fillText(w[0], -ww / 2, 0);
@@ -82,8 +82,9 @@ function goldText(g, draw, a) { g.save(); g.globalAlpha = a; g.shadowColor = 'rg
 function drawTitle(g, T) {
   const ti = EP.title; if (!ti || T > ti.t1 + .6) return; const a = smooth(ti.t0, ti.t0 + .5, T) * (1 - smooth(ti.t1, ti.t1 + .6, T)), sp = 8 + 10 * eo((T - ti.t0) / 3);
   g.textBaseline = 'alphabetic'; g.textAlign = 'left';
-  goldText(g, (dx, dy) => { let fs = 96; g.font = `500 ${fs}px Garamond`; const sp2 = ti.text.length > 12 ? sp * .45 : sp; while (fs > 40 && g.measureText(ti.text).width + sp2 * ti.text.length > 900) { fs -= 2; g.font = `500 ${fs}px Garamond`; } spaced(g, ti.text, W / 2 + dx, 300 + dy, sp2); }, a);
-  goldText(g, (dx, dy) => { g.font = "italic 500 36px Garamond"; spaced(g, '— ' + ti.sub + ' —', W / 2 + dx, 356 + dy, 2); }, a * .95);
+  const tl = ti.text.split('\n'); let yEnd = 300;
+  goldText(g, (dx, dy) => { tl.forEach((ln, i) => { let fs = tl.length > 1 ? 84 : 96; g.font = `500 ${fs}px Garamond`; const sp2 = ln.length > 12 ? sp * .45 : sp; while (fs > 40 && g.measureText(ln).width + sp2 * ln.length > 900) { fs -= 2; g.font = `500 ${fs}px Garamond`; } const y = tl.length > 1 ? 290 + i * 92 : 300; spaced(g, ln, W / 2 + dx, y + dy, sp2); yEnd = y; }); }, a);
+  goldText(g, (dx, dy) => { g.font = "italic 500 36px Garamond"; spaced(g, '— ' + ti.sub + ' —', W / 2 + dx, yEnd + 56 + dy, 2); }, a * .95);
 }
 function drawLabels(g, T) {
   for (const sh of EP.shots) if (sh.label) { const t0 = sh.t0 + (sh.labelAt ?? .4), t1 = Math.min(t0 + (sh.labelDur ?? 2.6), sh.t1 + .2); if (T < t0 || T > t1) continue; const a = smooth(t0, t0 + .35, T) * (1 - smooth(t1 - .35, t1, T));

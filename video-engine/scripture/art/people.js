@@ -4,6 +4,7 @@
 const PEOPLE = {
   host: { skin: '#c99068', skinD: '#a8704c', hair: '#231610', hairStyle: 'bun', top: '#2f6f6c', topKind: 'hoodie', pants: '#33405e', shoes: '#ece7dc', shoeAcc: '#d0442c', glasses: '#1e1e26', headphones: true, brow: '#231610', kid: false },
   kid:  { skin: '#a8704a', skinD: '#88563a', hair: '#1a110b', hairStyle: 'curly', top: '#f2b23c', topKind: 'tee', stripes: '#e0603a', pants: '#3e4e78', shoes: '#f2efe6', shoeAcc: '#2f86cc', brow: '#1a110b', kid: true },
+  teacher: { skin: '#b07a52', skinD: '#8e5c3a', hair: '#3a2a20', hairStyle: 'curly', top: '#7a4a3a', topKind: 'sweater', pants: '#3a3a4a', shoes: '#4a3424', shoeAcc: '#2a1a12', brow: '#3a2a20', kid: false },
   kid2: { skin: '#e4b48e', skinD: '#c8946c', hair: '#6e3a1c', hairStyle: 'long', top: '#8452cc', topKind: 'sweater', pants: '#2a3858', shoes: '#f2efe6', shoeAcc: '#e8b030', brow: '#4e2814', kid: true },
 };
 const shade = (c, k = .22) => mix(c, '#1a1030', k), light = (c, k = .12) => mix(c, '#fff8ec', k);
