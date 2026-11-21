@@ -74,6 +74,8 @@ MOODS = {
     "hope":   dict(pad=[50, 57, 62, 66, 69, 74], bright=1300, arp=[74, 69, 66, 62], arpEvery=1.0, drum="soft", shaker=False, bass=38, choir=[62, 66, 69], lvl=.9),
     "glory":  dict(pad=[50, 57, 62, 66, 69, 74, 78], bright=2200, arp=[74, 78, 81, 86], arpEvery=.5, drum="glory", shaker=True, bass=26, brass=[62, 66, 69, 74], choir=[62, 66, 69, 74], lvl=1.2),
 }
+MOODS["sorrow"] = dict(pad=[45, 52, 57, 60, 64], bright=650, arp=[69, 64, 60, 64], arpEvery=1.0, drum=None, shaker=False, bass=33, drone=33, lvl=.8)   # minor, no drums
+MOODS["hush"] = dict(pad=[45, 52], bright=320, arp=[57], arpEvery=2.0, drum=None, shaker=False, drone=33, lvl=.4)   # held breath before a hit
 ALIAS = {"story": "legend", "tense": "dread", "wonder": "hope"}
 for _s in ep["shots"]:
     if "music" in _s: _s["music"] = ALIAS.get(_s["music"], _s["music"])

@@ -34,15 +34,16 @@ warrior = function (g, o) {
   if (pose === 'fall') g.rotate(-eio(k) * 1.45);
   if (o.rot) { g.translate(0, -380); g.rotate(o.rot); g.translate(0, 380); }
   const kneel = ['kneel', 'faint', 'pray', 'sulk', 'bow'].includes(pose);
-  const lean = pose === 'charge' ? .16 : pose === 'thrust' ? .08 : pose === 'faint' ? -.05 : 0;
-  const sit = pose === 'sit', drop = kneel ? 150 : sit ? 130 : 0, br = Math.sin(t * (pose === 'faint' ? 3.2 : 1.7) + ph) * (pose === 'faint' ? 4 : 2);
+  const lean = pose === 'charge' ? .16 : pose === 'thrust' ? .08 : pose === 'faint' ? -.05 : pose === 'sulk' ? .2 : 0;
+  const sit = pose === 'sit', heels = pose === 'sulk' && !longRobe, drop = heels ? 225 : kneel ? 150 : sit ? 130 : 0, br = Math.sin(t * (pose === 'faint' ? 3.2 : 1.7) + ph) * (pose === 'faint' ? 4 : 2);
   const hipY = -390 + drop, waistY = -455 + drop, shY = -620 + drop + br;
   const walkMix = o.pose2 && !['stride', 'charge'].includes(o.pose2) ? eio(o.mix ?? 0) : 0;
   const run0 = pose === 'stride' ? (o.walkRate || 5) : pose === 'charge' ? 10 : 0, run = walkMix > .999 ? 0 : run0, p = t * run0 + ph;
   const FT = (pz, rn) => { const amp = longRobe ? 34 : 95;
     if (rn) return [[(longRobe ? 10 : -34) + Math.sin(p) * amp, -Math.max(0, Math.cos(p)) * (longRobe ? 12 : 30)], [(longRobe ? 26 : 40) - Math.sin(p) * amp, -Math.max(0, -Math.cos(p)) * (longRobe ? 12 : 30)]];
     if (['raise', 'thrust', 'sling', 'shout'].includes(pz)) return longRobe ? [[-6, 0], [40, 0]] : [[-60, 0], [64, 0]];
-    if (['kneel', 'faint', 'pray', 'sulk', 'bow'].includes(pz)) return [[-150, 0], [80, 0]];
+    if (pz === 'sulk' && !longRobe) return [[-96, 0], [-70, 0]];
+    if (['kneel', 'faint', 'pray', 'sulk', 'bow'].includes(pz)) return [[-150, 0], [longRobe ? 80 : 116, 0]];
     if (pz === 'sit') return [[130, 0], [150, 0]];
     return longRobe ? [[8, 0], [30, 0]] : [[-12, 0], [16, 0]]; };
   let feet = FT(pose, run);
@@ -68,13 +69,13 @@ warrior = function (g, o) {
     if (pz === 'pray') return [[70, sy + 52], [92, sy + 44]];   // hands clasped at the chest, below the chin
     if (pz === 'worship') return [[96, sy - 20], [128, sy - 34]];
     if (pz === 'bow') return [[70, sy + 120], [110, sy + 110]];
-    if (pz === 'sulk') return [[56, sy + 80], [96, sy + 70]];
+    if (pz === 'sulk') return longRobe ? [[56, sy + 80], [96, sy + 70]] : [[70, sy + 200], [100, sy + 196]];
     if (pz === 'hug') return [[160, sy + 50], [196, sy + 20]];
     if (pz === 'cross') return [[66, sy + 100], [14, sy + 90]];
-    if (pz === 'warm') { const rub = Math.sin(t * 2.4) * 6; return [[132, sy + 150 + rub], [156, sy + 140 - rub]]; }   // both hands held out to a fire, waist-high
+    if (pz === 'warm') { const rub = Math.sin(t * 2.4) * 5; return [[90, sy + 138 + rub], [112, sy + 130 - rub]]; }   // both hands held out to a fire, waist-high
     if (pz === 'heart') return [[0, hipY + 46], [64, sy + 70]];   // front hand flat on the chest
-    if (pz === 'point') return [[0, hipY + 46], [sx + 190, sy + 40 + by * .3]];   // accusing: arm straight out at shoulder height
-    if (pz === 'reach') return [[0, hipY + 46], [sx + 150, sy + 120]];   // open hand offered forward
+    if (pz === 'point') return [[0, hipY + 46], [sx + 236, sy + 34 + by * .3]];   // accusing: arm straight out at shoulder height
+    if (pz === 'reach') return [[0, hipY + 46], [sx + 116, sy + 128]];   // open hand offered forward
     if (pz === 'beg') return [[118, sy + 110], [150, sy + 96]];
     if (pz === 'hips') return [[-30, sy + 150], [sx + 46, hipY - 30]];
     if (pz === 'flail') { const w = Math.sin(t * 9); return [[-160, sy - 130 + w * 40], [180, sy - 150 - w * 40]]; }
@@ -91,7 +92,10 @@ warrior = function (g, o) {
   if (o.arm) hands = [hands[0], H(o.arm)[1]];   // front-arm override: e.g. walk while gesturing
   const [bh, fh] = hands;
   const openHand = ['flail', 'preach', 'pray', 'beg', 'hug', 'gesture', 'explain', 'shout'].includes(pose) || ['preach', 'gesture', 'explain', 'beg'].includes(o.pose2);
-  const arm = (sx0, h, back) => { const hang = h[1] > sy + 160, up = h[1] < sy - 60, ex2 = (sx0 + h[0]) / 2 + (hang ? -10 : up ? -46 : back ? -18 : 22), ey2 = (sy + h[1]) / 2 + 14; const col = back ? sd : C.skin;
+  const arm = (sx0, h, back) => { const hang = h[1] > sy + 160, up = h[1] < sy - 60; let ex2 = (sx0 + h[0]) / 2 + (hang ? -10 : up ? -46 : back ? -18 : 22), ey2 = (sy + h[1]) / 2 + 14; const col = back ? sd : C.skin;
+    if (!hang && !up) { // two-bone IK: the elbow drops below the shoulder-hand line, so gestures come from a bent elbow near the body
+      const U = 132 * b, Fa = 128 * b, dx = h[0] - sx0, dy = h[1] - sy - 4, d = Math.min(Math.hypot(dx, dy), U + Fa - .5), a2 = (U * U - Fa * Fa + d * d) / (2 * d), hh = Math.sqrt(Math.max(0, U * U - a2 * a2)), px = sx0 + a2 * dx / d, py = sy + 4 + a2 * dy / d;
+      const c1 = [px - hh * dy / d, py + hh * dx / d], c2 = [px + hh * dy / d, py - hh * dx / d]; [ex2, ey2] = c1[1] > c2[1] ? c1 : c2; }
     const slv = C.longSleeve ? (back ? mix(C.tunic, '#20102a', .3) : C.tunic) : col; taper(g, sx0, sy + 4, ex2, ey2, 30 * b, 22 * b, slv); taper(g, ex2, ey2, h[0], h[1], 22 * b, 15 * b, slv);
     { const ux = sx0 + (ex2 - sx0) * .42, uy = sy + 4 + (ey2 - sy - 4) * .42; taper(g, sx0, sy - 2, ux, uy, 40 * b, 34 * b, back ? mix(C.tunic, '#20102a', .3) : C.tunic); }
     hand(g, h[0], h[1], Math.atan2(h[1] - ey2, h[0] - ex2), 1.05 * b, col, openHand ? 1 : 0); };
@@ -101,9 +105,12 @@ warrior = function (g, o) {
     [.78, .55].forEach(q => ell(g, cx, cy, r * q, r * q, null, 2.6, 0, 'rgba(40,20,10,.55)')); ell(g, cx, cy, 15 * b, 15 * b, C.shield === 'bronze' ? '#fbe2a0' : '#b08a5a', 3);
     for (let i = 0; i < 8; i++) { const a2 = i / 8 * 6.28; ell(g, cx + Math.cos(a2) * r * .66, cy + Math.sin(a2) * r * .66, 3.5, 3.5, 'rgba(60,30,10,.6)'); } }
   // legs
-  const leg = (hx, f, back) => { const kx = kneel ? (back ? -70 : 80) : sit ? f[0] + 6 : (hx + f[0]) / 2 + 20, ky = kneel ? (back ? -10 : -170) : sit ? hipY + 10 : (hipY + f[1]) / 2 + 6, col = C.pants ? (back ? mix(C.pants, '#10081a', .3) : C.pants) : back ? sd : C.skin;
+  const leg = (hx, f, back) => { const kx = heels ? (back ? 62 : 84) : kneel ? (back ? -70 : (longRobe ? 80 : 120)) : sit ? f[0] + 6 : (hx + f[0]) / 2 + 20, ky = heels ? -14 : kneel ? (back ? -12 : -196) : sit ? hipY + 10 : (hipY + f[1]) / 2 + 6, col = C.pants ? (back ? mix(C.pants, '#10081a', .3) : C.pants) : back ? sd : C.skin;
     taper(g, hx, hipY, kx, ky, 40 * b, 28 * b, col); taper(g, kx, ky, f[0], f[1] - 16, 28 * b, 17 * b, col);
     if (C.armor === 'scale' || C.greaves) { taper(g, kx + 2, ky + 14, f[0] + 1, f[1] - 34, 30 * b, 20 * b, back ? mix(C.armorCol, '#000', .3) : lg(g, kx - 20, 0, kx + 20, 0, [[0, C.armorCol], [1, mix(C.armorCol, '#000', .3)]])); }
+    if (kneel && !longRobe && (back || heels)) { const fx = f[0], fy = f[1]; sh(g, `M${fx + 18} ${fy - 30} Q${fx - 6} ${fy - 34} ${fx - 30 * b} ${fy - 20} Q${fx - 40 * b} ${fy - 6} ${fx - 30 * b} ${fy + 3} L${fx + 20} ${fy + 3} Z`, col, 3.5);
+      sh(g, `M${fx - 34 * b} ${fy - 16} Q${fx - 44 * b} ${fy - 4} ${fx - 32 * b} ${fy + 4} L${fx - 26 * b} ${fy + 4} Q${fx - 36 * b} ${fy - 4} ${fx - 28 * b} ${fy - 18} Z`, C.boots, 2.4); line(g, [fx - 8, fy - 30, fx - 2, fy - 4], 2.4, C.boots, 'round', true);
+      ell(g, kx, ky + 2, 22 * b, 14, col, 3); return; }
     if (C.sneakers) { sh(g, `M${f[0] - 24 * b} ${f[1] - 26} Q${f[0] + 6} ${f[1] - 34} ${f[0] + 46 * b} ${f[1] - 8} L${f[0] + 48 * b} ${f[1] + 4} L${f[0] - 26 * b} ${f[1] + 4} Z`, '#f4f2ec', 3.5); sh(g, `M${f[0] - 26 * b} ${f[1] - 4} L${f[0] + 48 * b} ${f[1] - 4} L${f[0] + 48 * b} ${f[1] + 6} L${f[0] - 26 * b} ${f[1] + 6} Z`, C.sneakers, 3); line(g, [f[0] - 6, f[1] - 22, f[0] + 20, f[1] - 12], 4, C.sneakers, 'round', true); return; }
     sh(g, `M${f[0] - 18 * b} ${f[1] - 20} Q${f[0] + 10} ${f[1] - 26} ${f[0] + 40 * b} ${f[1] - 6} Q${f[0] + 44 * b} ${f[1] + 2} ${f[0] + 36 * b} ${f[1] + 3} L${f[0] - 20 * b} ${f[1] + 3} Z`, col, 3.5);
     sh(g, `M${f[0] - 22 * b} ${f[1] - 2} L${f[0] + 40 * b} ${f[1] - 2} L${f[0] + 40 * b} ${f[1] + 5} L${f[0] - 22 * b} ${f[1] + 5} Z`, C.boots, 3); line(g, [f[0] - 10, f[1] - 18, f[0] + 6, f[1] - 4], 2.4, C.boots, 'round', true); line(g, [f[0] + 4, f[1] - 22, f[0] + 20, f[1] - 6], 2.4, C.boots, 'round', true); };
@@ -147,7 +154,7 @@ warrior = function (g, o) {
   // head
   const hs = (C.head || 1) * .86, hy = shY - 62 * hs;
   const nod = talk * (.05 * Math.sin(t * 8.6 + ph) + .03) + .02 * Math.sin(t * .7 + ph * 2.3), gl = Math.floor(t * .55 + ph * 3.1), glance = (((gl * 9301 + 49297) % 233280) / 233280 - .5) * 2;
-  g.save(); g.translate(14, hy - talk * 4); g.scale(hs, hs); g.rotate((o.headRot || 0) - nod * .6 + (pose === 'bow' ? .38 : 0)); FIG_HEAD = g.getTransform();
+  g.save(); g.translate(14, hy - talk * 4); g.scale(hs, hs); g.rotate((o.headRot || 0) - nod * .6 + (pose === 'bow' ? .38 : heels ? .26 : 0)); FIG_HEAD = g.getTransform();
   if (C.hood) sh(g, 'M-70 40 C-90 70 -60 110 0 112 C50 110 70 80 60 60 L20 70 L-40 60 Z', mix(C.tunic, '#000', .15), 3.6);
   taper(g, -4, 50, 0, 84, 30, 34, C.skin);
   if (C.headphones) { g.save(); g.beginPath(); g.arc(4, 92, 46, .2, Math.PI - .2); g.lineWidth = 9; g.strokeStyle = '#2a2a34'; g.stroke(); g.restore(); ell(g, 48, 104, 14, 20, '#2a2a34', 3); }

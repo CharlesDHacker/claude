@@ -82,6 +82,14 @@ Applied to every character rig from EP07 on (`art/figure.js`, `art/heroes.js`, `
   eases into a stand when it arrives, and steps at a pace matched to the travel speed. Anything that moves must walk
   (`pose: "stride"`); to walk while gesturing use `arm` (e.g. `arm: "shout"`). Horses stop walking when they stop moving.
 - **Kneeling/bowing in robes.** `kneel`, `pray`, `bow` fold the robe over the knees onto the ground with the soles behind;
+- **Kneeling in short tunics.** One knee up (thigh forward, shin vertical), the back knee on the ground with the shin flat
+  and toes tucked. `sulk` without a robe sits back on the heels, leans forward and hangs the head: use it for weeping.
+- **Elbows.** Any hand between chest and hip height is solved with two-bone IK, so the upper arm hangs by the body and the
+  forearm comes forward. Gestures, warming hands at a fire and offering a hand all read as relaxed, never as a straight
+  "zombie" arm. Only pointing (`point`) and raised arms stay near straight.
+- **Framing.** A full-body two-shot is about zoom 1.2 to 1.3 centred near y 1440: heads stay below the caption band (screen
+  y 540 and down) and feet stay above the bottom app UI. Labels go at `labelY` 505, between the captions and the heads.
+- **Fire and props.** Nobody walks through a fire: walkers pass behind it (higher y, slightly smaller) or around it.
   `pray` clasps the hands at the chest, `bow` lowers the head. No loose feet.
 - **Raised arms** go up beside the head (drawn behind it) so the face is never covered.
 - **Who is talking.** Only the speaker's mouth moves. When the narrator describes someone speaking, animate that person's

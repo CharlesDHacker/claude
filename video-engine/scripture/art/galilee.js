@@ -8,8 +8,10 @@ Object.assign(WAR, {
   accuser: { skin: '#9a6440', tunic: '#5a4a6a', kilt: '#2a2a3a', cape: '#3a2a3a', beard: 'goatee', beardCol: '#1a120c', hair: '#1a120c', hairStyle: 'short', nose: 'hook', jaw: 'square', brow: 1.8, helmet: null, bulk: 1.05, tall: 1.04, head: 1, weapon: null, shield: null, boots: '#3a2418', long: 1, trim: '#8a7a9a' },
   john:    { skin: '#c08a5e', tunic: '#8a3a2a', kilt: '#3a2a1a', cape: null, beard: null, hair: '#3a2010', hairStyle: 'wild', nose: 'button', jaw: 'round', brow: 1, helmet: null, bulk: .9, tall: .96, head: 1.02, weapon: null, shield: null, boots: '#5a3a1e', long: 0, trim: '#c89a5a' },
   andrew:  { skin: '#9a6440', tunic: '#5a6a4a', kilt: '#3a2a1a', cape: null, beard: 'stubble', beardCol: '#1a120c', hair: '#1a120c', hairStyle: 'tied', band: '#c8a050', nose: 'hook', jaw: 'square', brow: 1.3, helmet: null, bulk: 1.0, tall: 1.03, head: 1, weapon: null, shield: null, boots: '#4a2c1c', long: 0, trim: '#a89a6a' },
+  tguardT: { skin: '#9a6440', tunic: '#6a4a2a', kilt: '#8a2a1a', cape: '#5a1a14', beard: 'stubble', beardCol: '#1a120c', hair: '#1a120c', helmet: 'bronze', bulk: 1.05, head: 1, weapon: null, shield: null, boots: '#3a2418', armor: 'leather', armorCol: '#7a5230' },
   tguard:  { skin: '#a8714c', tunic: '#6a4a2a', kilt: '#8a2a1a', cape: '#5a1a14', beard: 'short', beardCol: '#1a120c', hair: '#1a120c', helmet: 'bronze', bulk: 1.1, head: 1, weapon: 'spear', shield: null, boots: '#3a2418', armor: 'leather', armorCol: '#7a5230' },
 });
+SKY.dawn = { s: ['#2a3466', '#c87a78', '#ffcf9a'], sun: '#fff2d0', m1: '#8a6a8a', m2: '#6a4a6a', ground: ['#a8826a', '#5a4038'], dark: '#1a1018', rim: '#ffd8b0' };
 // ---- props ----
 function rooster(g, a, lt, T) { g.save(); g.translate(a.x, a.y); g.scale((a.flip ? -1 : 1) * (a.s || 1), a.s || 1);
   const c = a.crow != null && lt >= a.crow ? clamp((lt - a.crow) / .25) * (1 - clamp((lt - a.crow - 1.3) / .3)) : 0, bob = Math.sin(T * 3) * 3 * (1 - c);
@@ -38,8 +40,10 @@ function coals(g, a, T) { g.save(); g.translate(a.x, a.y); g.scale(a.s || 1, a.s
 function boat(g, a, T) { const bob = Math.sin(T * 1.4) * 6, roll = Math.sin(T * 1.1) * .02; g.save(); g.translate(a.x, a.y + bob); g.rotate(roll); g.scale((a.flip ? -1 : 1) * (a.s || 1), a.s || 1);
   if (a.part !== 'front') { sh(g, 'M-330 -120 L330 -120 L300 -100 L-300 -100 Z', '#6a4428', 3); if (a.net) { sh(g, 'M120 -120 C160 -200 260 -190 280 -120 Z', 'rgba(200,190,160,.85)', 3); for (let i = 0; i < 6; i++) line(g, [130 + i * 26, -122, 160 + i * 18, -184 + Math.abs(i - 3) * 8], 1.6, 'rgba(90,80,60,.6)', 'round', true);
       for (let i = 0; i < 9; i++) sh(g, `M${150 + (i % 5) * 24} ${-136 - Math.floor(i / 5) * 18} q12 -8 24 0 q-12 8 -24 0 Z`, '#b8c0c8', 2); } }
-  if (a.part !== 'back') { sh(g, 'M-360 -130 C-330 -40 -240 0 0 0 C240 0 330 -40 360 -130 L320 -120 C280 -60 200 -40 0 -40 C-200 -40 -280 -60 -320 -120 Z', lg(g, 0, -130, 0, 0, [[0, '#9a6a3a'], [1, '#5a3a1e']]), 5);
-    for (let i = 1; i < 4; i++) sh(g, `M${-340 + i * 8} ${-130 + i * 24} C-240 ${-40 + i * 8} 240 ${-40 + i * 8} ${340 - i * 8} ${-130 + i * 24}`, null, 2.4, 'rgba(40,20,10,.45)'); }
+  if (a.part !== 'back') { sh(g, 'M-370 -150 C-340 -50 -240 0 0 0 C240 0 340 -50 370 -150 C300 -122 200 -112 0 -112 C-200 -112 -300 -122 -370 -150 Z', lg(g, 0, -150, 0, 0, [[0, '#a8743e'], [1, '#5a3a1e']]), 5);
+    sh(g, 'M-370 -150 C-300 -122 -200 -112 0 -112 C200 -112 300 -122 370 -150', null, 9, '#4a2c16');
+    for (let i = 1; i < 4; i++) sh(g, `M${-350 + i * 10} ${-130 + i * 30} C-240 ${-60 + i * 18} 240 ${-60 + i * 18} ${350 - i * 10} ${-130 + i * 30}`, null, 2.4, 'rgba(40,20,10,.45)');
+    g.save(); g.globalAlpha = .35; sh(g, 'M-330 6 C-200 20 200 20 330 6 C200 30 -200 30 -330 6 Z', '#1a3a5a'); g.restore(); }
   g.restore(); }
 function tomb(g, a, lt, T) { g.save(); g.translate(a.x, a.y); g.scale(a.s || 1, a.s || 1);
   sh(g, 'M-560 0 C-540 -300 -420 -560 -120 -600 C200 -640 460 -480 560 -200 L560 0 Z', lg(g, 0, -640, 0, 0, [[0, '#a8988a'], [1, '#6a5a52']]), 6);
@@ -55,8 +59,10 @@ SET.upper = (g, o, T) => { g.fillStyle = lg(g, 0, -400, 0, 1500, [[0, '#3a2a24']
   sh(g, 'M640 420 L640 820 L940 820 L940 420 Q790 300 640 420 Z', lg(g, 0, 300, 0, 820, [[0, '#0c1230'], [1, '#2a3a6a']]), 7, '#3a2418'); ell(g, 860, 500, 30, 30, '#f4ecd0'); for (let i = 0; i < 14; i++) ell(g, 660 + (i * 53) % 260, 440 + (i * 71) % 360, 2.2, 2.2, '#fff');
   [[160, 640], [420, 600]].forEach(([x, y]) => { sh(g, `M${x - 26} ${y} L${x + 26} ${y} L${x + 18} ${y + 30} L${x - 18} ${y + 30} Z`, '#c08a30', 3); fire(g, x, y - 6, .4, T); glow(g, x, y, 300, 'rgba(255,190,100,1)', .5); });
   tileFloor(g, 1500, '#7a5a3a', '#5a4028');
-  sh(g, 'M-60 1600 L1140 1600 L1140 1640 L-60 1640 Z', '#5a3a20', 4); sh(g, 'M-40 1640 L1120 1640 L1120 1740 L-40 1740 Z', lg(g, 0, 1640, 0, 1740, [[0, '#7a5230'], [1, '#4a3018']]), 5);
-  [[180, '#d8a860'], [430, '#e8e0c8'], [640, '#d8a860'], [860, '#8a2a3a']].forEach(([x, c], i) => i === 3 ? (sh(g, `M${x - 24} 1600 L${x + 24} 1600 L${x + 16} 1560 L${x - 16} 1560 Z`, '#c0a040', 3), ell(g, x, 1560, 26, 8, c, 3)) : ell(g, x, 1588, 50, 16, c, 3)); };
+  sh(g, 'M-60 1430 L1140 1430 L1140 1458 L-60 1458 Z', '#5a3a20', 4); sh(g, 'M-40 1458 L1120 1458 L1120 1540 L-40 1540 Z', lg(g, 0, 1458, 0, 1540, [[0, '#7a5230'], [1, '#4a3018']]), 5);
+  for (let x = 40; x < 1100; x += 210) sh(g, `M${x} 1462 l0 74`, null, 2.4, 'rgba(30,15,8,.4)');
+  [[180, '#d8a860'], [430, '#e8e0c8'], [640, '#d8a860'], [860, '#8a2a3a']].forEach(([x, c], i) => i === 3 ? (sh(g, `M${x - 22} 1430 L${x + 22} 1430 L${x + 14} 1394 L${x - 14} 1394 Z`, '#c0a040', 3), ell(g, x, 1394, 24, 7, c, 3)) : ell(g, x, 1420, 46, 13, c, 3));
+  [[90, '#7a2a2a'], [320, '#2a4a6a'], [560, '#7a5a2a'], [790, '#4a2a5a'], [1010, '#2a5a4a']].forEach(([x, c]) => ell(g, x, 1556, 64, 18, c, 3)); };
 SET.olives = (g, o, T) => { g.fillStyle = lg(g, 0, -400, 0, 1400, [[0, '#060a1c'], [1, '#1a2448']]); g.fillRect(-600, -600, 2300, 2100); ell(g, 820, 360, 56, 56, '#f4ecd0'); glow(g, 820, 360, 300, 'rgba(230,230,200,1)', .25);
   for (let i = 0; i < 40; i++) ell(g, (i * 137) % 1200 - 60, (i * 89) % 800, 2.2, 2.2, '#fff');
   g.fillStyle = lg(g, 0, 1300, 0, 2400, [[0, '#1a2a24'], [1, '#0e1612']]); g.fillRect(-600, 1300, 2300, 1300);
@@ -75,12 +81,20 @@ SET.courtyard = (g, o, T) => { g.fillStyle = lg(g, 0, -400, 0, 900, [[0, '#060a1
   [[640, 760], [1100, 760], [200, 1260]].forEach(([x, y]) => { line(g, [x, y + 60, x, y], 8, '#3a2418', 'round', true); fire(g, x, y - 10, .5, T); glow(g, x, y, 380, 'rgba(255,170,80,1)', .55); });
   tileFloor(g, 1500, '#5a4a44', '#3a3030'); };
 SET.shore = (g, o, T) => { g.fillStyle = lg(g, 0, -400, 0, 1150, [[0, '#4a5a9a'], [.5, '#e8a07a'], [1, '#ffd8a0']]); g.fillRect(-600, -600, 2300, 1800);
-  sun(g, 760, 1080, 120, '#fff0c8'); glow(g, 760, 1080, 600, 'rgba(255,220,160,1)', .4);
+  sun(g, 760, 990, 110, '#fff0c8'); glow(g, 760, 990, 640, 'rgba(255,220,160,1)', .45);
+  for (let i = 0; i < 5; i++) { const gx = ((i * 230 + T * 26) % 1500) - 200, gy = 520 + (i * 97) % 300 + Math.sin(T * 1.3 + i) * 12, fl = Math.sin(T * 7 + i * 2) * 10; line(g, [gx - 22, gy - fl, gx - 8, gy - 4, gx, gy], 3.4, 'rgba(60,40,60,.7)', 'round', true); line(g, [gx, gy, gx + 8, gy - 4, gx + 22, gy - fl], 3.4, 'rgba(60,40,60,.7)', 'round', true); }
   sh(g, 'M-600 1120 C-300 980 0 1040 300 1000 C600 960 900 1060 1700 1010 L1700 1150 L-600 1150 Z', '#8a6a8a', 0); sh(g, 'M-600 1140 C-200 1080 300 1110 700 1080 C1000 1060 1300 1100 1700 1090 L1700 1160 L-600 1160 Z', '#6a5a7a', 0);
   g.fillStyle = lg(g, 0, 1150, 0, 1560, [[0, '#f0b080'], [.3, '#7aa0c8'], [1, '#3a6a9a']]); g.fillRect(-600, 1150, 2300, 420);
+  for (let i = 0; i < 26; i++) { const y = 1160 + i * 15, w = 30 + i * 7, x = 760 + Math.sin(T * 2 + i * 1.7) * (10 + i * 2); line(g, [x - w / 2, y, x + w / 2, y], 4, `rgba(255,240,200,${.75 - i * .025})`, 'round', true); }
   for (let i = 0; i < 40; i++) { const x = ((i * 113 + T * 30) % 1500) - 200, y = 1170 + (i * 37) % 360, w = 20 + (i % 5) * 12; line(g, [x, y, x + w, y], 3, `rgba(255,${230 - (y - 1170) / 3 | 0},200,${.6 - (y - 1170) / 900})`, 'round', true); }
   g.fillStyle = lg(g, 0, 1560, 0, 2400, [[0, '#c8a880'], [1, '#8a7050']]); g.fillRect(-600, 1560, 2300, 1000); sh(g, 'M-600 1560 C-200 1590 300 1550 700 1580 C1000 1600 1300 1570 1700 1590 L1700 1610 L-600 1610 Z', 'rgba(255,255,255,.5)');
   const r = rng(8); for (let i = 0; i < 70; i++) ell(g, r() * 1300 - 110, 1620 + r() * 700, 6 + r() * 12, 4 + r() * 6, ['#9a8a7a', '#b8a890', '#7a6a5a'][i % 3], 1.4, 0, 'rgba(60,40,20,.4)'); };
+SET.lane = (g, o, T) => { g.fillStyle = lg(g, 0, -400, 0, 1000, [[0, '#04060f'], [1, '#141a34']]); g.fillRect(-600, -600, 2300, 1700); for (let i = 0; i < 26; i++) ell(g, (i * 151) % 1200 - 60, (i * 83) % 560, 2, 2, '#fff');
+  sh(g, 'M-600 520 L1700 520 L1700 1520 L-600 1520 Z', lg(g, 0, 520, 0, 1520, [[0, '#2a2430'], [1, '#3a3038']]), 0);
+  for (let y = 540; y < 1520; y += 70) for (let x = -560 + ((y / 70) % 2) * 70; x < 1700; x += 140) sh(g, `M${x} ${y} l136 0 l0 66 l-136 0 Z`, null, 2, 'rgba(10,6,8,.3)');
+  sh(g, 'M110 1520 L110 1000 Q290 860 470 1000 L470 1520 Z', '#1a0c08', 6, '#120c0e'); g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = lg(g, 0, 1000, 0, 1520, [[0, 'rgba(255,140,60,.25)'], [1, 'rgba(255,120,40,.5)']]); g.beginPath(); g.moveTo(110, 1520); g.lineTo(110, 1000); g.quadraticCurveTo(290, 860, 470, 1000); g.lineTo(470, 1520); g.fill(); g.restore();
+  glow(g, 290, 1400, 520, 'rgba(255,140,60,1)', .35);
+  tileFloor(g, 1520, '#2a2428', '#18141a'); g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = 'rgba(255,140,60,.12)'; g.beginPath(); g.moveTo(110, 1520); g.lineTo(470, 1520); g.lineTo(800, 2200); g.lineTo(-150, 2200); g.fill(); g.restore(); };
 const _drawActorGal = drawActor;
 drawActor = function (g, a, c, P, o) { const A = avAll(a, c.lt);
   if (A.type === 'rooster') return rooster(g, A, c.lt, c.T); if (A.type === 'coals') return coals(g, A, c.T); if (A.type === 'boat') return boat(g, A, c.T); if (A.type === 'tomb') return tomb(g, A, c.lt, c.T);

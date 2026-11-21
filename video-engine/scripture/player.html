@@ -88,6 +88,8 @@ function drawTitle(g, T) {
 }
 function drawLabels(g, T) {
   for (const sh of EP.shots) if (sh.label) { const t0 = sh.t0 + (sh.labelAt ?? .4), t1 = Math.min(t0 + (sh.labelDur ?? 2.6), sh.t1 + .2); if (T < t0 || T > t1) continue; const a = smooth(t0, t0 + .35, T) * (1 - smooth(t1 - .35, t1, T));
+    { const ly = Math.min(sh.labelY ?? 1400, 1400), lsp = 6 + 6 * eo((T - t0) / 2); g.save(); g.globalAlpha = a * .8; g.font = "500 66px Garamond"; g.lineJoin = 'round'; g.lineWidth = 9; g.strokeStyle = 'rgba(28,12,6,.9)';
+      const ws = [...sh.label].map(ch => g.measureText(ch).width), tw = ws.reduce((p, q) => p + q, 0) + lsp * (sh.label.length - 1); let xx = SAFE.cx - tw / 2; [...sh.label].forEach((ch, i) => { g.strokeText(ch, xx, ly); xx += ws[i] + lsp; }); g.restore(); }
     goldText(g, (dx, dy) => { g.font = "500 66px Garamond"; spaced(g, sh.label, SAFE.cx + dx, Math.min(sh.labelY ?? 1400, 1400) + dy, 6 + 6 * eo((T - t0) / 2)); }, a * .95); }
 }
 // ---------- grain + vignette ----------
