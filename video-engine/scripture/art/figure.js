@@ -68,7 +68,7 @@ warrior = function (g, o) {
   })();
   const [bh, fh] = hands;
   const arm = (sx0, h, back) => { const ex2 = (sx0 + h[0]) / 2 + (back ? -18 : 22), ey2 = (sy + h[1]) / 2 + 14; const col = back ? sd : C.skin;
-    taper(g, sx0, sy + 4, ex2, ey2, 30 * b, 22 * b, col); taper(g, ex2, ey2, h[0], h[1], 22 * b, 15 * b, col);
+    const slv = C.longSleeve ? (back ? mix(C.tunic, '#20102a', .3) : C.tunic) : col; taper(g, sx0, sy + 4, ex2, ey2, 30 * b, 22 * b, slv); taper(g, ex2, ey2, h[0], h[1], 22 * b, 15 * b, slv);
     { const ux = sx0 + (ex2 - sx0) * .42, uy = sy + 4 + (ey2 - sy - 4) * .42; taper(g, sx0, sy - 2, ux, uy, 40 * b, 34 * b, back ? mix(C.tunic, '#20102a', .3) : C.tunic); }
     hand(g, h[0], h[1], Math.atan2(h[1] - ey2, h[0] - ex2), 1.05 * b, col, ['flail', 'preach', 'pray', 'beg', 'hug'].includes(pose) ? 1 : 0); };
   // back arm + shield
@@ -77,9 +77,10 @@ warrior = function (g, o) {
     [.78, .55].forEach(q => ell(g, cx, cy, r * q, r * q, null, 2.6, 0, 'rgba(40,20,10,.55)')); ell(g, cx, cy, 15 * b, 15 * b, C.shield === 'bronze' ? '#fbe2a0' : '#b08a5a', 3);
     for (let i = 0; i < 8; i++) { const a2 = i / 8 * 6.28; ell(g, cx + Math.cos(a2) * r * .66, cy + Math.sin(a2) * r * .66, 3.5, 3.5, 'rgba(60,30,10,.6)'); } }
   // legs
-  const leg = (hx, f, back) => { const kx = kneel ? (back ? -70 : 80) : (hx + f[0]) / 2 + 20, ky = kneel ? (back ? -10 : -170) : (hipY + f[1]) / 2 + 6, col = back ? sd : C.skin;
+  const leg = (hx, f, back) => { const kx = kneel ? (back ? -70 : 80) : (hx + f[0]) / 2 + 20, ky = kneel ? (back ? -10 : -170) : (hipY + f[1]) / 2 + 6, col = C.pants ? (back ? mix(C.pants, '#10081a', .3) : C.pants) : back ? sd : C.skin;
     taper(g, hx, hipY, kx, ky, 40 * b, 28 * b, col); taper(g, kx, ky, f[0], f[1] - 16, 28 * b, 17 * b, col);
     if (C.armor === 'scale' || C.greaves) { taper(g, kx + 2, ky + 14, f[0] + 1, f[1] - 34, 30 * b, 20 * b, back ? mix(C.armorCol, '#000', .3) : lg(g, kx - 20, 0, kx + 20, 0, [[0, C.armorCol], [1, mix(C.armorCol, '#000', .3)]])); }
+    if (C.sneakers) { sh(g, `M${f[0] - 24 * b} ${f[1] - 26} Q${f[0] + 6} ${f[1] - 34} ${f[0] + 46 * b} ${f[1] - 8} L${f[0] + 48 * b} ${f[1] + 4} L${f[0] - 26 * b} ${f[1] + 4} Z`, '#f4f2ec', 3.5); sh(g, `M${f[0] - 26 * b} ${f[1] - 4} L${f[0] + 48 * b} ${f[1] - 4} L${f[0] + 48 * b} ${f[1] + 6} L${f[0] - 26 * b} ${f[1] + 6} Z`, C.sneakers, 3); line(g, [f[0] - 6, f[1] - 22, f[0] + 20, f[1] - 12], 4, C.sneakers, 'round', true); return; }
     sh(g, `M${f[0] - 18 * b} ${f[1] - 20} Q${f[0] + 10} ${f[1] - 26} ${f[0] + 40 * b} ${f[1] - 6} Q${f[0] + 44 * b} ${f[1] + 2} ${f[0] + 36 * b} ${f[1] + 3} L${f[0] - 20 * b} ${f[1] + 3} Z`, col, 3.5);
     sh(g, `M${f[0] - 22 * b} ${f[1] - 2} L${f[0] + 40 * b} ${f[1] - 2} L${f[0] + 40 * b} ${f[1] + 5} L${f[0] - 22 * b} ${f[1] + 5} Z`, C.boots, 3); line(g, [f[0] - 10, f[1] - 18, f[0] + 6, f[1] - 4], 2.4, C.boots, 'round', true); line(g, [f[0] + 4, f[1] - 22, f[0] + 20, f[1] - 6], 2.4, C.boots, 'round', true); };
   leg(-24 * b, feet[0], true);
@@ -89,19 +90,23 @@ warrior = function (g, o) {
   const robe = `M${-tw} ${shY} C${-tw - 6} ${shY + 80} ${-ww - 4} ${waistY - 20} ${-ww} ${waistY} C${-ww - 20} ${waistY + 80} ${-hw - swH * .3} ${hem - 60} ${-hw - swH * .5} ${hem} Q0 ${hem + 14} ${hw - swH * .5} ${hem} C${hw - swH * .3} ${hem - 60} ${ww + 20} ${waistY + 80} ${ww} ${waistY} C${ww + 4} ${waistY - 20} ${tw + 6} ${shY + 80} ${tw} ${shY} Q0 ${shY - 22} ${-tw} ${shY} Z`;
   sh(g, robe, lg(g, -hw, 0, hw, 0, [[0, mix(C.tunic, '#20102a', .32)], [.55, C.tunic], [.8, mix(C.tunic, '#fff8e8', .12)], [1, mix(C.tunic, '#20102a', .2)]]), 4.5);
   g.save(); g.clip(path(robe));
-  for (let i = -6; i <= 6; i++) { const x0 = i * 9 * b, x1 = i * (hw / 6) - swH * .45; line(g, [x0, waistY + 6, (x0 + x1) / 2 + Math.sin(i) * 3, (waistY + hem) / 2, x1, hem], 1.5, 'rgba(30,18,40,.32)', 'round', true); }
-  for (let i = -3; i <= 3; i++) line(g, [i * 12 * b, shY + 6, i * 9 * b, waistY], 1.3, 'rgba(30,18,40,.25)', 'round', true);
+  if (!C.modern) for (let i = -6; i <= 6; i++) { const x0 = i * 9 * b, x1 = i * (hw / 6) - swH * .45; line(g, [x0, waistY + 6, (x0 + x1) / 2 + Math.sin(i) * 3, (waistY + hem) / 2, x1, hem], 1.5, 'rgba(30,18,40,.32)', 'round', true); }
+  if (!C.modern) for (let i = -3; i <= 3; i++) line(g, [i * 12 * b, shY + 6, i * 9 * b, waistY], 1.3, 'rgba(30,18,40,.25)', 'round', true);
+  if (C.stripes) for (let y = shY + 40; y < hem; y += 46) line(g, [-hw - 20, y, hw + 20, y + 4], 16, C.stripes, 'butt', true);
+  if (C.hood) { sh(g, `M${-ww * .7} ${waistY + 60} L${ww * .7} ${waistY + 60} L${ww * .6} ${waistY + 130} L${-ww * .6} ${waistY + 130} Z`, mix(C.tunic, '#000', .12), 2.6); line(g, [-10, shY + 10, -14, shY + 120], 3, '#f4f0e8', 'round', true); line(g, [16, shY + 10, 20, shY + 116], 3, '#f4f0e8', 'round', true); }
   if (C.armor === 'scale') { for (let y = shY + 14; y < waistY + 8; y += 16) for (let x = -tw - 8 + ((y / 16 | 0) % 2) * 9; x < tw + 8; x += 18) sh(g, `M${x - 9} ${y} Q${x} ${y + 18} ${x + 9} ${y} Z`, mix(C.armorCol, '#fff6d8', ((x + 300 | 0) % 3) * .07), 1.6, 'rgba(50,25,8,.7)'); }
   else if (C.armor === 'leather') { sh(g, `M${-tw} ${shY + 26} L${tw} ${shY + 26} L${ww + 6} ${waistY} L${-ww - 6} ${waistY} Z`, lg(g, -tw, 0, tw, 0, [[0, mix(C.armorCol, '#000', .25)], [1, C.armorCol]])); for (let y = shY + 46; y < waistY; y += 26) line(g, [-tw, y, tw, y], 1.8, 'rgba(20,10,0,.35)', 'round', true); }
-  pattern(g, -hw - 30, hw + 30, hem - 16, 13, trim, longRobe ? 'meander' : 'zig');
+  if (!C.modern) pattern(g, -hw - 30, hw + 30, hem - 16, 13, trim, longRobe ? 'meander' : 'zig'); else line(g, [-hw - 10, hem - 8, hw + 10, hem - 8], 10, mix(C.tunic, '#000', .18), 'butt', true);
   g.restore(); sh(g, robe, null, 4.5);
-  sh(g, `M${-ww - 6} ${waistY - 8} L${ww + 6} ${waistY - 8} L${ww + 6} ${waistY + 8} L${-ww - 6} ${waistY + 8} Z`, C.kilt, 3); pattern(g, -ww - 6, ww + 6, waistY - 4, 8, trim, 'dots');
+  if (!C.modern) sh(g, `M${-ww - 6} ${waistY - 8} L${ww + 6} ${waistY - 8} L${ww + 6} ${waistY + 8} L${-ww - 6} ${waistY + 8} Z`, C.kilt, 3); if (!C.modern) pattern(g, -ww - 6, ww + 6, waistY - 4, 8, trim, 'dots');
   if (longRobe) { // feet peeking from the robe
     [feet[0], feet[1]].forEach((f, i) => sh(g, `M${f[0] - 16} ${f[1] - 10} Q${f[0] + 10} ${f[1] - 16} ${f[0] + 38} ${f[1] - 4} L${f[0] + 38} ${f[1] + 4} L${f[0] - 18} ${f[1] + 4} Z`, i ? C.skin : sd, 3)); }
   // head
   const hs = (C.head || 1) * .86, hy = shY - 62 * hs;
   g.save(); g.translate(14, hy); g.scale(hs, hs); if (o.headRot) g.rotate(o.headRot);
+  if (C.hood) sh(g, 'M-70 40 C-90 70 -60 110 0 112 C50 110 70 80 60 60 L20 70 L-40 60 Z', mix(C.tunic, '#000', .15), 3.6);
   taper(g, -4, 50, 0, 84, 30, 34, C.skin);
+  if (C.headphones) { g.save(); g.beginPath(); g.arc(4, 92, 46, .2, Math.PI - .2); g.lineWidth = 9; g.strokeStyle = '#2a2a34'; g.stroke(); g.restore(); ell(g, 48, 104, 14, 20, '#2a2a34', 3); }
   const hairCol = C.hair || '#24160e';
   const HS = C.hairStyle || 'short', hairHi = 'rgba(255,240,220,.18)';
   if (!C.helmet || C.helmet === 'crown' || C.helmet === 'cap') {
@@ -132,6 +137,7 @@ warrior = function (g, o) {
   else { sh(g, `M22 -16 Q34 ${ex === 'shock' ? -28 : -24} 46 -14 Q34 -8 22 -16 Z`, '#f8f2e6', 2.4); ell(g, 39, -15, ex === 'roar' || ex === 'angry' ? 3 : 4, 4.5, '#1a1220'); line(g, [22, -16, 46, -15], 2.2); }
   const BR = { angry: [20, -34, 46, -22], roar: [18, -36, 46, -20], fierce: [18, -32, 46, -24], tired: [18, -26, 46, -30], shock: [18, -38, 46, -36], smile: [18, -30, 46, -30] }[ex] || [18, -29, 46, -28];
   line(g, [BR[0], BR[1] - (C.eyes === 'big' ? 8 : 0), (BR[0] + BR[2]) / 2, Math.min(BR[1], BR[3]) - 4 - (C.eyes === 'big' ? 8 : 0), BR[2], BR[3] - (C.eyes === 'big' ? 8 : 0)], 3.6 * (C.brow || 1), hairCol === '#e8e4dc' || hairCol === '#d8d2c8' ? '#7a7068' : INK, 'round', true);
+  if (C.glasses) { ell(g, 36, -14, 20, 18, 'rgba(220,240,255,.18)', 3.2, 0, C.glasses); line(g, [16, -16, -16, -6], 3.2, C.glasses, 'round', true); line(g, [56, -16, 64, -14], 3, C.glasses, 'round', true); }
   if (ex === 'tired') { line(g, [24, -6, 40, -4], 1.4, 'rgba(60,30,30,.4)', 'round', true); const k2 = (t * .5) % 1; ell(g, -4, -24 + k2 * 40, 3.5, 6, 'rgba(170,215,240,.85)', 1.5); }
   // mouth + beard
   const op = Math.max(talk, ex === 'roar' ? .9 : ex === 'shock' ? .35 : 0);
