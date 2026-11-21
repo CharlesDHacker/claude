@@ -1,0 +1,572 @@
+{
+ "lead": 0.12,
+ "tail": 0.8,
+ "loop": true,
+ "title": {
+  "text": "TOP 10 GRAPHIC NOVELS",
+  "sub": "ranked by quality, not sales",
+  "until": "F00"
+ },
+ "gaps": {
+  "F00": 0.35,
+  "F10": 0.35,
+  "F09": 0.35,
+  "F08": 0.35,
+  "F07": 0.35,
+  "F06": 0.35,
+  "F05": 0.35,
+  "F04": 0.35,
+  "F03": 0.35,
+  "F02": 0.35,
+  "F01": 0.35,
+  "F11": 0.35
+ },
+ "shots": [
+  {
+   "at": "F00",
+   "scene": "room",
+   "cam": [
+    [
+     560,
+     1180,
+     1.3
+    ],
+    [
+     560,
+     1160,
+     1.4
+    ]
+   ],
+   "o": {
+    "kind": "study",
+    "actors": [
+     {
+      "type": "p",
+      "c": "host",
+      "x": 540,
+      "y": 2060,
+      "s": 1.12,
+      "who": "narr",
+      "pose": "explain",
+      "expr": "smile"
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1560,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "lead": 0,
+   "grade": "warm",
+   "leak": false,
+   "music": "legend"
+  },
+  {
+   "at": "F10",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rankcard",
+      "rank": 10,
+      "title": "DORK\nDIARIES",
+      "col": "#ff6aa8",
+      "bookCol": "#c83a7a",
+      "icon": "heart",
+      "sub": "Rachel Ren\u00e9e Russell \u00b7 2009",
+      "t0": 0.05
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "bloom": 0,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "F09",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rankcard",
+      "rank": 9,
+      "title": "THE BAD\nGUYS",
+      "col": "#8a9ac8",
+      "bookCol": "#2a3450",
+      "icon": "shades",
+      "sub": "Aaron Blabey \u00b7 2015",
+      "t0": 0.05
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "bloom": 0,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "F08",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rankcard",
+      "rank": 8,
+      "title": "DIARY OF A\nWIMPY KID",
+      "col": "#e8503a",
+      "bookCol": "#c8302a",
+      "icon": "notebook",
+      "sub": "Jeff Kinney \u00b7 2007",
+      "t0": 0.05
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "bloom": 0,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "F07",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rankcard",
+      "rank": 7,
+      "title": "CAPTAIN\nUNDERPANTS",
+      "col": "#ffd23a",
+      "bookCol": "#e8402a",
+      "icon": "cape",
+      "sub": "Dav Pilkey \u00b7 1997",
+      "t0": 0.05
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "bloom": 0,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "F06",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rankcard",
+      "rank": 6,
+      "title": "THE BABY-\nSITTERS\nCLUB",
+      "col": "#ff8ab4",
+      "bookCol": "#e84a8a",
+      "icon": "phone",
+      "sub": "graphic novels since 2006",
+      "t0": 0.05
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "bloom": 0,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "F05",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rankcard",
+      "rank": 5,
+      "title": "WINGS\nOF FIRE",
+      "col": "#ff8a3a",
+      "bookCol": "#a82a1a",
+      "icon": "wing",
+      "sub": "graphic novels since 2018",
+      "t0": 0.05
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "bloom": 0,
+   "music": "hope",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "F04",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rankcard",
+      "rank": 4,
+      "title": "DOG\nMAN",
+      "col": "#5aa8ff",
+      "bookCol": "#2a5ac8",
+      "icon": "badge",
+      "sub": "Dav Pilkey \u00b7 2016",
+      "t0": 0.05
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "bloom": 0,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "F03",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rankcard",
+      "rank": 3,
+      "title": "AMULET",
+      "col": "#5ad8ff",
+      "bookCol": "#1a3a7a",
+      "icon": "gem",
+      "sub": "Kazu Kibuishi \u00b7 2008",
+      "t0": 0.05
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "bloom": 0,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "F02",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rankcard",
+      "rank": 2,
+      "title": "SMILE",
+      "col": "#ffc04a",
+      "bookCol": "#3aa8a0",
+      "icon": "braces",
+      "sub": "Raina Telgemeier \u00b7 2010",
+      "t0": 0.05
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "bloom": 0,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "F01",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rays",
+      "x": 600,
+      "y": 1080,
+      "r": 1800,
+      "a": 0.35
+     },
+     {
+      "type": "rankcard",
+      "rank": 1,
+      "title": "BIG\nNATE",
+      "col": "#ffb02a",
+      "bookCol": "#e8302a",
+      "icon": "strip",
+      "sub": "Lincoln Peirce \u00b7 since 1991",
+      "t0": 0.05
+     }
+    ]
+   },
+   "tr": "flash",
+   "grade": "warm",
+   "leak": false,
+   "bloom": 0.5,
+   "music": "glory",
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ],
+    [
+     "choir",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "F11",
+   "scene": "room",
+   "cam": [
+    [
+     560,
+     1060,
+     1.4
+    ],
+    [
+     560,
+     1050,
+     1.5
+    ]
+   ],
+   "o": {
+    "kind": "study",
+    "actors": [
+     {
+      "type": "p",
+      "c": "host",
+      "x": 540,
+      "y": 2060,
+      "s": 1.12,
+      "who": "narr",
+      "pose": "cross",
+      "expr": "skeptic"
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1560,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "leak": false,
+   "music": "warm"
+  },
+  {
+   "at": "F12",
+   "scene": "room",
+   "cam": [
+    [
+     560,
+     1160,
+     1.35
+    ],
+    [
+     560,
+     1180,
+     1.3
+    ]
+   ],
+   "o": {
+    "kind": "study",
+    "actors": [
+     {
+      "type": "p",
+      "c": "host",
+      "x": 540,
+      "y": 2060,
+      "s": 1.12,
+      "who": "narr",
+      "pose": "gesture",
+      "expr": "smile"
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1560,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "leak": false
+  }
+ ]
+}
