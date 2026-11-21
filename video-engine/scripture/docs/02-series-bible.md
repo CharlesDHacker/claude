@@ -78,3 +78,16 @@ Applied to every character rig from EP07 on (`art/figure.js`, `art/heroes.js`, `
 - **Staging.** Every set (`art/sets.js`, scene `set`) shares a floor line (y = 1880): feet always land on the floor, nothing stands
   in front of a structure's base. Each location is its own filled set (hall, street, chamber, banquet, home, gate) instead of
   reusing one backdrop; texture, wall-floor contact shadow and depth haze are added by the detail pass.
+- **Walking.** A walk only happens while a character travels: a `stride` actor with animated `x` stands before it starts,
+  eases into a stand when it arrives, and steps at a pace matched to the travel speed. Anything that moves must walk
+  (`pose: "stride"`); to walk while gesturing use `arm` (e.g. `arm: "shout"`). Horses stop walking when they stop moving.
+- **Kneeling/bowing in robes.** `kneel`, `pray`, `bow` fold the robe over the knees onto the ground with the soles behind;
+  `pray` clasps the hands at the chest, `bow` lowers the head. No loose feet.
+- **Raised arms** go up beside the head (drawn behind it) so the face is never covered.
+- **Who is talking.** Only the speaker's mouth moves. When the narrator describes someone speaking, animate that person's
+  mouth on the narrator's voice (`who: "selah"`); listeners keep closed mouths (shock is a small "o"). Never cut to a
+  different character while another character's line is still playing.
+- **Text.** Pop words end at their shot's cut; name labels sit above the heads (`labelY`), never across a body.
+- **QA before every render.** Three frames per shot (entry, middle, exit) reviewed for: walking in place, sliding,
+  floating or loose feet, limbs crossing faces, wrong speaker, text over faces/bodies, off-model sets, and props that
+  don't match the scene.

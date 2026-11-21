@@ -21,7 +21,7 @@
   "L11": 0.2,
   "L12": 0.15,
   "L13": 0.2,
-  "L14": 0.3,
+  "L14": 1.3,
   "L15": 0.15,
   "L16": 0.3,
   "L17": 0.25,
@@ -298,6 +298,7 @@
    "tr": "fade",
    "grade": "warm",
    "label": "ESTHER",
+   "labelY": 760,
    "labelAt": "@L04.1+0.3"
   },
   {
@@ -339,17 +340,9 @@
        "b": 330,
        "t0": 0,
        "t1": "@L05.1",
-       "e": "o"
+       "e": "lin"
       },
       "pose": "stride",
-      "pose2": "stand",
-      "mix": {
-       "a": 0,
-       "b": 1,
-       "t0": "@L05.1-0.2",
-       "t1": "@L05.1+0.3",
-       "e": "io"
-      },
       "expr": "smile"
      },
      {
@@ -371,6 +364,7 @@
    "grade": "gold",
    "bloom": 0.4,
    "label": "KING XERXES",
+   "labelY": 760,
    "labelAt": 0.4,
    "sfx": [
     [
@@ -404,7 +398,8 @@
       "s": 1.0,
       "x": 380,
       "pose": "explain",
-      "expr": "neutral"
+      "expr": "neutral",
+      "who": "selah"
      },
      {
       "type": "w",
@@ -413,7 +408,11 @@
       "s": 1.0,
       "x": 700,
       "flip": true,
-      "expr": "shock"
+      "expr": "neutral",
+      "look": [
+       0.3,
+       0
+      ]
      }
     ]
    },
@@ -445,7 +444,7 @@
       "y": 1880,
       "s": 0.9,
       "x": 150,
-      "pose": "pray"
+      "pose": "bow"
      },
      {
       "type": "w",
@@ -453,7 +452,7 @@
       "y": 1880,
       "s": 0.9,
       "x": 330,
-      "pose": "pray",
+      "pose": "bow",
       "flip": true
      },
      {
@@ -465,7 +464,7 @@
        "a": 1050,
        "b": 620,
        "t0": 0,
-       "t1": 3.5,
+       "t1": 3.0,
        "e": "lin"
       },
       "pose": "stride",
@@ -478,7 +477,7 @@
       "y": 1880,
       "s": 0.9,
       "x": 930,
-      "pose": "pray",
+      "pose": "bow",
       "flip": true
      }
     ],
@@ -488,6 +487,7 @@
    "grade": "warm",
    "music": "dread",
    "label": "HAMAN",
+   "labelY": 760,
    "labelAt": 0.5
   },
   {
@@ -500,9 +500,9 @@
      1.0
     ],
     [
-     470,
+     560,
      1250,
-     1.22
+     1.18
     ]
    ],
    "o": {
@@ -514,23 +514,22 @@
       "y": 1880,
       "s": 0.9,
       "x": 140,
-      "pose": "pray"
+      "pose": "bow"
      },
      {
       "type": "w",
       "c": "satrap2",
       "y": 1880,
-      "s": 0.9,
-      "x": 780,
-      "pose": "pray",
-      "flip": true
+      "s": 0.88,
+      "x": 600,
+      "pose": "bow"
      },
      {
       "type": "w",
       "c": "mordecai",
       "y": 1880,
       "s": 1.05,
-      "x": 440,
+      "x": 420,
       "expr": "neutral"
      },
      {
@@ -538,7 +537,7 @@
       "c": "haman",
       "y": 1880,
       "s": 1.0,
-      "x": 920,
+      "x": 800,
       "flip": true,
       "expr": "angry"
      }
@@ -845,8 +844,8 @@
    "music": "hope"
   },
   {
-   "at": "L14",
-   "scene": "stage",
+   "at": "L15",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -856,20 +855,16 @@
     [
      540,
      1100,
-     1.7
+     1.68
     ]
    ],
    "o": {
-    "sky": "gold",
-    "sunX": 800,
-    "sunY": 900,
-    "sunR": 150,
-    "horizon": 1350,
+    "set": "hall",
     "actors": [
      {
       "type": "rays",
       "x": 540,
-      "y": 800,
+      "y": 700,
       "r": 2000,
       "a": 0.5
      },
@@ -887,7 +882,7 @@
      }
     ]
    },
-   "atc": "@L14.2",
+   "atc": "@L15.0-1.25",
    "tr": "flash",
    "grade": "gold",
    "bloom": 0.6,
@@ -939,6 +934,7 @@
    "grade": "night",
    "leak": false,
    "label": "3 DAYS OF FASTING",
+   "labelY": 760,
    "labelAt": 0.3
   },
   {
@@ -1092,17 +1088,9 @@
        "b": 330,
        "t0": 0,
        "t1": "@L18.1",
-       "e": "o"
+       "e": "lin"
       },
       "pose": "stride",
-      "pose2": "stand",
-      "mix": {
-       "a": 0,
-       "b": 1,
-       "t0": "@L18.1-0.2",
-       "t1": "@L18.1+0.3",
-       "e": "io"
-      },
       "expr": "shock",
       "k": 1
      }
@@ -1219,14 +1207,15 @@
       "y": 1880,
       "s": 1.0,
       "x": {
-       "a": 1250,
-       "b": 640,
-       "t0": "@L20.2",
-       "t1": "@L20.2+0.8",
-       "e": "o"
+       "a": 1150,
+       "b": 660,
+       "t0": "@L20.2-0.6",
+       "t1": "@L20.2+1.2",
+       "e": "lin"
       },
       "flip": true,
-      "hold": "scroll"
+      "hold": "scroll",
+      "pose": "stride"
      }
     ],
     "lampX": 200
@@ -1341,7 +1330,7 @@
   },
   {
    "at": "L23",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -1355,11 +1344,7 @@
     ]
    ],
    "o": {
-    "sky": "gold",
-    "sunX": 800,
-    "sunY": 900,
-    "sunR": 150,
-    "horizon": 1350,
+    "set": "hall",
     "actors": [
      {
       "type": "glow",
@@ -1367,7 +1352,7 @@
       "y": 1000,
       "r": 900,
       "col": "rgba(255,220,120,1)",
-      "a": 0.5
+      "a": 0.45
      },
      {
       "type": "w",
@@ -1377,8 +1362,7 @@
       "x": 540,
       "expr": "smile",
       "who": "haman",
-      "pose": "raise",
-      "k": 1
+      "pose": "explain"
      }
     ]
    },
@@ -1458,7 +1442,8 @@
        "t1": 6,
        "e": "lin"
       },
-      "pose": "shout",
+      "pose": "stride",
+      "arm": "shout",
       "expr": "angry"
      }
     ],
@@ -1704,7 +1689,7 @@
   },
   {
    "at": "L29",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -1712,34 +1697,30 @@
      1.0
     ],
     [
-     580,
+     560,
      1300,
-     1.08
+     1.06
     ]
    ],
    "o": {
-    "sky": "blood",
-    "sunX": 300,
-    "sunY": 520,
-    "sunR": 80,
-    "horizon": 1360,
+    "set": "street",
     "actors": [
      {
       "type": "gallows",
-      "x": 760,
-      "y": 1700,
-      "s": 0.9
+      "x": 840,
+      "y": 1880,
+      "s": 0.95
      },
      {
       "type": "w",
       "c": "guard",
-      "y": 1860,
-      "s": 0.9,
+      "y": 1880,
+      "s": 0.92,
       "x": {
-       "a": 150,
-       "b": 420,
+       "a": 60,
+       "b": 300,
        "t0": 0,
-       "t1": 3,
+       "t1": 2.6,
        "e": "lin"
       },
       "pose": "stride"
@@ -1747,13 +1728,13 @@
      {
       "type": "w",
       "c": "haman",
-      "y": 1860,
-      "s": 0.9,
+      "y": 1880,
+      "s": 0.92,
       "x": {
-       "a": 300,
-       "b": 560,
+       "a": 200,
+       "b": 440,
        "t0": 0,
-       "t1": 3,
+       "t1": 2.6,
        "e": "lin"
       },
       "expr": "shock",
@@ -1762,19 +1743,21 @@
      {
       "type": "w",
       "c": "guard",
-      "y": 1860,
-      "s": 0.9,
+      "y": 1880,
+      "s": 0.92,
       "x": {
-       "a": 450,
-       "b": 700,
+       "a": 330,
+       "b": 570,
        "t0": 0,
-       "t1": 3,
+       "t1": 2.6,
        "e": "lin"
       },
       "pose": "stride",
       "ph": 1
      }
-    ]
+    ],
+    "tod": "dusk",
+    "stall": false
    },
    "tr": "fade",
    "grade": "blood",
@@ -2001,7 +1984,7 @@
   },
   {
    "at": "L31",
-   "scene": "stage",
+   "scene": "set",
    "cam": [
     [
      540,
@@ -2015,16 +1998,12 @@
     ]
    ],
    "o": {
-    "sky": "gold",
-    "sunX": 800,
-    "sunY": 900,
-    "sunR": 150,
-    "horizon": 1350,
+    "set": "hall",
     "actors": [
      {
       "type": "rays",
       "x": 540,
-      "y": 900,
+      "y": 800,
       "r": 2000,
       "a": 0.45
      },

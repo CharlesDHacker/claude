@@ -33,18 +33,21 @@ warrior = function (g, o) {
   if (o.shadow !== false) { g.fillStyle = rg(g, 0, 0, 10, 170 * b, [[0, 'rgba(20,10,20,.32)'], [1, 'rgba(20,10,20,0)']]); g.beginPath(); g.ellipse(0, 2, 170 * b, 22, 0, 0, 7); g.fill(); }
   if (pose === 'fall') g.rotate(-eio(k) * 1.45);
   if (o.rot) { g.translate(0, -380); g.rotate(o.rot); g.translate(0, 380); }
-  const kneel = ['kneel', 'faint', 'pray', 'sulk'].includes(pose);
+  const kneel = ['kneel', 'faint', 'pray', 'sulk', 'bow'].includes(pose);
   const lean = pose === 'charge' ? .16 : pose === 'thrust' ? .08 : pose === 'faint' ? -.05 : 0;
   const sit = pose === 'sit', drop = kneel ? 150 : sit ? 130 : 0, br = Math.sin(t * (pose === 'faint' ? 3.2 : 1.7) + ph) * (pose === 'faint' ? 4 : 2);
   const hipY = -390 + drop, waistY = -455 + drop, shY = -620 + drop + br;
-  const run = pose === 'stride' ? 5 : pose === 'charge' ? 10 : 0, p = t * run + ph;
-  let feet;
-  const amp = longRobe ? 34 : 95; if (run) feet = [[(longRobe ? 10 : -34) + Math.sin(p) * amp, -Math.max(0, Math.cos(p)) * (longRobe ? 12 : 30)], [(longRobe ? 26 : 40) - Math.sin(p) * amp, -Math.max(0, -Math.cos(p)) * (longRobe ? 12 : 30)]];
-  else if (['raise', 'thrust', 'sling', 'shout'].includes(pose)) feet = longRobe ? [[-6, 0], [40, 0]] : [[-60, 0], [64, 0]];
-  else if (kneel) feet = [[-150, 0], [80, 0]];
-  else if (sit) feet = [[130, 0], [150, 0]];
-  else feet = longRobe ? [[8, 0], [30, 0]] : [[-12, 0], [16, 0]];
-  const sway = (pose === 'sit' ? .004 : .012) * Math.sin(t * .9 + ph * 1.7), bob = run ? -Math.abs(Math.sin(p)) * (longRobe ? 8 : 14) : 0;
+  const walkMix = o.pose2 && !['stride', 'charge'].includes(o.pose2) ? eio(o.mix ?? 0) : 0;
+  const run0 = pose === 'stride' ? (o.walkRate || 5) : pose === 'charge' ? 10 : 0, run = walkMix > .999 ? 0 : run0, p = t * run0 + ph;
+  const FT = (pz, rn) => { const amp = longRobe ? 34 : 95;
+    if (rn) return [[(longRobe ? 10 : -34) + Math.sin(p) * amp, -Math.max(0, Math.cos(p)) * (longRobe ? 12 : 30)], [(longRobe ? 26 : 40) - Math.sin(p) * amp, -Math.max(0, -Math.cos(p)) * (longRobe ? 12 : 30)]];
+    if (['raise', 'thrust', 'sling', 'shout'].includes(pz)) return longRobe ? [[-6, 0], [40, 0]] : [[-60, 0], [64, 0]];
+    if (['kneel', 'faint', 'pray', 'sulk', 'bow'].includes(pz)) return [[-150, 0], [80, 0]];
+    if (pz === 'sit') return [[130, 0], [150, 0]];
+    return longRobe ? [[8, 0], [30, 0]] : [[-12, 0], [16, 0]]; };
+  let feet = FT(pose, run);
+  if (o.pose2) { const m = eio(o.mix ?? 0), f2 = FT(o.pose2, ['stride', 'charge'].includes(o.pose2) ? run : 0); feet = feet.map((f, i) => [lerp(f[0], f2[i][0], m), lerp(f[1], f2[i][1], m)]); }
+  const sway = (pose === 'sit' ? .004 : .012) * Math.sin(t * .9 + ph * 1.7), bob = run ? -Math.abs(Math.sin(p)) * (longRobe ? 8 : 14) * (1 - walkMix) : 0;
   g.save(); g.translate(0, bob); g.translate(0, hipY); g.rotate(lean + sway); g.translate(0, -hipY);
   const sw = Math.sin(t * 2.2 + ph) * 18 + (run ? 30 : 0);
   // cloak behind
@@ -56,13 +59,14 @@ warrior = function (g, o) {
   const beat = talk * (0.6 + 0.4 * Math.sin(t * 7.3 + ph)), bx = beat * 26, by = -beat * 34;   // speech-driven hand beats
   const H = (pz) => {
     const kk = pz === pose ? k : 1;
-    if (pz === 'raise') return [[-6, hipY + 10], [lerp(sx + 70, sx + 10, bo(kk)), lerp(sy + 140, sy - 270, bo(kk))]];
+    if (pz === 'raise') return [[0, hipY + 46], [lerp(sx + 60, sx + 46, bo(kk)), lerp(sy + 140, sy - 290, bo(kk))]];
     if (pz === 'thrust') return [[-20, sy + 120], [sx + 210 * bo(kk), sy + 30]];
     if (pz === 'sit') return [[96, hipY - 34], [o.hold ? sx + 150 : 128 + bx * .6, o.hold ? sy + 70 : hipY - 30 + by * .5]];
     if (pz === 'sling') { const an = t * 15; return [[-120 * b, sy + 120], [20 + Math.cos(an) * 30, sy - 220 + Math.sin(an) * 14]]; }
     if (pz === 'faint') return [[20, hipY + 30], [40, shY - 30]];
     if (pz === 'kneel') return [[60, hipY + 30], [120, sy + 130]];
-    if (pz === 'pray') return [[80, sy - 160], [140, sy - 180]];
+    if (pz === 'pray') return [[70, sy + 52], [92, sy + 44]];   // hands clasped at the chest, below the chin
+    if (pz === 'worship') return [[96, sy - 20], [128, sy - 34]];
     if (pz === 'bow') return [[70, sy + 120], [110, sy + 110]];
     if (pz === 'sulk') return [[56, sy + 80], [96, sy + 70]];
     if (pz === 'hug') return [[160, sy + 50], [196, sy + 20]];
@@ -80,14 +84,15 @@ warrior = function (g, o) {
   };
   let hands = H(pose);
   if (o.pose2) { const m = eio(o.mix ?? 0), h2 = H(o.pose2); hands = hands.map((hh, i) => [lerp(hh[0], h2[i][0], m), lerp(hh[1], h2[i][1], m)]); }
+  if (o.arm) hands = [hands[0], H(o.arm)[1]];   // front-arm override: e.g. walk while gesturing
   const [bh, fh] = hands;
   const openHand = ['flail', 'preach', 'pray', 'beg', 'hug', 'gesture', 'explain', 'shout'].includes(pose) || ['preach', 'gesture', 'explain', 'beg'].includes(o.pose2);
-  const arm = (sx0, h, back) => { const hang = h[1] > sy + 160, ex2 = (sx0 + h[0]) / 2 + (hang ? -10 : back ? -18 : 22), ey2 = (sy + h[1]) / 2 + 14; const col = back ? sd : C.skin;
+  const arm = (sx0, h, back) => { const hang = h[1] > sy + 160, up = h[1] < sy - 60, ex2 = (sx0 + h[0]) / 2 + (hang ? -10 : up ? -46 : back ? -18 : 22), ey2 = (sy + h[1]) / 2 + 14; const col = back ? sd : C.skin;
     const slv = C.longSleeve ? (back ? mix(C.tunic, '#20102a', .3) : C.tunic) : col; taper(g, sx0, sy + 4, ex2, ey2, 30 * b, 22 * b, slv); taper(g, ex2, ey2, h[0], h[1], 22 * b, 15 * b, slv);
     { const ux = sx0 + (ex2 - sx0) * .42, uy = sy + 4 + (ey2 - sy - 4) * .42; taper(g, sx0, sy - 2, ux, uy, 40 * b, 34 * b, back ? mix(C.tunic, '#20102a', .3) : C.tunic); }
     hand(g, h[0], h[1], Math.atan2(h[1] - ey2, h[0] - ex2), 1.05 * b, col, openHand ? 1 : 0); };
   // back arm + shield
-  arm(2 * b, bh, true);
+  if (Math.abs(bh[0]) > 40 || bh[1] < sy + 160) arm(2 * b, bh, true);
   if (C.shield) { const r = 84 * b, cx = bh[0] - 8, cy = bh[1] - 40; ell(g, cx, cy, r, r, C.shield === 'bronze' ? lg(g, cx - r, cy - r, cx + r, cy + r, [[0, '#f2cf78'], [.6, '#c08a36'], [1, '#7a4a18']]) : lg(g, cx - r, 0, cx + r, 0, [[0, '#8a6038'], [1, '#5a3a1e']]), 5);
     [.78, .55].forEach(q => ell(g, cx, cy, r * q, r * q, null, 2.6, 0, 'rgba(40,20,10,.55)')); ell(g, cx, cy, 15 * b, 15 * b, C.shield === 'bronze' ? '#fbe2a0' : '#b08a5a', 3);
     for (let i = 0; i < 8; i++) { const a2 = i / 8 * 6.28; ell(g, cx + Math.cos(a2) * r * .66, cy + Math.sin(a2) * r * .66, 3.5, 3.5, 'rgba(60,30,10,.6)'); } }
@@ -104,14 +109,16 @@ warrior = function (g, o) {
       const lap = `M-50 ${hipY - 56} C0 ${hipY - 70} ${kx2 - 60} ${hipY - 54} ${kx2 + 6} ${ky2 - 44} Q${kx2 + 52} ${ky2 - 30} ${kx2 + 44} ${ky2 + 30} C${kx2 + 40} ${-150} ${kx2 + 52} ${-80} ${kx2 + 60} -16 Q${kx2} -6 ${kx2 - 84} -14 C${kx2 - 74} -100 ${kx2 - 66} ${hipY + 70} ${kx2 - 70} ${hipY + 46} L-54 ${hipY + 46} Z`;
       sh(g, lap, robeC, 4.5); g.save(); g.clip(path(lap)); for (let i = 0; i < 5; i++) line(g, [kx2 - 70 + i * 26, -20, kx2 - 58 + i * 22, ky2 + 40], 1.6, 'rgba(30,18,40,.3)', 'round', true); for (let i = 0; i < 4; i++) line(g, [-30 + i * 30, hipY - 40, kx2 - 10, ky2 - 30 + i * 12], 1.4, 'rgba(30,18,40,.25)', 'round', true); pattern(g, kx2 - 100, kx2 + 70, -30, 13, trim, 'meander'); g.restore(); sh(g, lap, null, 4.5);
       [feet[0], feet[1]].forEach((f, i) => { sh(g, `M${kx2 - 20 + i * 18} -8 Q${kx2 + 10 + i * 18} -20 ${kx2 + 44 + i * 18} -2 L${kx2 + 44 + i * 18} 4 L${kx2 - 22 + i * 18} 4 Z`, i ? C.skin : sd, 3); line(g, [kx2 - 20 + i * 18, 2, kx2 + 42 + i * 18, 2], 5, C.boots, 'butt', true); }); } }
+  else if (longRobe && kneel) { /* the kneeling robe covers the legs; soles are drawn after it */ }
   else if (longRobe) { [feet[0], feet[1]].forEach((f, i) => { const [fx, fy] = f, c = i ? C.skin : sd;
       sh(g, `M${fx - 18} ${fy - 2} C${fx - 26} ${fy - 22} ${fx - 8} ${fy - 32} ${fx + 6} ${fy - 28} C${fx + 20} ${fy - 20} ${fx + 36} ${fy - 14} ${fx + 48} ${fy - 8} Q${fx + 56} ${fy - 2} ${fx + 48} ${fy + 3} L${fx - 16} ${fy + 3} Z`, c, 3);
       ell(g, fx + 2, fy - 16, 3.2, 3.2, mix(c, '#2a1830', .25)); line(g, [fx + 40, fy - 6, fx + 44, fy + 1], 1.6, 'rgba(40,20,20,.5)', 'round', true);
       line(g, [fx - 16, fy + 1, fx + 46, fy + 1], 5, C.boots, 'butt', true); line(g, [fx + 4, fy - 24, fx + 20, fy - 6], 3, C.boots, 'round', true); }); }
   else { leg(-8 * b, feet[0], true); leg(8 * b, feet[1], false); }
   // garment
-  const tw = 50 * b, ww = 38 * b, hem = sit ? hipY + 40 : longRobe ? (kneel ? -20 : -12) : hipY + 150, hw = sit ? 56 * b : longRobe ? 70 * b : 58 * b, swH = longRobe ? sw * .6 : sw * .4;
-  const robe = `M${-tw} ${shY} C${-tw - 6} ${shY + 80} ${-ww - 4} ${waistY - 20} ${-ww} ${waistY} C${-ww - 20} ${waistY + 80} ${-hw - swH * .3} ${hem - 60} ${-hw - swH * .5} ${hem} Q0 ${hem + 14} ${hw - swH * .5} ${hem} C${hw - swH * .3} ${hem - 60} ${ww + 20} ${waistY + 80} ${ww} ${waistY} C${ww + 4} ${waistY - 20} ${tw + 6} ${shY + 80} ${tw} ${shY} Q0 ${shY - 22} ${-tw} ${shY} Z`;
+  const kr = kneel && longRobe && pose !== 'faint';
+  const tw = 50 * b, ww = 38 * b, hem = sit ? hipY + 40 : kr ? -8 : longRobe ? (kneel ? -20 : -12) : hipY + 150, hw = sit ? 56 * b : kr ? 140 : longRobe ? 70 * b : 58 * b, swH = kr ? 0 : longRobe ? sw * .6 : sw * .4;
+  const robe = kr ? `M${-tw} ${shY} C${-tw - 6} ${shY + 80} ${-ww - 4} ${waistY - 20} ${-ww} ${waistY} C${-ww - 50} ${waistY + 60} -160 -130 -150 -6 L126 -4 C142 -40 132 -104 98 -126 C66 -146 ${ww + 24} ${waistY + 50} ${ww} ${waistY} C${ww + 4} ${waistY - 20} ${tw + 6} ${shY + 80} ${tw} ${shY} Q0 ${shY - 22} ${-tw} ${shY} Z` : `M${-tw} ${shY} C${-tw - 6} ${shY + 80} ${-ww - 4} ${waistY - 20} ${-ww} ${waistY} C${-ww - 20} ${waistY + 80} ${-hw - swH * .3} ${hem - 60} ${-hw - swH * .5} ${hem} Q0 ${hem + 14} ${hw - swH * .5} ${hem} C${hw - swH * .3} ${hem - 60} ${ww + 20} ${waistY + 80} ${ww} ${waistY} C${ww + 4} ${waistY - 20} ${tw + 6} ${shY + 80} ${tw} ${shY} Q0 ${shY - 22} ${-tw} ${shY} Z`;
   sh(g, robe, lg(g, -hw, 0, hw, 0, [[0, mix(C.tunic, '#20102a', .32)], [.55, C.tunic], [.8, mix(C.tunic, '#fff8e8', .12)], [1, mix(C.tunic, '#20102a', .2)]]), 4.5);
   g.save(); g.clip(path(robe));
   if (!C.modern) { // folds fan from the waist gather, tension folds pull diagonally, lit fold edges catch the light
@@ -127,13 +134,16 @@ warrior = function (g, o) {
   else if (C.armor === 'leather') { sh(g, `M${-tw} ${shY + 26} L${tw} ${shY + 26} L${ww + 6} ${waistY} L${-ww - 6} ${waistY} Z`, lg(g, -tw, 0, tw, 0, [[0, mix(C.armorCol, '#000', .25)], [1, C.armorCol]])); for (let y = shY + 46; y < waistY; y += 26) line(g, [-tw, y, tw, y], 1.8, 'rgba(20,10,0,.35)', 'round', true); }
   if (!C.modern) pattern(g, -hw - 30, hw + 30, hem - 16, 13, trim, longRobe ? 'meander' : 'zig'); else line(g, [-hw - 10, hem - 8, hw + 10, hem - 8], 10, mix(C.tunic, '#000', .18), 'butt', true);
   g.restore(); sh(g, robe, null, 4.5);
-  if (!C.modern && !sit) for (let x = -hw + 8; x < hw - 6; x += 11) { const xx = x - swH * .5, yy = hem + 7 * (1 - (x / hw) * (x / hw)) - 1; ell(g, xx, yy, 2.6, 2.6, trim, 1.2, 0, 'rgba(30,20,10,.6)'); }
+  if (kr) [[-152, -12], [-130, -8]].forEach(([x, y], i) => sh(g, `M${x + 30} ${y - 8} Q${x + 2} ${y - 18} ${x - 22} ${y} Q${x - 6} ${y + 12} ${x + 30} ${y + 10} Z`, i ? C.skin : sd, 3));
+  if (!C.modern && !sit && !kr) for (let x = -hw + 8; x < hw - 6; x += 11) { const xx = x - swH * .5, yy = hem + 7 * (1 - (x / hw) * (x / hw)) - 1; ell(g, xx, yy, 2.6, 2.6, trim, 1.2, 0, 'rgba(30,20,10,.6)'); }
   if (!C.modern) sh(g, `M${-ww - 6} ${waistY - 8} L${ww + 6} ${waistY - 8} L${ww + 6} ${waistY + 8} L${-ww - 6} ${waistY + 8} Z`, C.kilt, 3); if (!C.modern) pattern(g, -ww - 6, ww + 6, waistY - 4, 8, trim, 'dots');
 
+  const armFirst = pose === 'raise' || (o.pose2 === 'raise' && (o.mix ?? 0) > .5);
+  if (armFirst) { arm(10 * b, fh, false); if (o.hold && typeof HOLD !== 'undefined' && HOLD[o.hold]) HOLD[o.hold](g, fh, o, t, b); }
   // head
   const hs = (C.head || 1) * .86, hy = shY - 62 * hs;
   const nod = talk * (.05 * Math.sin(t * 8.6 + ph) + .03) + .02 * Math.sin(t * .7 + ph * 2.3), gl = Math.floor(t * .55 + ph * 3.1), glance = (((gl * 9301 + 49297) % 233280) / 233280 - .5) * 2;
-  g.save(); g.translate(14, hy - talk * 4); g.scale(hs, hs); g.rotate((o.headRot || 0) - nod * .6); FIG_HEAD = g.getTransform();
+  g.save(); g.translate(14, hy - talk * 4); g.scale(hs, hs); g.rotate((o.headRot || 0) - nod * .6 + (pose === 'bow' ? .38 : 0)); FIG_HEAD = g.getTransform();
   if (C.hood) sh(g, 'M-70 40 C-90 70 -60 110 0 112 C50 110 70 80 60 60 L20 70 L-40 60 Z', mix(C.tunic, '#000', .15), 3.6);
   taper(g, -4, 50, 0, 84, 30, 34, C.skin);
   if (C.headphones) { g.save(); g.beginPath(); g.arc(4, 92, 46, .2, Math.PI - .2); g.lineWidth = 9; g.strokeStyle = '#2a2a34'; g.stroke(); g.restore(); ell(g, 48, 104, 14, 20, '#2a2a34', 3); }
@@ -179,7 +189,7 @@ warrior = function (g, o) {
   if (C.glasses) { ell(g, 36, -14, 20, 18, 'rgba(220,240,255,.18)', 3.2, 0, C.glasses); line(g, [16, -16, -16, -6], 3.2, C.glasses, 'round', true); line(g, [56, -16, 64, -14], 3, C.glasses, 'round', true); }
   if (ex === 'tired') { line(g, [24, -6, 40, -4], 1.4, 'rgba(60,30,30,.4)', 'round', true); const k2 = (t * .5) % 1; ell(g, -4, -24 + k2 * 40, 3.5, 6, 'rgba(170,215,240,.85)', 1.5); }
   // mouth + beard
-  const op = Math.max(talk, ex === 'roar' ? .9 : ex === 'shock' ? .35 : 0);
+  const op = Math.max(talk, ex === 'roar' ? .9 : ex === 'shock' ? .16 : 0);
   if (C.beard === 'stubble') { const r = rng(5); for (let i = 0; i < 46; i++) { const x = -26 + r() * 82, y = 18 + r() * 40; if (x > 30 && y < 30) continue; ell(g, x, y, 1.6, 1.6, hexA(mix(C.beardCol, '#000', .1), .55)); } }
   else if (C.beard === 'goatee') { sh(g, 'M28 40 C26 64 36 78 46 80 C56 70 58 54 56 40 C48 46 38 46 28 40 Z', C.beardCol, 3); sh(g, 'M30 22 Q46 14 62 24 Q48 30 38 28 Z', C.beardCol, 2.2); }
   else if (C.beard) { const bp = C.beard === 'long' ? 'M-30 16 C-36 70 -8 140 34 176 C42 132 60 80 58 26 C40 40 6 40 -30 16 Z' : C.beard === 'forked' ? 'M-30 16 C-36 60 -10 110 8 150 L22 112 L40 154 C52 110 60 70 58 26 C40 40 6 40 -30 16 Z' : C.beard === 'braided' ? 'M-30 16 C-36 60 -6 100 22 110 C44 100 60 60 58 26 C40 40 6 40 -30 16 Z' : 'M-30 18 C-32 52 -6 78 26 82 C46 72 60 52 58 26 C40 40 6 40 -30 18 Z';
@@ -202,8 +212,7 @@ warrior = function (g, o) {
     sh(g, `M${-15 * b} ${-L0} Q${-18 * b} ${-L0 - 60 * b} 0 ${-L0 - 130 * b} Q${18 * b} ${-L0 - 60 * b} ${15 * b} ${-L0} Z`, lg(g, -15, 0, 15, 0, [[0, '#fbe0a0'], [.5, '#d8a048'], [1, '#7a4a16']]), 3); line(g, [0, -L0 - 6, 0, -L0 - 118 * b], 1.2, 'rgba(90,50,10,.6)', 'round', true); g.restore(); }
   if (C.weapon === 'sword') { const ang = pose === 'raise' ? lerp(.3, -2.8, eo(k)) : pose === 'charge' ? -1.1 : pose === 'thrust' ? -1.5 : pose === 'faint' ? 2.4 : .25;
     g.save(); g.translate(fh[0], fh[1]); g.rotate(ang); sh(g, `M-8 -24 L-7 ${-210 * b} L0 ${-246 * b} L7 ${-210 * b} L8 -24 Z`, lg(g, -8, 0, 8, 0, [[0, '#fdfcf6'], [.5, '#d8dde2'], [1, '#8a929a']]), 3); line(g, [0, -28, 0, -206 * b], 1.2, 'rgba(90,100,110,.6)', 'round', true); sh(g, 'M-30 -28 L30 -28 L30 -16 L-30 -16 Z', '#c9a24a', 3); taper(g, 0, -16, 0, 20, 10, 10, '#5a3a1a'); g.restore(); }
-  arm(10 * b, fh, false);
-  if (o.hold && typeof HOLD !== 'undefined' && HOLD[o.hold]) HOLD[o.hold](g, fh, o, t, b);
+  if (!armFirst) { arm(10 * b, fh, false); if (o.hold && typeof HOLD !== 'undefined' && HOLD[o.hold]) HOLD[o.hold](g, fh, o, t, b); }
   if (o.hold2 && typeof HOLD !== 'undefined' && HOLD[o.hold2]) HOLD[o.hold2](g, hands[0], o, t, b);
   if (C.weapon === 'sling') { const an = pose === 'sling' ? t * 15 : 0, sx2 = fh[0] + Math.cos(an) * 120, sy2 = fh[1] - 40 + Math.sin(an) * 50;
     line(g, [fh[0], fh[1], (fh[0] + sx2) / 2, (fh[1] + sy2) / 2 + 20, sx2, sy2], 2.4, '#5a3a1a', 'round', true); ell(g, sx2, sy2, 12, 12, lg(g, sx2 - 12, sy2 - 12, sx2 + 12, sy2 + 12, [[0, '#d8d0c4'], [1, '#6a625a']]), 3);

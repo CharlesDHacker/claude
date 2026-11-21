@@ -126,3 +126,17 @@ drawActor = function (g, a, c, P, o) { const A = avAll(a, c.lt);
   if (A.type === 'brazier') return brazier(g, A.x, A.y, A.s || 1, c.T);
   if (A.type === 'palm') return palm(g, A.x, A.y, A.s || 1, c.T);
   return _drawActorSet(g, a, c, P, o); };
+
+// Walking only happens while a character is actually travelling: a 'stride' actor whose x is animated eases into a
+// standing pose when the move ends (and stands before it starts); step rate follows the travel speed. Horses likewise.
+const _drawActorWalk = drawActor;
+drawActor = function (g, a, c, P, o) {
+  if (a.type === 'w' && a.pose === 'stride' && !a.pose2 && a.x && typeof a.x === 'object' && a.x.t1 != null) {
+    const lt = c.lt, t0 = +a.x.t0, t1 = +a.x.t1, sc = typeof a.s === 'number' ? a.s : 1, L = (typeof a.c === 'string' ? WAR[a.c] : a.c) || {};
+    const amp = (L.long ?? (typeof LONG !== 'undefined' ? LONG[a.c] : 0)) ? 34 : 95, v = Math.abs(a.x.b - a.x.a) / Math.max(.01, t1 - t0);
+    const mix = lt < t0 ? 1 : lt > t1 ? clamp((lt - t1) / .3) : clamp(1 - (lt - t0) / .2);
+    a = Object.assign({}, a, { pose2: 'stand', mix, walkRate: clamp(v / (sc * amp), 2.5, 9) });
+  }
+  if (a.type === 'horse' && a.walk && a.x && typeof a.x === 'object' && a.x.t1 != null) a = Object.assign({}, a, { walk: c.lt >= +a.x.t0 && c.lt <= +a.x.t1 + .1 });
+  return _drawActorWalk(g, a, c, P, o);
+};
