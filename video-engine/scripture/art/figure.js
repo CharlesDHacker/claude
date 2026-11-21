@@ -136,6 +136,8 @@ warrior = function (g, o) {
   if (C.weapon === 'sword') { const ang = pose === 'raise' ? lerp(.3, -2.8, eo(k)) : pose === 'charge' ? -1.1 : pose === 'thrust' ? -1.5 : pose === 'faint' ? 2.4 : .25;
     g.save(); g.translate(fh[0], fh[1]); g.rotate(ang); sh(g, `M-8 -24 L-7 ${-210 * b} L0 ${-246 * b} L7 ${-210 * b} L8 -24 Z`, lg(g, -8, 0, 8, 0, [[0, '#fdfcf6'], [.5, '#d8dde2'], [1, '#8a929a']]), 3); line(g, [0, -28, 0, -206 * b], 1.2, 'rgba(90,100,110,.6)', 'round', true); sh(g, 'M-30 -28 L30 -28 L30 -16 L-30 -16 Z', '#c9a24a', 3); taper(g, 0, -16, 0, 20, 10, 10, '#5a3a1a'); g.restore(); }
   arm(46 * b, fh, false);
+  if (o.hold && typeof HOLD !== 'undefined' && HOLD[o.hold]) HOLD[o.hold](g, fh, o, t, b);
+  if (o.hold2 && typeof HOLD !== 'undefined' && HOLD[o.hold2]) HOLD[o.hold2](g, hands[0], o, t, b);
   if (C.weapon === 'sling') { const an = pose === 'sling' ? t * 15 : 0, sx2 = fh[0] + Math.cos(an) * 120, sy2 = fh[1] - 40 + Math.sin(an) * 50;
     line(g, [fh[0], fh[1], (fh[0] + sx2) / 2, (fh[1] + sy2) / 2 + 20, sx2, sy2], 2.4, '#5a3a1a', 'round', true); ell(g, sx2, sy2, 12, 12, lg(g, sx2 - 12, sy2 - 12, sx2 + 12, sy2 + 12, [[0, '#d8d0c4'], [1, '#6a625a']]), 3);
     if (pose === 'sling') { g.save(); g.globalAlpha = .35; g.beginPath(); g.ellipse(fh[0], fh[1] - 40, 120, 50, 0, 0, Math.PI * 2); g.lineWidth = 2; g.strokeStyle = '#fff2c8'; g.stroke(); g.restore(); } }

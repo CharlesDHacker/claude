@@ -78,7 +78,7 @@ toby = function (g, o) {
 };
 donkey = function (g, o) {
   const C = o.c || SELAH, t = o.t || 0, pose = o.pose || 'stand', talk = o.talk || 0, ex = o.expr || 'calm';
-  const body = C.body, bodyD = C.bodyD, bodyL = mix(C.body, '#ffffff', .18);
+  const body = C.body, bodyD = C.bodyD, bodyL = mix(C.body, '#ffffff', .1);
   g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), o.s || 1);
   const br = Math.sin(t * 1.9 + (o.ph || 0)), walk = o.walk ? t * (o.walkRate || 4.5) : null;
   const P = pose === 'stand' ? { b: [-15, -262, 200, 112, 0], neck: [[80, -350], [150, -235]], head: [200, -470 + br * 3, .02 * br + (o.headRot || 0)] }
@@ -90,10 +90,10 @@ donkey = function (g, o) {
     const kx = x0 + (x1 - x0) * .5 + dx * .4 + 6, ky = (y0 + y1) / 2;
     taper(g, x0, y0, kx, ky, 54, 34, col); taper(g, kx, ky, x1 + dx, y1 + dy - 14, 34, 28, col);
     sh(g, `M${x1 + dx - 20} ${y1 + dy - 18} L${x1 + dx + 20} ${y1 + dy - 18} L${x1 + dx + 24} ${y1 + dy + 6} L${x1 + dx - 24} ${y1 + dy + 6} Z`, lg(g, 0, y1 + dy - 18, 0, y1 + dy + 6, [[0, '#4a3e38'], [1, hoof]]), 3.4);
-    line(g, [x1 + dx - 18, y1 + dy - 16, x1 + dx + 18, y1 + dy - 16], 3, mix(col, '#fff', .3), 'round', true); };
+  };
   const tw = Math.sin(t * 2.6 + 1) * 14;
   if (pose === 'stand') { taper(g, -205, -310, -228 + tw * .6, -220, 14, 10, bodyD); taper(g, -228 + tw * .6, -220, -228 + tw, -158, 10, 8, bodyD);
-    for (let i = -2; i <= 2; i++) line(g, [-228 + tw, -170, -228 + tw + i * 6, -120 + Math.abs(i) * 6], 5, C.mane, 'round', true); }
+    sh(g, `M${-236 + tw} -172 Q${-246 + tw} -140 ${-232 + tw} -112 Q${-222 + tw} -140 ${-220 + tw} -172 Z`, C.mane, 3.4); }
   if (pose === 'stand') { leg(-120, -230, -125, -14, bodyD, 2.8); leg(120, -230, 128, -14, bodyD, .6); }
   if (pose === 'sit') leg(110, -280, 104, -14, bodyD, 0);
   // body: barrel with chest and haunch bulges, belly lighter, fur strokes, the dark cross
@@ -103,8 +103,6 @@ donkey = function (g, o) {
   sh(g, torso, rg(g, -bw * .2, -bh * .6, 20, bw * 1.3, [[0, bodyL], [.55, body], [1, bodyD]]), 5);
   g.save(); g.clip(path(torso));
   sh(g, `M${-bw * .7} ${bh * .45} Q0 ${bh * 1.1} ${bw * .7} ${bh * .4} Q0 ${bh * .72} ${-bw * .7} ${bh * .45} Z`, C.belly);
-  const r = rng(13); for (let i = 0; i < 46; i++) { const x = (r() - .5) * bw * 1.8, y = (r() - .6) * bh * 1.6; line(g, [x, y, x - 8, y + 12], 1.6, i % 3 ? 'rgba(40,30,30,.18)' : 'rgba(255,255,255,.16)', 'round', true); }
-  line(g, [bw * .45, -bh * .92, 0, -bh * 1.02, -bw * .85, -bh * .55], 13, hexA(C.cross, .5), 'round', true); line(g, [bw * .42, -bh * .9, bw * .52, -bh * .2, bw * .38, bh * .3], 11, hexA(C.cross, .4), 'round', true);
   ell(g, -bw * .62, -bh * .1, bw * .32, bh * .6, 'rgba(0,0,0,.06)');
   g.restore();
   if (C.saddle) { sh(g, `M-90 -${bh - 4} Q0 -${bh + 22} 90 -${bh - 4} L80 10 Q0 30 -80 10 Z`, lg(g, 0, -bh, 0, 20, [[0, '#c04a34'], [1, '#8a2a1e']]), 4); pattern(g, -84, 84, -4, 14, '#e5b74a', 'zig'); }
@@ -120,21 +118,20 @@ donkey = function (g, o) {
   const neck = `M${n1[0]} ${n1[1]} C${(n1[0] + a[0]) / 2 - 10} ${(n1[1] + a[1]) / 2 - 20} ${a[0] - 20} ${a[1]} ${a[0]} ${a[1]} L${b[0]} ${b[1]} C${b[0] - 30} ${b[1] + 40} ${n2[0] + 30} ${n2[1] - 20} ${n2[0]} ${n2[1]} Z`;
   sh(g, neck, lg(g, n1[0], 0, b[0], 0, [[0, body], [.6, bodyL], [1, bodyD]]), 5);
   { const cx = (n1[0] + a[0]) / 2 - 22, cy = (n1[1] + a[1]) / 2 - 26; line(g, [n1[0] - 4, n1[1] + 6, cx, cy, a[0] + 8, a[1] - 2], 36, INK, 'round', true); line(g, [n1[0] - 4, n1[1] + 6, cx, cy, a[0] + 8, a[1] - 2], 30, C.mane, 'round', true);
-    for (let i = 1; i < 12; i++) { const k = i / 12, x = (1 - k) * (1 - k) * (n1[0] - 4) + 2 * k * (1 - k) * cx + k * k * (a[0] + 8), y = (1 - k) * (1 - k) * (n1[1] + 6) + 2 * k * (1 - k) * cy + k * k * (a[1] - 2); line(g, [x, y, x - 20, y - 20 - Math.sin(t * 2 + i) * 3], 6, C.mane, 'round', true); line(g, [x - 2, y - 2, x - 14, y - 16], 1.4, 'rgba(255,255,255,.2)', 'round', true); } }
+    for (let i = 2; i < 12; i += 3) { const k = i / 12, x = (1 - k) * (1 - k) * (n1[0] - 4) + 2 * k * (1 - k) * cx + k * k * (a[0] + 8), y = (1 - k) * (1 - k) * (n1[1] + 6) + 2 * k * (1 - k) * cy + k * k * (a[1] - 2); line(g, [x, y, x - 20, y - 20 - Math.sin(t * 2 + i) * 3], 6, C.mane, 'round', true); } }
   // head
   g.save(); g.translate(hx, hy); g.rotate(hr);
   const ew = Math.sin(t * 1.3 + (o.ph || 0)) * .06 + (o.ears || 0);
   const ear = (bx, by, ang, len, front) => { g.save(); g.translate(bx, by); g.rotate(ang + ew);
     sh(g, `M-22 0 C-34 ${-len * .45} -20 ${-len * .9} 0 ${-len} C20 ${-len * .9} 30 ${-len * .45} 20 0 Z`, lg(g, -22, 0, 22, 0, [[0, front ? body : bodyD], [1, front ? bodyL : body]]), 4.5);
     sh(g, `M-11 -12 C-18 ${-len * .45} -10 ${-len * .8} 0 ${-len * .88} C10 ${-len * .8} 16 ${-len * .45} 10 -12 Z`, lg(g, 0, 0, 0, -len, [[0, '#c99a84'], [1, '#e8c4ae']]));
-    for (let i = 0; i < 5; i++) line(g, [-6 + i * 3, -20 - i * 6, -2 + i * 3, -len * .7 + i * 8], 1.2, 'rgba(255,255,255,.35)', 'round', true);
     sh(g, `M-8 ${-len * .86} C-4 ${-len * .98} 4 ${-len * .98} 8 ${-len * .86} L0 ${-len} Z`, C.mane); g.restore(); };
   ear(30, -66, -.35, 190, false);
   const skull = 'M-30 -40 C-10 -90 90 -90 150 -40 C200 0 210 60 186 96 C160 128 110 126 80 110 C30 86 -20 50 -36 6 Z';
   sh(g, skull, rg(g, 40, -50, 10, 220, [[0, bodyL], [.6, body], [1, bodyD]]), 5);
   ear(64, -70, -.12, 200, true);
   // forelock
-  for (let i = 0; i < 4; i++) { line(g, [44 + i * 9, -80, 56 + i * 11, -50 + Math.sin(t * 2 + i) * 3], 5, C.mane, 'round', true); line(g, [45 + i * 9, -78, 54 + i * 11, -56], 1.2, 'rgba(255,255,255,.25)', 'round', true); }
+  { const w = Math.sin(t * 2) * 3; sh(g, `M40 -78 Q58 -98 80 -80 Q86 ${-62 + w} 74 ${-50 + w} Q66 -66 56 -62 Q50 -72 40 -78 Z`, C.mane, 3); }
   // muzzle + jaw
   const jaw = talk * .32 + (o.jaw || 0);
   g.save(); g.translate(108, 82); g.rotate(jaw); sh(g, 'M0 0 Q30 28 70 22 Q88 14 84 0 Z', C.muzzle, 4); g.restore();
@@ -142,21 +139,19 @@ donkey = function (g, o) {
   sh(g, 'M96 34 C110 8 170 4 196 30 C214 54 204 96 172 104 C140 110 104 98 96 70 Z', lg(g, 100, 10, 200, 104, [[0, '#f2ebe0'], [1, '#c9bba8']]), 4.4);
   sh(g, 'M168 40 Q184 46 180 64', null, 4); ell(g, 176, 52, 5, 10, '#3a2a24', 0, .4);
   line(g, [116, 92, 148, 100, 178, 88], 4);
-  for (let i = 0; i < 6; i++) ell(g, 130 + i * 9, 80 + (i % 2) * 8, 1.6, 1.6, 'rgba(60,40,40,.5)');
-  if (C.halter) { g.save(); g.beginPath(); g.ellipse(150, 58, 62, 54, .2, -2.1, 1.3); g.lineWidth = 12; g.strokeStyle = C.halter; g.stroke(); g.lineWidth = 1.4; g.setLineDash([4, 5]); g.strokeStyle = 'rgba(255,230,200,.55)'; g.stroke(); g.restore(); line(g, [88, 2, 60, -40, 30, -70], 11, C.halter); ell(g, 92, 6, 7, 7, '#d8b048', 2.4); }
+  // (halter removed: read as a stray strap across her face)
   if (C.bell) { line(g, [70, 104, 66, 128], 3, '#8a6a2a', 'round', true); ell(g, 66, 142, 16, 16, rg(g, 60, 136, 2, 18, [[0, '#fff2b8'], [1, '#c0902a']]), 3.4); ell(g, 66, 152, 4, 3, '#5a3a14'); }
   // eye with lashes and iris
   const blink = ((t * .5 + (o.ph || 0) * .3) % 4.3) < .12;
   g.save(); g.translate(36, -18);
-  if (ex === 'smile' || ex === 'happy' || blink) { line(g, [-20, 2, 0, ex === 'smile' || ex === 'happy' ? -12 : 4, 20, 2], 5); [-14, 0, 14].forEach(x => line(g, [x, -2, x - 4, -12], 2.4)); }
+  if (ex === 'smile' || ex === 'happy' || blink) { line(g, [-20, 2, 0, ex === 'smile' || ex === 'happy' ? -12 : 4, 20, 2], 5);  }
   else { const wide = ex === 'wide' || ex === 'fear', er = wide ? 32 : 27;
     ell(g, 0, 0, er, er * 1.08, lg(g, 0, -er, 0, er, [[0, '#ffffff'], [1, '#ebe2d4']]), 4);
     const [lx, ly] = o.look || [.3, 0], ix = lx * 8, iy = ly * 7 + 3, ir = wide ? 11 : 16;
-    ell(g, ix, iy, ir, ir * 1.06, rg(g, ix, iy, 2, ir, [[0, '#7a4a2a'], [.7, '#3a2214'], [1, '#160c08']])); ell(g, ix, iy, ir * .5, ir * .55, '#0e0806'); ell(g, ix + 6, iy - 5, 5.5, 5.5, '#fff'); ell(g, ix - 4, iy + 6, 2, 2, 'rgba(255,255,255,.6)');
+    ell(g, ix, iy, ir, ir * 1.06, rg(g, ix, iy, 2, ir, [[0, '#7a4a2a'], [.7, '#3a2214'], [1, '#160c08']])); ell(g, ix, iy, ir * .5, ir * .55, '#0e0806'); ell(g, ix + 6, iy - 5, 5.5, 5.5, '#fff');
     if (o.eyeGlow) { glow(g, ix, iy, 26, 'rgba(255,214,120,1)', o.eyeGlow); ell(g, ix - 2, iy + 4, 3 + 3 * o.eyeGlow, 6 + 4 * o.eyeGlow, `rgba(255,236,170,${o.eyeGlow})`); }
     const lid = { calm: .3, smug: .4, sad: .38, wide: 0, fear: 0, hurt: .24 }[ex] ?? .3;
     if (lid > 0) { const ly2 = -er + lid * er * 2.1, droop = ex === 'sad' || ex === 'hurt'; sh(g, `M${-er - 5} ${-er - 8} L${er + 5} ${-er - 8} L${er + 5} ${ly2 + (droop ? 8 : 0)} Q0 ${ly2 + 8} ${-er - 5} ${ly2 - (droop ? 6 : 0)} Z`, body); line(g, [-er - 2, ly2 - (droop ? 5 : 0), 0, ly2 + 7, er + 2, ly2 + (droop ? 7 : 0)], 5); }
-    [[-16, 0], [-4, -4], [8, -4], [18, 0]].forEach(([x, dy2], i) => line(g, [x, -er * (1 - lid * 2) + dy2 + (lid ? lid * er * 2 - 4 : 0), x + (i - 1.5) * 5 - 3, -er * (1 - lid * 2) + dy2 - 14 + (lid ? lid * er * 2 - 4 : 0)], 3));
     if (ex === 'sad' || ex === 'hurt' || o.tear) { const k = (t * .6) % 1; ell(g, 10, 30 + k * 50, 6, 9, rg(g, 8, 28 + k * 50, 1, 9, [[0, '#fff'], [1, 'rgba(160,210,240,.95)']]), 2.4); } }
   const bro = { calm: [-26, -40, 22, -34], smug: [-26, -36, 22, -40], sad: [-26, -34, 22, -46], hurt: [-26, -34, 22, -46], wide: [-26, -52, 22, -52], fear: [-26, -48, 22, -56], smile: [-26, -40, 22, -40], happy: [-26, -40, 22, -40] }[ex] || [-26, -40, 22, -34];
   sh(g, `M${bro[0]} ${bro[1]} Q${(bro[0] + bro[2]) / 2} ${Math.min(bro[1], bro[3]) - 8} ${bro[2]} ${bro[3]} Q${(bro[0] + bro[2]) / 2} ${Math.min(bro[1], bro[3]) - 2} ${bro[0]} ${bro[1] + 5} Z`, mix(C.mane, '#000', .1), 2.2);

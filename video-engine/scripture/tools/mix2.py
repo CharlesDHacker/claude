@@ -205,6 +205,17 @@ def lionroar(d=2.4):
     s = bp(s, 80, 1800) * (1 + .5 * np.sin(TAU * 31 * t)); return norm(s * np.minimum(t / .12, 1) * np.clip((d - t) / .9, 0, 1) ** 1.5)
 LIB.update(oink=(oink, .55), stomach=(stomach, .5), wind=(wind, .4), stamp=(stamp, .7))
 LIB["roar"] = (lionroar, .8)
+def smash():  # clay jar shattering: sharp crack + ceramic clinks + debris
+    t = tt(.9); o = bp(noise(len(t)), 1500, 9000) * np.exp(-t * 28) * 1.2 + lp(noise(len(t)), 600) * np.exp(-t * 18) * .8
+    for k in range(9):
+        at = int((.02 + R.random() * .35) * SR); f = 1800 + R.random() * 3500; d = int(.12 * SR); tk = np.arange(d) / SR
+        o[at:at + d] += np.sin(TAU * f * tk) * np.exp(-tk * 40) * (.6 - k * .04)
+    return norm(o)
+def smashes(n=14, spread=.9):  # many jars at once
+    out = np.zeros(int((spread + 1) * SR))
+    for k in range(n): place(out, R.random() * spread * (.3 if k < n // 2 else 1), smash(), .5)
+    return norm(out)
+LIB.update(smash=(smash, .8), smashes=(smashes, .9))
 LIB.update(sword=LIB["clash"], shimmer=LIB["sparkle"], crunch=LIB["hit"])  # names used by episode 1
 sfx = np.zeros(N)
 for i, s in enumerate(shots):

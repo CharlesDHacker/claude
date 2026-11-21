@@ -152,6 +152,12 @@ And then he said just one word.
 **TOBY:** *(to the sheep)* ...Did you hear that, Pip? *(Pip bleats)*
 
 ---
+## Produced: GIDEON, *300 vs. the army that destroyed itself* (`episodes/ep06-gideon.*`, `videos/gideon.mp4`)
+Judges 6:1-16; 7:1-22. Cold open on a broken jar; Midian swarms in like locusts; Gideon hiding in a winepress is called
+"mighty warrior"; 32,000 cut to 300; the barley-loaf nightmare; jars, torches and trumpets at midnight; the enemy turns on itself.
+Message: God called him what he was about to become; being small is the point. Loop: Toby's "for Gideo—" cuts to the opening smash.
+Voices: Toby (Piku), Selah (Imogen), angel (Pharaoh), Gideon (Harry), Midianite soldier (Krish). Art: `art/midian.js`.
+
 ## Backlog (strong hooks, same machine)
 - **Elijah outran a chariot** (1 Kings 18:44–46): "Why is that old man FASTER than horses?!"
 - **The axe head that floated** (2 Kings 6:1–7): "IRON doesn't FLOAT!"
