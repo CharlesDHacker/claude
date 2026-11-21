@@ -1,0 +1,2577 @@
+{
+ "lead": 0.12,
+ "tail": 0.4,
+ "loop": true,
+ "title": {
+  "text": "ESTHER",
+  "sub": "the book where God never says a word",
+  "until": "L03"
+ },
+ "gaps": {
+  "L01": 0.15,
+  "L02": 0.1,
+  "L03": 0.3,
+  "L04": 0.2,
+  "L05": 0.15,
+  "L06": 0.15,
+  "L07": 0.1,
+  "L08": 0.2,
+  "L09": 0.25,
+  "L10": 0.15,
+  "L11": 0.2,
+  "L12": 0.15,
+  "L13": 0.2,
+  "L14": 0.3,
+  "L15": 0.15,
+  "L16": 0.3,
+  "L17": 0.25,
+  "L18": 0.15,
+  "L19": 0.25,
+  "L20": 0.15,
+  "L21": 0.15,
+  "L22": 0.15,
+  "L23": 0.15,
+  "L24": 0.15,
+  "L25": 0.25,
+  "L26": 0.15,
+  "L27": 0.1,
+  "L28": 0.25,
+  "L29": 0.3,
+  "L30": 0.15,
+  "L31": 0.25,
+  "L32": 0.3,
+  "L33": 0.15
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1260,
+     1.15
+    ],
+    [
+     480,
+     1290,
+     1.35
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "wide",
+      "look": [
+       0.8,
+       -0.2
+      ]
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -0.6,
+       0.2
+      ]
+     }
+    ]
+   },
+   "lead": 0,
+   "music": "warm",
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L02",
+   "scene": "stage",
+   "cam": [
+    [
+     660,
+     1220,
+     1.9
+    ],
+    [
+     650,
+     1210,
+     2.05
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smile",
+      "look": [
+       0.6,
+       0
+      ]
+     }
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L03",
+   "scene": "stage",
+   "cam": [
+    [
+     300,
+     1280,
+     1.55
+    ],
+    [
+     300,
+     1280,
+     1.75
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "shout",
+      "hands": "up",
+      "hop": 0.7
+     }
+    ]
+   },
+   "kicks": [
+    0.05
+   ],
+   "pops": {
+    "L03": [
+     480,
+     660,
+     -0.04,
+     160
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L04",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1350,
+     1.0
+    ],
+    [
+     540,
+     1300,
+     1.12
+    ]
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 800,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1200,
+      "r": 800,
+      "col": "rgba(255,200,120,1)",
+      "a": 0.35
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "gold",
+   "music": "legend",
+   "label": "SUSA, PERSIA",
+   "labelAt": 0.4
+  },
+  {
+   "at": "L04",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1300,
+     1.1
+    ],
+    [
+     560,
+     1300,
+     1.2
+    ]
+   ],
+   "o": {
+    "sky": "sunset",
+    "sunX": 800,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "house",
+      "x": 540,
+      "y": 1500,
+      "s": 0.9
+     },
+     {
+      "type": "w",
+      "c": "estherGirl",
+      "y": 1860,
+      "s": 1.0,
+      "x": 430,
+      "expr": "smile",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "w",
+      "c": "mordecai",
+      "y": 1860,
+      "s": 1.0,
+      "x": 700,
+      "flip": true,
+      "pose": "hug",
+      "expr": "smile"
+     }
+    ]
+   },
+   "atc": "@L04.1",
+   "tr": "fade",
+   "grade": "warm",
+   "label": "ESTHER",
+   "labelAt": "@L04.1+0.3"
+  },
+  {
+   "at": "L05",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     520,
+     1300,
+     1.1
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "throne",
+      "x": 760,
+      "y": 1820,
+      "s": 0.75
+     },
+     {
+      "type": "w",
+      "c": "xerxes",
+      "y": 1860,
+      "s": 1.05,
+      "x": 800,
+      "flip": true,
+      "expr": "smile"
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1860,
+      "s": 1.0,
+      "x": {
+       "a": 150,
+       "b": 380,
+       "t0": 0,
+       "t1": "@L05.1",
+       "e": "o"
+      },
+      "pose": "stride",
+      "expr": "smile"
+     },
+     {
+      "type": "rays",
+      "x": 380,
+      "y": 1300,
+      "r": 1500,
+      "a": {
+       "a": 0,
+       "b": 0.45,
+       "t0": "@L05.1",
+       "t1": "@L05.1+0.4",
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "tr": "flash",
+   "grade": "gold",
+   "bloom": 0.5,
+   "label": "KING XERXES",
+   "labelAt": 0.4,
+   "sfx": [
+    [
+     "choir",
+     "@L05.1"
+    ]
+   ]
+  },
+  {
+   "at": "L06",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1250,
+     1.2
+    ],
+    [
+     560,
+     1250,
+     1.3
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "lamp",
+      "x": 540,
+      "y": 1700
+     },
+     {
+      "type": "w",
+      "c": "mordecai",
+      "y": 1860,
+      "s": 1.0,
+      "x": 380,
+      "pose": "beg",
+      "expr": "neutral"
+     },
+     {
+      "type": "w",
+      "c": "estherGirl",
+      "y": 1860,
+      "s": 1.0,
+      "x": 720,
+      "flip": true,
+      "expr": "shock"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L07",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     580,
+     1300,
+     1.08
+    ]
+   ],
+   "o": {
+    "sky": "sunset",
+    "sunX": 800,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "w",
+      "c": "man300b",
+      "y": 1860,
+      "s": 0.85,
+      "x": 150,
+      "pose": "pray"
+     },
+     {
+      "type": "w",
+      "c": "satrap2",
+      "y": 1860,
+      "s": 0.85,
+      "x": 330,
+      "pose": "pray",
+      "flip": true
+     },
+     {
+      "type": "w",
+      "c": "haman",
+      "y": 1860,
+      "s": 1.0,
+      "x": {
+       "a": 1100,
+       "b": 600,
+       "t0": 0,
+       "t1": 3.5,
+       "e": "lin"
+      },
+      "pose": "stride",
+      "flip": true,
+      "expr": "smile"
+     },
+     {
+      "type": "w",
+      "c": "scribe",
+      "y": 1860,
+      "s": 0.85,
+      "x": 900,
+      "pose": "pray",
+      "flip": true
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "warm",
+   "music": "dread",
+   "label": "HAMAN",
+   "labelAt": 0.5
+  },
+  {
+   "at": "L08",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     480,
+     1250,
+     1.25
+    ]
+   ],
+   "o": {
+    "sky": "sunset",
+    "sunX": 800,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "w",
+      "c": "man300b",
+      "y": 1860,
+      "s": 0.85,
+      "x": 150,
+      "pose": "pray"
+     },
+     {
+      "type": "w",
+      "c": "satrap2",
+      "y": 1860,
+      "s": 0.85,
+      "x": 780,
+      "pose": "pray",
+      "flip": true
+     },
+     {
+      "type": "w",
+      "c": "mordecai",
+      "y": 1860,
+      "s": 1.05,
+      "x": 460,
+      "expr": "neutral"
+     },
+     {
+      "type": "w",
+      "c": "haman",
+      "y": 1860,
+      "s": 1.0,
+      "x": 900,
+      "flip": true,
+      "expr": "angry"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "warm",
+   "kicks": [
+    "@L08.1"
+   ],
+   "sfx": [
+    [
+     "braam",
+     "@L08.1"
+    ]
+   ]
+  },
+  {
+   "at": "L09",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1150,
+     1.5
+    ],
+    [
+     540,
+     1120,
+     1.7
+    ]
+   ],
+   "o": {
+    "sky": "blood",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 800,
+      "col": "rgba(255,60,40,1)",
+      "a": 0.4
+     },
+     {
+      "type": "w",
+      "c": "haman",
+      "y": 1960,
+      "s": 1.35,
+      "x": 540,
+      "expr": "angry",
+      "who": "haman"
+     }
+    ]
+   },
+   "tr": "flash",
+   "grade": "blood"
+  },
+  {
+   "at": "L10",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1050,
+     1.0
+    ],
+    [
+     540,
+     1050,
+     1.08
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 800,
+      "col": "rgba(255,80,60,1)",
+      "a": 0.35
+     },
+     {
+      "type": "decree",
+      "x": 540,
+      "y": 1050,
+      "s": 1.2,
+      "unroll": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.2,
+       "t1": 1.4,
+       "e": "o"
+      }
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "blood",
+   "shakeAt": [
+    "@L10.2"
+   ],
+   "sfx": [
+    [
+     "stamp",
+     "@L10.1"
+    ],
+    [
+     "boom",
+     "@L10.2"
+    ]
+   ]
+  },
+  {
+   "at": "L11",
+   "scene": "stage",
+   "cam": [
+    [
+     420,
+     1300,
+     1.4
+    ],
+    [
+     380,
+     1300,
+     1.6
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "shout",
+      "hands": "mouth",
+      "hop": 0.5
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "sad"
+     }
+    ]
+   },
+   "tr": "whip",
+   "kicks": [
+    0.04
+   ],
+   "pops": {
+    "L11": [
+     480,
+     660,
+     -0.04,
+     140
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L12",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1300,
+     1.05
+    ],
+    [
+     560,
+     1280,
+     1.15
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "w",
+      "c": "mordecai",
+      "y": 1860,
+      "s": 1.0,
+      "x": 420,
+      "pose": "beg",
+      "expr": "tired"
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1860,
+      "s": 1.0,
+      "x": 760,
+      "flip": true,
+      "expr": "shock"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L13",
+   "scene": "stage",
+   "cam": [
+    [
+     480,
+     1250,
+     1.15
+    ],
+    [
+     480,
+     1240,
+     1.25
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "throne",
+      "x": 800,
+      "y": 1700,
+      "s": 0.55
+     },
+     {
+      "type": "w",
+      "c": "xerxes",
+      "y": 1700,
+      "s": 0.7,
+      "x": 800,
+      "flip": true,
+      "expr": "neutral",
+      "sil": true
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1950,
+      "s": 1.2,
+      "x": 330,
+      "expr": "shock",
+      "who": "esther",
+      "look": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L14",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1150,
+     1.45
+    ],
+    [
+     540,
+     1140,
+     1.6
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "lamp",
+      "x": 300,
+      "y": 1700
+     },
+     {
+      "type": "w",
+      "c": "mordecai",
+      "y": 1960,
+      "s": 1.3,
+      "x": 540,
+      "expr": "neutral",
+      "who": "mordecai",
+      "pose": "preach"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "leak": false,
+   "music": "hope"
+  },
+  {
+   "at": "L14",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1150,
+     1.5
+    ],
+    [
+     540,
+     1100,
+     1.7
+    ]
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 800,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 800,
+      "r": 2000,
+      "a": 0.5
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1980,
+      "s": 1.35,
+      "x": 540,
+      "expr": "smile",
+      "look": [
+       0,
+       -1
+      ]
+     }
+    ]
+   },
+   "atc": "@L14.2",
+   "tr": "flash",
+   "grade": "gold",
+   "bloom": 0.6,
+   "kicks": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "choir",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "L15",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1300,
+     1.1
+    ],
+    [
+     560,
+     1280,
+     1.2
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "lampstand",
+      "x": 760,
+      "y": 1820,
+      "s": 1.0
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1860,
+      "s": 1.0,
+      "x": 460,
+      "pose": "pray",
+      "expr": "tired",
+      "look": [
+       0,
+       -1
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "leak": false,
+   "label": "3 DAYS OF FASTING",
+   "labelAt": 0.3
+  },
+  {
+   "at": "L16",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1150,
+     1.45
+    ],
+    [
+     540,
+     1100,
+     1.7
+    ]
+   ],
+   "o": {
+    "sky": "sunset",
+    "sunX": 800,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1980,
+      "s": 1.35,
+      "x": 540,
+      "expr": "fierce",
+      "who": "esther"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "warm",
+   "kicks": [
+    "@L16.2"
+   ],
+   "sfx": [
+    [
+     "braam",
+     "@L16.2"
+    ]
+   ]
+  },
+  {
+   "at": "L17",
+   "scene": "stage",
+   "cam": [
+    [
+     320,
+     1280,
+     1.6
+    ],
+    [
+     320,
+     1280,
+     1.7
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "worry",
+      "hands": "mouth",
+      "look": [
+       0.6,
+       -0.4
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L18",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     620,
+     1250,
+     1.15
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "throne",
+      "x": 800,
+      "y": 1820,
+      "s": 0.75
+     },
+     {
+      "type": "w",
+      "c": "xerxes",
+      "y": 1860,
+      "s": 1.05,
+      "x": 800,
+      "flip": true,
+      "expr": {
+       "a": "neutral",
+       "b": "neutral",
+       "t0": 0,
+       "t1": 1,
+       "e": "io"
+      },
+      "pose": "thrust",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L18.1",
+       "t1": "@L18.1+0.5",
+       "e": "io"
+      },
+      "hold": "scepter",
+      "holdRot": -1.4,
+      "glow": {
+       "a": 0,
+       "b": 1.4,
+       "t0": "@L18.1",
+       "t1": "@L18.1+0.6",
+       "e": "io"
+      }
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1860,
+      "s": 1.0,
+      "x": {
+       "a": 80,
+       "b": 380,
+       "t0": 0,
+       "t1": "@L18.1",
+       "e": "o"
+      },
+      "pose": "stride",
+      "expr": "shock"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "gold",
+   "bloom": 0.5,
+   "music": "glory",
+   "sfx": [
+    [
+     "heartbeat",
+     0.0
+    ],
+    [
+     "heartbeat",
+     0.9
+    ],
+    [
+     "choir",
+     "@L18.1"
+    ]
+   ]
+  },
+  {
+   "at": "L19",
+   "scene": "stage",
+   "cam": [
+    [
+     300,
+     1280,
+     1.55
+    ],
+    [
+     300,
+     1280,
+     1.7
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "happy",
+      "hands": "up",
+      "hop": 0.6
+     }
+    ]
+   },
+   "tr": "whip",
+   "pops": {
+    "L19": [
+     480,
+     660,
+     0.04,
+     160
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L20",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1300,
+     1.05
+    ],
+    [
+     560,
+     1290,
+     1.15
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "room",
+      "x": 540,
+      "y": 1900,
+      "s": 1.0
+     },
+     {
+      "type": "lampstand",
+      "x": 200,
+      "y": 1840,
+      "s": 0.9
+     },
+     {
+      "type": "w",
+      "c": "xerxes",
+      "y": 1860,
+      "s": 1.0,
+      "x": 640,
+      "expr": "tired"
+     },
+     {
+      "type": "w",
+      "c": "scribe",
+      "y": 1860,
+      "s": 1.0,
+      "x": {
+       "a": 1200,
+       "b": 880,
+       "t0": "@L20.2",
+       "t1": "@L20.2+0.8",
+       "e": "o"
+      },
+      "flip": true,
+      "hold": "scroll"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "leak": false,
+   "music": "legend",
+   "sfx": [
+    [
+     "tick6",
+     0.5
+    ]
+   ]
+  },
+  {
+   "at": "L21",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1200,
+     1.3
+    ],
+    [
+     520,
+     1180,
+     1.45
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "room",
+      "x": 540,
+      "y": 1900,
+      "s": 1.0
+     },
+     {
+      "type": "lampstand",
+      "x": 200,
+      "y": 1840,
+      "s": 0.9
+     },
+     {
+      "type": "w",
+      "c": "xerxes",
+      "y": 1960,
+      "s": 1.25,
+      "x": 560,
+      "expr": "shock",
+      "look": [
+       1,
+       0
+      ]
+     },
+     {
+      "type": "w",
+      "c": "scribe",
+      "y": 1860,
+      "s": 1.0,
+      "x": 900,
+      "flip": true,
+      "hold": "scroll"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "warm",
+   "kicks": [
+    "@L21.1"
+   ],
+   "sfx": [
+    [
+     "sparkle",
+     "@L21.1"
+    ]
+   ]
+  },
+  {
+   "at": "L22",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.05
+    ],
+    [
+     540,
+     1290,
+     1.12
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "throne",
+      "x": 780,
+      "y": 1820,
+      "s": 0.75
+     },
+     {
+      "type": "w",
+      "c": "xerxes",
+      "y": 1860,
+      "s": 1.05,
+      "x": 780,
+      "flip": true,
+      "expr": "smile",
+      "who": "king"
+     },
+     {
+      "type": "w",
+      "c": "haman",
+      "y": 1860,
+      "s": 1.0,
+      "x": 330,
+      "expr": "smile"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "gold"
+  },
+  {
+   "at": "L23",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1150,
+     1.45
+    ],
+    [
+     540,
+     1120,
+     1.6
+    ]
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 800,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1000,
+      "r": 900,
+      "col": "rgba(255,220,120,1)",
+      "a": 0.5
+     },
+     {
+      "type": "w",
+      "c": "haman",
+      "y": 1960,
+      "s": 1.35,
+      "x": 540,
+      "expr": "smile",
+      "who": "haman",
+      "pose": "raise",
+      "k": 1
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "gold",
+   "bloom": 0.5,
+   "sfx": [
+    [
+     "sparkle",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L24",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     640,
+     1300,
+     1.08
+    ]
+   ],
+   "o": {
+    "sky": "day",
+    "sunX": 800,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95,
+      "par": 0.7
+     },
+     {
+      "type": "w",
+      "c": "israelite",
+      "y": 1860,
+      "s": 0.8,
+      "x": 120,
+      "pose": "raise",
+      "k": 1
+     },
+     {
+      "type": "w",
+      "c": "satrap2",
+      "y": 1860,
+      "s": 0.8,
+      "x": 980,
+      "pose": "raise",
+      "k": 1,
+      "flip": true,
+      "ph": 1
+     },
+     {
+      "type": "horse",
+      "x": {
+       "a": 220,
+       "b": 820,
+       "t0": 0,
+       "t1": 6,
+       "e": "lin"
+      },
+      "y": 1860,
+      "s": 0.85,
+      "walk": true,
+      "rider": "mordecaiR",
+      "riderExpr": "smile",
+      "cloth": "#5a2a8a"
+     },
+     {
+      "type": "w",
+      "c": "haman",
+      "y": 1860,
+      "s": 1.0,
+      "x": {
+       "a": 520,
+       "b": 1120,
+       "t0": 0,
+       "t1": 6,
+       "e": "lin"
+      },
+      "pose": "preach",
+      "expr": "angry"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "warm",
+   "music": "hope",
+   "sfx": [
+    [
+     "crowd",
+     0.3
+    ],
+    [
+     "horn",
+     0.6
+    ]
+   ]
+  },
+  {
+   "at": "L25",
+   "scene": "stage",
+   "cam": [
+    [
+     420,
+     1300,
+     1.4
+    ],
+    [
+     380,
+     1300,
+     1.6
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "happy",
+      "hands": "up",
+      "hop": 0.9
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "happy"
+     }
+    ]
+   },
+   "tr": "whip",
+   "pops": {
+    "L25": [
+     480,
+     660,
+     -0.04,
+     150
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L26",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.05
+    ],
+    [
+     540,
+     1290,
+     1.12
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1300,
+      "r": 900,
+      "col": "rgba(255,190,110,1)",
+      "a": 0.4
+     },
+     {
+      "type": "lanterns",
+      "y": 700,
+      "x0": -60,
+      "x1": 1140
+     },
+     {
+      "type": "w",
+      "c": "xerxes",
+      "y": 1860,
+      "s": 1.0,
+      "x": 280,
+      "expr": "smile"
+     },
+     {
+      "type": "w",
+      "c": "haman",
+      "y": 1860,
+      "s": 1.0,
+      "x": 780,
+      "expr": "smile",
+      "flip": true
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1860,
+      "s": 1.0,
+      "x": 530,
+      "expr": "neutral",
+      "pose": "preach"
+     },
+     {
+      "type": "table",
+      "x": 540,
+      "y": 1760,
+      "s": 1.1
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "gold",
+   "music": "dread"
+  },
+  {
+   "at": "L27",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1150,
+     1.45
+    ],
+    [
+     540,
+     1120,
+     1.65
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 800,
+      "col": "rgba(255,90,60,1)",
+      "a": 0.4
+     },
+     {
+      "type": "w",
+      "c": "xerxes",
+      "y": 1980,
+      "s": 1.35,
+      "x": 540,
+      "expr": "angry",
+      "who": "king"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "blood",
+   "kicks": [
+    0.05
+   ],
+   "shakeAt": [
+    "@L27.1"
+   ]
+  },
+  {
+   "at": "L28",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1250,
+     1.15
+    ],
+    [
+     620,
+     1250,
+     1.3
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "lanterns",
+      "y": 700,
+      "x0": -60,
+      "x1": 1140
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1900,
+      "s": 1.15,
+      "x": 330,
+      "expr": "fierce",
+      "who": "esther",
+      "pose": "thrust"
+     },
+     {
+      "type": "w",
+      "c": "haman",
+      "y": 1890,
+      "s": 1.1,
+      "x": 800,
+      "flip": true,
+      "expr": "shock",
+      "pose": "faint",
+      "k": 0.3
+     }
+    ]
+   },
+   "tr": "flash",
+   "grade": "blood",
+   "kicks": [
+    0.1
+   ],
+   "sfx": [
+    [
+     "braam",
+     0.05
+    ]
+   ]
+  },
+  {
+   "at": "L29",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     580,
+     1300,
+     1.08
+    ]
+   ],
+   "o": {
+    "sky": "blood",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "gallows",
+      "x": 760,
+      "y": 1700,
+      "s": 0.9
+     },
+     {
+      "type": "w",
+      "c": "guard",
+      "y": 1860,
+      "s": 0.9,
+      "x": {
+       "a": 150,
+       "b": 420,
+       "t0": 0,
+       "t1": 3,
+       "e": "lin"
+      },
+      "pose": "stride"
+     },
+     {
+      "type": "w",
+      "c": "haman",
+      "y": 1860,
+      "s": 0.9,
+      "x": {
+       "a": 300,
+       "b": 560,
+       "t0": 0,
+       "t1": 3,
+       "e": "lin"
+      },
+      "expr": "shock",
+      "pose": "stride"
+     },
+     {
+      "type": "w",
+      "c": "guard",
+      "y": 1860,
+      "s": 0.9,
+      "x": {
+       "a": 450,
+       "b": 700,
+       "t0": 0,
+       "t1": 3,
+       "e": "lin"
+      },
+      "pose": "stride",
+      "ph": 1
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "blood",
+   "sfx": [
+    [
+     "boom",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L29",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     540,
+     1280,
+     1.08
+    ]
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 800,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 900,
+      "r": 2000,
+      "a": 0.4
+     },
+     {
+      "type": "w",
+      "c": "israelite",
+      "y": 1860,
+      "s": 0.85,
+      "x": 180,
+      "pose": "raise",
+      "k": 1
+     },
+     {
+      "type": "w",
+      "c": "estherGirl",
+      "y": 1860,
+      "s": 0.85,
+      "x": 380,
+      "pose": "raise",
+      "k": 1,
+      "ph": 1
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1860,
+      "s": 1.0,
+      "x": 540,
+      "expr": "smile"
+     },
+     {
+      "type": "w",
+      "c": "mordecaiR",
+      "y": 1860,
+      "s": 1.0,
+      "x": 720,
+      "expr": "smile",
+      "pose": "raise",
+      "k": 1
+     },
+     {
+      "type": "w",
+      "c": "man300",
+      "y": 1860,
+      "s": 0.85,
+      "x": 920,
+      "pose": "raise",
+      "k": 1,
+      "flip": true,
+      "ph": 2
+     }
+    ]
+   },
+   "atc": "@L29.2",
+   "tr": "flash",
+   "grade": "gold",
+   "bloom": 0.5,
+   "music": "glory",
+   "sfx": [
+    [
+     "crowd",
+     0.0
+    ],
+    [
+     "choir",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L30",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1300,
+     1.15
+    ],
+    [
+     520,
+     1300,
+     1.3
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "worry",
+      "look": [
+       0.6,
+       -0.4
+      ]
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -0.6,
+       0.2
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "hope",
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L31",
+   "scene": "stage",
+   "cam": [
+    [
+     660,
+     1220,
+     1.9
+    ],
+    [
+     660,
+     1210,
+     2.0
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smile",
+      "look": [
+       0.6,
+       0
+      ]
+     }
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L31",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1150,
+     1.4
+    ],
+    [
+     540,
+     1120,
+     1.5
+    ]
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 800,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 900,
+      "r": 2000,
+      "a": 0.45
+     },
+     {
+      "type": "w",
+      "c": "esther",
+      "y": 1960,
+      "s": 1.3,
+      "x": 540,
+      "expr": "smile"
+     }
+    ]
+   },
+   "atc": "@L31.1",
+   "tr": "flash",
+   "grade": "gold",
+   "bloom": 0.5
+  },
+  {
+   "at": "L31",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1200,
+     1.3
+    ],
+    [
+     560,
+     1190,
+     1.4
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "room",
+      "x": 540,
+      "y": 1900,
+      "s": 1.0
+     },
+     {
+      "type": "lampstand",
+      "x": 200,
+      "y": 1840,
+      "s": 0.9
+     },
+     {
+      "type": "w",
+      "c": "xerxes",
+      "y": 1940,
+      "s": 1.2,
+      "x": 600,
+      "expr": "tired"
+     }
+    ]
+   },
+   "atc": "@L31.1+1.3",
+   "tr": "whip",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L31",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1200,
+     1.3
+    ],
+    [
+     540,
+     1190,
+     1.4
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "room",
+      "x": 540,
+      "y": 1900,
+      "s": 1.0
+     },
+     {
+      "type": "w",
+      "c": "scribe",
+      "y": 1940,
+      "s": 1.2,
+      "x": 540,
+      "hold": "scroll",
+      "expr": "smile"
+     }
+    ]
+   },
+   "atc": "@L31.2",
+   "tr": "whip",
+   "grade": "warm"
+  },
+  {
+   "at": "L31",
+   "scene": "stage",
+   "cam": [
+    [
+     600,
+     1200,
+     1.2
+    ],
+    [
+     620,
+     1190,
+     1.3
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2600,
+    "actors": [
+     {
+      "type": "throne",
+      "x": 800,
+      "y": 1820,
+      "s": 0.75
+     },
+     {
+      "type": "w",
+      "c": "xerxes",
+      "y": 1860,
+      "s": 1.05,
+      "x": 800,
+      "flip": true,
+      "pose": "thrust",
+      "hold": "scepter",
+      "holdRot": -1.4,
+      "glow": 1.4,
+      "expr": "smile"
+     }
+    ]
+   },
+   "atc": "@L31.2+1.3",
+   "tr": "whip",
+   "grade": "gold",
+   "bloom": 0.5
+  },
+  {
+   "at": "L32",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     540,
+     1250,
+     1.1
+    ]
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 800,
+    "sunY": 1150,
+    "sunR": 150,
+    "horizon": 1350,
+    "actors": [
+     {
+      "type": "palace",
+      "x": 540,
+      "y": 1900,
+      "s": 0.95
+     },
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 1100,
+      "r": 2200,
+      "a": 0.5
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "gold",
+   "bloom": 0.6,
+   "sfx": [
+    [
+     "choir",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L33",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1000,
+     0.95
+    ],
+    [
+     540,
+     1050,
+     1.0
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 520,
+      "y": 1760,
+      "s": 0.6,
+      "expr": "worry",
+      "look": [
+       0.2,
+       -1
+      ]
+     },
+     {
+      "type": "donkey",
+      "x": 760,
+      "y": 1750,
+      "s": 0.6,
+      "flip": true,
+      "expr": "calm"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L34",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1260,
+     1.2
+    ],
+    [
+     560,
+     1260,
+     1.15
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smile",
+      "look": [
+       0.7,
+       0.1
+      ]
+     },
+     {
+      "type": "toby",
+      "x": 320,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "smile"
+     }
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  }
+ ]
+}
