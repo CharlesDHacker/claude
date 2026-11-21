@@ -1,10 +1,10 @@
 // Episode 5 (Daniel and the lions): Persian court, Daniel's upper room, lions, the den, the sealed stone, the decree.
 Object.assign(WAR, {
-  daniel:   { skin: '#b07a52', tunic: '#e8e0cc', kilt: '#3a5a8a', cape: '#3a5a8a', beard: 'long', beardCol: '#f0ece4', hair: '#f0ece4', helmet: null, bulk: .95, head: 1, weapon: null, shield: null, boots: '#5a3420', long: 1, trim: '#c9a24a' },
-  darius:   { skin: '#a8714c', tunic: '#6a2a7a', kilt: '#e0b648', cape: '#4a1a5a', beard: 'long', beardCol: '#141010', hair: '#141010', helmet: 'kidaris', bulk: 1.1, head: 1, weapon: null, shield: null, boots: '#3a2418', long: 1, trim: '#e0b648' },
-  satrap:   { skin: '#a8714c', tunic: '#8a5a2a', kilt: '#2a4a5a', cape: '#5a3a2a', beard: 'long', beardCol: '#1e1612', hair: '#1e1612', helmet: 'felt', bulk: 1.05, head: 1, weapon: null, shield: null, boots: '#3a2418', long: 1, trim: '#c0902a' },
-  satrap2:  { skin: '#b4784e', tunic: '#3a5a4a', kilt: '#7a2a2a', cape: '#2a3a3a', beard: 'short', beardCol: '#1e1612', hair: '#1e1612', helmet: 'felt', bulk: 1.0, head: 1, weapon: null, shield: null, boots: '#3a2418', long: 1, trim: '#c0902a' },
-  guard:    { skin: '#a8714c', tunic: '#c8a24a', kilt: '#5a2a6a', cape: null, beard: 'short', beardCol: '#141010', hair: '#141010', helmet: 'felt', bulk: 1.1, head: 1, weapon: 'spear', shield: null, boots: '#3a2418' },
+  daniel:   { nose: 'straight', jaw: 'round', brow: 1.3, eyes: 'big', tall: .97,  skin: '#b07a52', tunic: '#e8e0cc', kilt: '#3a5a8a', cape: '#3a5a8a', beard: 'long', beardCol: '#f0ece4', hair: '#f0ece4', helmet: null, bulk: .95, head: 1, weapon: null, shield: null, boots: '#5a3420', long: 1, trim: '#c9a24a' },
+  darius:   { nose: 'hook', jaw: 'square', brow: 1.5, tall: 1.06,  skin: '#a8714c', tunic: '#6a2a7a', kilt: '#e0b648', cape: '#4a1a5a', beard: 'braided', beardCol: '#141010', hair: '#141010', helmet: 'kidaris', bulk: 1.1, head: 1, weapon: null, shield: null, boots: '#3a2418', long: 1, trim: '#e0b648' },
+  satrap:   { nose: 'broad', jaw: 'round', brow: 1.8, earring: true,  skin: '#a8714c', tunic: '#8a5a2a', kilt: '#2a4a5a', cape: '#5a3a2a', beard: 'forked', beardCol: '#1e1612', hair: '#1e1612', helmet: 'felt', bulk: 1.05, head: 1, weapon: null, shield: null, boots: '#3a2418', long: 1, trim: '#c0902a' },
+  satrap2:  { nose: 'hook', jaw: 'square', eyes: 'big', tall: 1.04,  skin: '#b4784e', tunic: '#3a5a4a', kilt: '#7a2a2a', cape: '#2a3a3a', beard: 'goatee', beardCol: '#1e1612', hair: '#1e1612', helmet: 'felt', bulk: 1.0, head: 1, weapon: null, shield: null, boots: '#3a2418', long: 1, trim: '#c0902a' },
+  guard:    { nose: 'broad', jaw: 'square', brow: 1.6, tall: 1.08,  skin: '#a8714c', tunic: '#c8a24a', kilt: '#5a2a6a', cape: null, beard: 'stubble', beardCol: '#141010', hair: '#141010', helmet: 'felt', bulk: 1.1, head: 1, weapon: 'spear', shield: null, boots: '#3a2418' },
 });
 // extra headwear for figure v2: Persian crenellated crown (kidaris) and rounded felt cap
 (function () { const base = warrior; warrior = function (g, o) {
@@ -14,7 +14,7 @@ Object.assign(WAR, {
   // redraw the hat on top using the same head transform as figure v2
   const b = C.bulk || 1, pose = o.pose || 'stand', kneel = ['kneel', 'faint', 'pray', 'sulk'].includes(pose), drop = kneel ? 150 : 0;
   const shY = -620 + drop + Math.sin((o.t || 0) * 1.7 + (o.ph || 0)) * 2, hs = (C.head || 1) * .86, hy = shY - 62 * hs;
-  g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), o.s || 1); if (pose === 'fall') g.rotate(-eio(o.k ?? 1) * 1.45);
+  g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), (o.s || 1) * (C.tall || 1)); if (pose === 'fall') g.rotate(-eio(o.k ?? 1) * 1.45);
   if (o.rot) { g.translate(0, -380); g.rotate(o.rot); g.translate(0, 380); } g.rotate(pose === 'charge' ? .16 : pose === 'thrust' ? .08 : 0);
   g.translate(14, hy); g.scale(hs, hs); if (o.headRot) g.rotate(o.headRot);
   if (kind === 'kidaris') { sh(g, 'M-54 -40 L-50 -150 L-30 -128 L-12 -158 L6 -128 L24 -158 L42 -128 L58 -150 L56 -40 Q0 -54 -54 -40 Z', lg(g, -54, -158, 56, -40, [[0, '#fff2b0'], [.5, '#e0b04a'], [1, '#9a6a1e']]), 4);

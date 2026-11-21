@@ -28,7 +28,7 @@ warrior = function (g, o) {
   const C = Object.assign({ skin: '#b4784e', tunic: '#c9a57a', kilt: '#5a3a22', bulk: 1, head: 1, beardCol: '#24160e', hair: '#24160e', boots: '#4a2c1c', armorCol: '#8a5a32' }, look ? WAR[look] : o.c || {});
   const t = o.t || 0, pose = o.pose || 'stand', k = o.k ?? 1, ex = o.expr || 'neutral', b = C.bulk, ph = o.ph || 0, talk = o.talk || 0;
   const longRobe = C.long ?? (look ? LONG[look] : 0), trim = C.trim || mix(C.kilt, '#e0b648', .55), sd = mix(C.skin, '#2a1830', .28);
-  g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), o.s || 1);
+  g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), (o.s || 1) * (C.tall || 1));
   if (o.shadow !== false) { g.fillStyle = rg(g, 0, 0, 10, 170 * b, [[0, 'rgba(20,10,20,.32)'], [1, 'rgba(20,10,20,0)']]); g.beginPath(); g.ellipse(0, 2, 170 * b, 22, 0, 0, 7); g.fill(); }
   if (pose === 'fall') g.rotate(-eio(k) * 1.45);
   if (o.rot) { g.translate(0, -380); g.rotate(o.rot); g.translate(0, 380); }
@@ -103,25 +103,46 @@ warrior = function (g, o) {
   g.save(); g.translate(14, hy); g.scale(hs, hs); if (o.headRot) g.rotate(o.headRot);
   taper(g, -4, 50, 0, 84, 30, 34, C.skin);
   const hairCol = C.hair || '#24160e';
-  if (!C.helmet || C.helmet === 'crown' || C.helmet === 'cap') { sh(g, 'M-58 22 C-74 -40 -40 -84 12 -80 C52 -76 66 -48 60 -28 C30 -40 4 -36 -16 -14 L-30 46 Z', hairCol, 4); for (let i = 0; i < 6; i++) line(g, [-50 + i * 10, -60 + i * 4, -46 + i * 12, 10 + i * 4], 1.4, 'rgba(255,240,220,.18)', 'round', true); }
+  const HS = C.hairStyle || 'short', hairHi = 'rgba(255,240,220,.18)';
+  if (!C.helmet || C.helmet === 'crown' || C.helmet === 'cap') {
+    if (HS === 'long') { sh(g, 'M-58 22 C-74 -40 -40 -84 12 -80 C52 -76 66 -48 60 -28 C30 -40 4 -36 -16 -14 L-8 70 C-20 110 -60 120 -74 96 C-80 60 -70 40 -58 22 Z', hairCol, 4); for (let i = 0; i < 6; i++) line(g, [-50 + i * 8, -50 + i * 4, -60 + i * 9, 90 - i * 6], 1.4, hairHi, 'round', true); }
+    else if (HS === 'curly') { [[-50, -40, 30], [-24, -66, 30], [8, -76, 28], [38, -66, 24], [-60, -6, 28], [-50, 26, 24], [-30, -30, 26]].forEach(([x, y, r]) => ell(g, x, y, r, r, hairCol, 4)); [[-50, -40], [-24, -66], [8, -76], [-60, -6]].forEach(([x, y]) => sh(g, `M${x - 10} ${y - 4} q10 -12 20 0`, null, 1.6, hairHi)); }
+    else if (HS === 'bald') { sh(g, 'M-56 16 C-62 -6 -56 -26 -44 -34 L-26 -18 L-30 40 Z', hairCol, 3.4); }
+    else if (HS === 'wild') { sh(g, 'M-58 30 L-84 0 L-62 -14 L-92 -44 L-56 -50 L-60 -86 L-24 -72 L-8 -108 L14 -80 L44 -104 L48 -70 L76 -70 L60 -28 C30 -40 4 -36 -16 -14 L-30 46 Z', hairCol, 4); }
+    else { sh(g, 'M-58 22 C-74 -40 -40 -84 12 -80 C52 -76 66 -48 60 -28 C30 -40 4 -36 -16 -14 L-30 46 Z', hairCol, 4); for (let i = 0; i < 6; i++) line(g, [-50 + i * 10, -60 + i * 4, -46 + i * 12, 10 + i * 4], 1.4, hairHi, 'round', true);
+      if (HS === 'tied') { ell(g, -52, -70, 24, 22, hairCol, 4); line(g, [-40, -54, -30, -62], 4, C.band || '#c0402a', 'round', true); } } }
   // face: classical profile, straight brow-nose line
-  const face = 'M-44 -24 C-48 -64 -10 -78 22 -70 C42 -64 52 -48 52 -30 L66 6 Q70 14 60 16 L56 20 Q60 26 54 30 Q56 40 46 46 C30 62 -10 66 -30 46 C-46 30 -46 6 -44 -24 Z';
+  const NOSE = { straight: 'L66 6 Q70 14 60 16 L56 20', hook: 'C60 -22 80 2 68 16 Q62 20 56 21', button: 'L55 -6 Q68 2 62 14 Q58 18 56 20', broad: 'L62 0 Q78 10 66 19 L56 21' }[C.nose || 'straight'];
+  const JAW = C.jaw === 'square' ? 'Q58 44 44 52 L-24 54 C-44 40 -46 6 -44 -24' : C.jaw === 'round' ? 'Q58 44 40 56 C20 68 -20 64 -34 44 C-46 26 -46 6 -44 -24' : 'Q56 40 46 46 C30 62 -10 66 -30 46 C-46 30 -46 6 -44 -24';
+  const face = `M-44 -24 C-48 -64 -10 -78 22 -70 C42 -64 52 -48 52 -30 ${NOSE} Q60 26 54 30 ${JAW} Z`;
   sh(g, face, lg(g, -44, 0, 66, 0, [[0, sd], [.45, C.skin], [1, mix(C.skin, '#fff2e0', .12)]]), 4);
   ell(g, -22, 4, 9, 14, sd, 3);
+  // fringe over the forehead (drawn after the face so the hairline reads naturally)
+  if (!C.helmet || C.helmet === 'crown' || C.helmet === 'cap') {
+    if (HS === 'curly') { [[-38, -58, 22], [-14, -70, 22], [12, -74, 20], [34, -66, 16], [44, -54, 11]].forEach(([x, y, r]) => ell(g, x, y, r, r, hairCol, 3.6)); [[-14, -70], [12, -74]].forEach(([x, y]) => sh(g, `M${x - 8} ${y - 2} q8 -10 16 0`, null, 1.6, hairHi)); }
+    else if (HS === 'short' || HS === 'tied') sh(g, 'M-40 -50 C-20 -82 30 -84 50 -56 C36 -60 26 -54 18 -46 C6 -58 -14 -58 -26 -44 Z', hairCol, 3.4);
+    else if (HS === 'wild') sh(g, 'M-40 -50 L-30 -88 L-6 -66 L10 -96 L26 -64 L52 -78 L48 -50 C36 -58 26 -52 18 -44 C6 -56 -14 -56 -26 -42 Z', hairCol, 3.4);
+  }
+  if (C.earring) { g.beginPath(); g.arc(-22, 24, 7, 0, Math.PI * 2); g.lineWidth = 3.4; g.strokeStyle = '#f0c850'; g.stroke(); }
+  if (C.headband && !C.helmet) { sh(g, 'M-56 -30 Q0 -58 52 -40 L52 -28 Q0 -46 -56 -16 Z', C.headband, 3); }
   // eye
   const blink = ((t * .6 + ph) % 4.1) < .1;
   if (ex === 'tired' || blink) line(g, [24, -14, 40, -12], 2.6);
+  else if (C.eyes === 'big') { const sk = ex === 'shock' ? 4 : 0; ell(g, 36, -15, 13, 15 + sk, '#fbf6ec', 2.6); ell(g, 40, -14, 7, 8, '#3a2214'); ell(g, 40, -14, 3.6, 4, '#0e0806'); ell(g, 43, -18, 2.6, 2.6, '#fff'); line(g, [22, -24 - sk, 36, -31 - sk, 50, -22 - sk], 2.6); }
   else { sh(g, `M22 -16 Q34 ${ex === 'shock' ? -28 : -24} 46 -14 Q34 -8 22 -16 Z`, '#f8f2e6', 2.4); ell(g, 39, -15, ex === 'roar' || ex === 'angry' ? 3 : 4, 4.5, '#1a1220'); line(g, [22, -16, 46, -15], 2.2); }
   const BR = { angry: [20, -34, 46, -22], roar: [18, -36, 46, -20], fierce: [18, -32, 46, -24], tired: [18, -26, 46, -30], shock: [18, -38, 46, -36], smile: [18, -30, 46, -30] }[ex] || [18, -29, 46, -28];
-  line(g, [BR[0], BR[1], (BR[0] + BR[2]) / 2, Math.min(BR[1], BR[3]) - 4, BR[2], BR[3]], 3.6, hairCol === '#e8e4dc' || hairCol === '#d8d2c8' ? '#7a7068' : INK, 'round', true);
+  line(g, [BR[0], BR[1] - (C.eyes === 'big' ? 8 : 0), (BR[0] + BR[2]) / 2, Math.min(BR[1], BR[3]) - 4 - (C.eyes === 'big' ? 8 : 0), BR[2], BR[3] - (C.eyes === 'big' ? 8 : 0)], 3.6 * (C.brow || 1), hairCol === '#e8e4dc' || hairCol === '#d8d2c8' ? '#7a7068' : INK, 'round', true);
   if (ex === 'tired') { line(g, [24, -6, 40, -4], 1.4, 'rgba(60,30,30,.4)', 'round', true); const k2 = (t * .5) % 1; ell(g, -4, -24 + k2 * 40, 3.5, 6, 'rgba(170,215,240,.85)', 1.5); }
   // mouth + beard
   const op = Math.max(talk, ex === 'roar' ? .9 : ex === 'shock' ? .35 : 0);
-  if (C.beard) { const bp = C.beard === 'long' ? 'M-30 16 C-36 70 -8 140 34 176 C42 132 60 80 58 26 C40 40 6 40 -30 16 Z' : 'M-30 18 C-32 52 -6 78 26 82 C46 72 60 52 58 26 C40 40 6 40 -30 18 Z';
-    sh(g, bp, lg(g, 0, 0, 0, 170, [[0, C.beardCol], [1, mix(C.beardCol, '#000', .3)]]), 3.6); for (let i = 0; i < 7; i++) line(g, [-20 + i * 10, 26 + i * 2, -16 + i * 11, (C.beard === 'long' ? 120 : 64) - Math.abs(i - 3) * 6], 1.3, mix(C.beardCol, '#fff', .25), 'round', true); }
+  if (C.beard === 'stubble') { const r = rng(5); for (let i = 0; i < 46; i++) { const x = -26 + r() * 82, y = 18 + r() * 40; if (x > 30 && y < 30) continue; ell(g, x, y, 1.6, 1.6, hexA(mix(C.beardCol, '#000', .1), .55)); } }
+  else if (C.beard === 'goatee') { sh(g, 'M28 40 C26 64 36 78 46 80 C56 70 58 54 56 40 C48 46 38 46 28 40 Z', C.beardCol, 3); sh(g, 'M30 22 Q46 14 62 24 Q48 30 38 28 Z', C.beardCol, 2.2); }
+  else if (C.beard) { const bp = C.beard === 'long' ? 'M-30 16 C-36 70 -8 140 34 176 C42 132 60 80 58 26 C40 40 6 40 -30 16 Z' : C.beard === 'forked' ? 'M-30 16 C-36 60 -10 110 8 150 L22 112 L40 154 C52 110 60 70 58 26 C40 40 6 40 -30 16 Z' : C.beard === 'braided' ? 'M-30 16 C-36 60 -6 100 22 110 C44 100 60 60 58 26 C40 40 6 40 -30 16 Z' : 'M-30 18 C-32 52 -6 78 26 82 C46 72 60 52 58 26 C40 40 6 40 -30 18 Z';
+    sh(g, bp, lg(g, 0, 0, 0, 170, [[0, C.beardCol], [1, mix(C.beardCol, '#000', .3)]]), 3.6); for (let i = 0; i < 7; i++) line(g, [-20 + i * 10, 26 + i * 2, -16 + i * 11, (C.beard === 'long' ? 120 : 64) - Math.abs(i - 3) * 6], 1.3, mix(C.beardCol, '#fff', .25), 'round', true);
+    if (C.beard === 'braided') { for (let i = 0; i < 4; i++) ell(g, 22, 120 + i * 18, 9, 10, C.beardCol, 2.4); [124, 160].forEach(y => line(g, [14, y, 30, y], 3, '#e0b648', 'round', true)); } }
   if (op > .05) { ell(g, 46, 34 + op * 4, 9 + op * 3, 3 + op * 12, '#3a1418', 2.4); if (ex === 'roar') { line(g, [38, 28, 54, 28], 2.4, '#f4eee2', 'round', true); } }
   else line(g, ex === 'smile' ? [36, 32, 46, 37, 56, 31] : ex === 'tired' ? [38, 37, 46, 34, 54, 37] : [38, 34, 56, 33], 2.6);
-  if (C.beard) sh(g, 'M30 22 Q46 14 62 24 Q48 30 38 28 Z', mix(C.beardCol, '#fff', .08), 2.2);
+  if (C.beard && C.beard !== 'stubble' && C.beard !== 'goatee') sh(g, 'M30 22 Q46 14 62 24 Q48 30 38 28 Z', mix(C.beardCol, '#fff', .08), 2.2);
   // helmets
   if (C.helmet === 'feather') { for (let i = -7; i <= 7; i++) { const a = i * .1 - .12, len = 104 + Math.cos(i * .3) * 14, wob = Math.sin(t * 3 + i) * .02; g.save(); g.translate(-4, -56); g.rotate(a + wob); sh(g, `M-7 0 Q-11 ${-len * .6} 0 ${-len} Q11 ${-len * .6} 7 0 Z`, i % 2 ? '#f4ead6' : '#ddcdaa', 2.2); line(g, [0, -4, 0, -len + 8], 1, 'rgba(120,100,70,.6)', 'round', true); g.restore(); }
     sh(g, 'M-60 -36 Q0 -72 62 -38 L62 -18 Q0 -52 -60 -16 Z', lg(g, 0, -72, 0, -16, [[0, '#e8c460'], [1, '#a8782a']]), 3.4); [-40, -20, 0, 20, 40].forEach(x => ell(g, x, -32 + Math.abs(x) * .2, 4, 4, '#8a2a22')); line(g, [-48, -16, -34, 40, 10, 60], 2.4, '#5a3a1a', 'round', true); }

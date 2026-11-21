@@ -1,12 +1,14 @@
 // Episode 6 (Gideon's 300): Gideon, Midianite raiders, camels with crescent ornaments, the winepress, caves,
 // jars / torches / ram's horns, the enemy tent camp at night, the tumbling barley loaf, and the midnight chaos.
 Object.assign(WAR, {
-  gideon:    { skin: '#b67c50', tunic: '#cdb48a', kilt: '#6a4a2c', cape: null, beard: 'short', beardCol: '#3a2414', hair: '#3a2414', helmet: null, bulk: .92, head: 1.04, weapon: null, shield: null, boots: '#6a4428' },
-  gideonW:   { skin: '#b67c50', tunic: '#cdb48a', kilt: '#6a4a2c', cape: '#a8341e', beard: 'short', beardCol: '#3a2414', hair: '#3a2414', helmet: null, bulk: .98, head: 1.02, weapon: null, shield: null, boots: '#6a4428' },
-  man300:    { skin: '#a8714c', tunic: '#b89a6a', kilt: '#4a3a2a', cape: null, beard: 'short', beardCol: '#24160e', hair: '#24160e', helmet: null, bulk: 1, head: 1, weapon: null, shield: null, boots: '#4a2c1c' },
-  midianite: { skin: '#9a6440', tunic: '#2a2a3a', kilt: '#8a2a2a', cape: '#3a2a4a', beard: 'long', beardCol: '#140c08', hair: '#140c08', helmet: 'turban', wrap: '#d8c8a0', bulk: 1.08, head: 1, weapon: 'sword', shield: null, boots: '#3a2418', long: 1, trim: '#d8a038' },
-  midianite2:{ skin: '#a06a44', tunic: '#5a3a1a', kilt: '#2a4a5a', cape: null, beard: 'short', beardCol: '#140c08', hair: '#140c08', helmet: 'turban', wrap: '#8a2a2a', bulk: 1.0, head: 1, weapon: 'sword', shield: null, boots: '#3a2418' },
-  midsoldier:{ skin: '#a06a44', tunic: '#4a3a5a', kilt: '#6a3a1a', cape: null, beard: 'short', beardCol: '#140c08', hair: '#140c08', helmet: 'turban', wrap: '#c8b890', bulk: 1.0, head: 1, weapon: null, shield: null, boots: '#3a2418' },
+  gideon:    { skin: '#b67c50', tunic: '#8a9a5a', kilt: '#5a3a22', cape: null, beard: 'stubble', beardCol: '#2a1a10', hair: '#2a1a10', hairStyle: 'curly', eyes: 'big', nose: 'button', jaw: 'round', helmet: null, bulk: .86, tall: 1.03, head: 1.08, weapon: null, shield: null, boots: '#6a4428', trim: '#e0c070' },
+  gideonW:   { skin: '#b67c50', tunic: '#8a9a5a', kilt: '#5a3a22', cape: '#a8341e', beard: 'stubble', beardCol: '#2a1a10', hair: '#2a1a10', hairStyle: 'curly', eyes: 'big', nose: 'button', jaw: 'round', headband: '#a8341e', helmet: null, bulk: .9, tall: 1.03, head: 1.06, weapon: null, shield: null, boots: '#6a4428', trim: '#e0c070' },
+  man300:    { skin: '#a8714c', tunic: '#b89a6a', kilt: '#4a3a2a', cape: null, beard: 'goatee', beardCol: '#24160e', hair: '#24160e', hairStyle: 'tied', nose: 'hook', jaw: 'square', helmet: null, bulk: 1.05, head: 1, weapon: null, shield: null, boots: '#4a2c1c' },
+  man300b:   { skin: '#9a6440', tunic: '#6a7a8a', kilt: '#3a2a1a', cape: null, beard: 'long', beardCol: '#8a8278', hair: '#8a8278', hairStyle: 'bald', nose: 'broad', brow: 1.6, helmet: null, bulk: 1.12, tall: .95, head: 1, weapon: null, shield: null, boots: '#4a2c1c' },
+  man300c:   { skin: '#c08a5e', tunic: '#a85a3a', kilt: '#4a3a2a', cape: null, beard: 'stubble', beardCol: '#3a2010', hair: '#3a2010', hairStyle: 'wild', nose: 'straight', jaw: 'square', helmet: null, bulk: .95, tall: 1.06, head: 1, weapon: null, shield: null, boots: '#4a2c1c' },
+  midianite: { skin: '#9a6440', tunic: '#2a2a3a', kilt: '#8a2a2a', cape: '#3a2a4a', beard: 'braided', beardCol: '#140c08', hair: '#140c08', nose: 'hook', brow: 1.7, jaw: 'square', earring: true, helmet: 'turban', wrap: '#d8c8a0', bulk: 1.15, tall: 1.04, head: 1, weapon: 'sword', shield: null, boots: '#3a2418', long: 1, trim: '#d8a038' },
+  midianite2:{ skin: '#a06a44', tunic: '#5a3a1a', kilt: '#2a4a5a', cape: null, beard: 'forked', beardCol: '#140c08', hair: '#140c08', nose: 'broad', brow: 1.3, earring: true, helmet: 'turban', wrap: '#8a2a2a', bulk: 1.0, head: 1, weapon: 'sword', shield: null, boots: '#3a2418' },
+  midsoldier:{ skin: '#a06a44', tunic: '#4a3a5a', kilt: '#6a3a1a', cape: null, beard: 'stubble', beardCol: '#140c08', hair: '#140c08', eyes: 'big', nose: 'button', jaw: 'round', helmet: 'turban', wrap: '#c8b890', bulk: .92, tall: .96, head: 1.05, weapon: null, shield: null, boots: '#3a2418' },
 });
 // turban (headwrap with a hanging tail), drawn over figure v2's head
 (function () { const base = warrior; warrior = function (g, o) {
@@ -15,7 +17,7 @@ Object.assign(WAR, {
   base(g, Object.assign({}, o, { c: Object.assign({}, C, { helmet: null }) }));
   const pose = o.pose || 'stand', kneel = ['kneel', 'faint', 'pray', 'sulk'].includes(pose), drop = kneel ? 150 : 0;
   const shY = -620 + drop + Math.sin((o.t || 0) * 1.7 + (o.ph || 0)) * 2, hs = (C.head || 1) * .86, hy = shY - 62 * hs, w = C.wrap || '#d8c8a0';
-  g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), o.s || 1); if (pose === 'fall') g.rotate(-eio(o.k ?? 1) * 1.45);
+  g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), (o.s || 1) * (C.tall || 1)); if (pose === 'fall') g.rotate(-eio(o.k ?? 1) * 1.45);
   if (o.rot) { g.translate(0, -380); g.rotate(o.rot); g.translate(0, 380); } g.rotate(pose === 'charge' ? .16 : pose === 'thrust' ? .08 : 0);
   g.translate(14, hy); g.scale(hs, hs); if (o.headRot) g.rotate(o.headRot);
   const sw = Math.sin((o.t || 0) * 2.4) * 8;
