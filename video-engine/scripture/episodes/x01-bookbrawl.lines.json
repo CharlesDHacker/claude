@@ -1,0 +1,188 @@
+{
+ "title": "BOOK BRAWL",
+ "subtitle": "Big Nate vs. Diary of a Wimpy Kid",
+ "voices": {
+  "ann": {
+   "name": "David - Sports Arena Announcer",
+   "voice_id": "DduhIyyKkOosbP8VefhP"
+  },
+  "narr": {
+   "name": "Ian - Deep, Punchy Social Hook Voice",
+   "voice_id": "uC1r2TVqMMkHyjSAteKk"
+  }
+ },
+ "takes": {
+  "ann": "ann_a",
+  "narr": "narr_a"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "ann",
+   "say": "[booming] Big Nate... versus... Diary of a Wimpy Kid!",
+   "cap": [
+    "{o:Big Nate}...",
+    "versus...",
+    "{r:Diary of a Wimpy Kid}!"
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "narr",
+   "say": "[hyped] Tonight, we settle it. For good.",
+   "cap": [
+    "Tonight, we settle it.",
+    "{g:For good.}"
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "ann",
+   "say": "[booming] Round one! The main character!",
+   "cap": [
+    "{pop:ROUND 1}",
+    "The main character!"
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "narr",
+   "say": "Greg is lazy, selfish, and throws his best friend under the bus... every single book.",
+   "cap": [
+    "Greg is {r:lazy}, {r:selfish},",
+    "and throws his best friend under the {r:bus}...",
+    "every single book."
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "narr",
+   "say": "Nate's a troublemaker too. But he's got heart. He draws comics, goes all in, and wears his detention record like a trophy.",
+   "cap": [
+    "Nate's a troublemaker too.",
+    "But he's got {o:heart}.",
+    "He draws comics, goes {o:all in},",
+    "and wears his {o:detention record} like a trophy."
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "narr",
+   "say": "[dryly] So you're rooting against your own main character. Point, Big Nate.",
+   "cap": [
+    "So you're rooting {r:against}",
+    "your own main character.",
+    "Point, {o:Big Nate}."
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "ann",
+   "say": "[booming] Round two! The cast!",
+   "cap": [
+    "{pop:ROUND 2}",
+    "The cast!"
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "narr",
+   "say": "Wimpy Kid has Rowley... and a bunch of punchlines. Big Nate has a whole school. Francis, Teddy, Gina, Mrs. Godfrey. Point, Big Nate.",
+   "cap": [
+    "Wimpy Kid has Rowley...",
+    "and a bunch of {r:punchlines}.",
+    "Big Nate has a {o:whole school}.",
+    "Francis, Teddy, Gina, Mrs. Godfrey.",
+    "Point, {o:Big Nate}."
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "ann",
+   "say": "[booming] Round three! The comedy!",
+   "cap": [
+    "{pop:ROUND 3}",
+    "The comedy!"
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "narr",
+   "say": "Big Nate started as a daily newspaper comic. Setup, timing, punchline... for over thirty years.",
+   "cap": [
+    "Big Nate started as a {o:daily newspaper comic}.",
+    "Setup, timing, punchline...",
+    "for over {o:thirty years}."
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "narr",
+   "say": "[dryly] Sales measure popularity, not quality. Otherwise fast food would win every cooking show.",
+   "cap": [
+    "Sales measure {r:popularity}, not {o:quality}.",
+    "Otherwise fast food would win",
+    "every {r:cooking show}."
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "narr",
+   "say": "[building] So why do people still pick Wimpy Kid? Three reasons.",
+   "cap": [
+    "So why do people still pick Wimpy Kid?",
+    "{o:Three reasons.}"
+   ]
+  },
+  {
+   "id": "L17",
+   "who": "narr",
+   "say": "One. Nostalgia goggles. You read it in third grade, and the Cheese Touch still lives rent-free in your head.",
+   "cap": [
+    "One. {o:Nostalgia goggles.}",
+    "You read it in third grade,",
+    "and the {r:Cheese Touch}",
+    "still lives rent-free in your head."
+   ]
+  },
+  {
+   "id": "L18",
+   "who": "narr",
+   "say": "Two. Reading comprehension. They see kid gets detention... and miss that every strip is a perfectly built joke.",
+   "cap": [
+    "Two. {o:Reading comprehension.}",
+    "They see “kid gets detention”...",
+    "and miss that every strip",
+    "is a {o:perfectly built joke}."
+   ]
+  },
+  {
+   "id": "L19",
+   "who": "narr",
+   "say": "Three. They read one Big Nate book from the school library... and never touched the comics.",
+   "cap": [
+    "Three. They read {r:one} Big Nate book",
+    "from the school library...",
+    "and {r:never touched} the comics."
+   ]
+  },
+  {
+   "id": "L21",
+   "who": "ann",
+   "say": "[booming] KNOCKOUT! The winner... BIG NATE!",
+   "cap": [
+    "{pop:KNOCKOUT!}",
+    "The winner...",
+    "{o:BIG NATE!}"
+   ]
+  }
+ ],
+ "bubbles": {
+  "L03": "[smug] Please. I sold, like, a bajillion copies.",
+  "L04": "[confident] Cool. I've been funny since nineteen ninety-one.",
+  "L08": "[defensive] Greg's supposed to be unlikable! That's the joke!",
+  "L14": "[whining] But I sold more books!",
+  "L20": "[sputtering] I... I...",
+  "L22": "[mumbling] ...Best two out of three?"
+ }
+}

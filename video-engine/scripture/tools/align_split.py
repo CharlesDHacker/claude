@@ -9,7 +9,8 @@ os.makedirs(out, exist_ok=True)
 EXTRA = {"ishbi": "IH SH B AY", "benob": "B IY N AA B", "sibbecai": "S IH B AH K AY", "elhanan": "EH L HH EY N AH N", "saph": "S AE F",
          "abishai": "AH B IH SH AY", "gath": "G AE TH", "spearhead": "S P IH R HH EH D", "selah": "S IY L AH", "sackcloth": "S AE K K L AO TH", "nineveh": "N IH N AH V AH", "jonah": "JH OW N AH", "ewwww": "IY UW", "tarshish": "T AA R SH IH SH", "balaam": "B EY L AH M",
          "balak": "B EY L AE K", "toby": "T OW B IY", "goliath's": "G AH L AY AH TH S", "philistines": "F IH L AH S T IY N Z",
-         "gideon": "G IH D IY AH N", "gideon's": "G IH D IY AH N Z", "gideo": "G IH D IY OW", "midianites": "M IH D IY AH N AY T S", "manasseh": "M AH N AE S AH", "winepress": "W AY N P R EH S", "threshing": "TH R EH SH IH NG"}
+         "gideon": "G IH D IY AH N", "gideon's": "G IH D IY AH N Z", "gideo": "G IH D IY OW", "midianites": "M IH D IY AH N AY T S", "manasseh": "M AH N AE S AH", "winepress": "W AY N P R EH S", "threshing": "TH R EH SH IH NG",
+         "punchlines": "P AH N CH L AY N Z", "punchline": "P AH N CH L AY N", "rowley": "R AW L IY", "godfrey": "G AA D F R IY", "troublemaker": "T R AH B AH L M EY K ER"}
 IPA = {"/ˈɪʃbaɪ ˈbiːnɒb/": "ishbi benob", "/ˈsɪbəkaɪ/": "sibbecai", "/ɛlˈheɪnən/": "elhanan"}
 def words_of(say):
     for k, v in IPA.items(): say = say.replace(k, v)

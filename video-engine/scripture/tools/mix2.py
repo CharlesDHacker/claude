@@ -216,6 +216,13 @@ def smashes(n=14, spread=.9):  # many jars at once
     for k in range(n): place(out, R.random() * spread * (.3 if k < n // 2 else 1), smash(), .5)
     return norm(out)
 LIB.update(smash=(smash, .8), smashes=(smashes, .9))
+def bellring(d=2.2):  # boxing bell: bright inharmonic partials, long ring, struck twice
+    t = tt(d); one = sum(np.sin(TAU * f * t) * np.exp(-t * dk) * w for f, dk, w in ((1180, 2.2, 1), (2950, 3.5, .5), (4210, 5, .3), (620, 1.8, .4)))
+    one = one * np.minimum(t / .002, 1); out = np.zeros(int((d + .3) * SR)); place(out, 0, one, 1); place(out, .22, one, .8); return norm(out)
+def bpop(): t = tt(.18); return norm(np.sin(TAU * np.cumsum(500 + 900 * np.exp(-t * 30)) / SR) * np.exp(-t * 26))
+def honk(d=.7):
+    t = tt(d); s = np.sign(np.sin(TAU * 350 * t)) * .5 + np.sign(np.sin(TAU * 440 * t)) * .5; return norm(lp(s, 2500) * np.minimum(t / .02, 1) * np.clip((d - t) / .08, 0, 1))
+LIB.update(bell=(bellring, .7), pop=(bpop, .5), honk=(honk, .45))
 LIB.update(sword=LIB["clash"], shimmer=LIB["sparkle"], crunch=LIB["hit"])  # names used by episode 1
 sfx = np.zeros(N)
 for i, s in enumerate(shots):
