@@ -254,6 +254,7 @@ local function onCharacter(char: Model)
 			climbing = true
 			baseWalkSpeed = hum.WalkSpeed
 			ClimbFx.setClimbing(true)
+			print("[Climb] grabbed - climbing mechanics active")
 			report("Grab")
 		elseif old == Enum.HumanoidStateType.Climbing and climbing then
 			climbing = false
@@ -283,6 +284,7 @@ function ClimbController.start()
 	end)
 
 	RunService.Heartbeat:Connect(update)
+	print("[Climb] client running - climb a TrussPart to test")
 
 	player.CharacterAdded:Connect(onCharacter)
 	if player.Character then

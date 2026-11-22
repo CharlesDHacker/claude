@@ -68,3 +68,5 @@ end
 Players.PlayerRemoving:Connect(function(player)
 	lastFired[player] = nil
 end)
+
+print("[Climb] server running")
