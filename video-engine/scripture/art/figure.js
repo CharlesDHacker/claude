@@ -106,7 +106,11 @@ warrior = function (g, o) {
     for (let i = 0; i < 8; i++) { const a2 = i / 8 * 6.28; ell(g, cx + Math.cos(a2) * r * .66, cy + Math.sin(a2) * r * .66, 3.5, 3.5, 'rgba(60,30,10,.6)'); } }
   // legs
   const leg = (hx, f, back) => { const kx = heels ? (back ? 62 : 84) : kneel ? (back ? -70 : (longRobe ? 80 : 120)) : sit ? f[0] + 6 : (hx + f[0]) / 2 + 20, ky = heels ? -14 : kneel ? (back ? -12 : -196) : sit ? hipY + 10 : (hipY + f[1]) / 2 + 6, col = C.pants ? (back ? mix(C.pants, '#10081a', .3) : C.pants) : back ? sd : C.skin;
-    taper(g, hx, hipY, kx, ky, 40 * b, 28 * b, col); taper(g, kx, ky, f[0], f[1] - 16, 28 * b, 17 * b, col);
+    if (C.hakama && !kneel && !sit) { const hk = back ? mix(C.hakama, '#10081a', .3) : C.hakama, q = .42, tx = kx + (f[0] - kx) * q, ty = ky + (f[1] - 16 - ky) * q;
+      taper(g, hx, hipY, kx, ky, 56 * b, 46 * b, hk); taper(g, kx, ky, tx, ty, 46 * b, 40 * b, hk); line(g, [(hx + kx) / 2 - 8, hipY + 30, kx - 6, ky - 10], 1.6, 'rgba(20,10,30,.3)', 'round', true);
+      taper(g, tx, ty + 6, f[0], f[1] - 16, 24 * b, 17 * b, back ? sd : C.skin); line(g, [tx - 20 * b, ty + 2, tx + 20 * b, ty - 2], 6, C.knot || '#c83a2a', 'round', true); }
+    else if (C.hakama) { const hk = back ? mix(C.hakama, '#10081a', .3) : C.hakama; taper(g, hx, hipY, kx, ky, 52 * b, 42 * b, hk); taper(g, kx, ky, f[0], f[1] - 16, 40 * b, 30 * b, hk); }
+    else { taper(g, hx, hipY, kx, ky, 40 * b, 28 * b, col); taper(g, kx, ky, f[0], f[1] - 16, 28 * b, 17 * b, col); }
     if (C.armor === 'scale' || C.greaves) { taper(g, kx + 2, ky + 14, f[0] + 1, f[1] - 34, 30 * b, 20 * b, back ? mix(C.armorCol, '#000', .3) : lg(g, kx - 20, 0, kx + 20, 0, [[0, C.armorCol], [1, mix(C.armorCol, '#000', .3)]])); }
     if (kneel && !longRobe && (back || heels)) { const fx = f[0], fy = f[1]; sh(g, `M${fx + 18} ${fy - 30} Q${fx - 6} ${fy - 34} ${fx - 30 * b} ${fy - 20} Q${fx - 40 * b} ${fy - 6} ${fx - 30 * b} ${fy + 3} L${fx + 20} ${fy + 3} Z`, col, 3.5);
       sh(g, `M${fx - 34 * b} ${fy - 16} Q${fx - 44 * b} ${fy - 4} ${fx - 32 * b} ${fy + 4} L${fx - 26 * b} ${fy + 4} Q${fx - 36 * b} ${fy - 4} ${fx - 28 * b} ${fy - 18} Z`, C.boots, 2.4); line(g, [fx - 8, fy - 30, fx - 2, fy - 4], 2.4, C.boots, 'round', true);
@@ -149,6 +153,8 @@ warrior = function (g, o) {
   if (!C.modern && !sit && !kr) for (let x = -hw + 8; x < hw - 6; x += 11) { const xx = x - swH * .5, yy = hem + 7 * (1 - (x / hw) * (x / hw)) - 1; ell(g, xx, yy, 2.6, 2.6, trim, 1.2, 0, 'rgba(30,20,10,.6)'); }
   if (!C.modern) sh(g, `M${-ww - 6} ${waistY - 8} L${ww + 6} ${waistY - 8} L${ww + 6} ${waistY + 8} L${-ww - 6} ${waistY + 8} Z`, C.kilt, 3); if (!C.modern) pattern(g, -ww - 6, ww + 6, waistY - 4, 8, trim, 'dots');
 
+  if (C.magatama) { line(g, [-22 * b, shY + 2, 6, shY + 56, 34 * b, shY + 30], 2.4, '#3a2a1a', 'round', true);
+    [[-12, .3], [-2, .5], [8, .62], [20, .5]].forEach(([x, q], i) => { const y = shY + 6 + q * 70; if (i === 2) { sh(g, `M${x - 7} ${y - 6} C${x + 8} ${y - 12} ${x + 12} ${y + 8} ${x + 2} ${y + 16} C${x + 6} ${y + 6} ${x - 2} ${y + 2} ${x - 7} ${y + 4} Q${x - 12} ${y - 2} ${x - 7} ${y - 6} Z`, C.magatama, 2.2); ell(g, x - 3, y - 2, 2, 2, 'rgba(255,255,255,.6)'); } else ell(g, x, y, 4.2, 4.2, i % 2 ? mix(C.magatama, '#fff', .3) : C.magatama, 1.6); }); }
   const armFirst = pose === 'raise' || (o.pose2 === 'raise' && (o.mix ?? 0) > .5);
   if (armFirst) { arm(10 * b, fh, false); if (o.hold && typeof HOLD !== 'undefined' && HOLD[o.hold]) HOLD[o.hold](g, fh, o, t, b); }
   // head
@@ -179,12 +185,14 @@ warrior = function (g, o) {
   // fringe over the forehead (drawn after the face so the hairline reads naturally)
   if (!C.helmet || C.helmet === 'crown' || C.helmet === 'cap') {
     if (HS === 'curly') { [[-38, -58, 22], [-14, -70, 22], [12, -74, 20], [34, -66, 16], [44, -54, 11]].forEach(([x, y, r]) => ell(g, x, y, r, r, hairCol, 3.6)); [[-14, -70], [12, -74]].forEach(([x, y]) => sh(g, `M${x - 8} ${y - 2} q8 -10 16 0`, null, 1.6, hairHi)); }
-    else if (HS === 'short' || HS === 'tied' || HS === 'pony') sh(g, 'M-50 -10 C-60 -64 -26 -88 14 -86 C46 -84 62 -64 56 -44 C40 -52 26 -48 16 -40 C2 -54 -18 -52 -30 -36 C-38 -26 -44 -16 -50 -10 Z', hairCol, 3.4);
+    else if (HS === 'short' || HS === 'tied' || HS === 'pony' || HS === 'mizura') sh(g, 'M-50 -10 C-60 -64 -26 -88 14 -86 C46 -84 62 -64 56 -44 C40 -52 26 -48 16 -40 C2 -54 -18 -52 -30 -36 C-38 -26 -44 -16 -50 -10 Z', hairCol, 3.4);
     else if (HS === 'long') { // crown + side-swept bangs over the forehead + a lock over the ear
       sh(g, 'M-56 0 C-66 -62 -24 -92 18 -88 C50 -86 66 -64 60 -40 C48 -50 34 -50 22 -40 C10 -30 -4 -26 -16 -30 C-26 -20 -34 -6 -40 10 Z', hairCol, 3.4);
       sh(g, 'M-26 -40 C-18 0 -24 60 -40 110 C-50 120 -62 116 -64 104 C-50 60 -44 10 -48 -30 Z', hairCol, 3); line(g, [-6, -76, 30, -52, 44, -44], 2, 'rgba(255,240,220,.22)', 'round', true); }
     else if (HS === 'wild') sh(g, 'M-40 -50 L-30 -88 L-6 -66 L10 -96 L26 -64 L52 -78 L48 -50 C36 -58 26 -52 18 -44 C6 -56 -14 -56 -26 -42 Z', hairCol, 3.4);
   }
+  if (HS === 'mizura' && !C.helmet) { const mc = mix(hairCol, '#000', .05); sh(g, 'M-30 -6 C-52 -4 -54 30 -34 34 C-18 36 -14 6 -30 -6 Z', mc, 3.4); sh(g, 'M-34 34 C-56 38 -58 76 -36 80 C-18 82 -16 44 -34 34 Z', mc, 3.4);
+    line(g, [-44, 34, -24, 34], 5, C.knot || '#c83a2a', 'round', true); line(g, [-38, 4, -30, 22], 1.4, 'rgba(255,240,220,.25)', 'round', true); line(g, [-40, 46, -32, 66], 1.4, 'rgba(255,240,220,.25)', 'round', true); }
   if (C.earring) { g.beginPath(); g.arc(-22, 24, 7, 0, Math.PI * 2); g.lineWidth = 3.4; g.strokeStyle = '#f0c850'; g.stroke(); }
   if (C.headband && !C.helmet) { sh(g, 'M-56 -30 Q0 -58 52 -40 L52 -28 Q0 -46 -56 -16 Z', C.headband, 3); }
   // eye

@@ -6,7 +6,7 @@ import sys, json, re, os, subprocess, wave, numpy as np
 from pocketsphinx import Decoder, get_model_path
 take, lines_p, who, out = sys.argv[1:5]
 os.makedirs(out, exist_ok=True)
-EXTRA = {"ishbi": "IH SH B AY", "benob": "B IY N AA B", "sibbecai": "S IH B AH K AY", "elhanan": "EH L HH EY N AH N", "saph": "S AE F",
+EXTRA = {"susanoo": "S UW S AA N OW OW", "izumo": "IY Z UW M OW", "orochi": "AO R OW CH IY", "kushinada": "K UW SH IY N AA D AH", "kusanagi": "K UW S AA N AA G IY", "amaterasu": "AA M AA T EH R AA S UW", "sak": "S AA K EY", "aah": "AA", "anymo": "EH N IY M OW", "ishbi": "IH SH B AY", "benob": "B IY N AA B", "sibbecai": "S IH B AH K AY", "elhanan": "EH L HH EY N AH N", "saph": "S AE F",
          "abishai": "AH B IH SH AY", "gath": "G AE TH", "spearhead": "S P IH R HH EH D", "selah": "S IY L AH", "sackcloth": "S AE K K L AO TH", "nineveh": "N IH N AH V AH", "jonah": "JH OW N AH", "ewwww": "IY UW", "tarshish": "T AA R SH IH SH", "balaam": "B EY L AH M",
          "balak": "B EY L AE K", "toby": "T OW B IY", "goliath's": "G AH L AY AH TH S", "philistines": "F IH L AH S T IY N Z",
          "gideon": "G IH D IY AH N", "gideon's": "G IH D IY AH N Z", "gideo": "G IH D IY OW", "midianites": "M IH D IY AH N AY T S", "manasseh": "M AH N AE S AH", "winepress": "W AY N P R EH S", "threshing": "TH R EH SH IH NG",
