@@ -45,7 +45,7 @@ function drawCaptions(g, T) {
   for (const l of EP.lines) for (const c of l.caps) { if (c.t0 <= T) cur = { c, l }; else nextT = Math.min(nextT, c.t0); }
   if (!cur) return; const { c, l } = cur, end = Math.min(nextT, c.t1 + 1.0); if (T > end) return;
   const words = (c.words || []).filter(w => w[1] !== 'pop'); if (!words.length) return;
-  const base = l.who === 'toby' ? CAP.toby : (l.who === 'selah' && shotAt(l.t0 + .01).scene === 'elah') ? CAP.selah : CAP.white;
+  const base = l.who === 'toby' || l.who === 'mio' ? CAP.toby : (l.who === 'selah' && shotAt(l.t0 + .01).scene === 'elah') ? CAP.selah : CAP.white;
   const fadeOut = 1 - smooth(end - .12, end, T);
   g.save(); g.font = "900 58px Nunito"; g.textBaseline = 'middle';
   const sp = g.measureText(' ').width; const rows = [[]]; let wid = 0;

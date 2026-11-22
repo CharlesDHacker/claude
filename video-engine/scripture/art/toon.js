@@ -40,7 +40,7 @@ function toon(g, o) {
   const walk = o.walk ? t * (o.walkRate || 7) : null, bob = walk != null ? -Math.abs(Math.sin(walk)) * 10 : 0, hop = o.hop ? -Math.abs(Math.sin(t * 9)) * 22 * o.hop : 0, shake = o.shake ? Math.sin(t * 40) * 6 * o.shake : 0;
   g.save(); g.translate(o.x + shake, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1) , (o.s || 1) * (L.h || 1));
   g.fillStyle = rg(g, 0, 0, 10, kid ? 130 : 170, [[0, 'rgba(25,12,20,.35)'], [1, 'rgba(25,12,20,0)']]); g.beginPath(); g.ellipse(0, 4, kid ? 130 : 170, 20, 0, 0, 7); g.fill();
-  g.translate(0, bob + hop);
+  g.translate(0, bob + hop); if (o.rot) { g.translate(0, -450); g.rotate(o.rot); g.translate(0, 450); }
   const lean = (L.stoop || 0) + (o.lean || 0); if (lean) { g.translate(0, G.hip); g.rotate(lean); g.translate(0, -G.hip); }
   // arms: poses as [left hand, right hand] in body space (left = viewer's left)
   const A = kid ? { down: [[-100, -128], [100, -128]], up: [[-150, -470], [150, -470]], ears: [[-128, -440], [128, -440]], cheeks: [[-96, -380], [96, -380]], mouth: [[-46, -360], [46, -360]], hips: [[-110, -200], [110, -200]],

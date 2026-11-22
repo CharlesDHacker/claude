@@ -30,6 +30,9 @@ SR = 16000; raw = subprocess.run(["ffmpeg", "-v", "error", "-i", take, "-ac", "1
 d = Decoder(hmm=os.path.join(mp, "en-us", "en-us"), dict=dic, lm=None, loglevel="FATAL", beam=1e-100, wbeam=1e-80, pbeam=1e-100)
 d.set_align_text(" ".join(w for w, _ in script)); d.start_utt(); d.process_raw(raw, full_utt=True); d.end_utt()
 segs = [(s.word, s.start_frame * .01, (s.end_frame + 1) * .01) for s in d.seg() if s.word not in ("<sil>", "<s>", "</s>", "(NULL)") and not s.word.startswith("[")]
+if 0 < len(segs) < len(script) and [w for w, *_ in segs] == [w for w, _ in script[:len(segs)]]:  # trailing words (a scream, a cut-off) missed: give them the rest of the voiced audio
+    y0 = np.frombuffer(raw, "<i2").astype(np.float64) / 32768; env = np.convolve(np.abs(y0), np.ones(160) / 160, "same"); on = np.where(env > env.max() * .05)[0]; a0 = segs[-1][2]; a1 = max(a0 + .3, on[-1] / SR)
+    rest = [w for w, _ in script[len(segs):]]; step = (a1 - a0) / len(rest); segs += [(w, a0 + k * step, a0 + (k + 1) * step) for k, w in enumerate(rest)]
 if len(segs) != len(script):
     if len({l for _, l in script}) > 1: sys.exit(f"aligned {len(segs)} of {len(script)} words: alignment failed")
     # single line: spread the words over the voiced span instead

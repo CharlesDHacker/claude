@@ -76,6 +76,11 @@ MOODS = {
 }
 MOODS["sorrow"] = dict(pad=[45, 52, 57, 60, 64], bright=650, arp=[69, 64, 60, 64], arpEvery=1.0, drum=None, shaker=False, bass=33, drone=33, lvl=.8)   # minor, no drums
 MOODS["hush"] = dict(pad=[45, 52], bright=320, arp=[57], arpEvery=2.0, drum=None, shaker=False, drone=33, lvl=.4)   # held breath before a hit
+MOODS["koto"] = dict(pad=[50, 57, 62, 69], bright=1000, arp=[62, 63, 67, 69, 70, 69, 67, 63], arpEvery=.5, drum="soft", shaker=False, bass=38, drone=38, lvl=1.0)     # miyako-bushi
+MOODS["kotodread"] = dict(pad=[38, 45, 51, 56], bright=420, arp=[62, 63, 62, 58], arpEvery=.25, drum="taiko2", shaker=False, bass=26, drone=26, lvl=1.05)
+MOODS["taiko"] = dict(pad=[38, 45, 50, 57], bright=900, arp=[62, 63, 67, 69, 70, 74, 70, 67], arpEvery=.25, drum="battle", shaker=False, bass=26, lvl=1.15)
+MOODS["kotohope"] = dict(pad=[50, 57, 62, 66, 69, 74], bright=1300, arp=[74, 69, 67, 64, 62, 64, 67, 69], arpEvery=.5, drum="soft", shaker=False, bass=38, choir=[62, 66, 69], lvl=.95)   # yo scale
+MOODS["kotoglory"] = dict(pad=[50, 57, 62, 66, 69, 74, 78], bright=2000, arp=[74, 76, 79, 81, 86, 81, 79, 76], arpEvery=.5, drum="glory", shaker=False, bass=26, choir=[62, 66, 69, 74], lvl=1.15)
 ALIAS = {"story": "legend", "tense": "dread", "wonder": "hope"}
 for _s in ep["shots"]:
     if "music" in _s: _s["music"] = ALIAS.get(_s["music"], _s["music"])

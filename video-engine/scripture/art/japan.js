@@ -131,7 +131,9 @@ const _drawActorJp = drawActor;
 drawActor = function (g, a, c, P, o) { const A = avAll(a, c.lt);
   if (A.type === 'mio' || A.type === 'fox') { if (A.alpha != null && A.alpha <= 0) return; g.save(); if (A.alpha != null) g.globalAlpha *= A.alpha;
     if (A.type === 'mio') toon(g, Object.assign({}, A, { c: 'mio', t: c.T + (A.ph || 0), talk: c.V('mio') })); else kitsune(g, Object.assign({}, A, { t: c.T + (A.ph || 0), talk: c.V('kon') })); g.restore(); return; }
-  if (A.type === 'toon') { if (A.alpha != null && A.alpha <= 0) return; g.save(); if (A.alpha != null) g.globalAlpha *= A.alpha; toon(g, Object.assign({}, A, { t: c.T + (A.ph || 0), talk: A.who ? c.V(A.who) : 0 })); g.restore(); return; }
+  if (A.type === 'toon') { if (A.alpha != null && A.alpha <= 0) return; g.save(); if (A.alpha != null) g.globalAlpha *= A.alpha;
+    let walk = A.walk; if (walk && a.x && typeof a.x === 'object' && a.x.t1 != null) walk = c.lt >= (a.x.t0 || 0) && c.lt <= a.x.t1 + .05 ? walk : 0;   // walkers stop when they arrive
+    toon(g, Object.assign({}, A, { walk, t: c.T + (A.ph || 0), talk: A.who ? c.V(A.who) : 0 })); g.restore(); return; }
   if (JPA[A.type]) return JPA[A.type](g, A, c);
   return _drawActorJp(g, a, c, P, o); };
 
@@ -171,21 +173,42 @@ function tube(g, pts, w0, w1, fill, belly, lw = 5, scales = true) { const n = pt
     for (let i = 2; i < n - 1; i += 2) { const x = pts[i][0] - N[i][0] * N[i][2] * .62, y = pts[i][1] - N[i][1] * N[i][2] * .62; line(g, [x + N[i][0] * N[i][2] * .22, y + N[i][1] * N[i][2] * .22, x - N[i][0] * N[i][2] * .22, y - N[i][1] * N[i][2] * .22], 2, 'rgba(40,10,10,.45)', 'round', true); } }
   if (scales) for (let i = 1; i < n - 1; i++) for (let k = -1; k <= 1; k++) { const x = pts[i][0] + N[i][0] * N[i][2] * k * .4, y = pts[i][1] + N[i][1] * N[i][2] * k * .4, r = N[i][2] * .22; g.beginPath(); g.arc(x, y, r, 0, Math.PI); g.lineWidth = 2; g.strokeStyle = 'rgba(140,200,160,.18)'; g.stroke(); }
   g.restore(); sh(g, d, null, lw); }
-const ORO = { sc: '#22322c', scL: '#4a6a56', belly: '#a8402a', eye: '#ff3424' };
+const ORO = { sc: '#2e4a3a', scD: '#1c3026', scL: '#4e7058', belly: '#d0583a', bellyL: '#f0a070', spine: '#efe6cc', eye: '#ff3a1e' };
+// a serpent neck: outlined tube, scalloped scales, segmented belly plates on the underside, bone spines along the top
+function serpentNeck(g, pts, w0, w1, sil) { const n = pts.length, Lp = [], Rp = [], N = [];
+  const raw = []; for (let i = 0; i < n; i++) { const a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)], dx = b[0] - a[0], dy = b[1] - a[1], d = Math.hypot(dx, dy) || 1; raw.push([-dy / d, dx / d]); }
+  const sg = (raw[n - 1][1] + raw[Math.floor(n * .7)][1]) >= 0 ? 1 : -1;   // one belly side for the whole neck: underneath at the head end
+  for (let i = 0; i < n; i++) { const nx = raw[i][0] * sg, ny = raw[i][1] * sg, w = lerp(w0, w1, i / (n - 1)) / 2;
+    N.push([nx, ny, w]); Lp.push([pts[i][0] - nx * w, pts[i][1] - ny * w]); Rp.push([pts[i][0] + nx * w, pts[i][1] + ny * w]); }
+  if (!sil) for (let i = 2; i < n - 1; i += 2) { const [nx, ny, w] = N[i], bx = Lp[i][0], by = Lp[i][1], tx = bx - nx * w * .55, ty = by - ny * w * .55, px = pts[i + 1][0] - pts[i - 1][0], py = pts[i + 1][1] - pts[i - 1][1], pl = Math.hypot(px, py) || 1;
+    tsh(g, `M${bx - px / pl * w * .22} ${by - py / pl * w * .22} L${tx + px / pl * w * .1} ${ty + py / pl * w * .1} L${bx + px / pl * w * .22} ${by + py / pl * w * .22} Z`, ORO.spine, 4); }
+  let d = `M${Lp[0][0]} ${Lp[0][1]}`; for (let i = 1; i < n; i++) d += ` L${Lp[i][0]} ${Lp[i][1]}`; for (let i = n - 1; i >= 0; i--) d += ` L${Rp[i][0]} ${Rp[i][1]}`; d += ' Z';
+  if (sil) { sh(g, d, '#05060c', 0); return; }
+  tsh(g, d, lg(g, pts[0][0], pts[0][1], pts[n - 1][0], pts[n - 1][1], [[0, ORO.scD], [1, ORO.sc]]), 0); g.save(); g.clip(path(d));
+  for (let i = 1; i < n - 1; i++) { const [nx, ny, w] = N[i]; for (let k = -2; k <= 1; k++) { const x = pts[i][0] + nx * w * k * .38, y = pts[i][1] + ny * w * k * .38, r = w * .2; g.beginPath(); g.arc(x, y, r, Math.atan2(ny, nx), Math.atan2(ny, nx) + Math.PI); g.lineWidth = 3; g.strokeStyle = 'rgba(10,20,14,.35)'; g.stroke(); } }
+  g.beginPath(); for (let i = 0; i < n; i++) { const x = pts[i][0] + N[i][0] * N[i][2] * .62, y = pts[i][1] + N[i][1] * N[i][2] * .62; i ? g.lineTo(x, y) : g.moveTo(x, y); } g.lineWidth = lerp(w0, w1, .5) * .38; g.strokeStyle = '#b8462e'; g.lineCap = 'butt'; g.stroke();
+  for (let i = 1; i < n; i++) { const [nx, ny, w] = N[i], cx = pts[i][0] + nx * w * .62, cy = pts[i][1] + ny * w * .62, px = pts[i][0] - pts[i - 1][0], py = pts[i][1] - pts[i - 1][1], pl = Math.hypot(px, py) || 1; line(g, [cx - px / pl * 2 - nx * w * .26, cy - py / pl * 2 - ny * w * .26, cx + nx * w * .26, cy + ny * w * .26], 3.4, '#7a2418', 'butt', true); line(g, [cx + px / pl * 6 - nx * w * .2, cy + py / pl * 6 - ny * w * .2, cx + px / pl * 6 + nx * w * .2, cy + py / pl * 6 + ny * w * .2], 2.4, ORO.bellyL, 'butt', true); }
+  g.beginPath(); for (let i = 0; i < n; i++) { const x = pts[i][0] - N[i][0] * N[i][2] * .5, y = pts[i][1] - N[i][1] * N[i][2] * .5; i ? g.lineTo(x, y) : g.moveTo(x, y); } g.lineWidth = 6; g.strokeStyle = 'rgba(140,200,160,.18)'; g.stroke();
+  g.restore(); tsh(g, d, null, 6); }
 function oroHead(g, x, y, ang, side, jaw, eye, glowA, T, ph, hs = 1) { g.save(); g.translate(x, y); g.scale(side * hs, hs); g.rotate(side > 0 ? ang : -ang);
   const fl = Math.sin(T * 9 + ph * 3) > .7 && jaw > .25 ? 1 : 0;
-  if (fl) { line(g, [200, 26, 270, 30], 5, '#d83a4a', 'round', true); line(g, [270, 30, 292, 18], 4, '#d83a4a', 'round', true); line(g, [270, 30, 292, 42], 4, '#d83a4a', 'round', true); }
-  g.save(); g.translate(0, 18); g.rotate(jaw * .5); sh(g, 'M-20 0 L220 -4 Q226 24 170 40 L-10 44 Z', lg(g, 0, 0, 0, 44, [[0, ORO.belly], [1, '#6a2018']]), 4.5);
-  if (jaw > .1) for (let i = 0; i < 6; i++) sh(g, `M${40 + i * 30} -2 l10 0 l-5 -16 Z`, '#f6f0e0', 1.6); g.restore();
-  if (jaw > .1) { sh(g, `M0 16 L210 10 L${200} ${18 + jaw * 60} L0 ${30 + jaw * 40} Z`, '#3a0c10'); }
-  sh(g, 'M-40 -40 C0 -96 120 -92 200 -54 C238 -36 258 -12 252 10 L130 14 L-30 30 Z', lg(g, 0, -96, 0, 30, [[0, ORO.scL], [.6, ORO.sc], [1, '#121c18']]), 5);
-  if (jaw > .1) for (let i = 0; i < 6; i++) sh(g, `M${40 + i * 32} 12 l12 0 l-6 ${18 + (i % 2) * 6} Z`, '#f6f0e0', 1.6);
-  [[20, -78], [52, -88], [86, -88]].forEach(([sx, sy], i) => sh(g, `M${sx - 12} ${sy + 8} L${sx + 4} ${sy - 30 - i * 4} L${sx + 16} ${sy + 6} Z`, ORO.scL, 3));
-  for (let i = 0; i < 5; i++) { g.beginPath(); g.arc(20 + i * 34, -30 - (i % 2) * 14, 14, Math.PI * .1, Math.PI * .9); g.lineWidth = 2; g.strokeStyle = 'rgba(150,210,170,.25)'; g.stroke(); }
-  ell(g, 236, -14, 7, 4, '#0a0606', 0, -.3);
-  line(g, [70, -64, 150, -56], 6, '#121c18', 'round', true);
-  if (eye > .1) { if (glowA) glow(g, 120, -44, 170, 'rgba(255,60,40,1)', glowA); sh(g, `M96 -44 Q120 ${-44 - 16 * eye} 146 -44 Q120 ${-44 + 12 * eye} 96 -44 Z`, rg(g, 120, -44, 2, 24, [[0, '#ffe08a'], [.4, ORO.eye], [1, '#7a0a0a']]), 3); ell(g, 122, -44, 3, 9 * eye, '#1a0404'); }
-  else line(g, [96, -42, 120, -36, 146, -42], 4, INK, 'round', true);
+  // crest of bone spines behind the skull
+  [[-30, -40, -110, -170], [0, -62, -60, -200], [36, -74, -6, -214], [74, -78, 52, -190]].forEach(([bx, by, tx, ty], i) => tsh(g, `M${bx - 18} ${by + 10} Q${(bx + tx) / 2 - 10} ${(by + ty) / 2} ${tx} ${ty} Q${(bx + tx) / 2 + 14} ${(by + ty) / 2 + 6} ${bx + 18} ${by + 4} Z`, ORO.spine, 4.4));
+  if (fl) { tln(g, [230, 40, 300, 46], 7, '#d83a4a'); tln(g, [300, 46, 326, 30], 5, '#d83a4a'); tln(g, [300, 46, 326, 60], 5, '#d83a4a'); }
+  // lower jaw (hinged), belly-coloured plates underneath, teeth when open
+  g.save(); g.translate(0, 22); g.rotate(jaw * .55); const lj = 'M-30 0 L250 0 Q258 30 200 50 L-10 56 Q-36 30 -30 0 Z'; tsh(g, lj, lg(g, 0, 0, 0, 56, [[0, ORO.sc], [.5, ORO.belly], [1, '#8a2a1a']]), 5);
+  for (let i = 0; i < 6; i++) tln(g, [10 + i * 36, 34, 22 + i * 36, 52], 2.4, 'rgba(90,20,10,.5)'); if (jaw > .1) for (let i = 0; i < 7; i++) tsh(g, `M${30 + i * 30} 0 l12 0 l-6 ${-18 - (i % 2) * 8} Z`, '#fbf6e8', 2.4); g.restore();
+  if (jaw > .1) tsh(g, `M-20 18 L232 14 L${226} ${26 + jaw * 80} L-20 ${36 + jaw * 50} Z`, '#3a0a0e', 0);
+  // upper skull: long snout, brow ridge, scales, nostril
+  const sk = 'M-50 -36 C-20 -100 120 -104 214 -62 C258 -42 286 -16 280 14 Q272 26 250 26 L-40 34 Q-66 0 -50 -36 Z';
+  tsh(g, sk, lg(g, 0, -104, 0, 34, [[0, ORO.scL], [.55, ORO.sc], [1, ORO.scD]]), 6); g.save(); g.clip(path(sk));
+  for (let r = 0; r < 3; r++) for (let i = 0; i < 9; i++) { g.beginPath(); g.arc(-20 + i * 32 + (r % 2) * 16, -70 + r * 28, 15, 0, Math.PI); g.lineWidth = 3; g.strokeStyle = 'rgba(10,24,16,.35)'; g.stroke(); }
+  g.fillStyle = 'rgba(255,255,255,.12)'; g.beginPath(); g.ellipse(120, -80, 120, 16, -.1, 0, 7); g.fill(); g.restore(); tsh(g, sk, null, 6);
+  if (jaw > .1) for (let i = 0; i < 7; i++) tsh(g, `M${36 + i * 32} 24 l13 0 l-6 ${20 + (i % 2) * 8} Z`, '#fbf6e8', 2.4);
+  tell(g, 258, -8, 9, 5, '#140a08', 0, -.3);
+  tsh(g, 'M70 -64 Q120 -96 176 -66 L172 -56 Q120 -80 74 -54 Z', ORO.scD, 4);
+  if (eye > .1) { if (glowA) glow(g, 128, -46, 190, 'rgba(255,70,30,1)', glowA); tsh(g, `M98 -46 Q128 ${-46 - 20 * eye} 158 -46 Q128 ${-46 + 14 * eye} 98 -46 Z`, rg(g, 128, -46, 2, 28, [[0, '#ffe890'], [.45, ORO.eye], [1, '#8a0a0a']]), 4.4); tell(g, 130, -46, 3.4, 11 * eye, '#1a0404', 0); tell(g, 138, -52, 3, 3, 'rgba(255,255,255,.8)', 0); }
+  else tln(g, [98, -44, 128, -38, 158, -44], 5);
   g.restore(); }
 function orochiDraw(g, a, lt, T) { const s = a.s || 1, mode = a.mode || 'idle', sl = clamp(a.sleep || 0), rise = clamp(a.rise ?? 1), eye = a.eyes ?? 1, sil = !!a.sil, jaw = a.jaw ?? (mode === 'roar' ? .8 : .15);
   g.save(); g.translate(a.x, a.y); g.scale(s, s);
@@ -193,8 +216,8 @@ function orochiDraw(g, a, lt, T) { const s = a.s || 1, mode = a.mode || 'idle', 
   const bodyD = 'M-1000 40 C-900 -300 -500 -560 0 -580 C500 -560 900 -300 1000 40 Z';
   const bodyFill = sil ? '#05060c' : lg(g, 0, -580, 0, 40, [[0, ORO.scL], [.4, ORO.sc], [.85, '#141e1a'], [1, ORO.belly]]);
   // tails behind the body
-  if (!sil && a.tails !== false) [-1, 1].forEach(sd => { for (let i = 0; i < 2; i++) { const p = bez([sd * 700, -120 - i * 60], [sd * 1000, -260 - i * 80], [sd * 1150, 20], [sd * (1250 + i * 80), -80 + i * 30], 18); tube(g, p, 170, 40, ORO.sc, ORO.belly, 5); } });
-  sh(g, bodyD, bodyFill, sil ? 0 : 6);
+  if (!sil && a.tails !== false) [-1, 1].forEach(sd => { for (let i = 0; i < 2; i++) { const p = bez([sd * 700, -120 - i * 60], [sd * 1000, -260 - i * 80], [sd * 1150, 20], [sd * (1250 + i * 80), -80 + i * 30], 18); serpentNeck(g, p, 170, 46, false); } });
+  if (sil) sh(g, bodyD, bodyFill, 0); else tsh(g, bodyD, bodyFill, 7);
   if (!sil) { g.save(); g.clip(path(bodyD)); for (let y = -560; y < 40; y += 46) for (let x = -1000 + ((y / 46 | 0) % 2) * 40; x < 1000; x += 80) { g.beginPath(); g.arc(x, y, 34, 0, Math.PI); g.lineWidth = 2.4; g.strokeStyle = 'rgba(140,200,160,.14)'; g.stroke(); }
     const r = rng(12); for (let i = 0; i < 14; i++) ell(g, -800 + r() * 1600, -300 - r() * 200, 60 + r() * 90, 22 + r() * 20, 'rgba(70,110,60,.55)'); g.restore();
     // cypress and cedar growing on its back, moss hanging
@@ -208,14 +231,16 @@ function orochiDraw(g, a, lt, T) { const s = a.s || 1, mode = a.mode || 'idle', 
     let hx = q * 900 + sway, hy = -1060 + Math.abs(q) * 220 + bob, ang = .18;
     if (mode === 'rise') { const k = clamp(rise * 1.6 - Math.abs(q) * .5 - (i % 2) * .1); hx = lerp(bx, hx, eo(k)); hy = lerp(by + 200, hy, eo(k)); }
     if (a.targets) { const tg = a.targets[i], dk = mode === 'drink' || mode === 'sleep' ? 1 : 0; if (tg && dk) { const gulp = Math.sin(T * 5 + ph) * 8 * (1 - sl);
-      const dx = tg[0] - side * 90, dy = tg[1] - 120 + gulp, sx2 = tg[0] + side * 150, sy2 = tg[1] - 20; hx = lerp(dx, sx2, sl); hy = lerp(dy, sy2, sl); ang = lerp(1.15, .12, sl); } }
+      const dx = tg[0] - side * 90, dy = tg[1] - 120 + gulp, sx2 = tg[0] + side * 150, sy2 = tg[1] - 20; hx = lerp(dx, sx2, sl); hy = lerp(dy, sy2, sl); ang = lerp(1.25, .12, sl); } }
     P.push({ i, bx, by, hx, hy, ang, side, ph }); }
   const draw = ord.filter(i => i < n).map(i => P[i]);
   if (a.fence) fence(g, { x: 0, y: a.fenceY ?? 0, gates: a.targets ? a.targets.map(p => p[0]) : null, part: 'back' }, T);
-  draw.forEach(p => { const pts = bez([p.bx, p.by], [p.bx, p.by - 260], [p.hx - p.side * 260, p.hy + 220 + (a.targets && mode !== 'idle' ? -340 : 0)], [p.hx, p.hy], 22);
-    tube(g, pts, 170, 110, sil ? '#05060c' : lg(g, p.bx, p.by, p.hx, p.hy, [[0, ORO.sc], [1, '#2a3e36']]), sil ? null : ORO.belly, sil ? 0 : 5, !sil); });
+  const drinkM = a.targets && (mode === 'drink' || mode === 'sleep');
+  draw.forEach(p => { const pts = drinkM ? bez([p.bx, p.by], [p.bx, p.by - 420], [p.hx - p.side * 60, p.hy - 640 + sl * 300], [p.hx, p.hy], 24) : bez([p.bx, p.by], [p.bx, p.by - 260], [p.hx - p.side * 260, p.hy + 220], [p.hx, p.hy], 22);
+    serpentNeck(g, pts, drinkM ? 130 : 180, drinkM ? 96 : 120, sil); });
+  if (!sil && a.trees !== false) for (let i = -7; i <= 7; i++) { const x = i * 118 + ((i * 37) % 30), y = top(x) + 20, h = 120 + ((i * 53) % 70); if (Math.abs(x) < 520 && !a.treesFront) continue; sh(g, `M${x - 30} ${y} L${x} ${y - h} L${x + 30} ${y} Z`, '#1e3a2a', 3); sh(g, `M${x - 22} ${y - h * .4} L${x} ${y - h * 1.05} L${x + 22} ${y - h * .4} Z`, '#2a4e36', 2.4); taper(g, x, y + 10, x, y - 20, 10, 8, '#3a2a1e'); }
   if (a.targets && a.vats !== false) a.targets.forEach(tg => vat(g, tg[0], tg[1], .9, 'back', T));
-  draw.forEach(p => { if (sil) { g.save(); oroHead(g, p.hx, p.hy, p.ang, p.side, 0, 0, 0, T, p.ph, 1); g.restore(); const ex = p.hx + p.side * 120 * Math.cos(p.ang), ey = p.hy - 44; glow(g, ex, ey, 120, 'rgba(255,40,30,1)', .9 * eye); ell(g, ex, ey, 14, 6, '#ff5a3a'); }
+  draw.forEach(p => { if (sil) { g.save(); g.filter = 'brightness(0.04)'; oroHead(g, p.hx, p.hy, p.ang, p.side, 0, 0, 0, T, p.ph, a.hs || 1); g.filter = 'none'; g.restore(); const ex = p.hx + p.side * 120 * Math.cos(p.ang), ey = p.hy - 44; glow(g, ex, ey, 120, 'rgba(255,40,30,1)', .9 * eye); ell(g, ex, ey, 14, 6, '#ff5a3a'); }
     else oroHead(g, p.hx, p.hy, p.ang, p.side, lerp(jaw, 0, sl) + (mode === 'roar' ? Math.max(0, Math.sin(T * 3 + p.ph)) * .3 : 0), (1 - sl) * eye, a.glow ?? .35, T, p.ph, a.hs || 1); });
   if (a.targets && a.vats !== false) a.targets.forEach(tg => vat(g, tg[0], tg[1], .9, 'front', T));
   if (sl > .6) for (let i = 0; i < n; i += 2) { const p = P[i], q = ((T * .5 + i * .3) % 1); g.save(); g.globalAlpha = (1 - q) * (sl - .6) * 2.5; txt(g, 'z', p.hx + p.side * 60 + q * 40, p.hy - 120 - q * 120, 60 + q * 30, '#f6f0e0', '#141018'); g.restore(); }
@@ -253,7 +278,7 @@ function slash(g, a, lt) { const q = (lt - a.t0) / (a.d || .35); if (q < 0 || q 
   sh(g, `M-500 0 Q0 ${-160 - q * 40} 500 0 Q0 ${-110 - q * 40} -500 0 Z`, '#fffaf0'); glow(g, 0, -60, 520, 'rgba(255,250,230,1)', (1 - q) * .8); g.restore();
   const r = rng(a.seed || 3); for (let i = 0; i < 26; i++) { const an = -Math.PI * r(), sp = 200 + r() * 700, x = a.x + Math.cos(an) * sp * eo(q), y = a.y + Math.sin(an) * sp * .6 * eo(q) + q * q * 300; ell(g, x, y, 10 + r() * 14, 8 + r() * 10, `rgba(${170 + r() * 50 | 0},20,24,${(1 - q) * .9})`); } }
 function tailCut(g, a, lt, T) { g.save(); g.translate(a.x, a.y); g.scale(a.s || 1, a.s || 1); const op = clamp(a.open || 0);
-  const pts = bez([-900, 120], [-400, -60], [300, 160], [900, -40], 24); tube(g, pts, 300, 220, ORO.sc, ORO.belly, 6);
+  const pts = bez([-1000, 360], [-500, -200], [300, 260], [1000, -260], 26); serpentNeck(g, pts, 380, 260, false);
   if (op > 0) { glow(g, 0, 20, 700 * op, 'rgba(255,220,140,1)', op); sh(g, `M-60 ${20 - 90 * op} Q0 ${20 - 120 * op} 60 ${20 - 90 * op} L60 ${20 + 90 * op} Q0 ${20 + 120 * op} -60 ${20 + 90 * op} Z`, '#2a0a0a', 4);
     g.save(); g.translate(0, 20); g.rotate(-1.3); g.globalAlpha = clamp(op * 1.5); HOLD.kusanagi(g, [0, 120 - op * 80], { holdRot: 0 }, T); g.restore(); }
   if (a.spark != null) { const q = (lt - a.spark) / .4; if (q > 0 && q < 1) { g.save(); g.globalCompositeOperation = 'lighter'; glow(g, -40, -80, 260, 'rgba(255,240,200,1)', 1 - q); for (let i = 0; i < 12; i++) { const an = i / 12 * 6.28; line(g, [-40, -80, -40 + Math.cos(an) * 180 * eo(q), -80 + Math.sin(an) * 180 * eo(q)], 5, `rgba(255,240,180,${1 - q})`, 'round', true); } g.restore(); } }

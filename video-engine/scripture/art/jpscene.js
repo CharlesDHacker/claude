@@ -56,7 +56,7 @@ function cordFrame(g) { if (!CORD) { const cv = document.createElement('canvas')
     x.globalCompositeOperation = 'destination-over'; CORD = cv; }
   g.drawImage(CORD, 0, 0); }
 // ---------- the scene ----------
-SC.jp = (g, o, c) => { o = avAll(o, c.lt); const S = JSETS[o.set] || JSETS.shrine, T = c.T;
+SC.jp = (g, o, c) => { o = avAll(o, c.lt); const S = JSETS[o.set] || JSETS.shrine, T = c.T; c.under = () => (o.under || []).forEach(a => { if (a.k != null && a.k !== 1) layerAt(g, c, a.k, () => drawActor(g, a, c, {}, o)); else drawActor(g, a, c, {}, o); });
   S.back(g, o, c, T);
   const acts = o.actors || []; for (const a of acts) { if (a.k != null && a.k !== 1) layerAt(g, c, a.k, () => drawActor(g, a, c, {}, o)); else drawActor(g, a, c, {}, o); }
   if (S.front) S.front(g, o, c, T);
@@ -96,3 +96,104 @@ JSETS.shrine = {
     if (o.tod === 'night') embers(g, T, 20, 9); },
   haze(g, o, T) { g.fillStyle = lg(g, 0, 900, 0, 1500, [[0, 'rgba(255,190,170,0)'], [.5, 'rgba(255,190,170,.10)'], [1, 'rgba(255,190,170,0)']]); g.fillRect(0, 900, 1080, 600); },
 };
+// ===== Takamagahara: the plain of high heaven =====
+function hallF(x, cx, cy, s) { x.save(); x.translate(cx, cy); x.scale(s, s);
+  sh(x, 'M-420 0 L420 0 L400 -30 L-400 -30 Z', '#a87a4a', 4); for (let i = -6; i <= 6; i++) { sh(x, `M${i * 60 - 10} -30 L${i * 60 + 10} -30 L${i * 60 + 10} -60 L${i * 60 - 10} -60 Z`, '#8a5a32', 2); }
+  sh(x, 'M-340 -60 L340 -60 L340 -300 L-340 -300 Z', lg(x, 0, -300, 0, -60, [[0, '#f6e2b8'], [1, '#d8b888']]), 4); for (let k = -300; k <= 300; k += 60) line(x, [k, -300, k, -60], 8, '#b08458', 'butt', true);
+  sh(x, 'M-60 -60 L60 -60 L60 -220 L-60 -220 Z', '#3a2a1e', 3); glow(x, 0, -140, 180, 'rgba(255,220,150,1)', .5);
+  sh(x, 'M-430 -280 L0 -520 L430 -280 Q0 -300 -430 -280 Z', lg(x, 0, -520, 0, -280, [[0, '#f0c470'], [1, '#b0803a']]), 5); for (let i = 0; i < 18; i++) line(x, [-400 + i * 47, -288, -30 + i * 4, -500], 2, 'rgba(110,70,30,.35)', 'round', true);
+  line(x, [-90, -560, 90, -470], 16, '#8a5a2a', 'round'); line(x, [90, -560, -90, -470], 16, '#8a5a2a', 'round');
+  for (let i = -3; i <= 3; i++) { sh(x, `M${i * 56 - 18} -528 L${i * 56 + 18} -528 L${i * 56 + 18} -506 L${i * 56 - 18} -506 Z`, '#e8b84a', 3); ell(x, i * 56, -517, 5, 5, '#c8302a'); }
+  [-1, 1].forEach(sd => { line(x, [sd * 360, -60, sd * 360, -360], 14, '#c8302a', 'butt', true); }); x.restore(); }
+JSETS.takama = {
+  back(g, o, c, T) { layerAt(g, c, 0, () => blit(g, cacheLayer('tk_sky', x => { x.fillStyle = lg(x, 0, -700, 0, 1600, [[0, '#f4d89a'], [.5, '#ffe4b0'], [1, '#fff6e0']]); x.fillRect(-700, -700, 2480, 3400); glow(x, 760, 260, 900, 'rgba(255,250,220,1)', .6); ell(x, 760, 260, 120, 120, '#fffaf0'); })));
+    layerAt(g, c, 0, () => rays(g, 760 + (c.cam[0] - 540), 260 + (c.cam[1] - 960), 2000, 20, 'rgba(255,240,200,.55)', .35, T));
+    layerAt(g, c, .15, () => blit(g, cacheLayer('tk_far', x => { for (let i = 0; i < 9; i++) cloudF(x, -400 + i * 300, 980 + (i % 3) * 60, 1.3, '#fff2d8', 'rgba(255,200,130,.6)'); ridge(x, 1060, 120, 'rgba(255,236,200,.9)', 3); }, { blur: 2 })));
+    layerAt(g, c, .4, () => blit(g, cacheLayer('tk_mid', x => { hallF(x, 380, 1260, .9); for (let i = 0; i < 6; i++) cloudF(x, -300 + i * 380, 1290 + (i % 2) * 40, 1.6, '#fff8ea', 'rgba(255,190,110,.6)');
+      [[900, 1220], [-80, 1240]].forEach(([px, py]) => { line(x, [px, py, px, py - 300], 10, '#c8302a', 'butt', true); line(x, [px - 40, py - 290, px + 40, py - 290], 12, '#1e1418', 'butt', true); }); }, { blur: .6 })));
+    layerAt(g, c, .55, () => { for (let i = 0; i < 4; i++) { const x = ((i * 380 + T * 22) % 1800) - 400, y = 620 + i * 90 + Math.sin(T + i) * 10, f = Math.sin(T * 5 + i) * 18; line(g, [x - 50, y - f, x - 18, y - 6, x, y], 6, '#fbf8f2', 'round', true); line(g, [x, y, x + 18, y - 6, x + 50, y - f], 6, '#fbf8f2', 'round', true); ell(g, x + 6, y - 2, 14, 6, '#fbf8f2'); ell(g, x + 20, y - 4, 4, 3, '#c8302a'); } });
+    layerAt(g, c, 1, () => blit(g, cacheLayer('tk_floor', x => { x.fillStyle = lg(x, 0, 1880, 0, 2800, [[0, '#ffe8b8'], [1, '#e8b870']]); x.fillRect(-700, 1930, 2480, 900);
+      for (let r = 0; r < 4; r++) for (let i = 0; i < 9; i++) cloudF(x, -560 + i * 300 + (r % 2) * 150, 1880 + r * 150, 2.2 + r * .5, r % 2 ? '#fff0d0' : '#ffe6b8', 'rgba(230,150,70,.75)'); }, { y0: 1300, h: 1600 }))); },
+  front(g, o, c, T) { layerAt(g, c, 1.25, () => blit(g, cacheLayer('tk_fg', x => { for (let i = 0; i < 6; i++) cloudF(x, -500 + i * 460, 2300, 3, 'rgba(255,248,236,.9)'); }, { blur: 8, y0: 1900, h: 900 }))); },
+  haze(g) { g.fillStyle = 'rgba(255,240,210,.12)'; g.fillRect(0, 0, 1080, 1920); } };
+// ===== Izumo: the Hi river valley (tod: day | dusk; red: 0..1 river of blood) =====
+JSETS.izumo = {
+  back(g, o, c, T) { const dusk = o.tod === 'dusk', red = clamp(o.red || 0), key = dusk ? 'd' : 'n';
+    layerAt(g, c, 0, () => blit(g, cacheLayer('iz_sky' + key, x => { x.fillStyle = lg(x, 0, -700, 0, 1500, dusk ? [[0, '#2a2a5a'], [.5, '#c8607a'], [.8, '#f89a6a'], [1, '#ffd49a']] : [[0, '#6aa0d8'], [.6, '#bcd8ec'], [1, '#f4f0e0']]); x.fillRect(-700, -700, 2480, 3400);
+      if (dusk) { starsF(x, 80, 5, 400, .6); glow(x, 800, 1050, 700, 'rgba(255,200,140,1)', .5); ell(x, 800, 1050, 90, 90, '#fff2d0'); } else { glow(x, 820, 160, 600, 'rgba(255,255,240,1)', .5); ell(x, 820, 160, 70, 70, '#fffef6'); }
+      for (let i = 0; i < 6; i++) cloudF(x, -400 + i * 420, 360 + (i % 3) * 120, 1 + (i % 2) * .4, dusk ? 'rgba(220,130,150,.6)' : '#ffffff', dusk ? 'rgba(255,210,170,.5)' : 'rgba(200,220,240,.8)'); })));
+    layerAt(g, c, .1, () => blit(g, cacheLayer('iz_far' + key, x => { ridge(x, 1150, 380, dusk ? '#7a6a9a' : '#9ab4cc', 2, { sharp: true, snow: dusk ? '#f0e0ea' : '#f4f8fc', peaks: true }); ridge(x, 1220, 240, dusk ? '#5a4a7a' : '#7a98b4', 4, { sharp: true }); }, { blur: 2 })));
+    layerAt(g, c, .3, () => blit(g, cacheLayer('iz_mid' + key, x => { ridge(x, 1300, 200, dusk ? '#3e3a5a' : '#5a8070', 6); forestBand(x, 1290, 260, 130, dusk ? '#2a2a40' : '#3a6450', 7);
+      x.save(); x.globalAlpha = .5; for (let i = 0; i < 4; i++) ell(x, -200 + i * 520, 1280 + (i % 2) * 30, 420, 30, dusk ? 'rgba(255,190,190,.6)' : 'rgba(255,255,255,.8)'); x.restore(); }, { blur: 1 })));
+    if (c.under) c.under();
+    // the river: narrow far away, wide in front; colour shifts to red
+    layerAt(g, c, .65, () => { const rv = 'M520 1320 C570 1360 480 1430 530 1500 C620 1620 360 1720 300 1880 C250 2020 160 2300 120 2700 L1080 2700 C960 2300 880 2020 880 1880 C880 1720 720 1640 690 1520 C650 1420 660 1360 600 1320 Z';
+      blit(g, cacheLayer('iz_banks' + key, x => { x.fillStyle = lg(x, 0, 1300, 0, 2600, dusk ? [[0, '#4a4a46'], [1, '#2a2a28']] : [[0, '#6a9a50'], [1, '#3e6a32']]); x.fillRect(-700, 1300, 2480, 1400);
+        grassField(x, 1320, 1900, 2600, dusk ? ['#3a4a36', '#4a5a40', '#2a3a2a'] : ['#4a8a3a', '#5a9a46', '#3a7a2e', '#6aaa50'], 5); flowersF(x, 1400, 1900, 380, ['#fff4f0', '#ffd870', '#f8a8c0', '#c8b4f0'], 6);
+        pine(x, -60, 1700, 1.3); pine(x, 1120, 1640, 1.2); cedar(x, 900, 1420, .5, dusk ? '#2a3a2e' : '#2a5a3e'); cedar(x, 120, 1440, .45, dusk ? '#2a3a2e' : '#2a5a3e'); [[180, 1880, 1], [930, 1900, .9], [760, 2050, 1.2]].forEach(([px, py, s]) => { ell(x, px, py, 90 * s, 40 * s, '#8a8478', 3, 0, 'rgba(40,30,30,.6)'); ell(x, px - 20 * s, py - 14 * s, 50 * s, 14 * s, 'rgba(255,255,255,.25)'); }); }, { y0: 1200, h: 1600 }));
+      const wc = [mix(dusk ? '#6a6aa0' : '#8ab8dc', '#b8141a', red), mix(dusk ? '#2a2a5a' : '#3a78a8', '#5a0608', red)];
+      sh(g, rv, lg(g, 0, 1320, 0, 2600, [[0, wc[0]], [1, wc[1]]]), 4, 'rgba(30,30,30,.6)'); g.save(); g.clip(path(rv));
+      for (let i = 0; i < 46; i++) { const y = 1330 + ((i * 53 + T * 70) % 1300), w = 18 + (y - 1300) * .09, xx = 580 + Math.sin(i * 1.7) * (y - 1300) * .26; line(g, [xx - w, y, xx + w, y], 2.4 + (y - 1300) * .005, red > .5 ? 'rgba(255,140,120,.35)' : 'rgba(255,255,255,.45)', 'round', true); }
+      g.restore(); }); },
+  front(g, o, c, T) { layerAt(g, c, 1.3, () => blit(g, cacheLayer('iz_fg' + (o.tod === 'dusk' ? 'd' : 'n'), x => { grassField(x, 2260, 2420, 300, o.tod === 'dusk' ? ['#2a3a2a', '#3a4a36'] : ['#3a6a2a', '#4a7a36', '#2a5a22'], 13, -700, 1780, 110); }, { blur: 7, y0: 2000, h: 600 })));
+    if (o.tod !== 'dusk') { const r = rng(52); for (let i = 0; i < 6; i++) { const x = (r() * 1080 + T * 30 + Math.sin(T * 2 + i) * 40) % 1080, y = 700 + r() * 600 + Math.sin(T * 3 + i) * 30, f = Math.sin(T * 14 + i) * .9; g.save(); g.translate(x + c.cam[0] - 540, y + c.cam[1] - 960); ell(g, -8, 0, 9, 6 * Math.abs(f) + 1, '#ffe080', 1.4, 0, 'rgba(90,60,20,.6)'); ell(g, 8, 0, 9, 6 * Math.abs(f) + 1, '#ffe080', 1.4, 0, 'rgba(90,60,20,.6)'); g.restore(); } } },
+  haze(g, o) { g.fillStyle = lg(g, 0, 800, 0, 1300, [[0, 'rgba(255,255,255,0)'], [.6, o.tod === 'dusk' ? 'rgba(255,180,170,.12)' : 'rgba(255,255,255,.14)'], [1, 'rgba(255,255,255,0)']]); g.fillRect(0, 800, 1080, 500); } };
+// ===== the old couple's house at dusk =====
+JSETS.house = {
+  back(g, o, c, T) { layerAt(g, c, 0, () => blit(g, cacheLayer('hs_sky', x => { x.fillStyle = lg(x, 0, -700, 0, 1500, [[0, '#2a2a58'], [.45, '#8a4a7a'], [.75, '#f08a6a'], [1, '#ffd09a']]); x.fillRect(-700, -700, 2480, 3400); starsF(x, 90, 8, 500, .7); moonF(x, 260, 260, 40);
+      for (let i = 0; i < 5; i++) cloudF(x, -300 + i * 460, 760 + (i % 2) * 80, 1.1, 'rgba(200,110,140,.5)', 'rgba(255,200,170,.4)'); })));
+    layerAt(g, c, .15, () => blit(g, cacheLayer('hs_far', x => { ridge(x, 1250, 300, '#6a4a7a', 3, { sharp: true, snow: '#f0d8e4', peaks: true }); ridge(x, 1320, 180, '#4a3a5a', 5); }, { blur: 1.6 })));
+    layerAt(g, c, .45, () => blit(g, cacheLayer('hs_mid', x => { forestBand(x, 1420, 200, 120, '#2a2a3a', 9); x.fillStyle = lg(x, 0, 1420, 0, 1700, [[0, '#5a4a3a'], [1, '#4a3a2e']]); x.fillRect(-700, 1420, 2480, 500);
+      for (let r = 0; r < 4; r++) { const y = 1440 + r * 46; sh(x, `M-700 ${y} L1780 ${y} L1780 ${y + 30} L-700 ${y + 30} Z`, r % 2 ? '#6a8a6a' : '#7a9a6a', 0); for (let k = -700; k < 1780; k += 18) line(x, [k, y + 28, k + 3, y + 8], 2, 'rgba(60,90,40,.7)', 'round', true); line(x, [-700, y + 30, 1780, y + 30], 3, 'rgba(255,200,170,.35)', 'round', true); } }, { blur: .6 })));
+    layerAt(g, c, .8, () => blit(g, cacheLayer('hs_house', x => { hut(x, 720, 1720, 1.15); cedar(x, 1140, 1760, 1.5, '#1e2e22'); pine(x, 40, 1700, 1.25);
+      // persimmon tree with fruit
+      x.save(); x.translate(260, 1720); limb(x, [0, 0, -10, -200, 30, -360], 30, '#4a3022', 4); limb(x, [20, -260, 120, -330], 16, '#4a3022', 3); limb(x, [0, -300, -110, -380], 14, '#4a3022', 3); const r = rng(77); for (let i = 0; i < 16; i++) ell(x, -140 + r() * 300, -460 + r() * 180, 34 + r() * 20, 26 + r() * 14, '#3a5a36', 2.4, 0, 'rgba(20,30,20,.6)'); for (let i = 0; i < 12; i++) ell(x, -130 + r() * 280, -440 + r() * 170, 11, 10, '#f08a2a', 2, 0, 'rgba(90,40,10,.8)'); x.restore(); }, { y0: 900, h: 1200 })));
+    layerAt(g, c, .8, () => { for (let i = 0; i < 3; i++) { const q = (T * .2 + i / 3) % 1; g.save(); g.globalAlpha = (1 - q) * .35; ell(g, 720 + Math.sin(T + i) * 30 + q * 40, 1080 - q * 320, 30 + q * 60, 20 + q * 30, '#d8d0d8'); g.restore(); } glow(g, 720, 1500, 260, 'rgba(255,170,90,1)', .4 + .05 * Math.sin(T * 7)); });
+    layerAt(g, c, 1, () => blit(g, cacheLayer('hs_ground', x => { x.fillStyle = lg(x, 0, 1740, 0, 2700, [[0, '#7a6a52'], [1, '#4a3e30']]); x.fillRect(-700, 1740, 2480, 1000); pebbles(x, 1760, 2600, 200, 21, ['#8a7a64', '#6a5a48', '#9a8a74']);
+      grassField(x, 1740, 1800, 700, ['#4a5a36', '#5a6a40', '#3a4a2a'], 22); for (let k = -700; k < 1780; k += 54) { line(x, [k, 1790, k + 4, 1690], 7, '#6a4a2e', 'round'); } line(x, [-700, 1720, 1780, 1720], 5, '#5a3a22', 'round'); line(x, [-700, 1760, 1780, 1760], 5, '#5a3a22', 'round'); }, { y0: 1600, h: 1200 }))); },
+  front(g, o, c, T) { layerAt(g, c, 1.3, () => blit(g, cacheLayer('hs_fg', x => grassField(x, 2280, 2420, 260, ['#2a3a22', '#3a4a2a'], 31, -700, 1780, 100), { blur: 7, y0: 2000, h: 600 })));
+    const r = rng(9); for (let i = 0; i < 10; i++) { const x = ((r() * 1080 + Math.sin(T * .7 + i) * 60) % 1080), y = 900 + r() * 700 + Math.sin(T * .9 + i * 2) * 40, a = .5 + .5 * Math.sin(T * 3 + i * 1.7); g.save(); g.globalCompositeOperation = 'lighter'; glow(g, x + c.cam[0] - 540, y + c.cam[1] - 960, 24, 'rgba(220,255,120,1)', a * .8); g.restore(); } },
+  haze(g) { g.fillStyle = lg(g, 0, 900, 0, 1500, [[0, 'rgba(255,170,150,0)'], [.5, 'rgba(255,170,150,.1)'], [1, 'rgba(255,170,150,0)']]); g.fillRect(0, 900, 1080, 600); } };
+// ===== the trap at night: fence of eight gates, saké vats, torches; Orochi comes over the hills =====
+JSETS.trap = {
+  back(g, o, c, T) { const storm = !!o.storm;
+    layerAt(g, c, 0, () => blit(g, cacheLayer('tr_sky' + (storm ? 's' : ''), x => { x.fillStyle = lg(x, 0, -700, 0, 1500, storm ? [[0, '#0a0a14'], [.6, '#2a2236'], [1, '#5a2a2a']] : [[0, '#05081a'], [.6, '#141c40'], [1, '#2a2a50']]); x.fillRect(-700, -700, 2480, 3400);
+      if (!storm) { starsF(x, 260, 13, 900); moonF(x, 820, 200, 50); } else for (let i = 0; i < 8; i++) cloudF(x, -400 + i * 320, 200 + (i % 3) * 140, 1.6, '#2a2232', 'rgba(140,110,160,.5)'); })));
+    if (o.storm) layerAt(g, c, 0, () => { const q = (T * .7) % 1; if (q < .06) { g.save(); g.globalAlpha = (.06 - q) * 8; g.fillStyle = '#e8e8ff'; g.fillRect(-700, -700, 2480, 3400); g.restore(); } });
+    layerAt(g, c, .12, () => blit(g, cacheLayer('tr_far' + (storm ? 's' : ''), x => { ridge(x, 1200, 340, storm ? '#1e1a28' : '#1a2040', 3, { sharp: true, peaks: true, snow: storm ? '#4a4258' : '#5a6488' }); ridge(x, 1290, 200, storm ? '#14121c' : '#11162c', 5); }, { blur: 1.4 })));
+    if (c.under) c.under();
+    layerAt(g, c, .35, () => blit(g, cacheLayer('tr_mid' + (storm ? 's' : ''), x => { forestBand(x, 1370, 260, 140, storm ? '#0e0c12' : '#0c1222', 9); x.save(); x.globalAlpha = .45; for (let i = 0; i < 4; i++) ell(x, -200 + i * 520, 1360, 420, 26, 'rgba(160,170,220,.5)'); x.restore(); }, { blur: .8 }))); },
+  front(g, o, c, T) { layerAt(g, c, 1.3, () => blit(g, cacheLayer('tr_fg', x => grassField(x, 2280, 2420, 240, ['#141a14', '#1e241c'], 41, -700, 1780, 110), { blur: 7, y0: 2000, h: 600 }))); if (o.storm) ACT_RAIN(g, c, T); else embers(g, T, 18, 13); },
+  haze(g, o) { g.fillStyle = lg(g, 0, 1100, 0, 1600, [[0, 'rgba(120,130,200,0)'], [.5, o.storm ? 'rgba(200,80,60,.12)' : 'rgba(120,130,200,.12)'], [1, 'rgba(120,130,200,0)']]); g.fillRect(0, 1100, 1080, 500); } };
+function ACT_RAIN(g, c, T) { const r = rng(4); g.save(); g.globalAlpha = .45; for (let i = 0; i < 120; i++) { const x = ((r() * 1500 + T * 260) % 1500) - 210 + c.cam[0] - 540, y = ((r() * 2200 + T * 1700) % 2200) - 140 + c.cam[1] - 960; line(g, [x, y, x - 16, y + 70], 2.4, 'rgba(210,220,255,.8)', 'round', true); } g.restore(); }
+// ===== ground for the trap: packed earth with torch light =====
+JSETS.trap.ground = true;
+const _trapBack = JSETS.trap.back; JSETS.trap.back = function (g, o, c, T) { _trapBack(g, o, c, T);
+  layerAt(g, c, 1, () => { blit(g, cacheLayer('tr_ground', x => { x.fillStyle = lg(x, 0, 1500, 0, 2700, [[0, '#2e2a2a'], [1, '#141212']]); x.fillRect(-700, 1500, 2480, 1300); pebbles(x, 1520, 2600, 220, 61, ['#3a3636', '#4a4444', '#2a2626']); grassField(x, 1500, 1560, 500, ['#1e2a1e', '#2a3424'], 62); }, { y0: 1400, h: 1400 }));
+    (o.torches || [[-60, 1560], [1140, 1560]]).forEach(([x, y]) => { line(g, [x, y + 240, x, y], 12, '#3a2418', 'round', true); sh(g, `M${x - 18} ${y} L${x + 18} ${y} L${x + 12} ${y - 20} L${x - 12} ${y - 20} Z`, '#2a1a12', 3); fire(g, x, y - 20, .7, T); glow(g, x, y - 40, 520, 'rgba(255,160,70,1)', .55 + .06 * Math.sin(T * 9)); }); }); };
+// ===== the treasure hall: three sacred treasures on an altar, candlelight =====
+JSETS.altar = {
+  back(g, o, c, T) { layerAt(g, c, .2, () => blit(g, cacheLayer('al_back', x => { x.fillStyle = lg(x, 0, -700, 0, 2600, [[0, '#120a0c'], [.6, '#2a1614'], [1, '#3a2018']]); x.fillRect(-700, -700, 2480, 3400);
+      for (let k = -600; k < 1800; k += 180) { sh(x, `M${k} 200 L${k + 40} 200 L${k + 40} 1900 L${k} 1900 Z`, '#3a1e16', 3); line(x, [k + 8, 220, k + 8, 1880], 3, 'rgba(255,190,120,.12)', 'round', true); }
+      sh(x, 'M-700 360 L1780 360 L1780 420 L-700 420 Z', '#5a2a1e', 4); for (let k = -680; k < 1780; k += 120) sakura(x, k, 390, 12, 'rgba(232,184,74,.6)');
+      x.save(); x.translate(540, 520); for (let i = 0; i < 8; i++) { x.rotate(Math.PI / 4); sh(x, 'M0 -10 L18 -150 L0 -170 L-18 -150 Z', 'rgba(232,184,74,.25)', 0); } ell(x, 0, 0, 60, 60, 'rgba(232,184,74,.3)'); x.restore(); }, { blur: 1.2 })));
+    layerAt(g, c, 1, () => { blit(g, cacheLayer('al_floor', x => { x.fillStyle = lg(x, 0, 1600, 0, 2700, [[0, '#4a2a1e'], [1, '#1e100c']]); x.fillRect(-700, 1600, 2480, 1100); for (let k = -700; k < 1780; k += 90) line(x, [k, 1600, k * 1.6 - 400, 2700], 3, 'rgba(0,0,0,.3)', 'round', true); }, { y0: 1500, h: 1300 }));
+      [[160, 1500], [920, 1500]].forEach(([x, y]) => { taper(g, x, y + 300, x, y, 26, 20, '#f6efe2'); fire(g, x, y - 6, .35, T); glow(g, x, y - 20, 380, 'rgba(255,190,110,1)', .55); }); }); },
+  haze(g) { g.fillStyle = 'rgba(255,170,90,.06)'; g.fillRect(0, 0, 1080, 1920); } };
+// ===== a dark storm void for close-ups (tail, sword) =====
+JSETS.storm = {
+  back(g, o, c, T) { layerAt(g, c, 0, () => blit(g, cacheLayer('st_sky', x => { x.fillStyle = rg(x, 540, 900, 50, 1600, [[0, '#3a2a3a'], [.6, '#16101c'], [1, '#08060a']]); x.fillRect(-700, -700, 2480, 3400); for (let i = 0; i < 10; i++) cloudF(x, -500 + i * 300, 100 + (i % 3) * 300, 1.8, '#1e1824', 'rgba(130,100,150,.4)'); })));
+    const q = (T * .55) % 1; if (q < .05) layerAt(g, c, 0, () => { g.save(); g.globalAlpha = (.05 - q) * 10; g.fillStyle = '#eef'; g.fillRect(-700, -700, 2480, 3400); g.restore(); }); },
+  front(g, o, c, T) { if (o.rain !== false) ACT_RAIN(g, c, T); embers(g, T, 14, 33); },
+  haze(g) { g.fillStyle = 'rgba(200,60,40,.05)'; g.fillRect(0, 0, 1080, 1920); } };
+// big single head + neck for close-ups
+Object.assign(JPA, { oroBig: (g, A, c) => { const T = c.T, s = A.s || 1, ph = A.ph || 0; g.save(); g.translate(A.x, A.y); g.scale((A.flip ? -1 : 1) * s, s);
+  const sway = Math.sin(T * 1.2 + ph) * 20, hx = (A.hx ?? 0) + sway, hy = (A.hy ?? -700) + Math.cos(T + ph) * 14;
+  const pts = A.from === 'top' ? bez([A.bx ?? -300, A.by ?? -1700], [A.bx ?? -300, (A.by ?? -1700) + 600], [hx - 260, hy - 520], [hx, hy], 26) : bez([A.bx ?? -500, A.by ?? 400], [A.bx ?? -500, (A.by ?? 400) - 500], [hx - 420, hy + 260], [hx, hy], 26);
+  serpentNeck(g, pts, A.w0 || 300, A.w1 || 210, false);
+  if (A.breath) { for (let i = 0; i < 4; i++) { const q = (T * .7 + i / 4) % 1; g.save(); g.globalAlpha = (1 - q) * .35; ell(g, hx + 300 + q * 160, hy - 10 - q * 40, 30 + q * 70, 20 + q * 40, '#d8d4e0'); g.restore(); } }
+  const gulp = A.gulp ? Math.sin(T * 5 + ph) * 10 : 0; oroHead(g, hx, hy + gulp, A.ang ?? .1, 1, A.jaw ?? (.4 + .3 * Math.max(0, Math.sin(T * 2.4 + ph))), A.eye ?? 1, A.glow ?? .6, T, ph, A.hs || 1.6);
+  if (A.zz) for (let i = 0; i < 3; i++) { const q = ((T * .45 + i / 3 + ph * .1) % 1); g.save(); g.globalAlpha = (1 - q) * .9; g.scale(A.flip ? -1 : 1, 1); txt(g, 'z', (A.flip ? -1 : 1) * (hx + 120) + q * 50, hy - 140 - q * 160, 54 + q * 40, '#f6f0e0', '#141018'); g.restore(); }
+  g.restore(); } });
+// a sake vat drawn in two halves around a drinking head
+Object.assign(JPA, { vatB: (g, A, c) => vat(g, A.x, A.y, A.s || 1, 'back', c.T), vatF: (g, A, c) => vat(g, A.x, A.y, A.s || 1, 'front', c.T) });
