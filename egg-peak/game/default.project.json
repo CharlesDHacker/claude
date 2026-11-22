@@ -1,0 +1,8 @@
+{
+  "name": "EggPeak",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": { "Shared": { "$path": "src/shared" } },
+    "StarterPlayer": { "StarterPlayerScripts": { "Client": { "$path": "src/client" } } }
+  }
+}
