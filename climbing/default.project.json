@@ -1,0 +1,9 @@
+{
+  "name": "EggPeakClimbing",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": { "ClimbShared": { "$path": "src/shared" } },
+    "ServerScriptService": { "ClimbServer": { "$path": "src/server" } },
+    "StarterPlayer": { "StarterPlayerScripts": { "ClimbClient": { "$path": "src/client" } } }
+  }
+}
