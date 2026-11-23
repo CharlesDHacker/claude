@@ -237,6 +237,35 @@ def rooster():  # recorded-style crow (ElevenLabs sound effect), audio/sfx/roost
     return norm(x)
 def waves(d=4.0): t = tt(d); return norm(lp(noise(len(t)), 700) * (.55 + .45 * np.sin(TAU * .3 * t) ** 2) * np.minimum(t / .8, 1) * np.clip((d - t) / .8, 0, 1))
 LIB.update(rooster=(rooster, 1.0), waves=(waves, .35))
+# ---- JP06: bamboo flute phrase, arrow volley, wing beats, galloping hooves ----
+def flute(d=3.2):  # shinobue-style: breathy sine with vibrato and grace-note scoops, miyako-bushi phrase
+    notes = [(74, .0, .5), (75, .5, .3), (79, .8, .7), (81, 1.5, .4), (79, 1.9, .3), (75, 2.2, 1.0)]; t = tt(d); out = np.zeros(len(t))
+    for m, t0, du in notes:
+        i0, i1 = int(t0 * SR), min(len(t), int((t0 + du + .08) * SR)); tl = t[: i1 - i0]; f = 440 * 2 ** ((m - 69) / 12)
+        scoop = np.exp(-tl * 30) * -0.06; vib = .012 * np.sin(TAU * 5.5 * tl) * np.minimum(tl / .25, 1); ph = TAU * np.cumsum(f * (1 + scoop + vib)) / SR
+        env = np.minimum(tl / .04, 1) * np.clip((du + .08 - tl) / .1, 0, 1); tone = np.sin(ph) + .25 * np.sin(2 * ph) + .08 * np.sin(3 * ph)
+        out[i0:i1] += (tone + bp(noise(len(tl)), f * .8, f * 2.2) * .35) * env
+    return norm(out)
+def volley(d=1.6):  # dozens of shafts hissing past, then a patter of hits
+    t = tt(d); out = np.zeros(len(t))
+    for k in range(18):
+        a0 = R.uniform(0, .5); w = whoosh(.35); i0 = int(a0 * SR); out[i0:i0 + len(w)] += w[: len(out) - i0] * R.uniform(.3, .7)
+    for k in range(10):
+        a0 = R.uniform(.7, 1.4); tl = tt(.12); hit = bp(noise(len(tl)), 600, 3000) * np.exp(-tl * 60) + np.sin(TAU * 180 * tl) * np.exp(-tl * 40) * .5; i0 = int(a0 * SR); out[i0:i0 + len(hit)] += hit[: len(out) - i0] * R.uniform(.4, .9)
+    return norm(out)
+def wings(d=1.4):  # big feathered flaps
+    t = tt(d); out = np.zeros(len(t))
+    for k in range(4):
+        i0 = int(k * .33 * SR); tl = tt(.3); fl = lp(noise(len(tl)), 700) * np.sin(np.pi * np.clip(tl / .3, 0, 1)) ** 2; out[i0:i0 + len(fl)] += fl[: len(out) - i0]
+    return norm(out)
+def gallop(d=2.4):  # three-beat hoof pattern on hard ground
+    t = tt(d); out = np.zeros(len(t)); beat = .36
+    for k in range(int(d / beat)):
+        for j, off in enumerate((0, .07, .15)):
+            i0 = int((k * beat + off) * SR); tl = tt(.12); h = (np.sin(TAU * np.cumsum(90 + 120 * np.exp(-tl * 50)) / SR) + lp(noise(len(tl)), 1200) * .6) * np.exp(-tl * 34); out[i0:i0 + len(h)] += h[: len(out) - i0] * (1 - j * .2)
+    return norm(out)
+LIB.update(flute=(flute, .5), volley=(volley, .8), wings=(wings, .55), gallop=(gallop, .6))
+
 LIB.update(sword=LIB["clash"], shimmer=LIB["sparkle"], crunch=LIB["hit"])  # names used by episode 1
 sfx = np.zeros(N)
 for i, s in enumerate(shots):

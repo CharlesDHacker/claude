@@ -6,7 +6,7 @@
 @font-face{font-family:'Garamond';font-style:italic;font-weight:500;src:url('fonts/eb-garamond-latin-500-italic.woff2') format('woff2')}
 html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}
 </style></head><body><canvas id="c" width="1080" height="1920"></canvas>
-<script src="art/lib.js"></script><script src="art/chars.js"></script><script src="art/warriors.js"></script><script src="art/figure.js"></script><script src="art/heroes.js"></script><script src="art/scenes.js"></script><script src="art/stage.js"></script><script src="art/sea.js"></script><script src="art/village.js"></script><script src="art/painter.js"></script><script src="art/babylon.js"></script><script src="art/midian.js"></script><script src="art/brawl.js"></script><script src="art/essay.js"></script><script src="art/people.js"></script><script src="art/top10.js"></script><script src="art/persia.js"></script><script src="art/sets.js"></script><script src="art/creators.js"></script><script src="art/galilee.js"></script><script src="art/japan.js"></script><script src="art/toon.js"></script><script src="art/jpscene.js"></script><script src="art/jp2.js"></script><script src="art/jp3.js"></script><script src="art/jp4.js"></script><script src="art/jp5.js"></script>
+<script src="art/lib.js"></script><script src="art/chars.js"></script><script src="art/warriors.js"></script><script src="art/figure.js"></script><script src="art/heroes.js"></script><script src="art/scenes.js"></script><script src="art/stage.js"></script><script src="art/sea.js"></script><script src="art/village.js"></script><script src="art/painter.js"></script><script src="art/babylon.js"></script><script src="art/midian.js"></script><script src="art/brawl.js"></script><script src="art/essay.js"></script><script src="art/people.js"></script><script src="art/top10.js"></script><script src="art/persia.js"></script><script src="art/sets.js"></script><script src="art/creators.js"></script><script src="art/galilee.js"></script><script src="art/japan.js"></script><script src="art/toon.js"></script><script src="art/jpscene.js"></script><script src="art/jp2.js"></script><script src="art/jp3.js"></script><script src="art/jp4.js"></script><script src="art/jp5.js"></script><script src="art/fx.js"></script><script src="art/jp6.js"></script>
 <script>
 // Compositor: shot -> scene + camera (handheld drift, zoom punches) -> transitions (fade, flash, whip) -> bloom + grade + light leak
 // -> grain/vignette -> word-by-word captions, title card, pop words, name labels.
@@ -115,7 +115,13 @@ window.__render = T => {
     if (sh.tr === 'fade' && lt < .5 && prev) { drawShot(BG, prev, T); G.save(); G.globalAlpha = 1 - eio(lt / .5); G.drawImage(BUF, 0, 0); G.restore(); }
     if (sh.tr === 'zoom' && lt < .35 && prev) { drawShot(BG, prev, T); const k = eio(lt / .35); G.save(); G.globalAlpha = 1 - k; G.translate(W / 2, H / 2); G.scale(1 + k * .6, 1 + k * .6); G.drawImage(BUF, -W / 2, -H / 2); G.restore(); }
   }
-  grade(G, sh, T); post(G, T);
+  // anime impact frames: 3 frames of inverted, crushed black-and-white (the middle one blood red) on a big hit
+  for (const it of (sh.impacts || [])) if (lt >= it && lt < it + .1) { const ph = Math.min(2, Math.floor((lt - it) * 30));
+    BG.setTransform(1, 0, 0, 1, 0, 0); BG.filter = 'none'; BG.globalAlpha = 1; BG.globalCompositeOperation = 'source-over'; BG.drawImage(cv, 0, 0);
+    G.save(); G.setTransform(1, 0, 0, 1, 0, 0); G.filter = ph === 1 ? 'grayscale(1) contrast(8) brightness(1.15)' : 'grayscale(1) contrast(8) invert(1)'; G.drawImage(BUF, 0, 0); G.filter = 'none';
+    if (ph === 1) { G.globalCompositeOperation = 'multiply'; G.fillStyle = '#ff3424'; G.fillRect(0, 0, W, H); G.globalCompositeOperation = 'source-over'; }
+    speedLines(G, W / 2, H / 2, 60, .9, T + ph, ph === 1 ? 'rgba(0,0,0,' : 'rgba(255,255,255,'); G.restore(); }
+  if (!(sh.impacts || []).some(it => lt >= it && lt < it + .1)) { grade(G, sh, T); post(G, T); } else post(G, T);
   if (sh.tr === 'flash' && lt < .45) { G.save(); G.globalAlpha = 1 - eo(lt / .45); G.fillStyle = '#fff8e8'; G.fillRect(0, 0, W, H); G.restore(); }
   for (const ft of (sh.flashes || [])) if (lt >= ft && lt < ft + .3) { G.save(); G.globalAlpha = (1 - (lt - ft) / .3) * .85; G.fillStyle = '#fff8e8'; G.fillRect(0, 0, W, H); G.restore(); }
   if (!EP.loop && T < .25) { G.save(); G.globalAlpha = 1 - T / .25; G.fillStyle = '#000'; G.fillRect(0, 0, W, H); G.restore(); }

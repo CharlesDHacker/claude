@@ -1,0 +1,73 @@
+// Engine upgrades shared by every episode from JP06 on:
+//  - scene lighting on characters: the side away from the light falls into shade, the lit edge gets a coloured rim
+//  - afterimage trails for fast movers (a.trail = number of ghosts)
+//  - spins around the body's centre for flips and tumbles (a.spin, radians)
+//  - arrows stuck in a body (toon o.arrows = count), straw hats (o.kasa), arrow volleys (JPA.volley)
+// Impact frames (shot.impacts) live in player.html.
+
+// ---------- arrows stuck in a figure: shafts angled out of the body, fletching at the end ----------
+function arrowsStuck(g, G, n, seed, kid) {
+  const r = rng(seed), tw = kid ? 80 : 96, top = G.shY + 30, bot = kid ? -40 : -120;
+  for (let i = 0; i < n; i++) {
+    const x = (r() - .5) * tw * 1.7, y = lerp(top, bot, r() * (i % 3 === 0 ? .55 : 1)), an = -2.2 - r() * .9 + (x < 0 ? -.25 : .25), len = 120 + r() * 70;
+    const ex = x + Math.cos(an) * len, ey = y + Math.sin(an) * len;
+    tell(g, x, y, 7, 5, 'rgba(60,10,10,.7)', 0);
+    tln(g, [x, y, ex, ey], 9); tln(g, [x, y, ex, ey], 4.5, '#c8a878');
+    g.save(); g.translate(ex, ey); g.rotate(an);
+    [-1, 1].forEach(sd => tsh(g, `M-6 0 L-34 ${sd * 3} L-40 ${sd * 15} L-14 ${sd * 11} Z`, i % 2 ? '#f4efe2' : '#2a2a30', 2.6));
+    g.restore();
+  }
+}
+// ---------- a big conical straw hat (kasa) worn low ----------
+function kasaT(g, rx, ry, s = 1) { g.save(); g.scale(s, s);
+  tsh(g, `M${-rx * 2.1} ${-ry * .46} Q0 ${-ry * 1.9} ${rx * 2.1} ${-ry * .46} Q0 ${-ry * .3} ${-rx * 2.1} ${-ry * .46} Z`, '#c8a060', 5);
+  for (let i = -4; i <= 4; i++) tln(g, [i * rx * .18, -ry * 1.5, i * rx * .48, -ry * .5], 2, 'rgba(90,60,20,.45)');
+  tln(g, [-rx * 1.7, -ry * .56, rx * 1.7, -ry * .56], 3, 'rgba(90,60,20,.5)'); g.restore(); }
+
+// ---------- lighting: offscreen copy of the figure, shaded across, rim on the lit edge ----------
+const LT1 = document.createElement('canvas'); LT1.width = W; LT1.height = H; const LTG1 = LT1.getContext('2d');
+const LT2 = document.createElement('canvas'); LT2.width = W; LT2.height = H; const LTG2 = LT2.getContext('2d');
+function litDraw(g, A, light, hgt, draw) {
+  const M = g.getTransform(), s = A.s || 1, k = Math.hypot(M.a, M.b) * s, p = M.transformPoint(new DOMPoint(A.x, A.y));
+  const x0 = Math.max(0, Math.floor(p.x - 760 * k)), x1 = Math.min(W, Math.ceil(p.x + 760 * k)), y0 = Math.max(0, Math.floor(p.y - hgt * k)), y1 = Math.min(H, Math.ceil(p.y + 160 * k));
+  if (x1 <= x0 || y1 <= y0) return; const bw = x1 - x0, bh = y1 - y0;
+  LTG1.setTransform(1, 0, 0, 1, 0, 0); LTG1.globalCompositeOperation = 'source-over'; LTG1.globalAlpha = 1; LTG1.filter = 'none'; LTG1.clearRect(x0, y0, bw, bh); LTG1.setTransform(M); draw(LTG1);
+  LTG1.setTransform(1, 0, 0, 1, 0, 0);
+  const dir = light.x ?? -1, sh = light.shade ?? .3;
+  if (sh > 0) { LTG1.globalCompositeOperation = 'source-atop'; LTG1.fillStyle = lg(LTG1, p.x + dir * 260 * k, 0, p.x - dir * 300 * k, 0, [[0, 'rgba(0,0,0,0)'], [.45, 'rgba(0,0,0,0)'], [1, light.shadeCol || `rgba(18,10,40,${sh})`]]); LTG1.fillRect(x0, y0, bw, bh); }
+  // rim: silhouette minus itself shifted away from the light, tinted with the light colour
+  const rim = light.rim ?? .75;
+  if (rim > 0) { const d = Math.max(3, 11 * k);
+    LTG2.setTransform(1, 0, 0, 1, 0, 0); LTG2.globalCompositeOperation = 'source-over'; LTG2.globalAlpha = 1; LTG2.clearRect(x0, y0, bw, bh); LTG2.drawImage(LT1, x0, y0, bw, bh, x0, y0, bw, bh);
+    LTG2.globalCompositeOperation = 'source-in'; LTG2.fillStyle = light.col || 'rgba(180,200,255,1)'; LTG2.fillRect(x0, y0, bw, bh);
+    LTG2.globalCompositeOperation = 'destination-out'; LTG2.drawImage(LT1, x0, y0, bw, bh, x0 - dir * d, y0 + d * (light.y ?? .6), bw, bh); LTG2.globalCompositeOperation = 'source-over'; }
+  g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(LT1, x0, y0, bw, bh, x0, y0, bw, bh);
+  if (rim > 0) { g.globalCompositeOperation = 'lighter'; g.globalAlpha *= rim; g.drawImage(LT2, x0, y0, bw, bh, x0, y0, bw, bh); }
+  g.restore();
+}
+// ---------- wrap the actor dispatch: trails, spins and lighting for characters ----------
+const _drawActorFx = drawActor;
+drawActor = function (g, a, c, P, o) {
+  const ty = a.type; if (ty !== 'toon' && ty !== 'mio' && ty !== 'fox') return _drawActorFx(g, a, c, P, o);
+  const A = avAll(a, c.lt); if (A.alpha != null && A.alpha <= 0) return;
+  const L = ty === 'toon' ? (typeof A.c === 'string' ? TOON[A.c] : A.c) : null, s = A.s || 1, kid = ty === 'mio' || (L && L.kind === 'kid');
+  const hgt = (ty === 'fox' ? 520 : kid ? 760 : 1180) * ((L && L.h) || 1) * (L && L.wingsBig ? 1.3 : 1), piv = (ty === 'fox' ? 160 : kid ? 300 : 480) * s * ((L && L.h) || 1);
+  const one = (gg, cc, aa) => { if (A.stone) gg.filter = 'grayscale(1) sepia(.4) brightness(.82) contrast(1.1)'; if (A.spin) { gg.save(); gg.translate(A.x, A.y - piv); gg.rotate(A.spin); gg.translate(-A.x, -(A.y - piv)); } _drawActorFx(gg, aa || a, cc, P, o); if (A.spin) gg.restore(); };
+  const light = a.light === false ? null : (a.light || (o && o.light) || (o && JSETS[o.set] && JSETS[o.set].light));
+  const lightV = typeof light === 'function' ? light(o) : light;
+  // afterimages first (behind), tinted toward the light colour
+  if (A.trail) { const n = Math.round(A.trail), dt = A.trailDt || .045;
+    for (let k = n; k >= 1; k--) { const c2 = Object.assign({}, c, { lt: c.lt - k * dt, T: c.T - k * dt }), A2 = avAll(a, c2.lt);
+      g.save(); g.globalAlpha *= .3 * (1 - k / (n + 1)); g.filter = 'saturate(.4) brightness(1.5)';
+      if (A2.spin) { g.translate(A2.x, A2.y - piv); g.rotate(A2.spin); g.translate(-A2.x, -(A2.y - piv)); } _drawActorFx(g, a, c2, P, o); g.restore(); } }
+  if (lightV && lightV !== 'none') litDraw(g, A, lightV, hgt, gg => one(gg, c)); else one(g, c);
+};
+
+// ---------- arrow volley: a cloud of arrows arcing in from one side ----------
+JPA.volley = (g, A, c) => { const q0 = (c.lt - (A.t0 || 0)) / (A.d || 1.2); if (q0 < 0 || q0 > 1.3) return; const r = rng(A.seed || 11), n = A.n || 40, dir = A.dir || 1;
+  for (let i = 0; i < n; i++) { const q = q0 - r() * .3; if (q < 0 || q > 1) continue;
+    const sx = A.x0 + (r() - .5) * (A.spread || 500), sy = A.y0 + (r() - .5) * 200, ex = A.x1 + (r() - .5) * (A.spread || 500) * .6, ey = A.y1 + (r() - .5) * 240;
+    const x = lerp(sx, ex, q), y = lerp(sy, ey, q) - Math.sin(q * Math.PI) * (A.arc ?? 380), x2 = lerp(sx, ex, q + .02), y2 = lerp(sy, ey, q + .02) - Math.sin((q + .02) * Math.PI) * (A.arc ?? 380), an = Math.atan2(y2 - y, x2 - x);
+    g.save(); g.translate(x, y); g.rotate(an); g.globalAlpha = .9; line(g, [-70, 0, 46, 0], 5, '#1a1410', 'round'); line(g, [-60, 0, 40, 0], 2.4, '#c8a878', 'round');
+    sh(g, 'M46 -6 L64 0 L46 6 Z', '#9aa2ae'); sh(g, 'M-70 0 L-84 -10 L-60 -2 Z', '#f4efe2'); sh(g, 'M-70 0 L-84 10 L-60 2 Z', '#f4efe2');
+    g.globalAlpha = .25; line(g, [-70, 0, -240 * (A.streak ?? 1), 0], 3, '#fff8e8', 'round'); g.restore(); } };

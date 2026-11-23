@@ -41,7 +41,8 @@ function toon(g, o) {
   const br = Math.sin(t * 1.9 + ph), breath = 1 + .01 * br;
   const walk = o.walk ? t * (o.walkRate || 7) : null, bob = walk != null ? -Math.abs(Math.sin(walk)) * 10 : 0, hop = o.hop ? -Math.abs(Math.sin(t * 9)) * 22 * o.hop : 0, shake = o.shake ? Math.sin(t * 40) * 6 * o.shake : 0;
   g.save(); g.translate(o.x + shake, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1) , (o.s || 1) * (L.h || 1));
-  g.fillStyle = rg(g, 0, 0, 10, kid ? 130 : 170, [[0, 'rgba(25,12,20,.35)'], [1, 'rgba(25,12,20,0)']]); g.beginPath(); g.ellipse(0, 4, kid ? 130 : 170, 20, 0, 0, 7); g.fill();
+  { const air = o.gy != null ? Math.max(0, (o.gy - o.y) / ((o.s || 1) * (L.h || 1))) : 0, sk = 1 / (1 + air / 900), sw0 = (kid ? 130 : 170) * (L.bulk || 1) * sk;
+    if (o.shadow !== false) { g.fillStyle = rg(g, 0, air + 4, 10, sw0, [[0, `rgba(20,10,18,${.42 * sk})`], [1, 'rgba(20,10,18,0)']]); g.beginPath(); g.ellipse(0, air + 4, sw0, 22 * sk, 0, 0, 7); g.fill(); } }
   g.translate(0, bob + hop); if (o.rot) { g.translate(0, -450); g.rotate(o.rot); g.translate(0, 450); }
   const lean = (L.stoop || 0) + (o.lean || 0); if (lean) { g.translate(0, G.hip); g.rotate(lean); g.translate(0, -G.hip); }
   // arms: poses as [left hand, right hand] in body space (left = viewer's left)
@@ -57,6 +58,7 @@ function toon(g, o) {
   // back hair (behind body)
   if (o.foxTails) foxTailsT(g, o.foxTails, G, t, o.foxCol);
   hairBackT(g, L, G, t, ph);
+  if (L.behind) L.behind(g, L, G, o, t);
   // legs + lower garment
   lowerT(g, L, G, t, walk);
   // arm helper (elbow bends outward-down), wide or narrow sleeves
@@ -119,6 +121,8 @@ function toon(g, o) {
   else ttube(g, 0, G.hr[1] * .7, 0, G.hr[1] * 1.08, 52, 56, L.skinD, 5);
   faceT(g, L, G, o, t, ph, ex, talk);
   g.restore();
+  if (L.frontX) L.frontX(g, L, G, o, t);
+  if (o.arrows) arrowsStuck(g, G, o.arrows, o.arrowSeed || 3, kid);
   g.restore();
 }
 var THOLD = {
@@ -218,7 +222,7 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
   const bc = L.browCol || H, bw = (L.brow || (kid ? 7 : 6)), by = kid ? -50 : -ry * .3;
   const BR = { neutral: [0, 0], smile: [-2, -2], happy: [-4, -4], angry: [8, -8], fierce: [7, -6], shock: [-12, -12], scared: [-6, -14], sad: [-2, -12], cry: [-2, -14], worry: [-2, -12], annoyed: [6, 2], smug: [4, -6], wide: [-12, -12], whisper: [-2, -6], sleep: [2, 2] }[ex] || [0, 0];
   if (!L.hikimayu) [-1, 1].forEach(s => { const x0 = s * (kid ? 20 : rx * .2), x1 = s * (kid ? 72 : rx * .66); tln(g, [x0, by + BR[0] - (talk > .3 ? 4 : 0), (x0 + x1) / 2, by - 6 + Math.min(BR[0], BR[1]) - (talk > .3 ? 4 : 0), x1, by + BR[1]], bw, bc); });
-  hatT(g, L, rx, ry, t); if (L.horns) hornsT(g, L, rx, ry); if (o.foxEars) foxEarsT(g, o.foxEars, rx, ry, o.foxCol);
+  hatT(g, L, rx, ry, t); if (L.headX) L.headX(g, L, rx, ry, o, t, ex); if (o.kasa) kasaT(g, rx, ry, o.kasa); if (L.horns) hornsT(g, L, rx, ry); if (o.foxEars) foxEarsT(g, o.foxEars, rx, ry, o.foxCol);
   if (o.comb) { g.save(); g.translate(rx * .45, -ry * .95); g.rotate(.35); combShape(g, kid ? 1.1 : .9, o.comb); g.restore(); }
 }
 function hairFrontT(g, L, G, t, ph) { const H = L.hair, HL = L.hairHi, [rx, ry] = G.hr, sw = Math.sin(t * 1.3 + ph) * 3;

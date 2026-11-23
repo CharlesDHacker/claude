@@ -80,7 +80,7 @@ for i, sh in enumerate(shots):
     base = sh["t0"]
     for k in ("o", "sfx"):
         if k in sh: sh[k] = res(sh[k], base)
-    for k in ("shakeAt", "labelAt", "kicks", "flashes"):
+    for k in ("shakeAt", "labelAt", "kicks", "flashes", "impacts"):
         if k in sh: sh[k] = [at(v, base) for v in sh[k]] if isinstance(sh[k], list) else at(sh[k], base)
     if "pops" in sh:  # {"L13": [x, y, rot, size?, text?, delay? ("@L13.2" or seconds)]}; "L21:2" = a second pop on L21
         pl = []
