@@ -114,3 +114,21 @@ Applied to every character rig from EP07 on (`art/figure.js`, `art/heroes.js`, `
   (Money Montgomery, j8lzmOagTb5Fvj2jrAw9) or the offline Kokoro bm_fable for Kon again.
 - **Dense worlds.** Background characters at depth (courtiers, villagers, crowds), layered scenery with parallax,
   sparkles and haze, the cord border.
+
+## Quality bar from JP06 on (Benkei) — keep for every episode
+- **Story:** cold open on the single most striking image of the legend (Benkei standing dead on the bridge), then rewind. Aim for real
+  action beats, an emotional turn, and a real-world payoff at the end (an idiom, a museum object, a place you can visit), plus a twist button.
+- **Nothing ever stands still.** Run `still.py` on the final file: zero stretches of 0.7 s or more with no motion. Use looping keys
+  (`{"osc": [centre, amp, hz, phase]}`) for sway, toasts, breathing, gestures; multi-step keys (`{"k": [[t, v], ...]}`) for arcs and
+  hits; walkers keep walking until the cut; the camera keeps drifting (the default ease is part linear).
+- **Hits get impact frames** (`impacts: [t]`: 3 frames inverted/red, with impact lines), plus a slash, a burst, a shake and a kick.
+  Use them on blows, not on emotional beats (those get a soft white flash).
+- **Fast movers get afterimages** (`trail: n`), flips spin round the body centre (`spin`), airborne figures keep their shadow on the
+  ground (`gy`).
+- **Characters are lit by the scene:** each set defines `light` (side, colour, rim, shade); figures get shade on the far side and a
+  coloured rim on the lit edge. Turn it off (`light: false`) for silhouettes and statues.
+- **Every set is a place with depth:** sky, far, mid and near layers at different parallax, live particles (fireflies, embers, snow,
+  ash, spray), a foreground element when it helps (`rail`), and its own colour grade.
+- **QA:** contact sheets of every shot (start/mid/end), then a stillness scan, then a capped-bitrate encode (crf 24, maxrate 5M,
+  keyframe every 2 s, faststart) so phones never stall.
+- **Credits:** ElevenLabs free tier is 10,000 characters a month; one episode uses about 2,300. Generate one take per speaker.

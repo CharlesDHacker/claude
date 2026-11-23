@@ -9,7 +9,7 @@
 function arrowsStuck(g, G, n, seed, kid) {
   const r = rng(seed), tw = kid ? 80 : 96, top = G.shY + 30, bot = kid ? -40 : -120;
   for (let i = 0; i < n; i++) {
-    const x = (r() - .5) * tw * 1.7, y = lerp(top, bot, r() * (i % 3 === 0 ? .55 : 1)), an = -2.2 - r() * .9 + (x < 0 ? -.25 : .25), len = 120 + r() * 70;
+    const x = (r() - .5) * tw * 1.7, y = lerp(top + 60, bot, r()), up = .15 + r() * .55, an = x < 0 ? -(Math.PI - up) : -up, len = 110 + r() * 60;
     const ex = x + Math.cos(an) * len, ey = y + Math.sin(an) * len;
     tell(g, x, y, 7, 5, 'rgba(60,10,10,.7)', 0);
     tln(g, [x, y, ex, ey], 9); tln(g, [x, y, ex, ey], 4.5, '#c8a878');
@@ -52,7 +52,7 @@ drawActor = function (g, a, c, P, o) {
   const A = avAll(a, c.lt); if (A.alpha != null && A.alpha <= 0) return;
   const L = ty === 'toon' ? (typeof A.c === 'string' ? TOON[A.c] : A.c) : null, s = A.s || 1, kid = ty === 'mio' || (L && L.kind === 'kid');
   const hgt = (ty === 'fox' ? 520 : kid ? 760 : 1180) * ((L && L.h) || 1) * (L && L.wingsBig ? 1.3 : 1), piv = (ty === 'fox' ? 160 : kid ? 300 : 480) * s * ((L && L.h) || 1);
-  const one = (gg, cc, aa) => { if (A.stone) gg.filter = 'grayscale(1) sepia(.4) brightness(.82) contrast(1.1)'; if (A.spin) { gg.save(); gg.translate(A.x, A.y - piv); gg.rotate(A.spin); gg.translate(-A.x, -(A.y - piv)); } _drawActorFx(gg, aa || a, cc, P, o); if (A.spin) gg.restore(); };
+  const one = (gg, cc, aa) => { gg.save(); if (A.stone) gg.filter = 'grayscale(1) sepia(.4) brightness(.82) contrast(1.1)'; if (A.spin) { gg.save(); gg.translate(A.x, A.y - piv); gg.rotate(A.spin); gg.translate(-A.x, -(A.y - piv)); } _drawActorFx(gg, aa || a, cc, P, o); if (A.spin) gg.restore(); gg.filter = 'none'; gg.restore(); };
   const light = a.light === false ? null : (a.light || (o && o.light) || (o && JSETS[o.set] && JSETS[o.set].light));
   const lightV = typeof light === 'function' ? light(o) : light;
   // afterimages first (behind), tinted toward the light colour

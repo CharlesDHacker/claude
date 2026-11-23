@@ -35,8 +35,8 @@ function veilFront(g, L, rx, ry, o) { if (o.noVeil) return;
   const d = `M${-rx * 1.22} ${ry * .5} C${-rx * 1.36} ${-ry * 1.0} ${-rx * .7} ${-ry * 1.52} 0 ${-ry * 1.52} C${rx * .7} ${-ry * 1.52} ${rx * 1.36} ${-ry * 1.0} ${rx * 1.22} ${ry * .5} L${rx * 1.02} ${ry * .4} C${rx * 1.08} ${-ry * .7} ${rx * .6} ${-ry * 1.16} 0 ${-ry * 1.16} C${-rx * .6} ${-ry * 1.16} ${-rx * 1.08} ${-ry * .7} ${-rx * 1.02} ${ry * .4} Z`;
   tsh(g, d, L.veil || '#f6f1e6', 5); tln(g, [-rx * 1.04, ry * .36, -rx * 1.06, -ry * .6, -rx * .6, -ry * 1.12, 0, -ry * 1.18, rx * .6, -ry * 1.12, rx * 1.06, -ry * .6, rx * 1.04, ry * .36], 6, L.veilLine || '#c8302a'); }
 function tenguNose(g, L, rx, ry) { // the long red nose, jutting up and out
-  tsh(g, `M${-rx * .16} ${ry * .02} C${rx * .1} ${-ry * .5} ${rx * .6} ${-ry * .9} ${rx * 1.18} ${-ry * 1.0} C${rx * 1.3} ${-ry * .96} ${rx * 1.3} ${-ry * .82} ${rx * 1.18} ${-ry * .76} C${rx * .7} ${-ry * .5} ${rx * .3} ${-ry * .1} ${rx * .18} ${ry * .32} Q0 ${ry * .4} ${-rx * .16} ${ry * .02} Z`, L.nose || mix(L.skin, '#ff6a50', .25), 5);
-  tln(g, [rx * .1, -ry * .2, rx * .9, -ry * .86], 4, 'rgba(255,230,210,.55)'); }
+  tsh(g, `M${-rx * .14} ${ry * .06} C${rx * .3} ${ry * .02} ${rx * .9} ${ry * .1} ${rx * 1.42} ${ry * .22} C${rx * 1.56} ${ry * .26} ${rx * 1.56} ${ry * .42} ${rx * 1.42} ${ry * .44} C${rx * .9} ${ry * .48} ${rx * .3} ${ry * .5} ${-rx * .1} ${ry * .44} Q${-rx * .26} ${ry * .26} ${-rx * .14} ${ry * .06} Z`, L.nose || mix(L.skin, '#ff6a50', .25), 5);
+  tln(g, [rx * .1, ry * .14, rx * 1.3, ry * .27], 4, 'rgba(255,230,210,.55)'); }
 function crowBeak(g, L, rx, ry, o, t, ex) { const op = (o.talk || 0) * .5 + (ex === 'shout' ? .5 : 0);
   tsh(g, `M${-rx * .42} ${ry * .02} Q0 ${-ry * .18} ${rx * .42} ${ry * .02} Q${rx * .3} ${ry * .5} 0 ${ry * .98} Q${-rx * .3} ${ry * .5} ${-rx * .42} ${ry * .02} Z`, '#f0b030', 5);
   tsh(g, `M${-rx * .32} ${ry * (.34 + op * .2)} Q0 ${ry * (.5 + op * .3)} ${rx * .32} ${ry * (.34 + op * .2)} Q0 ${ry * (1.06 + op * .3)} ${-rx * .32} ${ry * (.34 + op * .2)} Z`, '#d88a20', 4);
@@ -47,8 +47,8 @@ function wingsOf(col, hi) { return (g, L, G, o, t) => { const fl = o.flap ?? .35
     tsh(g, d, col, 5); for (let k = 0; k < 6; k++) tln(g, [70 + k * 40, 20 - k * 30, 560 - k * 50, -270 + k * 60], 3, hi); g.restore(); }); }; }
 function mongolHat(g, L, rx, ry) { tsh(g, `M${-rx * .9} ${-ry * .62} Q0 ${-ry * 2.0} ${rx * .9} ${-ry * .62} Z`, '#a8242a', 5); tell(g, 0, -ry * 1.66, 14, 14, '#e8c050', 4);
   let d = `M${-rx * 1.12} ${-ry * .4}`; for (let i = 0; i <= 14; i++) { const x = lerp(-rx * 1.12, rx * 1.12, i / 14); d += ` L${x} ${-ry * (i % 2 ? .98 : .86)}`; } d += ` L${rx * 1.12} ${-ry * .4} Q0 ${-ry * .52} ${-rx * 1.12} ${-ry * .4} Z`; tsh(g, d, '#8a6a4a', 5); }
-const BENKEI = { kind: 'adult', skin: '#c88a5c', skinD: '#a86e44', hair: '#ece6da', hairHi: '#ffffff', hairStyle: 'none', browCol: '#15121a', top: '#1c1c26', topD: '#121218', pat: 'diamond', patCol: 'rgba(150,150,190,.18)', collar: '#e8e2d2',
-  trimCol: '#3a2a3a', trimDot: '#c8a040', sleeve: 'wide', bottom: 'hakama', hakama: '#2e2e3a', hakamaD: '#20202a', belt: '#c8a040', feet: 'straw', wraps: '#e8e2d2', wrapLine: '#2e2e3a', eyes: 'adult', iris: '#2a1810', brow: 12, beard: 'stubble', jaw: 'square',
+const BENKEI = { kind: 'adult', skin: '#c88a5c', skinD: '#a86e44', hair: '#15121a', hairHi: '#3a3040', hairStyle: 'none', browCol: '#15121a', top: '#1c1c26', topD: '#121218', pat: 'diamond', patCol: 'rgba(150,150,190,.18)', collar: '#e8e2d2',
+  trimCol: '#3a2a3a', trimDot: '#c8a040', sleeve: 'wide', bottom: 'hakama', hakama: '#2e2e3a', hakamaD: '#20202a', belt: '#c8a040', feet: 'straw', wraps: '#e8e2d2', wrapLine: '#2e2e3a', eyes: 'adult', iris: '#2a1810', brow: 12, beard: 'short', jaw: 'square',
   bulk: 1.5, h: 1.12, cowl: '#f2eee4', behind: benkeiBack, headX: benkeiCowl, frontX: (g, L, G) => prayerBeads(g, L, G) };
 Object.assign(TOON, {
   benkei: BENKEI,
@@ -113,8 +113,8 @@ JPA.cavalry = (g, A, c) => { const r = rng(A.seed || 31), n = A.n || 7, col = A.
 // a war boat with banners, rocking; sinking > 0 tips it and drags it under
 JPA.boat = (g, A, c) => { const sk = A.sinking || 0, rk = Math.sin(c.T * 1.3 + (A.ph || 0)) * .04; g.save(); g.translate(A.x, A.y + sk * 160 + Math.sin(c.T * 1.1 + (A.ph || 0)) * 8); g.rotate(rk + sk * .5 * (A.dir || 1)); g.scale((A.s || 1) * (A.dir || 1), A.s || 1);
   tsh(g, 'M-330 -60 L330 -60 L270 40 L-280 40 Z', lg(g, 0, -60, 0, 40, [[0, '#7a5232'], [1, '#4a2e1a']]), 5); for (let k = -3; k <= 3; k++) tln(g, [k * 90, -56, k * 80, 36], 2.4, 'rgba(30,15,5,.5)'); tln(g, [-330, -60, 330, -60], 8, '#c8a040');
-  tln(g, [-40, -60, -40, -420], 12); tln(g, [-40, -60, -40, -420], 6, '#5a3a22'); const fl = Math.sin(c.T * 3 + (A.ph || 0)) * 12;
-  tsh(g, `M-34 -410 L${80 + fl} ${-400 + fl * .3} L${76 + fl} -270 L-34 -280 Z`, A.flag || '#c8302a', 4); for (let k = 0; k < (A.crew || 3); k++) { ell(g, -200 + k * 120, -90, 26, 30, '#1e1418'); sh(g, `M${-226 + k * 120} -80 L${-174 + k * 120} -80 L${-170 + k * 120} -40 L${-230 + k * 120} -40 Z`, '#1e1418'); }
+  if (A.mast !== false) { tln(g, [-40, -60, -40, -420], 12); tln(g, [-40, -60, -40, -420], 6, '#5a3a22'); const fl = Math.sin(c.T * 3 + (A.ph || 0)) * 12;
+  tsh(g, `M-34 -410 L${80 + fl} ${-400 + fl * .3} L${76 + fl} -270 L-34 -280 Z`, A.flag || '#c8302a', 4); } for (let k = 0; k < (A.crew || 3); k++) { ell(g, -200 + k * 120, -90, 26, 30, '#1e1418'); sh(g, `M${-226 + k * 120} -80 L${-174 + k * 120} -80 L${-170 + k * 120} -40 L${-230 + k * 120} -40 Z`, '#1e1418'); }
   g.restore(); };
 // an army massed in rows: spears, banners, torches (silhouettes with a rim of firelight)
 JPA.host = (g, A, c) => { const r = rng(A.seed || 41), rows = A.rows || 3, col = A.col || '#120c12';
