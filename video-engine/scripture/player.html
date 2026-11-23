@@ -6,7 +6,7 @@
 @font-face{font-family:'Garamond';font-style:italic;font-weight:500;src:url('fonts/eb-garamond-latin-500-italic.woff2') format('woff2')}
 html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}
 </style></head><body><canvas id="c" width="1080" height="1920"></canvas>
-<script src="art/lib.js"></script><script src="art/chars.js"></script><script src="art/warriors.js"></script><script src="art/figure.js"></script><script src="art/heroes.js"></script><script src="art/scenes.js"></script><script src="art/stage.js"></script><script src="art/sea.js"></script><script src="art/village.js"></script><script src="art/painter.js"></script><script src="art/babylon.js"></script><script src="art/midian.js"></script><script src="art/brawl.js"></script><script src="art/essay.js"></script><script src="art/people.js"></script><script src="art/top10.js"></script><script src="art/persia.js"></script><script src="art/sets.js"></script><script src="art/creators.js"></script><script src="art/galilee.js"></script><script src="art/japan.js"></script><script src="art/toon.js"></script><script src="art/jpscene.js"></script>
+<script src="art/lib.js"></script><script src="art/chars.js"></script><script src="art/warriors.js"></script><script src="art/figure.js"></script><script src="art/heroes.js"></script><script src="art/scenes.js"></script><script src="art/stage.js"></script><script src="art/sea.js"></script><script src="art/village.js"></script><script src="art/painter.js"></script><script src="art/babylon.js"></script><script src="art/midian.js"></script><script src="art/brawl.js"></script><script src="art/essay.js"></script><script src="art/people.js"></script><script src="art/top10.js"></script><script src="art/persia.js"></script><script src="art/sets.js"></script><script src="art/creators.js"></script><script src="art/galilee.js"></script><script src="art/japan.js"></script><script src="art/toon.js"></script><script src="art/jpscene.js"></script><script src="art/jp2.js"></script>
 <script>
 // Compositor: shot -> scene + camera (handheld drift, zoom punches) -> transitions (fade, flash, whip) -> bloom + grade + light leak
 // -> grain/vignette -> word-by-word captions, title card, pop words, name labels.
@@ -64,7 +64,7 @@ function drawPops(g, T) {
     const l = EP.lines.find(x => x.id === p.line); const txt = (p.text || l.caps.map(c => (c.text.match(/\{pop:([^}]*)\}/) || [])[1]).find(Boolean) || '').toUpperCase(); if (!txt) continue;
     const t0 = l.t0 + .02 + (p.delay || 0), t1 = Math.min(Math.max(l.t1 + .45, t0 + 1.1), sh.t1 - .32);  // a pop never outlives its shot if (T < t0 || T > t1 + .3) continue;
     const fade = 1 - smooth(t1, t1 + .3, T); const lt = T - t0, n = txt.length, per = Math.min(.06, (l.t1 - l.t0) * .5 / n);
-    g.save(); g.translate(clamp(p.x, 360, 520), clamp(p.y, 560, 900)); g.rotate(p.rot || 0); g.font = `500 ${p.size || 170}px Garamond`; g.textBaseline = 'middle'; g.globalAlpha = fade;
+    g.save(); g.translate(clamp(p.x, 340, 740), clamp(p.y, 560, 1600)); g.rotate(p.rot || 0); g.font = `500 ${p.size || 170}px Garamond`; g.textBaseline = 'middle'; g.globalAlpha = fade;
     const widths = [...txt].map(ch => g.measureText(ch).width + 6), tw = widths.reduce((a, b) => a + b, 0); let x = -tw / 2;
     if (tw > 780) { const s = 780 / tw; g.scale(s, s); }
     const wob = Math.sin(lt * 30) * Math.exp(-lt * 5) * 6;

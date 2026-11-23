@@ -1,0 +1,232 @@
+{
+  "title": "YAMATO TAKERU",
+  "subtitle": "the prince who fought fire with fire",
+  "source": "Kojiki (712), book 2; Nihon Shoki (720), book 7",
+  "voices": {
+    "mio": {
+      "name": "Candy - Girly and Sweet",
+      "voice_id": "Nggzl2QAXh3OijoXD116"
+    },
+    "kon": {
+      "name": "Kokoro bm_fable (offline, dry)",
+      "voice_id": "kokoro:bm_fable"
+    },
+    "takeru": {
+      "name": "Razvick - storyteller",
+      "voice_id": "iQYt7pNZi2Z2A9d1t4bL"
+    },
+    "kumaso": {
+      "name": "Rich - Deep, rough",
+      "voice_id": "ZPQIhmOU6dxcnhcAjNkS"
+    },
+    "aunt": {
+      "name": "Megan-American, Chill, Narration",
+      "voice_id": "6qept81gfJTnQE1f3wYL"
+    }
+  },
+  "takes": {
+    "mio": "mio_a",
+    "kon": "kon_k",
+    "takeru": "takeru_a",
+    "kumaso": "kumaso_a",
+    "aunt": "aunt_a"
+  },
+  "lines": [
+    {
+      "id": "L01",
+      "who": "mio",
+      "say": "[scoffing] Kusanagi just means grass cutter? That's so lame!",
+      "cap": [
+        "Kusanagi just means {o:grass cutter}?",
+        "That's so {r:lame!}"
+      ]
+    },
+    {
+      "id": "L02",
+      "who": "kon",
+      "say": "[smirking] Not when the grass is on fire.",
+      "cap": [
+        "Not when the grass",
+        "is {r:on fire}."
+      ]
+    },
+    {
+      "id": "L03",
+      "who": "mio",
+      "say": "[shocked] ON FIRE?!",
+      "cap": [
+        "{pop:ON FIRE?!}"
+      ]
+    },
+    {
+      "id": "L04",
+      "who": "kon",
+      "say": "[storytelling] Meet Prince Yamato Takeru. So fierce, his own father was afraid of him, and kept sending him off to war.",
+      "cap": [
+        "Meet Prince {o:Yamato Takeru}.",
+        "So fierce, his own father was {r:afraid} of him,",
+        "and kept sending him off to {r:war}."
+      ]
+    },
+    {
+      "id": "L05",
+      "who": "kon",
+      "say": "First target: the Kumaso brothers. Two warlords no army could beat.",
+      "cap": [
+        "First target: the {r:Kumaso brothers}.",
+        "Two warlords no army could beat."
+      ]
+    },
+    {
+      "id": "L06",
+      "who": "kon",
+      "say": "So the prince let down his hair, put on a dress, and walked right into their feast.",
+      "cap": [
+        "So the prince let down his hair,",
+        "put on a {o:dress},",
+        "and walked right into their {o:feast}."
+      ]
+    },
+    {
+      "id": "L07",
+      "who": "mio",
+      "say": "[laughing] He went undercover?!",
+      "cap": [
+        "He went {pop:UNDERCOVER?!}"
+      ]
+    },
+    {
+      "id": "L08",
+      "who": "kon",
+      "say": "[intense] They laughed. They drank. Then he pulled a dagger from his sleeve.",
+      "cap": [
+        "They laughed. They drank.",
+        "Then he pulled a {r:dagger}",
+        "from his sleeve."
+      ]
+    },
+    {
+      "id": "L09",
+      "who": "kumaso",
+      "say": "[gasping] Who... are you?",
+      "cap": [
+        "“Who... are you?”"
+      ]
+    },
+    {
+      "id": "L10",
+      "who": "takeru",
+      "say": "[cold] The emperor's son.",
+      "cap": [
+        "“The {o:emperor's son}.”"
+      ]
+    },
+    {
+      "id": "L11",
+      "who": "kumaso",
+      "say": "[weakly] Then take a new name. Yamato Takeru. The bravest in the land.",
+      "cap": [
+        "“Then take a new name.",
+        "{o:Yamato Takeru}.",
+        "The {g:bravest} in the land.”"
+      ]
+    },
+    {
+      "id": "L12",
+      "who": "kon",
+      "say": "Next, he went east. His aunt, a priestess, gave him a sword from a serpent's tail, and a little bag.",
+      "cap": [
+        "Next, he went east.",
+        "His aunt, a priestess, gave him",
+        "a sword from a {o:serpent's tail},",
+        "and a little {o:bag}."
+      ]
+    },
+    {
+      "id": "L13",
+      "who": "aunt",
+      "say": "[gently] Open it only if your life is in danger.",
+      "cap": [
+        "“Open it only if your",
+        "life is in {r:danger}.”"
+      ]
+    },
+    {
+      "id": "L14",
+      "who": "kon",
+      "say": "[ominous] A local chief led him into a field of tall grass. Then set it on fire. From every side.",
+      "cap": [
+        "A local chief led him",
+        "into a field of tall grass.",
+        "Then set it on {r:fire}.",
+        "From {r:every side}."
+      ]
+    },
+    {
+      "id": "L15",
+      "who": "takeru",
+      "say": "[shouting] A TRAP!",
+      "cap": [
+        "{pop:A TRAP!}"
+      ]
+    },
+    {
+      "id": "L16",
+      "who": "mio",
+      "say": "[panicking] Use the sword! USE THE SWORD!",
+      "cap": [
+        "Use the sword!",
+        "{pop:USE THE SWORD!}"
+      ]
+    },
+    {
+      "id": "L17",
+      "who": "kon",
+      "say": "[intense] He swung it, and the grass around him fell flat. Then he opened the bag. A fire striker.",
+      "cap": [
+        "He swung it,",
+        "and the grass around him fell {o:flat}.",
+        "Then he opened the bag.",
+        "A {r:fire striker}."
+      ]
+    },
+    {
+      "id": "L18",
+      "who": "mio",
+      "say": "[confused] He fights fire with MORE fire?!",
+      "cap": [
+        "He fights fire with {pop:MORE FIRE?!}"
+      ]
+    },
+    {
+      "id": "L19",
+      "who": "kon",
+      "say": "[excited] He lit a counter fire. The wind turned, and the flames roared back at the men who set them.",
+      "cap": [
+        "He lit a {o:counter fire}.",
+        "The wind turned,",
+        "and the flames roared back",
+        "at the men who set them."
+      ]
+    },
+    {
+      "id": "L20",
+      "who": "kon",
+      "say": "[awed] And that sword has been called Kusanagi ever since. The grass cutter.",
+      "cap": [
+        "And that sword has been called",
+        "{g:Kusanagi} ever since.",
+        "The {o:grass cutter}."
+      ]
+    },
+    {
+      "id": "L21",
+      "who": "mio",
+      "say": "[amazed] Okay. Grass cutter is the coolest name ever.",
+      "cap": [
+        "Okay. {o:Grass cutter}",
+        "is the {g:coolest name ever}."
+      ]
+    }
+  ]
+}

@@ -34,8 +34,8 @@ const TOON = {
 function toon(g, o) {
   const L = typeof o.c === 'string' ? TOON[o.c] : o.c, t = o.t || 0, ph = o.ph || 0, ex = o.expr || 'neutral', talk = o.talk || 0, kid = L.kind === 'kid';
   // proportions
-  const G = kid ? { head: [0, -440], hr: [124, 120], shY: -296, sw: 82, waist: -206, hip: -186, hand: 1.25, armU: 86, armF: 90, legW: 34 }
-                : { head: [0, -772], hr: [76, 90], shY: -650, sw: 84, waist: -470, hip: -440, hand: 1.3, armU: 134, armF: 128, legW: 44 };
+  const bk = L.bulk || 1; const G = kid ? { head: [0, -440], hr: [124, 120], shY: -296, sw: 82, waist: -206, hip: -186, hand: 1.25, armU: 86, armF: 90, legW: 34 }
+                : { head: [0, -772], hr: [76 * (L.headW || 1), 90], shY: -650, sw: 84 * bk, waist: -470, hip: -440, hand: 1.3 * Math.sqrt(bk), armU: 134, armF: 128, legW: 44 };
   const br = Math.sin(t * 1.9 + ph), breath = 1 + .01 * br;
   const walk = o.walk ? t * (o.walkRate || 7) : null, bob = walk != null ? -Math.abs(Math.sin(walk)) * 10 : 0, hop = o.hop ? -Math.abs(Math.sin(t * 9)) * 22 * o.hop : 0, shake = o.shake ? Math.sin(t * 40) * 6 * o.shake : 0;
   g.save(); g.translate(o.x + shake, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1) , (o.s || 1) * (L.h || 1));
@@ -72,13 +72,17 @@ function toon(g, o) {
       else { ttube(g, el[0], el[1], ex2, ey2, sw * .9, cuff * 1.15, col, 5); tln(g, [ex2 - nx * cuff * .6, ey2 - ny * cuff * .6, ex2 + nx * cuff * .6, ey2 + ny * cuff * .6], 6, L.cord || L.belt || OUT); } }
     mitten(g, h[0], h[1], Math.atan2(h[1] - el[1], h[0] - el[0]), G.hand, skin, front && ['gesture', 'point', 'open', 'up', 'offer', 'ears', 'cheeks', 'shrug'].includes(armsK)); };
   // torso garment
-  const tw = kid ? 92 : 98, ww = kid ? 86 : 84, top = `M${-tw} ${G.shY - 4} C${-tw - 8} ${G.shY + 80} ${-ww - 6} ${G.waist - 60} ${-ww} ${G.waist + (kid ? 150 : 50)} L${ww} ${G.waist + (kid ? 150 : 50)} C${ww + 6} ${G.waist - 60} ${tw + 8} ${G.shY + 80} ${tw} ${G.shY - 4} Q0 ${G.shY - 22} ${-tw} ${G.shY - 4} Z`;
+  const tw = kid ? 92 : 98 * bk, ww = kid ? 86 : 84 * bk, top = `M${-tw} ${G.shY - 4} C${-tw - 8} ${G.shY + 80} ${-ww - 6} ${G.waist - 60} ${-ww} ${G.waist + (kid ? 150 : 50)} L${ww} ${G.waist + (kid ? 150 : 50)} C${ww + 6} ${G.waist - 60} ${tw + 8} ${G.shY + 80} ${tw} ${G.shY - 4} Q0 ${G.shY - 22} ${-tw} ${G.shY - 4} Z`;
   g.save(); g.translate(0, G.waist); g.scale(1, breath); g.translate(0, -G.waist);
   if (L.cape) { tsh(g, `M${-tw - 10} ${G.shY} L${-tw - 70} ${G.waist + 260} L${tw + 70} ${G.waist + 260} L${tw + 10} ${G.shY} Z`, L.cape, 5); }
   tsh(g, top, L.top, 5); if (L.pat) tpattern(g, top, L.pat, L.patCol, kid ? .8 : 1);
   g.save(); g.clip(path(top)); g.fillStyle = 'rgba(40,20,40,.16)'; g.fillRect(tw * .45, G.shY - 40, 300, 900);
   if (!kid) { const hy2 = G.waist + 50; trim(g, -ww - 20, ww + 20, hy2 - 26, 26, L.trimCol || mix(L.topD, '#000', .15), L.trimDot || '#e8c45a'); }
   [-1, 1].forEach(sd => tln(g, [sd * tw * .62, G.shY - 6, sd * tw * .9, G.shY + 50], 2.4, 'rgba(40,20,20,.35)')); g.restore(); tsh(g, top, null, 5);
+  if (L.armor) { const ad = `M${-tw + 6} ${G.shY + 30} L${tw - 6} ${G.shY + 30} L${ww + 4} ${G.waist + 4} L${-ww - 4} ${G.waist + 4} Z`; tsh(g, ad, lg(g, -tw, 0, tw, 0, [[0, mix(L.armor, '#000', .3)], [.5, L.armor], [1, mix(L.armor, '#000', .35)]]), 5);
+    g.save(); g.clip(path(ad)); for (let y = G.shY + 56; y < G.waist; y += 30) { tln(g, [-tw, y, tw, y], 3, 'rgba(20,20,30,.6)'); for (let x = -tw + 14; x < tw; x += 26) tell(g, x, y - 12, 3, 3, L.rivet || '#e8c45a', 0); } g.restore(); tsh(g, ad, null, 5);
+    [-1, 1].forEach(sd => tsh(g, `M${sd * (tw - 20)} ${G.shY - 10} Q${sd * (tw + 40)} ${G.shY} ${sd * (tw + 46)} ${G.shY + 70} L${sd * (tw + 6)} ${G.shY + 84} Q${sd * tw} ${G.shY + 30} ${sd * (tw - 30)} ${G.shY + 20} Z`, L.armor, 5)); }
+  if (L.fur) { let d2 = `M${-tw - 16} ${G.shY + 20}`; for (let i = 0; i <= 12; i++) { const x = lerp(-tw - 16, tw + 16, i / 12), y = G.shY + (i % 2 ? 46 : 14) + Math.abs(i - 6) * -2; d2 += ` L${x} ${y}`; } d2 += ` L${tw + 10} ${G.shY - 16} Q0 ${G.shY - 40} ${-tw - 10} ${G.shY - 16} Z`; tsh(g, d2, L.fur, 5); for (let i = 0; i < 10; i++) tln(g, [-tw + i * tw * .2, G.shY - 4, -tw + i * tw * .2 + 6, G.shY + 20], 2.4, 'rgba(255,240,220,.3)'); }
   // crossed collar (left over right), white under-collar
   const cy0 = G.shY - 12, cy1 = G.waist - (kid ? 10 : 30);
   tsh(g, `M${-tw * .38} ${cy0} L${tw * .12} ${cy1} L${tw * .3} ${cy1 - 18} L${-tw * .14} ${cy0 - 4} Z`, L.collar, 4); tsh(g, `M${tw * .38} ${cy0} L${-tw * .02} ${cy1 - 30} L${-tw * .18} ${cy1 - 44} L${tw * .14} ${cy0 - 4} Z`, L.collar, 4);
@@ -152,6 +156,7 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
                    : L.jaw === 'square' ? `M${-rx} -20 C${-rx} -${ry * 1.1} ${rx} -${ry * 1.1} ${rx} -20 L${rx * .92} ${ry * .55} Q${rx * .6} ${ry * .96} 0 ${ry} Q${-rx * .6} ${ry * .96} ${-rx * .92} ${ry * .55} Z`
                    : `M${-rx} -20 C${-rx} -${ry * 1.1} ${rx} -${ry * 1.1} ${rx} -20 C${rx} ${ry * .5} ${rx * .5} ${ry} 0 ${ry} C${-rx * .5} ${ry} ${-rx} ${ry * .5} ${-rx} -20 Z`;
   tsh(g, face, L.skin, 6); g.save(); g.clip(path(face)); g.fillStyle = 'rgba(160,80,60,.12)'; g.beginPath(); g.ellipse(rx * .9, ry * .2, rx * .5, ry * 1.2, 0, 0, 7); g.fill(); g.restore(); tsh(g, face, null, 6);
+  if (L.paint) { [-1, 1].forEach(sd => { tln(g, [sd * rx * .3, ry * .12, sd * rx * .86, ry * .02], 7, L.paint); tln(g, [sd * rx * .36, ry * .3, sd * rx * .84, ry * .22], 7, L.paint); }); tln(g, [-rx * .18, -ry * .5, rx * .18, -ry * .5], 6, L.paint); }
   if (L.blush || kid) { tell(g, -rx * .58, ry * .38, rx * .2, ry * .1, L.blush || 'rgba(240,120,110,.35)', 0); tell(g, rx * .58, ry * .38, rx * .2, ry * .1, L.blush || 'rgba(240,120,110,.35)', 0); }
   // eyes
   const ex0 = kid ? 46 : rx * .42, ey = kid ? 6 : -ry * .06;
@@ -159,7 +164,7 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
     if (closed) { if (ex === 'cry') { tln(g, [cx - 22, ey - 2, cx, ey + 8, cx + 22, ey - 2], kid ? 6 : 5); } else if (ex === 'sleep') tln(g, [cx - 20, ey + 4, cx, ey + 10, cx + 20, ey + 4], 5); else tln(g, [cx - (kid ? 26 : 18), ey + 4, cx, ey - (ex === 'happy' ? 14 : 2), cx + (kid ? 26 : 18), ey + 4], kid ? 6 : 5); return; }
     if (kid) { const ry2 = ex === 'shock' || ex === 'wide' || ex === 'scared' ? 40 : 34, rx2 = 30; tell(g, cx, ey, rx2, ry2, '#fffdf8', 6); const pr = ex === 'shock' || ex === 'scared' ? 7 : 11; tell(g, cx + lx * 12, ey + 4 + ly * 12, pr, pr * 1.08, '#1c1418', 0);
       if (ex === 'sad' || ex === 'annoyed' || ex === 'worry' || ex === 'smug') { const lid = ex === 'annoyed' || ex === 'smug' ? .45 : .3; tsh(g, `M${cx - rx2 - 3} ${ey - ry2 * .2} Q${cx} ${ey - ry2 - 6} ${cx + rx2 + 3} ${ey - ry2 * .2} L${cx + rx2 + 3} ${ey - ry2 * (1 - lid * 2) } L${cx - rx2 - 3} ${ey - ry2 * (1 - lid * 2)} Z`, L.skin, 0); tln(g, [cx - rx2, ey - ry2 * (1 - lid * 2) + (ex === 'sad' ? s * 4 : 0), cx + rx2, ey - ry2 * (1 - lid * 2) - (ex === 'sad' ? s * 4 : 0)], 6); } }
-    else { const op = ex === 'shock' || ex === 'scared' ? 1.25 : ex === 'angry' || ex === 'fierce' ? .75 : 1, w2 = rx * .27, h2 = ry * .115 * op;
+    else { const op = ex === 'shock' || ex === 'scared' ? 1.25 : ex === 'angry' || ex === 'fierce' ? .75 : 1, w2 = rx * .29, h2 = ry * .125 * op;
       tsh(g, `M${cx - w2} ${ey} Q${cx} ${ey - h2 * 1.9} ${cx + w2} ${ey} Q${cx} ${ey + h2 * 1.3} ${cx - w2} ${ey} Z`, '#fffdf8', 3.4); const ix = cx + lx * w2 * .35, iy = ey - 1 + ly * 3;
       tell(g, ix, iy, w2 * .44, h2 * 1.2, L.iris || '#3a2418', 0); tell(g, ix, iy, w2 * .2, h2 * .62, '#140c08', 0); tell(g, ix + 3, iy - 3, 2.4, 2.4, '#fff', 0);
       tln(g, [cx - w2 - 2, ey + 1, cx, ey - h2 * 1.9, cx + w2 + 2, ey + 1], 5.4); tln(g, [cx - w2 * .6, ey + h2 * 1.5, cx + w2 * .6, ey + h2 * 1.5], 2, 'rgba(120,60,40,.45)'); if (L.lashes) tln(g, [cx + s * w2, ey - 1, cx + s * (w2 + 9), ey - 9], 4); } });
@@ -207,9 +212,10 @@ function hairFrontT(g, L, G, t, ph) { const H = L.hair, HL = L.hairHi, [rx, ry] 
     sakura(g, rx * .72, -ry * .5, 16, '#f6a8c0', true); return; }
   if (L.hairStyle === 'wild') { tsh(g, `M${-rx - 8} 0 L${-rx - 30} -50 L${-rx - 8} -60 L${-rx - 26} -110 L${-rx * .5} -${ry * 1.0} L${-rx * .5 + 10} -${ry * 1.3} L0 -${ry * 1.08} L${rx * .3} -${ry * 1.36} L${rx * .5} -${ry * 1.02} L${rx + 26} -110 L${rx + 8} -60 L${rx + 30} -50 L${rx + 8} 0 L${rx - 8} -${ry * .5} L${rx * .4} -${ry * .62} L${rx * .2} -${ry * .44} L0 -${ry * .66} L${-rx * .25} -${ry * .44} L${-rx * .45} -${ry * .64} L${-rx + 8} -${ry * .5} Z`, H, 5);
     tsh(g, `M${-rx * .5} -${ry * .9} L0 -${ry * .96} L${rx * .4} -${ry * .86}`, null, 4, HL); [[-.7, -.6, -.9, -.2], [-.3, -.8, -.4, -.5], [.3, -.8, .4, -.5], [.7, -.6, .9, -.2]].forEach(([a, b2, c2, d]) => tln(g, [rx * a, ry * b2, rx * c2, ry * d], 2.4, 'rgba(120,120,160,.5)'));
-    tsh(g, `M${-rx - 6} -${ry * .55} Q0 -${ry * .76} ${rx + 6} -${ry * .55} L${rx + 4} -${ry * .38} Q0 -${ry * .6} ${-rx - 4} -${ry * .38} Z`, '#c8302a', 4); tsh(g, `M${rx} -${ry * .48} L${rx + 40 + sw * 3} -${ry * .2} L${rx + 30 + sw * 3} -${ry * .1} L${rx - 4} -${ry * .38} Z`, '#c8302a', 4); return; }
+    if (L.band !== false) { tsh(g, `M${-rx - 6} -${ry * .55} Q0 -${ry * .76} ${rx + 6} -${ry * .55} L${rx + 4} -${ry * .38} Q0 -${ry * .6} ${-rx - 4} -${ry * .38} Z`, L.band || '#c8302a', 4); tsh(g, `M${rx} -${ry * .48} L${rx + 40 + sw * 3} -${ry * .2} L${rx + 30 + sw * 3} -${ry * .1} L${rx - 4} -${ry * .38} Z`, L.band || '#c8302a', 4); } return; }
   if (L.hairStyle === 'mizura') { tsh(g, `M${-rx - 6} -10 C${-rx - 8} -${ry * 1.14} ${rx + 8} -${ry * 1.14} ${rx + 6} -10 C${rx} -${ry * .7} ${rx * .3} -${ry * .78} 0 -${ry * .7} C${-rx * .3} -${ry * .78} ${-rx} -${ry * .7} ${-rx - 6} -10 Z`, H, 5);
     tln(g, [0, -ry * 1.04, 0, -ry * .72], 3, L.hairHi === '#ffffff' ? 'rgba(180,170,160,.8)' : 'rgba(0,0,0,.4)');
+    if (L.fringe) { tsh(g, `M${-rx * .9} -${ry * .62} C${-rx * .7} -${ry * 1.02} ${rx * .7} -${ry * 1.02} ${rx * .9} -${ry * .62} L${rx * .62} -${ry * .44} L${rx * .4} -${ry * .6} L${rx * .2} -${ry * .38} L0 -${ry * .56} L${-rx * .22} -${ry * .36} L${-rx * .42} -${ry * .58} L${-rx * .64} -${ry * .42} Z`, H, 5); tsh(g, `M${-rx * .5} -${ry * .86} Q0 -${ry * .96} ${rx * .5} -${ry * .86}`, null, 4, HL); }
     [-1, 1].forEach(s => { tsh(g, `M${s * rx * 1.02} -${ry * .2} C${s * (rx + 44)} -${ry * .24} ${s * (rx + 46)} ${ry * .22} ${s * rx * 1.04} ${ry * .2} Z`, H, 5); tsh(g, `M${s * rx * 1.04} ${ry * .2} C${s * (rx + 46)} ${ry * .22} ${s * (rx + 44)} ${ry * .7} ${s * rx * 1.0} ${ry * .62} Z`, H, 5); tln(g, [s * (rx - 2), ry * .2, s * (rx + 40), ry * .2], 6, L.cord || '#c8302a'); }); return; }
   if (L.hairStyle === 'longBangs' || L.hairStyle === 'goddess') { tsh(g, `M${-rx - 8} 40 C${-rx - 14} -${ry * 1.16} ${rx + 14} -${ry * 1.16} ${rx + 8} 40 L${rx - 6} 20 C${rx - 4} -${ry * .3} ${rx * .5} -${ry * .44} ${rx * .3} -${ry * .52} L${rx * .1} -${ry * .38} L0 -${ry * .56} L${-rx * .14} -${ry * .38} L${-rx * .34} -${ry * .52} C${-rx * .5} -${ry * .44} ${-rx + 4} -${ry * .3} ${-rx + 6} 20 Z`, H, 5);
     tsh(g, `M${-rx * .5} -${ry * .92} Q0 -${ry * 1.04} ${rx * .5} -${ry * .92}`, null, 4, HL);

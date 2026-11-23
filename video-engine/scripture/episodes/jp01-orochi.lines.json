@@ -3,41 +3,293 @@
   "subtitle": "the serpent with eight heads",
   "source": "Kojiki (712), book 1: Susanoo in Izumo",
   "voices": {
-    "mio": { "name": "Candy - Girly and Sweet", "voice_id": "Nggzl2QAXh3OijoXD116" },
-    "kon": { "name": "Money Montgomery - Fluid Engaging Real Storyteller Performer", "voice_id": "j8lzmOagTb5Fvj2jrAw9" },
-    "susanoo": { "name": "Marcus - Powerful Motivational Narrator", "voice_id": "F3hPNAbHQ6mTZdjfgZdb" },
-    "elder": { "name": "Alden - Tired Old Man", "voice_id": "S9V0fuqWOqX0i8Kb8ctu" }
+    "mio": {
+      "name": "Candy - Girly and Sweet",
+      "voice_id": "Nggzl2QAXh3OijoXD116"
+    },
+    "kon": {
+      "name": "Kokoro bm_fable (offline, dry)",
+      "voice_id": "kokoro:bm_fable"
+    },
+    "susanoo": {
+      "name": "Marcus - Powerful Motivational Narrator",
+      "voice_id": "F3hPNAbHQ6mTZdjfgZdb"
+    },
+    "elder": {
+      "name": "Alden - Tired Old Man",
+      "voice_id": "S9V0fuqWOqX0i8Kb8ctu"
+    }
   },
-  "takes": { "mio": "mio_a", "kon": "kon_a", "susanoo": "susanoo_a", "elder": "elder_a" },
+  "takes": {
+    "mio": "mio_a",
+    "kon": "kon_k",
+    "susanoo": "susanoo_a",
+    "elder": "elder_a"
+  },
   "lines": [
-    { "id": "L01", "who": "mio", "say": "[screaming] AAH! SNAKE! SNAKE!", "cap": ["{pop:SNAKE!!}"] },
-    { "id": "L02", "who": "kon", "say": "[amused] That little thing? Want to hear about one with eight heads?", "cap": ["That little thing?", "Want to hear about one", "with {r:eight heads}?"] },
-    { "id": "L03", "who": "mio", "say": "[shocked] EIGHT?!", "cap": ["{pop:EIGHT?!}"] },
-    { "id": "L04", "who": "kon", "say": "[storytelling] Susanoo was the god of storms. Wild, loud, and so destructive, the other gods threw him out of heaven.", "cap": ["{o:Susanoo} was the god of storms.", "Wild, loud, and so destructive,", "the other gods {r:threw him out} of heaven."] },
-    { "id": "L05", "who": "kon", "say": "He landed by a river in Izumo, and saw chopsticks floating downstream.", "cap": ["He landed by a river in {g:Izumo},", "and saw {o:chopsticks} floating downstream."] },
-    { "id": "L06", "who": "mio", "say": "[curious] So someone lives up there!", "cap": ["So someone lives {o:up there}!"] },
-    { "id": "L07", "who": "kon", "say": "Upstream, he found an old couple, crying beside their daughter.", "cap": ["Upstream, he found an old couple,", "{r:crying} beside their daughter."] },
-    { "id": "L08", "who": "susanoo", "say": "[gruff] Why do you weep?", "cap": ["“Why do you {o:weep}?”"] },
-    { "id": "L09", "who": "elder", "say": "[weeping] We had eight daughters. Every year, the serpent Orochi comes, and eats one. Now it comes for our last.", "cap": ["“We had {o:eight daughters}.", "Every year, the serpent {r:Orochi} comes,", "and eats one.", "Now it comes for our {r:last}.”"] },
-    { "id": "L10", "who": "susanoo", "say": "What does it look like?", "cap": ["“What does it look like?”"] },
-    { "id": "L11", "who": "elder", "say": "[fearful] Eight heads. Eight tails. Eyes red as winter cherries. Trees grow on its back, and it stretches over eight valleys and eight hills.", "cap": ["“{r:Eight heads}. {r:Eight tails}.", "Eyes red as winter cherries.", "Trees grow on its back,", "and it stretches over {o:eight valleys} and {o:eight hills}.”"] },
-    { "id": "L12", "who": "mio", "say": "[horrified] Nope. Absolutely not.", "cap": ["{pop:NOPE.}"] },
-    { "id": "L13", "who": "susanoo", "say": "[confident] Give me your daughter's hand, and I will kill it.", "cap": ["“Give me your daughter's hand,", "and I will {r:kill it}.”"] },
-    { "id": "L14", "who": "kon", "say": "Then he did something strange. He turned the girl, Kushinada, into a comb, and wore her in his hair.", "cap": ["Then he did something {o:strange}.", "He turned the girl, {g:Kushinada},", "into a {o:comb},", "and wore her in his hair."] },
-    { "id": "L15", "who": "mio", "say": "[confused] He turned her into a COMB?!", "cap": ["“He turned her into a {pop:COMB?!}”"] },
-    { "id": "L16", "who": "kon", "say": "[smug] Safest place in Izumo.", "cap": ["Safest place in Izumo."] },
-    { "id": "L17", "who": "kon", "say": "He ordered the strongest saké ever brewed. A fence with eight gates. And behind every gate, a vat.", "cap": ["He ordered the {o:strongest sake} ever brewed.", "A fence with {o:eight gates}.", "And behind every gate, a {o:vat}."] },
-    { "id": "L18", "who": "kon", "say": "[ominous] That night, the mountains moved.", "cap": ["That night,", "the {r:mountains moved}."] },
-    { "id": "L19", "who": "kon", "say": "Eight heads came through eight gates, and each one found the saké.", "cap": ["{r:Eight heads} came through eight gates,", "and each one found the {o:sake}."] },
-    { "id": "L20", "who": "kon", "say": "[whispering] It drank, and drank, until all eight heads fell asleep.", "cap": ["It drank, and drank,", "until all eight heads", "fell {g:asleep}."] },
-    { "id": "L21", "who": "mio", "say": "[whispering] Oh no. He's gonna...", "cap": ["Oh no. He's gonna..."] },
-    { "id": "L22", "who": "susanoo", "say": "[roaring] NOW!", "cap": ["{pop:NOW!}"] },
-    { "id": "L23", "who": "kon", "say": "[intense] Susanoo drew his sword, and cut the serpent to pieces. The river ran red.", "cap": ["Susanoo drew his sword,", "and cut the serpent to {r:pieces}.", "The river ran {r:red}."] },
-    { "id": "L24", "who": "kon", "say": "But when he struck the middle tail, his sword chipped.", "cap": ["But when he struck the {o:middle tail},", "his sword {r:chipped}."] },
-    { "id": "L25", "who": "mio", "say": "[confused] On a tail?", "cap": ["On a {o:tail}?"] },
-    { "id": "L26", "who": "kon", "say": "[awed] Inside the tail was another sword. The blade later named Kusanagi.", "cap": ["Inside the tail was {g:another sword}.", "The blade later named {g:Kusanagi}."] },
-    { "id": "L27", "who": "kon", "say": "He gave it to his sister, the sun goddess Amaterasu. Today it's one of the three sacred treasures of Japan's emperors.", "cap": ["He gave it to his sister,", "the sun goddess {g:Amaterasu}.", "Today it's one of the {o:three sacred treasures}", "of Japan's emperors."] },
-    { "id": "L28", "who": "kon", "say": "[warmly] And Kushinada? Back to herself, and married to the storm.", "cap": ["And Kushinada?", "Back to herself,", "and married to the {o:storm}."] },
-    { "id": "L29", "who": "mio", "say": "[proud] Okay. Little snakes don't scare me anymo- AAH!", "cap": ["Okay. Little snakes don't scare me", "{r:anymo— AAH!}"] }
+    {
+      "id": "L01",
+      "who": "mio",
+      "say": "[screaming] AAH! SNAKE! SNAKE!",
+      "cap": [
+        "{pop:SNAKE!!}"
+      ]
+    },
+    {
+      "id": "L02",
+      "who": "kon",
+      "say": "[amused] That little thing? Want to hear about one with eight heads?",
+      "cap": [
+        "That little thing?",
+        "Want to hear about one",
+        "with {r:eight heads}?"
+      ]
+    },
+    {
+      "id": "L03",
+      "who": "mio",
+      "say": "[shocked] EIGHT?!",
+      "cap": [
+        "{pop:EIGHT?!}"
+      ]
+    },
+    {
+      "id": "L04",
+      "who": "kon",
+      "say": "[storytelling] Susanoo was the god of storms. Wild, loud, and so destructive, the other gods threw him out of heaven.",
+      "cap": [
+        "{o:Susanoo} was the god of storms.",
+        "Wild, loud, and so destructive,",
+        "the other gods {r:threw him out} of heaven."
+      ]
+    },
+    {
+      "id": "L05",
+      "who": "kon",
+      "say": "He landed by a river in Izumo, and saw chopsticks floating downstream.",
+      "cap": [
+        "He landed by a river in {g:Izumo},",
+        "and saw {o:chopsticks} floating downstream."
+      ]
+    },
+    {
+      "id": "L06",
+      "who": "mio",
+      "say": "[curious] So someone lives up there!",
+      "cap": [
+        "So someone lives {o:up there}!"
+      ]
+    },
+    {
+      "id": "L07",
+      "who": "kon",
+      "say": "Upstream, he found an old couple, crying beside their daughter.",
+      "cap": [
+        "Upstream, he found an old couple,",
+        "{r:crying} beside their daughter."
+      ]
+    },
+    {
+      "id": "L08",
+      "who": "susanoo",
+      "say": "[gruff] Why do you weep?",
+      "cap": [
+        "“Why do you {o:weep}?”"
+      ]
+    },
+    {
+      "id": "L09",
+      "who": "elder",
+      "say": "[weeping] We had eight daughters. Every year, the serpent Orochi comes, and eats one. Now it comes for our last.",
+      "cap": [
+        "“We had {o:eight daughters}.",
+        "Every year, the serpent {r:Orochi} comes,",
+        "and eats one.",
+        "Now it comes for our {r:last}.”"
+      ]
+    },
+    {
+      "id": "L10",
+      "who": "susanoo",
+      "say": "What does it look like?",
+      "cap": [
+        "“What does it look like?”"
+      ]
+    },
+    {
+      "id": "L11",
+      "who": "elder",
+      "say": "[fearful] Eight heads. Eight tails. Eyes red as winter cherries. Trees grow on its back, and it stretches over eight valleys and eight hills.",
+      "cap": [
+        "“{r:Eight heads}. {r:Eight tails}.",
+        "Eyes red as winter cherries.",
+        "Trees grow on its back,",
+        "and it stretches over {o:eight valleys} and {o:eight hills}.”"
+      ]
+    },
+    {
+      "id": "L12",
+      "who": "mio",
+      "say": "[horrified] Nope. Absolutely not.",
+      "cap": [
+        "{pop:NOPE.}"
+      ]
+    },
+    {
+      "id": "L13",
+      "who": "susanoo",
+      "say": "[confident] Give me your daughter's hand, and I will kill it.",
+      "cap": [
+        "“Give me your daughter's hand,",
+        "and I will {r:kill it}.”"
+      ]
+    },
+    {
+      "id": "L14",
+      "who": "kon",
+      "say": "Then he did something strange. He turned the girl, Kushinada, into a comb, and wore her in his hair.",
+      "cap": [
+        "Then he did something {o:strange}.",
+        "He turned the girl, {g:Kushinada},",
+        "into a {o:comb},",
+        "and wore her in his hair."
+      ]
+    },
+    {
+      "id": "L15",
+      "who": "mio",
+      "say": "[confused] He turned her into a COMB?!",
+      "cap": [
+        "“He turned her into a {pop:COMB?!}”"
+      ]
+    },
+    {
+      "id": "L16",
+      "who": "kon",
+      "say": "[smug] Safest place in Izumo.",
+      "cap": [
+        "Safest place in Izumo."
+      ]
+    },
+    {
+      "id": "L17",
+      "who": "kon",
+      "say": "He ordered the strongest saké ever brewed. A fence with eight gates. And behind every gate, a vat.",
+      "cap": [
+        "He ordered the {o:strongest sake} ever brewed.",
+        "A fence with {o:eight gates}.",
+        "And behind every gate, a {o:vat}."
+      ]
+    },
+    {
+      "id": "L18",
+      "who": "kon",
+      "say": "[ominous] That night, the mountains moved.",
+      "cap": [
+        "That night,",
+        "the {r:mountains moved}."
+      ]
+    },
+    {
+      "id": "L19",
+      "who": "kon",
+      "say": "Eight heads came through eight gates, and each one found the saké.",
+      "cap": [
+        "{r:Eight heads} came through eight gates,",
+        "and each one found the {o:sake}."
+      ]
+    },
+    {
+      "id": "L20",
+      "who": "kon",
+      "say": "[whispering] It drank, and drank, until all eight heads fell asleep.",
+      "cap": [
+        "It drank, and drank,",
+        "until all eight heads",
+        "fell {g:asleep}."
+      ]
+    },
+    {
+      "id": "L21",
+      "who": "mio",
+      "say": "[whispering] Oh no. He's gonna...",
+      "cap": [
+        "Oh no. He's gonna..."
+      ]
+    },
+    {
+      "id": "L22",
+      "who": "susanoo",
+      "say": "[roaring] NOW!",
+      "cap": [
+        "{pop:NOW!}"
+      ]
+    },
+    {
+      "id": "L23",
+      "who": "kon",
+      "say": "[intense] Susanoo drew his sword, and cut the serpent to pieces. The river ran red.",
+      "cap": [
+        "Susanoo drew his sword,",
+        "and cut the serpent to {r:pieces}.",
+        "The river ran {r:red}."
+      ]
+    },
+    {
+      "id": "L24",
+      "who": "kon",
+      "say": "But when he struck the middle tail, his sword chipped.",
+      "cap": [
+        "But when he struck the {o:middle tail},",
+        "his sword {r:chipped}."
+      ]
+    },
+    {
+      "id": "L25",
+      "who": "mio",
+      "say": "[confused] On a tail?",
+      "cap": [
+        "On a {o:tail}?"
+      ]
+    },
+    {
+      "id": "L26",
+      "who": "kon",
+      "say": "[awed] Inside the tail was another sword. The blade later named Kusanagi.",
+      "cap": [
+        "Inside the tail was {g:another sword}.",
+        "The blade later named {g:Kusanagi}."
+      ]
+    },
+    {
+      "id": "L27",
+      "who": "kon",
+      "say": "He gave it to his sister, the sun goddess Amaterasu. Today it's one of the three sacred treasures of Japan's emperors.",
+      "cap": [
+        "He gave it to his sister,",
+        "the sun goddess {g:Amaterasu}.",
+        "Today it's one of the {o:three sacred treasures}",
+        "of Japan's emperors."
+      ]
+    },
+    {
+      "id": "L28",
+      "who": "kon",
+      "say": "[warmly] And Kushinada? Back to herself, and married to the storm.",
+      "cap": [
+        "And Kushinada?",
+        "Back to herself,",
+        "and married to the {o:storm}."
+      ]
+    },
+    {
+      "id": "L29",
+      "who": "mio",
+      "say": "[proud] Okay. Little snakes don't scare me anymo- AAH!",
+      "cap": [
+        "Okay. Little snakes don't scare me",
+        "{r:anymo— AAH!}"
+      ]
+    }
   ]
 }

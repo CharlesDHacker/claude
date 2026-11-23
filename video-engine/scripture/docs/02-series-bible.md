@@ -99,3 +99,16 @@ Applied to every character rig from EP07 on (`art/figure.js`, `art/heroes.js`, `
 - **QA before every render.** Three frames per shot (entry, middle, exit) reviewed for: walking in place, sliding,
   floating or loose feet, limbs crossing faces, wrong speaker, text over faces/bodies, off-model sets, and props that
   don't match the scene.
+
+
+## Japanese mythology series (from the Norse reference videos)
+- **Cold open in the story world.** The first frame is a live scene from the episode with the title over it, never the
+  host set. The hosts stand in it, big in the foreground corners, reacting.
+- **Hosts live inside the story.** Mio and Kon appear in the foreground of the current scene (burning field, feast
+  hall), drawn in front of its foreground layer. No cutting back to a separate studio.
+- **Pop words** sit at chest height of the reacting character, not over faces.
+- **Voices must be dry.** No room echo or comb-filter tone. Check every new voice's spectrogram before casting: evenly
+  spaced horizontal bands across vowels mean a roomy clone, so reject it. Kon now uses the offline Kokoro voice bm_fable
+  (tools/kokoro_take.py), levelled to match the ElevenLabs cast.
+- **Dense worlds.** Background characters at depth (courtiers, villagers, crowds), layered scenery with parallax,
+  sparkles and haze, the cord border.
