@@ -32,7 +32,8 @@ const TOON = {
   kami2: { kind: 'adult', trimCol: '#7a3a3a', trimDot: '#e8b84a', skin: '#d0946a', skinD: '#b07a50', hair: '#2a1e18', hairHi: '#5a4a3a', hairStyle: 'mizura', top: '#e8e2d4', topD: '#cec6b4', pat: 'dots', patCol: 'rgba(160,60,60,.4)', collar: '#c8302a', sleeve: 'kinu', bottom: 'hakama', hakama: '#7a3a3a', hakamaD: '#5e2c2c', cord: '#e8b84a', belt: '#e8b84a', feet: 'straw', eyes: 'adult', iris: '#3a2418', brow: 7, beard: 'stubble', jaw: 'square', h: 1.02 },
 };
 function toon(g, o) {
-  const L = typeof o.c === 'string' ? TOON[o.c] : o.c, t = o.t || 0, ph = o.ph || 0, ex = o.expr || 'neutral', talk = o.talk || 0, kid = L.kind === 'kid';
+  let L = typeof o.c === 'string' ? TOON[o.c] : o.c; if (o.pale) L = Object.assign({}, L, { skin: mix(L.skin, '#e6e2dc', o.pale), skinD: mix(L.skinD, '#c8c2bc', o.pale) });
+  const t = o.t || 0, ph = o.ph || 0, ex = o.expr || 'neutral', talk = o.talk || 0, kid = L.kind === 'kid';
   // proportions
   const bk = L.bulk || 1; const G = kid ? { head: [0, -440], hr: [124, 120], shY: -296, sw: 82, waist: -206, hip: -186, hand: 1.25, armU: 86, armF: 90, legW: 34 }
                 : { head: [0, -772], hr: [76 * (L.headW || 1), 90], shY: -650, sw: 84 * bk, waist: -470, hip: -440, hand: 1.3 * Math.sqrt(bk), armU: 134, armF: 128, legW: 44 };
@@ -53,6 +54,7 @@ function toon(g, o) {
   if (walk != null) { hl = [hl[0], hl[1] + Math.sin(walk) * 14]; hr = [hr[0], hr[1] - Math.sin(walk) * 14]; }
   const sh0 = [-G.sw, G.shY + 16 + br * 2], sh1 = [G.sw, G.shY + 16 + br * 2];
   // back hair (behind body)
+  if (o.foxTails) foxTailsT(g, o.foxTails, G, t, o.foxCol);
   hairBackT(g, L, G, t, ph);
   // legs + lower garment
   lowerT(g, L, G, t, walk);
@@ -84,6 +86,7 @@ function toon(g, o) {
     [-1, 1].forEach(sd => tsh(g, `M${sd * (tw - 20)} ${G.shY - 10} Q${sd * (tw + 40)} ${G.shY} ${sd * (tw + 46)} ${G.shY + 70} L${sd * (tw + 6)} ${G.shY + 84} Q${sd * tw} ${G.shY + 30} ${sd * (tw - 30)} ${G.shY + 20} Z`, L.armor, 5)); }
   if (L.fur) { let d2 = `M${-tw - 16} ${G.shY + 20}`; for (let i = 0; i <= 12; i++) { const x = lerp(-tw - 16, tw + 16, i / 12), y = G.shY + (i % 2 ? 46 : 14) + Math.abs(i - 6) * -2; d2 += ` L${x} ${y}`; } d2 += ` L${tw + 10} ${G.shY - 16} Q0 ${G.shY - 40} ${-tw - 10} ${G.shY - 16} Z`; tsh(g, d2, L.fur, 5); for (let i = 0; i < 10; i++) tln(g, [-tw + i * tw * .2, G.shY - 4, -tw + i * tw * .2 + 6, G.shY + 20], 2.4, 'rgba(255,240,220,.3)'); }
   // crossed collar (left over right), white under-collar
+  if (L.layers) L.layers.forEach((col, i) => { const off = (L.layers.length - i) * 9; tsh(g, `M${-tw * .38 - off} ${G.shY - 12} L${tw * .12} ${G.waist - 30 + off * .4} L${tw * .38 + off} ${G.shY - 12} Z`, col, 3.4); });
   const cy0 = G.shY - 12, cy1 = G.waist - (kid ? 10 : 30);
   tsh(g, `M${-tw * .38} ${cy0} L${tw * .12} ${cy1} L${tw * .3} ${cy1 - 18} L${-tw * .14} ${cy0 - 4} Z`, L.collar, 4); tsh(g, `M${tw * .38} ${cy0} L${-tw * .02} ${cy1 - 30} L${-tw * .18} ${cy1 - 44} L${tw * .14} ${cy0 - 4} Z`, L.collar, 4);
   if (kid) tln(g, [tw * .1, cy1 + 6, -ww + 6, G.waist + 146], 4, L.topD);
@@ -127,6 +130,8 @@ function hairBackT(g, L, G, t, ph) { const H = L.hair, [hx, hy] = G.head, [rx, r
   if (L.hairStyle === 'wild') { tsh(g, `M${-rx - 30} -40 L${-rx - 70} 40 L${-rx - 40} 50 L${-rx - 74 + sw} 150 L${-rx - 20} 130 L${-rx - 30 + sw} 230 L-20 180 L20 180 L${rx + 30 + sw} 230 L${rx + 20} 130 L${rx + 74 + sw} 150 L${rx + 40} 50 L${rx + 70} 40 L${rx + 30} -40 Z`, H, 5); }
   if (L.hairStyle === 'longBangs' || L.hairStyle === 'goddess') { tsh(g, `M${-rx - 16} -40 C${-rx - 30} 100 ${-rx - 40 + sw} 260 ${-rx - 20 + sw} 380 L${rx + 20 + sw} 380 C${rx + 40 + sw} 260 ${rx + 30} 100 ${rx + 16} -40 Z`, H, 5);
     for (let i = -2; i <= 2; i++) tln(g, [i * 30, 120, i * 34 + sw, 360], 2.4, L.hairHi); if (L.ribbon) { tsh(g, `M-30 300 L30 300 L36 330 L-36 330 Z`, L.ribbon, 4); } }
+  if (L.hairStyle === 'heian') { const len = 760; tsh(g, `M${-rx - 14} -30 C${-rx - 40} 200 ${-rx - 60 + sw} ${len * .7} ${-rx - 70 + sw} ${len} L${rx + 70 + sw} ${len} C${rx + 60 + sw} ${len * .7} ${rx + 40} 200 ${rx + 14} -30 Z`, H, 5);
+    for (let i = -3; i <= 3; i++) tln(g, [i * 30, 160, i * 38 + sw, len - 30], 2.4, L.hairHi); }
   if (L.hairStyle === 'lowtie') tsh(g, `M${-rx - 10} -30 C${-rx - 20} 80 ${-rx} 160 -20 210 L20 210 C${rx} 160 ${rx + 20} 80 ${rx + 10} -30 Z`, H, 5);
   g.restore(); }
 function lowerT(g, L, G, t, walk) { const kid = L.kind === 'kid', lw = walk != null ? Math.sin(walk) : 0;
@@ -166,7 +171,7 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
       if (ex === 'sad' || ex === 'annoyed' || ex === 'worry' || ex === 'smug') { const lid = ex === 'annoyed' || ex === 'smug' ? .45 : .3; tsh(g, `M${cx - rx2 - 3} ${ey - ry2 * .2} Q${cx} ${ey - ry2 - 6} ${cx + rx2 + 3} ${ey - ry2 * .2} L${cx + rx2 + 3} ${ey - ry2 * (1 - lid * 2) } L${cx - rx2 - 3} ${ey - ry2 * (1 - lid * 2)} Z`, L.skin, 0); tln(g, [cx - rx2, ey - ry2 * (1 - lid * 2) + (ex === 'sad' ? s * 4 : 0), cx + rx2, ey - ry2 * (1 - lid * 2) - (ex === 'sad' ? s * 4 : 0)], 6); } }
     else { const op = ex === 'shock' || ex === 'scared' ? 1.25 : ex === 'angry' || ex === 'fierce' ? .75 : 1, w2 = rx * .29, h2 = ry * .125 * op;
       tsh(g, `M${cx - w2} ${ey} Q${cx} ${ey - h2 * 1.9} ${cx + w2} ${ey} Q${cx} ${ey + h2 * 1.3} ${cx - w2} ${ey} Z`, '#fffdf8', 3.4); const ix = cx + lx * w2 * .35, iy = ey - 1 + ly * 3;
-      tell(g, ix, iy, w2 * .44, h2 * 1.2, L.iris || '#3a2418', 0); tell(g, ix, iy, w2 * .2, h2 * .62, '#140c08', 0); tell(g, ix + 3, iy - 3, 2.4, 2.4, '#fff', 0);
+      if (o.foxEyes) { glow(g, ix, iy, 60, 'rgba(255,190,60,1)', o.foxEyes * .8); tell(g, ix, iy, w2 * .48, h2 * 1.25, '#ffc23a', 0); tell(g, ix, iy, w2 * .08, h2 * 1.0, '#140c08', 0); } else { tell(g, ix, iy, w2 * .44, h2 * 1.2, L.iris || '#3a2418', 0); tell(g, ix, iy, w2 * .2, h2 * .62, '#140c08', 0); } tell(g, ix + 3, iy - 3, 2.4, 2.4, '#fff', 0);
       tln(g, [cx - w2 - 2, ey + 1, cx, ey - h2 * 1.9, cx + w2 + 2, ey + 1], 5.4); tln(g, [cx - w2 * .6, ey + h2 * 1.5, cx + w2 * .6, ey + h2 * 1.5], 2, 'rgba(120,60,40,.45)'); if (L.lashes) tln(g, [cx + s * w2, ey - 1, cx + s * (w2 + 9), ey - 9], 4); } });
   // nose
   if (kid) tln(g, [-4, 30, 4, 36, -2, 40], 4.4); else { tsh(g, `M2 ${-ry * .02} L-8 ${ry * .3} Q0 ${ry * .36} 8 ${ry * .32} Z`, 'rgba(150,80,50,.22)', 0); tln(g, [2, -ry * .02, -6, ry * .3, 4, ry * .34], 4); tln(g, [-rx * .62, ry * .24, -rx * .5, ry * .44], 2.4, 'rgba(150,80,50,.35)'); tln(g, [rx * .62, ry * .24, rx * .5, ry * .44], 2.4, 'rgba(150,80,50,.35)'); }
@@ -196,10 +201,12 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
   if (o.sweat) { const q = (t * .7) % 1; tsh(g, `M${rx * .8} ${-ry * .5 + q * 30} q12 18 0 28 q-12 -10 0 -28 Z`, 'rgba(170,215,240,.95)', 3); }
   // front hair
   hairFrontT(g, L, G, t, ph);
+  if (L.hikimayu) { [-1, 1].forEach(sd => tell(g, sd * rx * .34, -ry * .62, rx * .1, ry * .05, 'rgba(40,30,30,.75)', 0)); }
   // brows
   const bc = L.browCol || H, bw = (L.brow || (kid ? 7 : 6)), by = kid ? -50 : -ry * .3;
   const BR = { neutral: [0, 0], smile: [-2, -2], happy: [-4, -4], angry: [8, -8], fierce: [7, -6], shock: [-12, -12], scared: [-6, -14], sad: [-2, -12], cry: [-2, -14], worry: [-2, -12], annoyed: [6, 2], smug: [4, -6], wide: [-12, -12], whisper: [-2, -6], sleep: [2, 2] }[ex] || [0, 0];
-  [-1, 1].forEach(s => { const x0 = s * (kid ? 20 : rx * .2), x1 = s * (kid ? 72 : rx * .66); tln(g, [x0, by + BR[0] - (talk > .3 ? 4 : 0), (x0 + x1) / 2, by - 6 + Math.min(BR[0], BR[1]) - (talk > .3 ? 4 : 0), x1, by + BR[1]], bw, bc); });
+  if (!L.hikimayu) [-1, 1].forEach(s => { const x0 = s * (kid ? 20 : rx * .2), x1 = s * (kid ? 72 : rx * .66); tln(g, [x0, by + BR[0] - (talk > .3 ? 4 : 0), (x0 + x1) / 2, by - 6 + Math.min(BR[0], BR[1]) - (talk > .3 ? 4 : 0), x1, by + BR[1]], bw, bc); });
+  hatT(g, L, rx, ry, t); if (o.foxEars) foxEarsT(g, o.foxEars, rx, ry, o.foxCol);
   if (o.comb) { g.save(); g.translate(rx * .45, -ry * .95); g.rotate(.35); combShape(g, kid ? 1.1 : .9, o.comb); g.restore(); }
 }
 function hairFrontT(g, L, G, t, ph) { const H = L.hair, HL = L.hairHi, [rx, ry] = G.hr, sw = Math.sin(t * 1.3 + ph) * 3;
@@ -221,6 +228,8 @@ function hairFrontT(g, L, G, t, ph) { const H = L.hair, HL = L.hairHi, [rx, ry] 
     tsh(g, `M${-rx * .5} -${ry * .92} Q0 -${ry * 1.04} ${rx * .5} -${ry * .92}`, null, 4, HL);
     if (L.hairStyle === 'goddess') { tsh(g, `M${-rx * .9} -${ry * .86} Q0 -${ry * 1.3} ${rx * .9} -${ry * .86} L${rx * .8} -${ry * .74} Q0 -${ry * 1.12} ${-rx * .8} -${ry * .74} Z`, '#e8b84a', 4); [-.5, 0, .5].forEach(k => tell(g, k * rx, -ry * (1.06 - Math.abs(k) * .2), 7, 7, k ? '#d23a3a' : '#2fa888', 3)); }
     else tsh(g, `M${-rx * .9} -${ry * .9} Q${-rx * 1.1} -${ry * .7} ${-rx * .96} -${ry * .5} L${-rx * .74} -${ry * .74} Z`, L.ribbon || '#d23a3a', 4); return; }
+  if (L.hairStyle === 'heian') { tsh(g, `M${-rx - 8} 120 C${-rx - 14} -${ry * 1.2} ${rx + 14} -${ry * 1.2} ${rx + 8} 120 L${rx - 4} 110 C${rx} -${ry * .2} ${rx * .5} -${ry * .78} 4 -${ry * .86} L0 -${ry * .7} L-4 -${ry * .86} C${-rx * .5} -${ry * .78} ${-rx} -${ry * .2} ${-rx + 4} 110 Z`, H, 5);
+    tsh(g, `M${-rx * .5} -${ry * .9} Q0 -${ry * 1.0} ${rx * .5} -${ry * .9}`, null, 4, HL); [-1, 1].forEach(sd => tsh(g, `M${sd * rx * .92} 0 C${sd * rx * 1.02} 160 ${sd * rx * .96} 260 ${sd * rx * .84} 330 L${sd * rx * .7} 320 C${sd * rx * .8} 240 ${sd * rx * .86} 140 ${sd * rx * .8} 0 Z`, H, 4)); return; }
   if (L.hairStyle === 'lowtie') { tsh(g, `M${-rx - 6} 10 C${-rx - 8} -${ry * 1.14} ${rx + 8} -${ry * 1.14} ${rx + 6} 10 C${rx} -${ry * .64} ${rx * .3} -${ry * .74} 0 -${ry * .66} C${-rx * .3} -${ry * .74} ${-rx} -${ry * .64} ${-rx - 6} 10 Z`, H, 5); tln(g, [0, -ry * 1.04, 0, -ry * .68], 3, 'rgba(160,150,140,.8)'); return; }
 }
 // ---------------- Kon: a small white-and-red kitsune ----------------
@@ -229,7 +238,9 @@ function kitsune(g, o) { const t = o.t || 0, ex = o.expr || 'calm', talk = o.tal
   g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), o.s || 1);
   g.fillStyle = rg(g, 0, 0, 8, 150, [[0, 'rgba(25,12,20,.32)'], [1, 'rgba(25,12,20,0)']]); g.beginPath(); g.ellipse(-10, 4, 150, 16, 0, 0, 7); g.fill();
   // three tails fanned behind, red tips
-  [[-.9, 0], [-.45, .7], [-1.3, 1.4]].forEach(([a0, p2], i) => { const wv = Math.sin(t * 1.7 + ph + p2) * .1; g.save(); g.translate(-70, -40); g.rotate(a0 + wv);
+  const nT = o.nTails || 3, nn = Math.round(nT), big = nT > 3 ? Math.min(1, (nT - 3) / 6) : 0, TAILS = nn <= 3 ? [[-.9, 0], [-.45, .7], [-1.3, 1.4]] : Array.from({ length: nn }, (_, i) => [lerp(-.9, -.2 - i * (1.5 / (nn - 1)), 1) * (1 - big) + (.9 - i * (2.7 / (nn - 1))) * big, i * .5]);
+  if (o.glowEyes) { glow(g, -40, -260, 520, 'rgba(160,80,255,1)', o.glowEyes * .5); }
+  TAILS.forEach(([a0, p2], i) => { const wv = Math.sin(t * 1.7 + ph + p2) * .1; g.save(); g.translate(-70 + big * 40, -40 - big * 60); g.rotate(a0 + wv); g.scale(1 + big * .45, 1 + big * .55);
     const tl = 'M0 0 C-20 -60 -40 -150 -10 -210 C10 -250 50 -250 56 -214 C40 -170 40 -90 36 0 Z'; tsh(g, tl, i === 1 ? W0 : WD, 5); g.save(); g.clip(path(tl)); g.fillStyle = R; g.beginPath(); g.ellipse(20, -230, 60, 56, 0, 0, 7); g.fill(); g.fillStyle = RD; g.beginPath(); g.ellipse(26, -246, 40, 30, 0, 0, 7); g.fill(); g.restore(); tsh(g, tl, null, 5); g.restore(); });
   // body: a compact sitting pear, chest fluff
   const body = 'M-100 0 C-130 -60 -110 -170 -40 -200 C0 -216 50 -220 70 -200 C96 -170 100 -80 90 0 Z'; tsh(g, body, W0, 5);
@@ -256,8 +267,26 @@ function kitsune(g, o) { const t = o.t || 0, ex = o.expr || 'calm', talk = o.tal
   const blink = ((t * .6 + ph) % 4.3) < .1;
   [[-16, 1.15], [46, 1.4]].forEach(([x, sc], i) => { if (blink || ex === 'smile') { tln(g, [x - 16 * sc, -36, x, ex === 'smile' ? -46 : -34, x + 16 * sc, -38], 5); return; }
     const lid = ex === 'smug' ? .5 : 0, ry2 = (ex === 'wide' ? 17 : 14) * sc; tsh(g, `M${x - 17 * sc} -34 Q${x} ${-34 - ry2 * 1.8} ${x + 19 * sc} -38 Q${x + 2} ${-34 + ry2 * .9} ${x - 17 * sc} -34 Z`, '#fffdf8', 4);
-    const ix = x + 4 * sc + (o.look ? o.look[0] * 4 : 0), iy = -40 + (o.look ? o.look[1] * 3 : 0); tell(g, ix, iy, 8 * sc, 11 * sc, rg(g, ix, iy, 1, 11 * sc, [[0, '#ffd860'], [1, '#c87a1a']]), 0); tell(g, ix, iy, 3 * sc, 8 * sc, '#140c08', 0); tell(g, ix + 3, iy - 4, 2.2, 2.2, '#fff', 0);
+    const ix = x + 4 * sc + (o.look ? o.look[0] * 4 : 0), iy = -40 + (o.look ? o.look[1] * 3 : 0); if (o.glowEyes) glow(g, ix, iy, 50, 'rgba(200,120,255,1)', o.glowEyes); tell(g, ix, iy, 8 * sc, 11 * sc, o.glowEyes ? rg(g, ix, iy, 1, 11 * sc, [[0, '#f0d0ff'], [1, '#9a40e0']]) : rg(g, ix, iy, 1, 11 * sc, [[0, '#ffd860'], [1, '#c87a1a']]), 0); tell(g, ix, iy, 3 * sc, 8 * sc, '#140c08', 0); tell(g, ix + 3, iy - 4, 2.2, 2.2, '#fff', 0);
     if (lid) tsh(g, `M${x - 19 * sc} -36 Q${x} ${-36 - ry2 * 1.9} ${x + 21 * sc} -40 L${x + 21 * sc} -44 Q${x} ${-36 - ry2 * .6} ${x - 19 * sc} -32 Z`, W0, 0);
     tln(g, [x - 18 * sc, -33, x, -36 - ry2 * 1.8 + lid * 14, x + 20 * sc, -38], 5); tln(g, [x + 18 * sc, -39, x + 30 * sc, -46], 4.4, R); });
   const bl = ex === 'serious' ? 6 : ex === 'wide' ? -8 : ex === 'smug' ? 2 : 0; tln(g, [-24, -60 + bl, -8, -66 + bl * .4], 4.4, '#9a8a94'); tln(g, [32, -64 + bl, 54, -70 + bl * .4], 4.4, '#9a8a94');
   g.restore(); g.restore(); }
+
+// ---- hats and fox parts ----
+function hatT(g, L, rx, ry, t) {
+  if (L.kanmuri) { tsh(g, `M${-rx * .62} -${ry * .86} Q0 -${ry * 1.32} ${rx * .62} -${ry * .86} L${rx * .56} -${ry * .62} Q0 -${ry * .72} ${-rx * .56} -${ry * .62} Z`, '#15121a', 5);
+    tsh(g, `M-${rx * .22} -${ry * 1.16} L${rx * .22} -${ry * 1.16} L${rx * .18} -${ry * 1.5} L-${rx * .18} -${ry * 1.5} Z`, '#15121a', 4); const sw = Math.sin(t * 1.3) * 6;
+    tsh(g, `M${rx * .12} -${ry * 1.46} C${rx * .9} -${ry * 1.9} ${rx * 1.3 + sw} -${ry * 1.2} ${rx * 1.2 + sw} -${ry * .4} L${rx * 1.06 + sw} -${ry * .44} C${rx * 1.1 + sw} -${ry * 1.1} ${rx * .8} -${ry * 1.6} ${rx * .1} -${ry * 1.3} Z`, '#15121a', 4); }
+  if (L.eboshi) { tsh(g, `M${-rx * .66} -${ry * .74} C${-rx * .74} -${ry * 1.4} ${-rx * .3} -${ry * 2.2} ${rx * .1} -${ry * 2.3} C${rx * .5} -${ry * 2.1} ${rx * .7} -${ry * 1.4} ${rx * .66} -${ry * .74} Q0 -${ry * .9} ${-rx * .66} -${ry * .74} Z`, '#15121a', 5);
+    tln(g, [-rx * .3, -ry * 1.8, rx * .2, -ry * 1.3], 2.4, 'rgba(120,120,150,.5)'); tln(g, [-rx * .6, -ry * .82, rx * .6, -ry * .82], 5, '#3a3044'); }
+  if (L.kabuto) { tsh(g, `M${-rx * 1.04} -${ry * .52} C${-rx * 1.06} -${ry * 1.4} ${rx * 1.06} -${ry * 1.4} ${rx * 1.04} -${ry * .52} Q0 -${ry * .66} ${-rx * 1.04} -${ry * .52} Z`, L.kabuto, 5);
+    [-1, 1].forEach(sd => tsh(g, `M${sd * rx * .96} -${ry * .6} L${sd * rx * 1.42} -${ry * .74} L${sd * rx * 1.4} -${ry * .18} L${sd * rx * 1.02} -${ry * .1} Z`, L.kabuto, 5));
+    for (let i = 0; i < 5; i++) tln(g, [-rx * .9 + i * rx * .45, -ry * 1.2 + Math.abs(i - 2) * 10, -rx * .9 + i * rx * .45, -ry * .6], 2.4, 'rgba(255,255,255,.18)');
+    [-1, 1].forEach(sd => tsh(g, `M${sd * rx * .12} -${ry * .86} C${sd * rx * .5} -${ry * 1.4} ${sd * rx * .7} -${ry * 1.9} ${sd * rx * .5} -${ry * 2.2} L${sd * rx * .64} -${ry * 2.24} C${sd * rx * .9} -${ry * 1.9} ${sd * rx * .7} -${ry * 1.3} ${sd * rx * .26} -${ry * .84} Z`, '#e8c050', 4)); }
+}
+function foxEarsT(g, k, rx, ry, col = '#f2c14e') { [-1, 1].forEach(sd => { g.save(); g.translate(sd * rx * .55, -ry * .86); g.scale(k, k); const e = `M${-sd * 34} 10 L${sd * 14} -120 L${sd * 46} 4 Z`; tsh(g, e, col, 5); tsh(g, `M${-sd * 18} 0 L${sd * 12} -76 L${sd * 30} 0 Z`, '#fbe4d0', 0); tsh(g, e, null, 5); g.restore(); }); }
+function foxTailsT(g, k, G, t, col = '#f2c14e') { const n = 9, base = [0, G.hip - 40]; for (let i = 0; i < n; i++) { const a = -Math.PI / 2 + (i - (n - 1) / 2) * .26 * k, wv = Math.sin(t * 1.6 + i * .7) * .06, L = (420 + (i % 2) * 60) * k;
+    g.save(); g.translate(base[0], base[1]); g.rotate(a + Math.PI / 2 + wv); const tl = `M-40 0 C-90 ${-L * .4} -60 ${-L * .8} 0 ${-L} C60 ${-L * .8} 90 ${-L * .4} 40 0 Z`;
+    tsh(g, tl, lg(g, 0, 0, 0, -L, [[0, mix(col, '#a85a10', .3)], [.75, col], [.86, '#fff8ec'], [1, '#ffffff']]), 5); g.restore(); }
+  glow(g, 0, G.hip - 300 * k, 600 * k, 'rgba(255,200,90,1)', .35 * k); }

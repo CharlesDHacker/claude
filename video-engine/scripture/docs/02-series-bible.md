@@ -108,7 +108,9 @@ Applied to every character rig from EP07 on (`art/figure.js`, `art/heroes.js`, `
   hall), drawn in front of its foreground layer. No cutting back to a separate studio.
 - **Pop words** sit at chest height of the reacting character, not over faces.
 - **Voices must be dry.** No room echo or comb-filter tone. Check every new voice's spectrogram before casting: evenly
-  spaced horizontal bands across vowels mean a roomy clone, so reject it. Kon now uses the offline Kokoro voice bm_fable
-  (tools/kokoro_take.py), levelled to match the ElevenLabs cast.
+  spaced horizontal bands across vowels mean a roomy clone, so reject it. Measure the tail after word ends too (Mio is
+  about -22 dB; reject anything above about -12 dB).
+- **Kon's voice is Callum (ElevenLabs premade, N2lVS1w4EtoT3dr4eOWO)** from JP03 on. NEVER use the old clone
+  (Money Montgomery, j8lzmOagTb5Fvj2jrAw9) or the offline Kokoro bm_fable for Kon again.
 - **Dense worlds.** Background characters at depth (courtiers, villagers, crowds), layered scenery with parallax,
   sparkles and haze, the cord border.

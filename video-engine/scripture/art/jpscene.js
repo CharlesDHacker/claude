@@ -24,7 +24,9 @@ function fujiF(g, x, y, s, col, snow) { g.save(); g.translate(x, y); g.scale(s, 
 function forestBand(g, y, n, h, col, seed, x0 = -700, x1 = 1780) { const r = rng(seed); sh(g, `M${x0} ${y} L${x1} ${y} L${x1} ${y + 800} L${x0} ${y + 800} Z`, col, 0);
   for (let i = 0; i < n; i++) { const x = x0 + r() * (x1 - x0), hh = h * (.6 + r() * .6), w = hh * .32; sh(g, `M${x - w} ${y + 4} L${x} ${y - hh} L${x + w} ${y + 4} Z`, mix(col, r() < .5 ? '#000' : '#fff', r() * .08), 0); } }
 function cloudF(g, x, y, s, col, rim) { g.save(); g.translate(x, y); g.scale(s, s); const blobs = [[-150, 10, 80], [-70, -36, 100], [40, -54, 110], [140, -20, 90], [210, 16, 64], [0, 20, 120], [-210, 30, 54]];
-  if (rim) blobs.forEach(([cx, cy, r]) => ell(g, cx, cy - 6, r, r * .62, rim)); blobs.forEach(([cx, cy, r]) => ell(g, cx, cy, r, r * .6, col)); g.restore(); }
+  const union = (dy, k) => { g.beginPath(); blobs.forEach(([cx, cy, r]) => { g.moveTo(cx + r, cy + dy); g.ellipse(cx, cy + dy, r, r * k, 0, 0, Math.PI * 2); }); };   // one path: overlaps never darken
+  if (rim) { union(-6, .62); g.fillStyle = rim; g.fill(); } union(0, .6); g.fillStyle = col; g.fill(); g.restore(); }
+function puff(g, x, y, r, col, a) { g.save(); g.globalAlpha *= a; g.fillStyle = rg(g, x, y, 0, r, [[0, col], [.55, col], [1, 'rgba(0,0,0,0)']]); g.beginPath(); g.ellipse(x, y, r, r * .72, 0, 0, Math.PI * 2); g.fill(); g.restore(); }
 function grassField(g, y0, y1, n, cols, seed, x0 = -700, x1 = 1780, hgt = 26) { const r = rng(seed); for (let i = 0; i < n; i++) { const y = y0 + Math.pow(r(), .8) * (y1 - y0), x = x0 + r() * (x1 - x0), d = (y - y0) / (y1 - y0), h = (8 + r() * hgt) * (.5 + d), c = cols[Math.floor(r() * cols.length)];
   line(g, [x, y, x - 4 - r() * 6, y - h], 1.6 + d * 2.4, c, 'round', true); line(g, [x + 3, y, x + 6 + r() * 6, y - h * .8], 1.6 + d * 2.4, c, 'round', true); } }
 function flowersF(g, y0, y1, n, cols, seed, x0 = -700, x1 = 1780) { const r = rng(seed); for (let i = 0; i < n; i++) { const y = y0 + Math.pow(r(), .8) * (y1 - y0), x = x0 + r() * (x1 - x0), d = (y - y0) / (y1 - y0), s = 2 + d * 6;
