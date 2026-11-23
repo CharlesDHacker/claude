@@ -1,0 +1,2086 @@
+{
+ "lead": 0.1,
+ "tail": 0.15,
+ "start": 0.35,
+ "loop": true,
+ "title": {
+  "text": "MASAKADO",
+  "sub": "the grave Tokyo is afraid to move",
+  "until": "L03"
+ },
+ "gaps": {
+  "L01": 0.15,
+  "L02": 0.12,
+  "L03": 0.3,
+  "L04": 0.15,
+  "L05": 0.15,
+  "L06": 0.15,
+  "L07": 0.25,
+  "L08": 0.12,
+  "L09": 0.15,
+  "L10": 0.2,
+  "L11": 0.15,
+  "L12": 0.15,
+  "L13": 0.15,
+  "L14": 0.2,
+  "L15": 0.2,
+  "L16": 0.2,
+  "L17": 0.12,
+  "L18": 0.15,
+  "L19": 0.15,
+  "L20": 0.3,
+  "L21": 0.12,
+  "L22": 0.15
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1520,
+     1.0
+    ],
+    [
+     560,
+     1470,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1700,
+      "s": 1.0,
+      "k": 0.85
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 200,
+      "y": 2080,
+      "s": 1.2,
+      "expr": "worry",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.4
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 890,
+      "y": 2010,
+      "s": 1.0,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "lead": 0,
+   "music": "kotodread",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L02",
+   "scene": "jp",
+   "cam": [
+    [
+     640,
+     1560,
+     1.25
+    ],
+    [
+     640,
+     1540,
+     1.32
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1700,
+      "s": 1.0,
+      "k": 0.85
+     }
+    ],
+    "front": [
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2010,
+      "s": 1.15,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L03",
+   "scene": "jp",
+   "cam": [
+    [
+     400,
+     1520,
+     1.4
+    ],
+    [
+     400,
+     1500,
+     1.5
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1700,
+      "s": 1.0,
+      "k": 0.85
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 330,
+      "y": 2060,
+      "s": 1.3,
+      "expr": "shock",
+      "hands": "up",
+      "hop": 0.6
+     }
+    ]
+   },
+   "tr": "flash",
+   "kicks": [
+    0.04
+   ],
+   "shakeAt": [
+    0.1
+   ],
+   "pops": {
+    "L03": [
+     540,
+     1400,
+     0.04,
+     200
+    ]
+   },
+   "sfx": [
+    [
+     "boom",
+     0.05
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1480,
+     1.05
+    ],
+    [
+     540,
+     1440,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "nasu",
+    "actors": [
+     {
+      "type": "banners",
+      "x": 40,
+      "y": 1640,
+      "n": 5,
+      "s": 0.7,
+      "k": 0.7
+     },
+     {
+      "type": "crowd",
+      "x0": -150,
+      "x1": 1230,
+      "y": 1760,
+      "n": 14,
+      "s": 0.45,
+      "spears": true,
+      "col": "#1a1214",
+      "k": 0.75
+     },
+     {
+      "type": "toon",
+      "c": "masakado",
+      "x": 540,
+      "y": 1880,
+      "s": 0.9,
+      "expr": "fierce",
+      "arms": "raise",
+      "hold": "tsurugi"
+     }
+    ],
+    "tod": "day"
+   },
+   "tr": "fade",
+   "music": "taiko",
+   "label": "TAIRA NO MASAKADO",
+   "labelY": 505,
+   "labelAt": "@L04.1",
+   "sfx": [
+    [
+     "horn",
+     0.3
+    ],
+    [
+     "crowd",
+     "@L04.1"
+    ]
+   ]
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1470,
+     1.08
+    ],
+    [
+     560,
+     1460,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "lady1",
+      "x": 160,
+      "y": 1690,
+      "s": 0.55,
+      "k": 0.8,
+      "expr": "shock"
+     },
+     {
+      "type": "toon",
+      "c": "kami2",
+      "x": 920,
+      "y": 1690,
+      "s": 0.55,
+      "k": 0.8,
+      "flip": true,
+      "expr": "angry"
+     },
+     {
+      "type": "toon",
+      "c": "toba",
+      "x": 300,
+      "y": 1880,
+      "s": 0.7,
+      "expr": "angry",
+      "arms": "point"
+     },
+     {
+      "type": "toon",
+      "c": "masakado",
+      "x": 700,
+      "y": 1880,
+      "s": 0.86,
+      "flip": true,
+      "expr": "angry",
+      "arms": "hips"
+     }
+    ],
+    "dim": 0.5
+   },
+   "atc": "@L04.2",
+   "tr": "whip",
+   "sfx": [
+    [
+     "braam",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.45
+    ],
+    [
+     540,
+     1160,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 1050,
+      "r": 1800,
+      "a": 0.35
+     },
+     {
+      "type": "toon",
+      "c": "masakadoK",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "smug",
+      "arms": "open"
+     }
+    ],
+    "dim": 0.4
+   },
+   "atc": "@L04.3",
+   "tr": "flash",
+   "label": "THE NEW EMPEROR",
+   "labelY": 505,
+   "labelAt": 0.3,
+   "bloom": 0.4,
+   "sfx": [
+    [
+     "choir",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.45
+    ],
+    [
+     540,
+     1160,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "nasu",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "masakado",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "fierce",
+      "arms": "hips"
+     },
+     {
+      "type": "arrow",
+      "t0": 0.2,
+      "d": 0.35,
+      "x0": -200,
+      "y0": 1500,
+      "x1": 520,
+      "y1": 1560,
+      "arc": 10
+     },
+     {
+      "type": "burst",
+      "x": 520,
+      "y": 1560,
+      "t0": 0.55,
+      "r": 220
+     },
+     {
+      "type": "arrow",
+      "t0": 0.8,
+      "d": 0.35,
+      "x0": 1300,
+      "y0": 1400,
+      "x1": 600,
+      "y1": 1500,
+      "arc": 10
+     },
+     {
+      "type": "burst",
+      "x": 600,
+      "y": 1500,
+      "t0": 1.15,
+      "r": 220
+     }
+    ],
+    "tod": "day"
+   },
+   "tr": "whip",
+   "sfx": [
+    [
+     "clank",
+     0.55
+    ],
+    [
+     "clank",
+     1.15
+    ]
+   ],
+   "kicks": [
+    0.55,
+    1.15
+   ]
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     480,
+     1040,
+     2.1
+    ],
+    [
+     470,
+     1030,
+     2.3
+    ]
+   ],
+   "o": {
+    "set": "nasu",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "masakado",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "fierce",
+      "arms": "hips"
+     },
+     {
+      "type": "halo",
+      "x": 455,
+      "y": 1010,
+      "r": 150,
+      "a": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.1,
+       "t1": 0.5,
+       "e": "io"
+      }
+     }
+    ],
+    "tod": "day"
+   },
+   "atc": "@L05.1",
+   "tr": "whip",
+   "sfx": [
+    [
+     "heartbeat",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.5
+    ],
+    [
+     540,
+     1120,
+     1.62
+    ]
+   ],
+   "o": {
+    "set": "nasu",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "archer",
+      "x": 400,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "fierce",
+      "arms": [
+       [
+        -40,
+        -640
+       ],
+       [
+        300,
+        -640
+       ]
+      ],
+      "hold": "bow",
+      "bowFlip": true,
+      "draw": {
+       "a": 0.2,
+       "b": 1,
+       "t0": 0,
+       "t1": 0.6,
+       "e": "o"
+      }
+     }
+    ],
+    "tod": "night"
+   },
+   "atc": "@L05.2",
+   "tr": "whip",
+   "kicks": [
+    0.6
+   ],
+   "sfx": [
+    [
+     "sling",
+     0.0
+    ],
+    [
+     "whoosh",
+     0.65
+    ]
+   ]
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     480,
+     1060,
+     1.9
+    ],
+    [
+     480,
+     1040,
+     2.0
+    ]
+   ],
+   "o": {
+    "set": "nasu",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "masakado",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "shock",
+      "arms": "open",
+      "lean": {
+       "a": 0,
+       "b": -0.12,
+       "t0": 0.3,
+       "t1": 0.8,
+       "e": "io"
+      }
+     },
+     {
+      "type": "arrow",
+      "t0": 0,
+      "d": 0.3,
+      "x0": -300,
+      "y0": 990,
+      "x1": 470,
+      "y1": 1000,
+      "arc": 10,
+      "hold": true
+     },
+     {
+      "type": "burst",
+      "x": 470,
+      "y": 1000,
+      "t0": 0.3,
+      "r": 260
+     }
+    ],
+    "tod": "night"
+   },
+   "atc": "@L05.3",
+   "tr": "flash",
+   "grade": "blood",
+   "shakeAt": [
+    0.3
+   ],
+   "sfx": [
+    [
+     "hit",
+     0.3
+    ],
+    [
+     "boom",
+     0.35
+    ]
+   ]
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1480,
+     1.0
+    ],
+    [
+     540,
+     1460,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "headstand",
+      "x": 540,
+      "y": 1820,
+      "s": 1.0
+     },
+     {
+      "type": "flyhead",
+      "x": 540,
+      "y": 1330,
+      "s": 0.85,
+      "bob": 0,
+      "expr": "angry",
+      "who": false,
+      "eyes": 0.4,
+      "glowA": 0.2
+     },
+     {
+      "type": "crowd",
+      "x0": -150,
+      "x1": 1230,
+      "y": 1980,
+      "n": 10,
+      "s": 0.62,
+      "col": "#0e0a10"
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "kotodread",
+   "label": "KYOTO",
+   "labelY": 505,
+   "labelAt": 0.4,
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1440,
+     1.3
+    ],
+    [
+     540,
+     1420,
+     1.5
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "headstand",
+      "x": 540,
+      "y": 2100,
+      "s": 1.4
+     },
+     {
+      "type": "flyhead",
+      "x": 540,
+      "y": 1560,
+      "s": 1.35,
+      "bob": 0,
+      "expr": "angry",
+      "who": false,
+      "eyes": {
+       "a": 0.2,
+       "b": 1,
+       "t0": 0,
+       "t1": 1.0,
+       "e": "io"
+      },
+      "glowA": 0.4
+     }
+    ]
+   },
+   "atc": "@L06.2",
+   "tr": "fade",
+   "sfx": [
+    [
+     "heartbeat",
+     0.1
+    ],
+    [
+     "heartbeat",
+     0.9
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1480,
+     1.0
+    ],
+    [
+     540,
+     1440,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "headstand",
+      "x": 540,
+      "y": 1820,
+      "s": 1.0
+     },
+     {
+      "type": "flyhead",
+      "x": 540,
+      "y": 1330,
+      "s": 0.85,
+      "bob": 0,
+      "expr": "shout",
+      "who": false,
+      "scream": true,
+      "eyes": 1,
+      "glowA": 0.6
+     },
+     {
+      "type": "crowd",
+      "x0": {
+       "a": -150,
+       "b": -500,
+       "t0": 0,
+       "t1": 0.6,
+       "e": "o"
+      },
+      "x1": {
+       "a": 1230,
+       "b": 1600,
+       "t0": 0,
+       "t1": 0.6,
+       "e": "o"
+      },
+      "y": 1980,
+      "n": 10,
+      "s": 0.62,
+      "col": "#0e0a10"
+     }
+    ]
+   },
+   "atc": "@L06.4",
+   "tr": "whip",
+   "shakeAt": [
+    0.1
+   ],
+   "sfx": [
+    [
+     "roar",
+     0.0
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L07",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1200,
+     1.05
+    ],
+    [
+     540,
+     1160,
+     1.2
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "rgba(255,60,30,1)",
+      "a": 0.35
+     },
+     {
+      "type": "flyhead",
+      "x": 540,
+      "y": 1200,
+      "s": 2.0,
+      "bob": 0.5,
+      "expr": "shout",
+      "eyes": 1,
+      "glowA": 0.8
+     }
+    ]
+   },
+   "tr": "flash",
+   "grade": "blood",
+   "shakeAt": [
+    0.1,
+    1.2
+   ],
+   "rumble": 4,
+   "kicks": [
+    0.05
+   ],
+   "pops": {
+    "L07": [
+     540,
+     1600,
+     -0.04,
+     170
+    ]
+   },
+   "leak": false
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1440,
+     1.0
+    ],
+    [
+     540,
+     1100,
+     0.9
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "headstand",
+      "x": 540,
+      "y": 1820,
+      "s": 1.0
+     },
+     {
+      "type": "flyhead",
+      "x": 540,
+      "y": {
+       "a": 1330,
+       "b": 300,
+       "t0": 0.5,
+       "t1": 2.2,
+       "e": "i"
+      },
+      "s": 0.85,
+      "expr": "angry",
+      "eyes": 1,
+      "glowA": {
+       "a": 0.4,
+       "b": 1,
+       "t0": 0.5,
+       "t1": 1.5,
+       "e": "io"
+      },
+      "who": false
+     },
+     {
+      "type": "crowd",
+      "x0": -150,
+      "x1": 1230,
+      "y": 1980,
+      "n": 10,
+      "s": 0.62,
+      "col": "#0e0a10"
+     }
+    ]
+   },
+   "tr": "fade",
+   "sfx": [
+    [
+     "riser",
+     0.4
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1100,
+     1.0
+    ],
+    [
+     540,
+     1100,
+     1.05
+    ]
+   ],
+   "o": {
+    "set": "flight",
+    "actors": [
+     {
+      "type": "flyhead",
+      "x": {
+       "a": 1300,
+       "b": -300,
+       "t0": 0,
+       "t1": 2.6,
+       "e": "lin"
+      },
+      "y": {
+       "a": 900,
+       "b": 1150,
+       "t0": 0,
+       "t1": 2.6,
+       "e": "lin"
+      },
+      "s": 1.0,
+      "dir": 3.14,
+      "speed": 1,
+      "expr": "angry",
+      "who": false,
+      "eyes": 1
+     }
+    ]
+   },
+   "atc": "@L08.2",
+   "tr": "whip",
+   "speed": 0.4,
+   "sfx": [
+    [
+     "whoosh",
+     0.2
+    ],
+    [
+     "wind",
+     0.0
+    ]
+   ],
+   "camEase": "lin"
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "flyhead",
+      "x": {
+       "a": 900,
+       "b": 200,
+       "t0": 0,
+       "t1": 1.2,
+       "e": "lin"
+      },
+      "y": 700,
+      "s": 0.6,
+      "dir": 3.14,
+      "speed": 0.8,
+      "who": false,
+      "eyes": 1
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 260,
+      "y": 2090,
+      "s": 1.3,
+      "expr": "scared",
+      "hands": "up",
+      "shake": 0.6,
+      "look": [
+       1,
+       -1
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "pops": {
+    "L09": [
+     560,
+     1400,
+     -0.04,
+     170
+    ]
+   },
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1460,
+     1.0
+    ],
+    [
+     560,
+     1480,
+     1.06
+    ]
+   ],
+   "o": {
+    "set": "house",
+    "actors": [
+     {
+      "type": "flyhead",
+      "x": {
+       "a": 1200,
+       "b": 620,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "i"
+      },
+      "y": {
+       "a": 400,
+       "b": 1720,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "i"
+      },
+      "s": 0.6,
+      "dir": 2.4,
+      "speed": 1,
+      "who": false,
+      "eyes": 1
+     },
+     {
+      "type": "dust",
+      "x": 620,
+      "y": 1800,
+      "t0": 0.8,
+      "s": 1.6
+     }
+    ]
+   },
+   "tr": "whip",
+   "shakeAt": [
+    0.8
+   ],
+   "kicks": [
+    0.8
+   ],
+   "sfx": [
+    [
+     "boom",
+     0.8
+    ],
+    [
+     "stomp",
+     0.8
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1200,
+     0.85
+    ],
+    [
+     540,
+     1450,
+     1.0
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1660,
+      "s": 0.7,
+      "k": 0.85
+     }
+    ]
+   },
+   "atc": "@L10.1",
+   "tr": "fade",
+   "label": "OTEMACHI, TOKYO",
+   "labelY": 505,
+   "labelAt": 0.3,
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1400,
+     1.15
+    ],
+    [
+     560,
+     1380,
+     1.24
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1780,
+      "s": 1.25,
+      "k": 0.85
+     }
+    ]
+   },
+   "atc": "@L10.3",
+   "tr": "fade",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1420,
+     1.0
+    ],
+    [
+     540,
+     1420,
+     1.04
+    ]
+   ],
+   "o": {
+    "set": "taisho",
+    "actors": [
+     {
+      "type": "ministry",
+      "x": 540,
+      "y": 1660,
+      "s": 0.9,
+      "ruin": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.3,
+       "t1": 1.4,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "kotodread",
+   "label": "1923",
+   "labelY": 505,
+   "labelAt": 0.2,
+   "rumble": 6,
+   "shakeAt": [
+    0.3,
+    0.9
+   ],
+   "sfx": [
+    [
+     "thunder",
+     0.1
+    ],
+    [
+     "boom",
+     0.4
+    ],
+    [
+     "stone",
+     0.6
+    ]
+   ]
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1480,
+     1.05
+    ],
+    [
+     540,
+     1460,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "taisho",
+    "actors": [
+     {
+      "type": "barracks",
+      "x": 560,
+      "y": 1700,
+      "s": 1.0
+     },
+     {
+      "type": "toon",
+      "c": "official",
+      "x": 200,
+      "y": 1880,
+      "s": 0.72,
+      "expr": "neutral"
+     },
+     {
+      "type": "toon",
+      "c": "official2",
+      "x": 900,
+      "y": 1880,
+      "s": 0.72,
+      "flip": true,
+      "expr": "neutral",
+      "arms": "hold"
+     }
+    ]
+   },
+   "atc": "@L11.1",
+   "tr": "fade",
+   "label": "MINISTRY OF FINANCE",
+   "labelY": 505,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "thump",
+     0.3
+    ],
+    [
+     "thump",
+     0.7
+    ]
+   ]
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.0
+    ],
+    [
+     540,
+     1130,
+     1.06
+    ]
+   ],
+   "o": {
+    "set": "paper",
+    "actors": [
+     {
+      "type": "tally",
+      "x": 160,
+      "y": 1300,
+      "n": 14,
+      "t0": 0.2,
+      "d": 2.2
+     }
+    ]
+   },
+   "tr": "whip",
+   "sfx": [
+    [
+     "tick6",
+     0.2
+    ],
+    [
+     "tick6",
+     1.2
+    ]
+   ]
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.45
+    ],
+    [
+     540,
+     1160,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "taisho",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "official",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "sad",
+      "pale": {
+       "a": 0,
+       "b": 1,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "io"
+      },
+      "arms": "chest",
+      "lean": 0.06,
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": 1.2,
+       "t1": 2.0,
+       "e": "io"
+      }
+     }
+    ],
+    "tod": "night"
+   },
+   "atc": "@L12.2",
+   "tr": "fade",
+   "label": "THE FINANCE MINISTER",
+   "labelY": 505,
+   "labelAt": 0.1,
+   "sfx": [
+    [
+     "heartbeat",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L13",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "taisho",
+    "actors": [
+     {
+      "type": "ministry",
+      "x": 560,
+      "y": 1620,
+      "s": 0.55,
+      "k": 0.8
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 260,
+      "y": 2090,
+      "s": 1.3,
+      "expr": "whisper",
+      "hands": "mouth",
+      "look": [
+       1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip"
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1420,
+     1.0
+    ],
+    [
+     540,
+     1400,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "taisho",
+    "actors": [
+     {
+      "type": "ministry",
+      "x": 540,
+      "y": 1660,
+      "s": 0.9,
+      "burn": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L14.2",
+       "t1": "@L14.2+1.4",
+       "e": "io"
+      }
+     },
+     {
+      "type": "bolt",
+      "x": 560,
+      "y": 1100,
+      "y0": -200,
+      "t0": "@L14.2",
+      "seed": 6
+     }
+    ],
+    "tod": "night"
+   },
+   "tr": "fade",
+   "label": "1940",
+   "labelY": 505,
+   "labelAt": 0.2,
+   "shakeAt": [
+    "@L14.2"
+   ],
+   "kicks": [
+    "@L14.2"
+   ],
+   "sfx": [
+    [
+     "thunder",
+     "@L14.2"
+    ],
+    [
+     "boom",
+     "@L14.2+0.05"
+    ]
+   ]
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     520,
+     1460,
+     1.02
+    ],
+    [
+     560,
+     1460,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "taisho",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 760,
+      "y": 1700,
+      "s": 0.7,
+      "k": 0.85
+     },
+     {
+      "type": "bulldozer",
+      "x": {
+       "a": -200,
+       "b": 240,
+       "t0": 0,
+       "t1": 2.5,
+       "e": "o"
+      },
+      "y": 1800,
+      "s": 0.7
+     }
+    ]
+   },
+   "tr": "whip",
+   "label": "1945",
+   "labelY": 505,
+   "labelAt": 0.2,
+   "sfx": [
+    [
+     "stomp",
+     0.2
+    ],
+    [
+     "stomp",
+     0.8
+    ]
+   ]
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     520,
+     1460,
+     1.04
+    ],
+    [
+     540,
+     1480,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "taisho",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 760,
+      "y": 1700,
+      "s": 0.7,
+      "k": 0.85,
+      "eyes": {
+       "a": 0,
+       "b": 1,
+       "t0": 0,
+       "t1": 0.5,
+       "e": "io"
+      }
+     },
+     {
+      "type": "bulldozer",
+      "x": 240,
+      "y": 1800,
+      "s": 0.7,
+      "tip": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.3,
+       "t1": 1.1,
+       "e": "i"
+      }
+     }
+    ]
+   },
+   "atc": "@L15.2",
+   "tr": "whip",
+   "shakeAt": [
+    1.1
+   ],
+   "kicks": [
+    1.1
+   ],
+   "sfx": [
+    [
+     "boom",
+     1.1
+    ],
+    [
+     "crack",
+     0.9
+    ]
+   ]
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     900,
+     0.8
+    ],
+    [
+     560,
+     1500,
+     1.06
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1680,
+      "s": 0.8,
+      "k": 0.85,
+      "eyes": {
+       "a": 0,
+       "b": 0.35,
+       "t0": 1,
+       "t1": 2.5,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "kotodread",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1540,
+     1.12
+    ],
+    [
+     540,
+     1530,
+     1.18
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1700,
+      "s": 1.0,
+      "k": 0.85
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 240,
+      "y": 2080,
+      "s": 1.2,
+      "expr": "worry",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 880,
+      "y": 2010,
+      "s": 1.0,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -1,
+       -0.2
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1460,
+     1.06
+    ],
+    [
+     560,
+     1440,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1700,
+      "s": 1.0,
+      "k": 0.85,
+      "scaffold": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.6,
+       "t1": 1.4,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "tr": "whip",
+   "label": "2020",
+   "labelY": 505,
+   "labelAt": 0.4,
+   "sfx": [
+    [
+     "clank",
+     0.6
+    ],
+    [
+     "thump",
+     1.0
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L19",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.32
+    ],
+    [
+     440,
+     1550,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1700,
+      "s": 1.0,
+      "k": 0.85,
+      "scaffold": 1
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 260,
+      "y": 2090,
+      "s": 1.3,
+      "expr": "worry",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L20",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     980,
+     1.06
+    ]
+   ],
+   "o": {
+    "set": "paper",
+    "actors": [
+     {
+      "type": "kantomap",
+      "x": 540,
+      "y": 1000,
+      "s": 1.0,
+      "t0": 0.1,
+      "quake": "@L20.1+0.3",
+      "line": true
+     }
+    ]
+   },
+   "tr": "whip",
+   "shakeAt": [
+    "@L20.1+0.3"
+   ],
+   "rumble": 0,
+   "kicks": [
+    "@L20.1+0.3"
+   ],
+   "sfx": [
+    [
+     "thunder",
+     "@L20.1+0.3"
+    ],
+    [
+     "boom",
+     "@L20.1+0.35"
+    ]
+   ]
+  },
+  {
+   "at": "L21",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1540,
+     1.12
+    ],
+    [
+     540,
+     1530,
+     1.16
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1700,
+      "s": 1.0,
+      "k": 0.85
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": {
+       "a": 320,
+       "b": 40,
+       "t0": 0.6,
+       "t1": 2.4,
+       "e": "lin"
+      },
+      "y": 2080,
+      "s": 1.2,
+      "flip": true,
+      "expr": "scared",
+      "hands": "fists",
+      "walk": 1
+     },
+     {
+      "type": "fox",
+      "x": 880,
+      "y": 2010,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       -1,
+       -0.2
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "koto",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L22",
+   "scene": "jp",
+   "cam": [
+    [
+     700,
+     1620,
+     1.4
+    ],
+    [
+     700,
+     1600,
+     1.5
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1700,
+      "s": 1.0,
+      "k": 0.85,
+      "eyes": {
+       "a": 0,
+       "b": 0.6,
+       "t0": 0.3,
+       "t1": 1.4,
+       "e": "io"
+      }
+     }
+    ],
+    "front": [
+     {
+      "type": "fox",
+      "x": 820,
+      "y": 2010,
+      "s": 1.2,
+      "flip": true,
+      "expr": "serious",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "kotodread",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L23",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1360,
+     1.1
+    ],
+    [
+     540,
+     1300,
+     1.28
+    ]
+   ],
+   "o": {
+    "set": "otemachi",
+    "actors": [
+     {
+      "type": "kubizuka",
+      "x": 560,
+      "y": 1700,
+      "s": 1.0,
+      "k": 0.85,
+      "eyes": 1
+     },
+     {
+      "type": "flyhead",
+      "x": 540,
+      "y": {
+       "a": 1500,
+       "b": 1080,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "o"
+      },
+      "s": 1.0,
+      "expr": "angry",
+      "eyes": 1,
+      "glowA": 0.8
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 300,
+      "y": 2120,
+      "s": 1.35,
+      "flip": true,
+      "expr": "scared",
+      "hands": "fists",
+      "shake": 0.4
+     }
+    ]
+   },
+   "tr": "flash",
+   "grade": "blood",
+   "sfx": [
+    [
+     "braam",
+     0.1
+    ],
+    [
+     "heartbeat",
+     0.6
+    ]
+   ]
+  }
+ ]
+}
