@@ -1,6 +1,9 @@
 // "stage": a composable cinematic set. Shot options pick a sky preset and a list of actors; any numeric prop can be animated
 // with {a: from, b: to, t0, t1, e: 'io'|'o'|'i'} (times in seconds into the shot). Layers get camera parallax.
-function av(v, lt) { if (v && typeof v === 'object' && !Array.isArray(v) && 'a' in v) { const k = clamp((lt - (v.t0 || 0)) / Math.max((v.t1 ?? 1) - (v.t0 || 0), .001)); const e = v.e === 'o' ? eo(k) : v.e === 'i' ? ei(k) : v.e === 'lin' ? k : eio(k); return lerp(v.a, v.b, e); } return v; }
+// animated values: {a,b,t0,t1,e} one move; {osc:[centre, amp, hz, phase]} loops for the whole shot; {k:[[t,v],...], e} several moves
+function av(v, lt) { if (v && typeof v === 'object' && !Array.isArray(v) && 'osc' in v) { const [c0, amp, hz, ph] = v.osc; return c0 + amp * Math.sin((lt * hz + (ph || 0)) * 6.2832); }
+  if (v && typeof v === 'object' && !Array.isArray(v) && 'k' in v) { const K = v.k; if (lt <= K[0][0]) return K[0][1]; for (let i = 1; i < K.length; i++) if (lt <= K[i][0]) { const q = (lt - K[i - 1][0]) / Math.max(K[i][0] - K[i - 1][0], .001); return lerp(K[i - 1][1], K[i][1], v.e === 'lin' ? q : eio(q)); } return K[K.length - 1][1]; }
+  if (v && typeof v === 'object' && !Array.isArray(v) && 'a' in v) { const k = clamp((lt - (v.t0 || 0)) / Math.max((v.t1 ?? 1) - (v.t0 || 0), .001)); const e = v.e === 'o' ? eo(k) : v.e === 'i' ? ei(k) : v.e === 'lin' ? k : eio(k); return lerp(v.a, v.b, e); } return v; }
 function avAll(o, lt) { const r = {}; for (const k in o) r[k] = (k === 'c' || k === 'look' || k === 'hands') ? o[k] : av(o[k], lt); return r; }
 function par(g, c, k, fn) { g.save(); g.translate((c.cam[0] - 540) * (1 - k), (c.cam[1] - 960) * (1 - k) * .6); fn(); g.restore(); }
 const SKY = {
