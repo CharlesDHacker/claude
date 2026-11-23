@@ -1,5 +1,5 @@
 """Split a take into one clip per line by its silences (for screams and shouts that forced alignment mislabels).
-Usage: python3 split_by_silence.py take.mp3 episodes/X.lines.json SPEAKER OUT_DIR
+Usage: python3 split_by_silence.py take.mp3 episodes/X.lines.json SPEAKER OUT_DIR [merge_idx,...]
 Needs exactly as many voiced groups (pauses > 0.45 s) as the speaker has lines; word timings are spread by letter count."""
 import sys, json, re, subprocess, wave, numpy as np
 take, lines_p, who, out = sys.argv[1:5]
@@ -16,7 +16,8 @@ g = []
 for a, b in segs:
     if g and a - g[-1][1] < .45: g[-1] = (g[-1][0], b)
     else: g.append((a, b))
-if len(g) != len(L): sys.exit(f"{len(g)} voiced groups for {len(L)} lines")
+for k in sorted([int(x) for x in sys.argv[5].split(",")] if len(sys.argv) > 5 else [], reverse=True): g[k] = (g[k][0], g[k + 1][1]); del g[k + 1]   # merge group k with k+1 (a pause inside one line)
+if len(g) != len(L): sys.exit(f"{len(g)} voiced groups for {len(L)} lines: " + ", ".join(f"{a:.2f}-{b:.2f}" for a, b in g))
 def words_of(say): return [w for w in re.findall(r"[a-z']+", re.sub(r"\[[^\]]*\]", " ", say).replace("-", " ").lower()) if w.strip("'")]
 W = {}
 for k, (l, (a, b)) in enumerate(zip(L, g)):

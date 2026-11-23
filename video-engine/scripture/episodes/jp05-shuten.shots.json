@@ -1,0 +1,3553 @@
+{
+ "lead": 0.08,
+ "tail": 0.15,
+ "start": 0.35,
+ "loop": true,
+ "title": {
+  "text": "SHUTEN-D\u014cJI",
+  "sub": "the demon king whose head bit back",
+  "until": "L03"
+ },
+ "gaps": {
+  "L01": 0.12,
+  "L02": 0.12,
+  "L03": 0.25,
+  "L04": 0.12,
+  "L05": 0.12,
+  "L06": 0.12,
+  "L07": 0.12,
+  "L08": 0.12,
+  "L09": 0.15,
+  "L10": 0.12,
+  "L11": 0.12,
+  "L12": 0.12,
+  "L13": 0.15,
+  "L14": 0.12,
+  "L15": 0.12,
+  "L16": 0.12,
+  "L17": 0.12,
+  "L18": 0.12,
+  "L19": 0.15,
+  "L20": 0.12,
+  "L21": 0.2,
+  "L22": 0.12,
+  "L23": 0.12,
+  "L24": 0.25,
+  "L25": 0.12
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1520,
+     1.0
+    ],
+    [
+     560,
+     1470,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "museum",
+    "actors": [
+     {
+      "type": "swordcase",
+      "x": 560,
+      "y": 1760,
+      "s": 1.0
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 200,
+      "y": 2080,
+      "s": 1.2,
+      "expr": "wide",
+      "hands": "point",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 890,
+      "y": 2010,
+      "s": 1.0,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -1,
+       -0.2
+      ]
+     }
+    ]
+   },
+   "lead": 0,
+   "music": "taiko"
+  },
+  {
+   "at": "L02",
+   "scene": "jp",
+   "cam": [
+    [
+     640,
+     1560,
+     1.25
+    ],
+    [
+     640,
+     1540,
+     1.32
+    ]
+   ],
+   "o": {
+    "set": "museum",
+    "actors": [
+     {
+      "type": "swordcase",
+      "x": 560,
+      "y": 1760,
+      "s": 1.0
+     }
+    ],
+    "front": [
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2010,
+      "s": 1.15,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip"
+  },
+  {
+   "at": "L02",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1100,
+     1.0
+    ],
+    [
+     540,
+     1100,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "onihead",
+      "x": 540,
+      "y": {
+       "a": 1300,
+       "b": 1100,
+       "t0": 0,
+       "t1": 1.0,
+       "e": "o"
+      },
+      "s": {
+       "a": 0.8,
+       "b": 1.6,
+       "t0": 0,
+       "t1": 1.0,
+       "e": "o"
+      },
+      "talk": 0.9,
+      "glowA": 0.7
+     }
+    ],
+    "rain": false
+   },
+   "atc": "@L02.1",
+   "tr": "flash",
+   "grade": "blood",
+   "shakeAt": [
+    0.1
+   ],
+   "kicks": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "roar",
+     0.0
+    ],
+    [
+     "boom",
+     0.05
+    ]
+   ]
+  },
+  {
+   "at": "L03",
+   "scene": "jp",
+   "cam": [
+    [
+     400,
+     1520,
+     1.4
+    ],
+    [
+     400,
+     1500,
+     1.5
+    ]
+   ],
+   "o": {
+    "set": "museum",
+    "actors": [
+     {
+      "type": "swordcase",
+      "x": 560,
+      "y": 1760,
+      "s": 1.0
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 330,
+      "y": 2060,
+      "s": 1.3,
+      "expr": "shock",
+      "hands": "up",
+      "hop": 0.6
+     }
+    ]
+   },
+   "tr": "whip",
+   "kicks": [
+    0.04
+   ],
+   "shakeAt": [
+    0.1
+   ],
+   "pops": {
+    "L03": [
+     540,
+     1400,
+     0.04,
+     200
+    ]
+   }
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1470,
+     1.02
+    ],
+    [
+     540,
+     1440,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "crowd",
+      "x0": {
+       "a": -200,
+       "b": -900,
+       "t0": 0.8,
+       "t1": 2.6,
+       "e": "i"
+      },
+      "x1": {
+       "a": 1280,
+       "b": 500,
+       "t0": 0.8,
+       "t1": 2.6,
+       "e": "i"
+      },
+      "y": 1900,
+      "n": 10,
+      "s": 0.6,
+      "col": "#0e0a10"
+     },
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": {
+       "a": 1300,
+       "b": 700,
+       "t0": 0.3,
+       "t1": 1.6,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.85,
+      "flip": true,
+      "expr": "shout",
+      "arms": "up",
+      "walk": 1
+     },
+     {
+      "type": "toon",
+      "c": "oniG",
+      "x": {
+       "a": -300,
+       "b": 300,
+       "t0": 0.5,
+       "t1": 1.8,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "expr": "shout",
+      "arms": "up",
+      "walk": 1
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "kotodread",
+   "label": "KYOTO",
+   "labelY": 505,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "crowd",
+     0.6
+    ],
+    [
+     "roar",
+     0.4
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1480,
+     1.05
+    ],
+    [
+     620,
+     1480,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": {
+       "a": 200,
+       "b": 1300,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.9,
+      "flip": false,
+      "expr": "smug",
+      "arms": "hold",
+      "walk": 1
+     },
+     {
+      "type": "crowd",
+      "x0": {
+       "a": 140,
+       "b": 1240,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "lin"
+      },
+      "x1": {
+       "a": 260,
+       "b": 1360,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "lin"
+      },
+      "y": 1870,
+      "n": 2,
+      "s": 0.5,
+      "col": "#0e0a10"
+     }
+    ]
+   },
+   "atc": "@L04.2",
+   "tr": "whip",
+   "speed": 0.3,
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.45
+    ],
+    [
+     540,
+     1160,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "shout",
+      "arms": "up",
+      "shake": 0.3
+     }
+    ]
+   },
+   "atc": "@L04.3",
+   "tr": "whip",
+   "kicks": [
+    0.05
+   ],
+   "shakeAt": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "roar",
+     0.05
+    ]
+   ],
+   "grade": "blood"
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1400,
+     1.06
+    ],
+    [
+     540,
+     1380,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": 170,
+      "y": 1880,
+      "s": 0.72,
+      "expr": "happy",
+      "arms": "hold",
+      "hold": "sak\u00e9"
+     },
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 540,
+      "y": 1880,
+      "s": 0.9,
+      "expr": "smug",
+      "arms": "open"
+     },
+     {
+      "type": "toon",
+      "c": "oniG",
+      "x": 910,
+      "y": 1880,
+      "s": 0.7,
+      "flip": true,
+      "expr": "happy",
+      "arms": "hold",
+      "hold": "sak\u00e9"
+     },
+     {
+      "type": "sakeBarrel",
+      "x": 330,
+      "y": 1880,
+      "s": 0.9
+     },
+     {
+      "type": "sakeBarrel",
+      "x": 760,
+      "y": 1880,
+      "s": 0.9
+     }
+    ]
+   },
+   "tr": "flash",
+   "label": "SHUTEN-D\u014cJI",
+   "labelY": 505,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "boom",
+     0.1
+    ]
+   ],
+   "bloom": 0.3
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.45
+    ],
+    [
+     540,
+     1160,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "happy",
+      "arms": "hold",
+      "hold": "sak\u00e9",
+      "lean": -0.05
+     }
+    ]
+   },
+   "atc": "@L05.2",
+   "tr": "whip",
+   "sfx": [
+    [
+     "gulp",
+     0.2
+    ],
+    [
+     "gulp",
+     0.8
+    ]
+   ]
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1080,
+     1.6
+    ],
+    [
+     540,
+     1060,
+     1.8
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "rgba(255,40,30,1)",
+      "a": 0.35
+     },
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 540,
+      "y": 2140,
+      "s": 1.45,
+      "expr": "smug",
+      "arms": "open"
+     }
+    ]
+   },
+   "atc": "@L05.3",
+   "tr": "flash",
+   "grade": "blood",
+   "kicks": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "braam",
+     0.05
+    ]
+   ]
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1460,
+     1.06
+    ],
+    [
+     540,
+     1450,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "toba",
+      "x": 320,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "angry",
+      "arms": "point"
+     },
+     {
+      "type": "toon",
+      "c": "kami1",
+      "x": 820,
+      "y": 1880,
+      "s": 0.72,
+      "flip": true,
+      "expr": "worry"
+     }
+    ],
+    "dim": 0.4
+   },
+   "tr": "whip",
+   "music": "taiko"
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1090,
+     1.42
+    ],
+    [
+     540,
+     1070,
+     1.52
+    ]
+   ],
+   "o": {
+    "set": "palace",
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 1100,
+      "r": 1800,
+      "a": 0.35
+     },
+     {
+      "type": "toon",
+      "c": "raiko",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "fierce",
+      "arms": "hips"
+     }
+    ]
+   },
+   "atc": "@L06.2",
+   "tr": "flash",
+   "label": "MINAMOTO NO RAIK\u014c",
+   "labelY": 505,
+   "labelAt": 0.1,
+   "bloom": 0.4,
+   "sfx": [
+    [
+     "clash",
+     0.05
+    ]
+   ]
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1490,
+     1.04
+    ],
+    [
+     540,
+     1460,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "palace",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "archer",
+      "x": {
+       "a": -100,
+       "b": 130,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.74,
+      "expr": "fierce",
+      "arms": "hips",
+      "walk": 1
+     },
+     {
+      "type": "toon",
+      "c": "tsuna",
+      "x": {
+       "a": -100,
+       "b": 310,
+       "t0": 0,
+       "t1": 0.9,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.78,
+      "expr": "fierce",
+      "arms": "raise",
+      "hold": "tsurugi",
+      "walk": 1
+     },
+     {
+      "type": "toon",
+      "c": "raiko",
+      "x": 540,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "fierce",
+      "arms": "hips"
+     },
+     {
+      "type": "toon",
+      "c": "kintoki",
+      "x": {
+       "a": 1200,
+       "b": 770,
+       "t0": 0,
+       "t1": 0.9,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.82,
+      "flip": true,
+      "expr": "shout",
+      "arms": "raise",
+      "hold": "tsurugi",
+      "walk": 1
+     },
+     {
+      "type": "toon",
+      "c": "kami2",
+      "x": {
+       "a": 1200,
+       "b": 950,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.74,
+      "flip": true,
+      "expr": "fierce",
+      "arms": "hips",
+      "walk": 1
+     }
+    ]
+   },
+   "atc": "@L06.3",
+   "tr": "whip",
+   "label": "THE FOUR GUARDS",
+   "labelY": 505,
+   "labelAt": 0.4,
+   "sfx": [
+    [
+     "stomp",
+     0.4
+    ],
+    [
+     "horn",
+     0.6
+    ]
+   ]
+  },
+  {
+   "at": "L07",
+   "scene": "jp",
+   "cam": [
+    [
+     400,
+     1170,
+     1.5
+    ],
+    [
+     410,
+     1140,
+     1.62
+    ]
+   ],
+   "o": {
+    "set": "oeyama",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "raiko",
+      "x": 330,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "fierce",
+      "arms": "hips",
+      "who": "raiko"
+     }
+    ]
+   },
+   "tr": "whip"
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1490,
+     1.04
+    ],
+    [
+     540,
+     1470,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "oeyama",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "elder",
+      "x": 230,
+      "y": 1880,
+      "s": 0.72,
+      "expr": "smile"
+     },
+     {
+      "type": "toon",
+      "c": "elder",
+      "x": 380,
+      "y": 1880,
+      "s": 0.7,
+      "expr": "neutral",
+      "flip": true,
+      "ph": 1
+     },
+     {
+      "type": "toon",
+      "c": "elder",
+      "x": 520,
+      "y": 1880,
+      "s": 0.74,
+      "expr": "smile",
+      "ph": 2
+     },
+     {
+      "type": "sakeBarrel",
+      "x": 420,
+      "y": 1880,
+      "s": 0.8
+     },
+     {
+      "type": "toon",
+      "c": "monk",
+      "x": 820,
+      "y": 1880,
+      "s": 0.82,
+      "flip": true,
+      "expr": "neutral"
+     }
+    ]
+   },
+   "tr": "fade",
+   "sfx": [
+    [
+     "sparkle",
+     0.4
+    ]
+   ]
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.2
+    ],
+    [
+     540,
+     1480,
+     1.3
+    ]
+   ],
+   "o": {
+    "set": "oeyama",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1450,
+      "r": 600,
+      "col": "rgba(255,220,140,1)",
+      "a": 0.6
+     },
+     {
+      "type": "sakeBarrel",
+      "x": 540,
+      "y": 1780,
+      "s": 1.6
+     }
+    ]
+   },
+   "atc": "@L08.1",
+   "tr": "whip",
+   "sfx": [
+    [
+     "sparkle",
+     0.1
+    ]
+   ],
+   "bloom": 0.4
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.3
+    ],
+    [
+     540,
+     1480,
+     1.4
+    ]
+   ],
+   "o": {
+    "set": "oeyama",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1450,
+      "r": 700,
+      "col": "rgba(170,60,255,1)",
+      "a": {
+       "a": 0,
+       "b": 0.8,
+       "t0": 0,
+       "t1": 0.6,
+       "e": "io"
+      }
+     },
+     {
+      "type": "sakeBarrel",
+      "x": 540,
+      "y": 1780,
+      "s": 1.6
+     }
+    ]
+   },
+   "atc": "@L08.3",
+   "tr": "flash",
+   "grade": "blood",
+   "sfx": [
+    [
+     "braam",
+     0.05
+    ]
+   ]
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "oeyama",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "monk",
+      "x": 560,
+      "y": 1790,
+      "s": 0.62,
+      "expr": "neutral"
+     },
+     {
+      "type": "toon",
+      "c": "monk2",
+      "x": 780,
+      "y": 1790,
+      "s": 0.6,
+      "flip": true,
+      "expr": "neutral"
+     },
+     {
+      "type": "sakeBarrel",
+      "x": 660,
+      "y": 1810,
+      "s": 0.6
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 260,
+      "y": 2090,
+      "s": 1.3,
+      "expr": "annoyed",
+      "hands": "shrug",
+      "look": [
+       1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "pops": {
+    "L09": [
+     560,
+     1480,
+     -0.04,
+     150,
+     null,
+     "@L09.2"
+    ]
+   }
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.05
+    ],
+    [
+     540,
+     1480,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "trap",
+    "actors": [
+     {
+      "type": "oroBig",
+      "x": 540,
+      "y": 1890,
+      "s": 0.8,
+      "from": "top",
+      "bx": -320,
+      "by": -2400,
+      "hx": -300,
+      "hy": -560,
+      "ang": 1.05,
+      "jaw": 0.12,
+      "glow": 0.4,
+      "hs": 1.5,
+      "w0": 260,
+      "w1": 200,
+      "gulp": true
+     },
+     {
+      "type": "vatF",
+      "x": 540,
+      "y": 1890,
+      "s": 1.25
+     }
+    ]
+   },
+   "tr": "whip",
+   "label": "SEE: OROCHI",
+   "labelY": 505,
+   "labelAt": 0.1,
+   "sfx": [
+    [
+     "gulp",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1490,
+     1.02
+    ],
+    [
+     600,
+     1480,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "oeyama",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "monk2",
+      "x": {
+       "a": -200,
+       "b": 360,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.78,
+      "expr": "neutral",
+      "walk": 1
+     },
+     {
+      "type": "toon",
+      "c": "monk",
+      "x": {
+       "a": -420,
+       "b": 560,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.84,
+      "expr": "fierce",
+      "walk": 1
+     },
+     {
+      "type": "toon",
+      "c": "monk2",
+      "x": {
+       "a": -640,
+       "b": 760,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "expr": "smug",
+      "walk": 1,
+      "ph": 1.3
+     }
+    ]
+   },
+   "atc": "@L10.1",
+   "tr": "fade",
+   "sfx": [
+    [
+     "wind",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.1
+    ],
+    [
+     540,
+     1050,
+     1.3
+    ]
+   ],
+   "o": {
+    "set": "oeyama",
+    "actors": []
+   },
+   "atc": "@L10.3",
+   "tr": "whip",
+   "sfx": [
+    [
+     "braam",
+     0.1
+    ]
+   ],
+   "grade": "blood"
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     480,
+     1460,
+     1.1
+    ],
+    [
+     460,
+     1440,
+     1.18
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": 140,
+      "y": 1880,
+      "s": 0.7,
+      "expr": "happy",
+      "arms": "hold",
+      "hold": "sak\u00e9"
+     },
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 420,
+      "y": 1880,
+      "s": 0.88,
+      "expr": "happy",
+      "arms": "open",
+      "who": "shuten"
+     },
+     {
+      "type": "toon",
+      "c": "monk",
+      "x": 760,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "smile"
+     },
+     {
+      "type": "toon",
+      "c": "monk2",
+      "x": 940,
+      "y": 1880,
+      "s": 0.74,
+      "flip": true,
+      "expr": "smile"
+     }
+    ]
+   },
+   "tr": "whip",
+   "sfx": [
+    [
+     "crowd",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1470,
+     1.08
+    ],
+    [
+     540,
+     1460,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": 200,
+      "y": 1880,
+      "s": 0.78,
+      "expr": "happy",
+      "arms": "hold",
+      "hold": "sak\u00e9"
+     },
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 540,
+      "y": 1880,
+      "s": 0.9,
+      "expr": "happy",
+      "arms": "hold",
+      "hold": "sak\u00e9"
+     },
+     {
+      "type": "toon",
+      "c": "oniG",
+      "x": 880,
+      "y": 1880,
+      "s": 0.76,
+      "flip": true,
+      "expr": "happy",
+      "arms": "hold",
+      "hold": "sak\u00e9"
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "kotodread",
+   "sfx": [
+    [
+     "gulp",
+     0.3
+    ],
+    [
+     "gulp",
+     1.0
+    ]
+   ]
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1470,
+     1.08
+    ],
+    [
+     540,
+     1480,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": 200,
+      "y": 1880,
+      "s": 0.78,
+      "expr": "tired",
+      "arms": "down",
+      "lean": 0.12
+     },
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 540,
+      "y": 1880,
+      "s": 0.9,
+      "expr": "tired",
+      "lean": 0.06
+     },
+     {
+      "type": "toon",
+      "c": "oniG",
+      "x": 880,
+      "y": 1880,
+      "s": 0.76,
+      "flip": true,
+      "expr": "sleep",
+      "lean": -0.14
+     }
+    ]
+   },
+   "atc": "@L12.1",
+   "tr": "fade",
+   "sfx": [
+    [
+     "heartbeat",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.45
+    ],
+    [
+     540,
+     1160,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "monk",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "fierce",
+      "arms": "hips",
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": 0.6,
+       "t1": 0.9,
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "raiko",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "fierce",
+      "arms": "hips",
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.6,
+       "t1": 0.9,
+       "e": "io"
+      }
+     },
+     {
+      "type": "sparkle",
+      "x": 540,
+      "y": 1300,
+      "t0": 0.6,
+      "d": 0.8,
+      "r": 500
+     }
+    ]
+   },
+   "atc": "@L12.3",
+   "tr": "whip",
+   "sfx": [
+    [
+     "whoosh",
+     0.55
+    ],
+    [
+     "clash",
+     0.7
+    ]
+   ]
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.5
+    ],
+    [
+     540,
+     1120,
+     1.62
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 1050,
+      "r": 1800,
+      "a": 0.4
+     },
+     {
+      "type": "toon",
+      "c": "raiko",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "fierce",
+      "arms": "raise",
+      "hold": "tsurugi",
+      "glint": {
+       "a": 0,
+       "b": 1,
+       "t0": 0,
+       "t1": 0.4,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "atc": "@L12.4",
+   "tr": "flash",
+   "kicks": [
+    0.05
+   ],
+   "bloom": 0.5
+  },
+  {
+   "at": "L13",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.55
+    ],
+    [
+     540,
+     1110,
+     1.75
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1050,
+      "r": 900,
+      "col": "rgba(255,90,60,1)",
+      "a": 0.3
+     },
+     {
+      "type": "toon",
+      "c": "raiko",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "shout",
+      "arms": "raise",
+      "hold": "tsurugi",
+      "who": "raiko",
+      "shake": 0.4
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "taiko",
+   "grade": "blood",
+   "kicks": [
+    0.04
+   ],
+   "shakeAt": [
+    0.05
+   ],
+   "pops": {
+    "L13": [
+     540,
+     1560,
+     -0.04,
+     220
+    ]
+   },
+   "sfx": [
+    [
+     "thunder",
+     0.05
+    ],
+    [
+     "clash",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1470,
+     1.12
+    ],
+    [
+     560,
+     1450,
+     1.2
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "slash",
+      "x": 420,
+      "y": 1300,
+      "t0": 0.1,
+      "rot": -0.5,
+      "seed": 1
+     },
+     {
+      "type": "slash",
+      "x": 660,
+      "y": 1250,
+      "t0": 0.35,
+      "rot": 0.6,
+      "seed": 2
+     },
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": 380,
+      "y": {
+       "a": 1880,
+       "b": 1980,
+       "t0": 0.15,
+       "t1": 0.5,
+       "e": "io"
+      },
+      "s": 0.8,
+      "expr": "shock",
+      "arms": "up",
+      "lean": {
+       "a": 0,
+       "b": -0.5,
+       "t0": 0.15,
+       "t1": 0.5,
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "raiko",
+      "x": 720,
+      "y": 1880,
+      "s": 0.86,
+      "flip": true,
+      "expr": "shout",
+      "arms": "slash",
+      "hold": "tsurugi",
+      "holdRot": -1.3
+     }
+    ]
+   },
+   "tr": "flash",
+   "shakeAt": [
+    0.1,
+    0.35
+   ],
+   "sfx": [
+    [
+     "clash",
+     0.1
+    ],
+    [
+     "hit",
+     0.35
+    ]
+   ],
+   "speed": 0.4
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1470,
+     1.1
+    ],
+    [
+     520,
+     1460,
+     1.18
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "slash",
+      "x": 540,
+      "y": 1200,
+      "t0": 0.05,
+      "rot": -0.3,
+      "seed": 3
+     },
+     {
+      "type": "slash",
+      "x": 380,
+      "y": 1350,
+      "t0": 0.3,
+      "rot": 0.4,
+      "seed": 4
+     },
+     {
+      "type": "slash",
+      "x": 700,
+      "y": 1400,
+      "t0": 0.55,
+      "rot": -0.6,
+      "seed": 5
+     },
+     {
+      "type": "toon",
+      "c": "oniG",
+      "x": 280,
+      "y": 1880,
+      "s": 0.76,
+      "expr": "shock",
+      "arms": "up",
+      "rot": {
+       "a": 0,
+       "b": -1.4,
+       "t0": 0.1,
+       "t1": 0.6,
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "kintoki",
+      "x": 560,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "shout",
+      "arms": "slash",
+      "hold": "tsurugi",
+      "holdRot": -1.3,
+      "shake": 0.3
+     },
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": 840,
+      "y": 1880,
+      "s": 0.76,
+      "flip": true,
+      "expr": "shock",
+      "rot": {
+       "a": 0,
+       "b": -1.3,
+       "t0": 0.4,
+       "t1": 0.9,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "atc": "@L14.1",
+   "tr": "whip",
+   "shakeAt": [
+    0.05,
+    0.3,
+    0.55
+   ],
+   "sfx": [
+    [
+     "clash",
+     0.05
+    ],
+    [
+     "hit",
+     0.3
+    ],
+    [
+     "hit",
+     0.55
+    ]
+   ],
+   "speed": 0.5
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     300,
+     1470,
+     1.1
+    ],
+    [
+     800,
+     1470,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "tsuna",
+      "x": {
+       "a": -200,
+       "b": 1300,
+       "t0": 0,
+       "t1": 1.2,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.84,
+      "expr": "shout",
+      "arms": "slash",
+      "hold": "tsurugi",
+      "holdRot": -1.2,
+      "walk": 1
+     },
+     {
+      "type": "slash",
+      "x": 300,
+      "y": 1300,
+      "t0": 0.2,
+      "rot": -0.4,
+      "seed": 6
+     },
+     {
+      "type": "slash",
+      "x": 700,
+      "y": 1300,
+      "t0": 0.6,
+      "rot": 0.4,
+      "seed": 7
+     },
+     {
+      "type": "toon",
+      "c": "oniG",
+      "x": 500,
+      "y": 1880,
+      "s": 0.74,
+      "expr": "shock",
+      "rot": {
+       "a": 0,
+       "b": -1.4,
+       "t0": 0.4,
+       "t1": 0.8,
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": 860,
+      "y": 1880,
+      "s": 0.74,
+      "flip": true,
+      "expr": "shock",
+      "rot": {
+       "a": 0,
+       "b": -1.4,
+       "t0": 0.8,
+       "t1": 1.1,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "atc": "@L14.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "speed": 0.6,
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ],
+    [
+     "hit",
+     0.4
+    ],
+    [
+     "hit",
+     0.8
+    ]
+   ]
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1470,
+     1.08
+    ],
+    [
+     540,
+     1440,
+     1.16
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "burst",
+      "x": 540,
+      "y": 1400,
+      "t0": 0.1,
+      "r": 600
+     },
+     {
+      "type": "toon",
+      "c": "oniB",
+      "x": {
+       "a": 540,
+       "b": -300,
+       "t0": 0.1,
+       "t1": 0.8,
+       "e": "o"
+      },
+      "y": {
+       "a": 1880,
+       "b": 1200,
+       "t0": 0.1,
+       "t1": 0.8,
+       "e": "o"
+      },
+      "s": 0.8,
+      "expr": "shock",
+      "rot": {
+       "a": 0,
+       "b": -3,
+       "t0": 0.1,
+       "t1": 0.8,
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "raiko",
+      "x": 540,
+      "y": 1880,
+      "s": 0.9,
+      "expr": "fierce",
+      "arms": "slash",
+      "hold": "tsurugi",
+      "holdRot": -1.3
+     }
+    ]
+   },
+   "atc": "@L14.3",
+   "tr": "flash",
+   "shakeAt": [
+    0.1
+   ],
+   "kicks": [
+    0.1
+   ],
+   "sfx": [
+    [
+     "boom",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.55
+    ],
+    [
+     540,
+     1100,
+     1.75
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "shout",
+      "arms": "up",
+      "shake": 0.5,
+      "who": false
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "blood",
+   "rumble": 5,
+   "shakeAt": [
+    0.1
+   ],
+   "sfx": [
+    [
+     "roar",
+     0.05
+    ]
+   ]
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     0.78
+    ],
+    [
+     540,
+     1050,
+     0.74
+    ]
+   ],
+   "o": {
+    "set": "oeyama",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 540,
+      "y": {
+       "a": 2300,
+       "b": 2250,
+       "t0": 0,
+       "t1": 0.9,
+       "e": "o"
+      },
+      "s": {
+       "a": 0.9,
+       "b": 2.0,
+       "t0": 0,
+       "t1": 0.9,
+       "e": "o"
+      },
+      "expr": "shout",
+      "arms": "up"
+     },
+     {
+      "type": "roofburst",
+      "x": 540,
+      "y": 1300,
+      "t0": 0.05,
+      "d": 1.3
+     },
+     {
+      "type": "roofburst",
+      "x": 540,
+      "y": 1200,
+      "t0": 0.2,
+      "d": 1.3,
+      "seed": 9
+     }
+    ],
+    "rain": false
+   },
+   "atc": "@L15.1",
+   "tr": "flash",
+   "grade": "blood",
+   "shakeAt": [
+    0.1,
+    0.5
+   ],
+   "kicks": [
+    0.1
+   ],
+   "rumble": 6,
+   "sfx": [
+    [
+     "boom",
+     0.1
+    ],
+    [
+     "stone",
+     0.2
+    ],
+    [
+     "roar",
+     0.4
+    ]
+   ]
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     900,
+     1.0
+    ],
+    [
+     540,
+     880,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 540,
+      "y": 3600,
+      "s": 3.2,
+      "expr": "shout",
+      "arms": "up"
+     }
+    ],
+    "rain": false
+   },
+   "atc": "@L15.2",
+   "tr": "whip",
+   "grade": "blood",
+   "sfx": [
+    [
+     "roar",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1080,
+     1.3
+    ],
+    [
+     540,
+     1080,
+     1.45
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 540,
+      "y": 4500,
+      "s": 4.2,
+      "expr": "fierce",
+      "arms": "down"
+     },
+     {
+      "type": "glow",
+      "x": 360,
+      "y": 990,
+      "r": 170,
+      "col": "rgba(255,170,40,1)",
+      "a": 1
+     },
+     {
+      "type": "glow",
+      "x": 672,
+      "y": 990,
+      "r": 170,
+      "col": "rgba(255,170,40,1)",
+      "a": 1
+     }
+    ],
+    "rain": false
+   },
+   "atc": "@L15.3",
+   "tr": "whip",
+   "grade": "blood",
+   "sfx": [
+    [
+     "braam",
+     0.05
+    ]
+   ]
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1320,
+     0.92
+    ],
+    [
+     540,
+     1300,
+     0.98
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 640,
+      "y": 2280,
+      "s": 1.9,
+      "expr": "shout",
+      "arms": "up",
+      "shake": 0.2
+     }
+    ],
+    "rain": false,
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2160,
+      "s": 1.3,
+      "expr": "scared",
+      "hands": "up",
+      "shake": 0.7
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "blood",
+   "pops": {
+    "L16": [
+     540,
+     1560,
+     0.04,
+     210
+    ]
+   },
+   "shakeAt": [
+    0.1
+   ]
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1100,
+     0.8
+    ],
+    [
+     540,
+     1150,
+     0.85
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "shuten",
+      "x": 540,
+      "y": 2260,
+      "s": 2.0,
+      "expr": "tired",
+      "arms": "down",
+      "lean": {
+       "a": 0,
+       "b": 0.18,
+       "t0": 0,
+       "t1": 2.0,
+       "e": "io"
+      }
+     }
+    ],
+    "rain": false
+   },
+   "tr": "fade",
+   "grade": "blood",
+   "rumble": 3,
+   "sfx": [
+    [
+     "stomp",
+     0.6
+    ],
+    [
+     "stomp",
+     1.4
+    ]
+   ]
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1400,
+     1.0
+    ],
+    [
+     540,
+     1150,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "raiko",
+      "x": 540,
+      "y": {
+       "a": 2000,
+       "b": 1300,
+       "t0": 0,
+       "t1": 0.9,
+       "e": "o"
+      },
+      "s": 0.9,
+      "expr": "shout",
+      "arms": "raise",
+      "hold": "tsurugi",
+      "glint": 1
+     }
+    ],
+    "rain": false
+   },
+   "atc": "@L17.1",
+   "tr": "whip",
+   "speed": 0.8,
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1100,
+     1.0
+    ],
+    [
+     540,
+     1100,
+     1.05
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "onihead",
+      "x": {
+       "a": 540,
+       "b": 700,
+       "t0": 0.1,
+       "t1": 1.2,
+       "e": "o"
+      },
+      "y": {
+       "a": 1150,
+       "b": 620,
+       "t0": 0.1,
+       "t1": 1.2,
+       "e": "o"
+      },
+      "s": 0.9,
+      "rot": {
+       "a": 0,
+       "b": 4.2,
+       "t0": 0.1,
+       "t1": 1.2,
+       "e": "o"
+      },
+      "expr": "shock",
+      "talk": 0.3
+     },
+     {
+      "type": "slash",
+      "x": 540,
+      "y": 1100,
+      "t0": 0.05,
+      "rot": -0.15,
+      "seed": 9
+     },
+     {
+      "type": "burst",
+      "x": 540,
+      "y": 1100,
+      "t0": 0.05,
+      "r": 900
+     }
+    ],
+    "rain": false
+   },
+   "atc": "@L17.2",
+   "tr": "flash",
+   "grade": "blood",
+   "shakeAt": [
+    0.05
+   ],
+   "kicks": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "clash",
+     0.05
+    ],
+    [
+     "boom",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.45
+    ],
+    [
+     540,
+     1160,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 1000,
+      "r": 1800,
+      "a": 0.5
+     },
+     {
+      "type": "toon",
+      "c": "raiko",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "fierce",
+      "arms": "slash",
+      "hold": "tsurugi",
+      "holdRot": -1.3,
+      "glint": 1
+     }
+    ],
+    "rain": false
+   },
+   "atc": "@L17.3",
+   "tr": "whip",
+   "bloom": 0.5
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "onihead",
+      "x": 540,
+      "y": {
+       "a": 1500,
+       "b": 800,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "o"
+      },
+      "s": 0.8,
+      "talk": 0.6,
+      "rot": {
+       "a": 0,
+       "b": 0.6,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "io"
+      }
+     }
+    ],
+    "rain": false
+   },
+   "tr": "fade",
+   "grade": "blood",
+   "sfx": [
+    [
+     "roar",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1100,
+     1.0
+    ],
+    [
+     540,
+     1100,
+     1.05
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "onihead",
+      "x": {
+       "a": 1300,
+       "b": -200,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "lin"
+      },
+      "y": {
+       "a": 800,
+       "b": 1300,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "lin"
+      },
+      "s": 0.9,
+      "dir": 3.4,
+      "speed": 1,
+      "talk": 0.9
+     }
+    ],
+    "rain": false
+   },
+   "atc": "@L18.1",
+   "tr": "whip",
+   "speed": 0.6,
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ],
+   "camEase": "lin"
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1100,
+     1.0
+    ],
+    [
+     540,
+     1100,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "storm",
+    "actors": [
+     {
+      "type": "onihead",
+      "x": 540,
+      "y": 1100,
+      "s": {
+       "a": 0.4,
+       "b": 2.4,
+       "t0": 0,
+       "t1": 1.0,
+       "e": "i"
+      },
+      "talk": 1
+     }
+    ],
+    "rain": false
+   },
+   "atc": "@L18.2",
+   "tr": "whip",
+   "sfx": [
+    [
+     "roar",
+     0.0
+    ]
+   ],
+   "kicks": [
+    0.9
+   ]
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1100,
+     1.5
+    ],
+    [
+     540,
+     1060,
+     1.6
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "raikoS",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "shock",
+      "arms": "up",
+      "shake": 0.5
+     },
+     {
+      "type": "onihead",
+      "x": 600,
+      "y": {
+       "a": 500,
+       "b": 740,
+       "t0": 0,
+       "t1": 0.25,
+       "e": "i"
+      },
+      "s": 0.62,
+      "rot": 0.25,
+      "bite": true,
+      "bob": 0.2
+     },
+     {
+      "type": "bitemarks",
+      "x": 560,
+      "y": 900,
+      "t0": 0.25
+     }
+    ]
+   },
+   "atc": "@L18.3",
+   "tr": "flash",
+   "grade": "blood",
+   "shakeAt": [
+    0.25
+   ],
+   "kicks": [
+    0.25
+   ],
+   "sfx": [
+    [
+     "crack",
+     0.25
+    ],
+    [
+     "clank",
+     0.25
+    ]
+   ]
+  },
+  {
+   "at": "L19",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "raikoS",
+      "x": 680,
+      "y": 1820,
+      "s": 0.68,
+      "expr": "shock",
+      "arms": "up",
+      "shake": 0.3
+     },
+     {
+      "type": "onihead",
+      "x": 700,
+      "y": 1120,
+      "s": 0.34,
+      "rot": 0.25,
+      "bite": true
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 260,
+      "y": 2100,
+      "s": 1.35,
+      "expr": "scared",
+      "hands": "cheeks",
+      "shake": 0.6
+     }
+    ]
+   },
+   "tr": "whip",
+   "pops": {
+    "L19": [
+     540,
+     1420,
+     -0.04,
+     170
+    ]
+   }
+  },
+  {
+   "at": "L20",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1100,
+     1.5
+    ],
+    [
+     540,
+     1080,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "raikoS",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "smug",
+      "arms": "hips"
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "kotohope"
+  },
+  {
+   "at": "L20",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     780,
+     2.2
+    ],
+    [
+     540,
+     820,
+     2.3
+    ]
+   ],
+   "o": {
+    "set": "feast",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "raikoS",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "smug",
+      "arms": "hips"
+     }
+    ]
+   },
+   "atc": "@L20.1",
+   "tr": "whip",
+   "sfx": [
+    [
+     "clank",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L21",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1360,
+     1.3
+    ],
+    [
+     500,
+     1340,
+     1.5
+    ]
+   ],
+   "o": {
+    "set": "museum",
+    "actors": [
+     {
+      "type": "swordcase",
+      "x": 560,
+      "y": 1900,
+      "s": 1.4
+     }
+    ]
+   },
+   "tr": "flash",
+   "label": "D\u014cJIGIRI",
+   "labelY": 505,
+   "labelAt": "@L21.1",
+   "bloom": 0.4,
+   "sfx": [
+    [
+     "choir",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L21",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1700,
+     2.2
+    ],
+    [
+     540,
+     1700,
+     2.4
+    ]
+   ],
+   "o": {
+    "set": "museum",
+    "actors": [
+     {
+      "type": "swordcase",
+      "x": 560,
+      "y": 1980,
+      "s": 1.6
+     }
+    ]
+   },
+   "atc": "@L21.2",
+   "tr": "whip",
+   "sfx": [
+    [
+     "sparkle",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L21",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1400,
+     0.95
+    ],
+    [
+     560,
+     1460,
+     1.02
+    ]
+   ],
+   "o": {
+    "set": "museum",
+    "actors": [
+     {
+      "type": "swordcase",
+      "x": 560,
+      "y": 1760,
+      "s": 1.0
+     }
+    ]
+   },
+   "atc": "@L21.3",
+   "tr": "fade",
+   "label": "TOKYO NATIONAL MUSEUM",
+   "labelY": 505,
+   "labelAt": 0.1
+  },
+  {
+   "at": "L22",
+   "scene": "jp",
+   "cam": [
+    [
+     460,
+     1480,
+     1.05
+    ],
+    [
+     600,
+     1470,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "ibaraki",
+      "x": {
+       "a": 260,
+       "b": 700,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.84,
+      "expr": "smug",
+      "arms": "up",
+      "walk": 1
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "kotodread",
+   "label": "IBARAKI-D\u014cJI",
+   "labelY": 505,
+   "labelAt": "@L22.1",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L22",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1470,
+     1.08
+    ],
+    [
+     540,
+     1440,
+     1.16
+    ]
+   ],
+   "o": {
+    "set": "kyoto",
+    "actors": [
+     {
+      "type": "slash",
+      "x": 560,
+      "y": 1400,
+      "t0": 0.3,
+      "rot": -0.4,
+      "seed": 11
+     },
+     {
+      "type": "toon",
+      "c": "ibaraki",
+      "x": 700,
+      "y": 1880,
+      "s": 0.84,
+      "flip": true,
+      "expr": "shout",
+      "arms": "up",
+      "shake": {
+       "a": 0,
+       "b": 0.6,
+       "t0": 0.3,
+       "t1": 0.5,
+       "e": "io"
+      },
+      "noArmR": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.32,
+       "t1": 0.33,
+       "e": "lin"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "tsuna",
+      "x": 320,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "shout",
+      "arms": "slash",
+      "hold": "tsurugi",
+      "holdRot": -1.3
+     },
+     {
+      "type": "burst",
+      "x": 620,
+      "y": 1300,
+      "t0": 0.32,
+      "r": 500
+     },
+     {
+      "type": "oniarm",
+      "x": {
+       "a": 560,
+       "b": 860,
+       "t0": 0.32,
+       "t1": 2.0,
+       "e": "o"
+      },
+      "y": {
+       "a": 1150,
+       "b": 1000,
+       "t0": 0.32,
+       "t1": 2.0,
+       "e": "o"
+      },
+      "rot": {
+       "a": 0,
+       "b": 8,
+       "t0": 0.32,
+       "t1": 2.0,
+       "e": "o"
+      },
+      "s": {
+       "a": 0.01,
+       "b": 1.0,
+       "t0": 0.31,
+       "t1": 0.33,
+       "e": "lin"
+      }
+     }
+    ]
+   },
+   "atc": "@L22.2",
+   "tr": "flash",
+   "shakeAt": [
+    0.32
+   ],
+   "kicks": [
+    0.32
+   ],
+   "sfx": [
+    [
+     "clash",
+     0.3
+    ],
+    [
+     "roar",
+     0.4
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L22",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.2
+    ],
+    [
+     540,
+     1500,
+     1.25
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "armbox",
+      "x": 540,
+      "y": 1840,
+      "s": 1.1,
+      "open": {
+       "a": 0.9,
+       "b": 0,
+       "t0": 0,
+       "t1": 1.0,
+       "e": "io"
+      }
+     }
+    ],
+    "dim": 0.7
+   },
+   "atc": "@L22.3",
+   "tr": "fade",
+   "sfx": [
+    [
+     "thump",
+     0.9
+    ]
+   ]
+  },
+  {
+   "at": "L23",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1470,
+     1.06
+    ],
+    [
+     560,
+     1460,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "armbox",
+      "x": 560,
+      "y": 1820,
+      "s": 0.7
+     },
+     {
+      "type": "toon",
+      "c": "tsuna",
+      "x": 300,
+      "y": 1880,
+      "s": 0.82,
+      "expr": "smile"
+     },
+     {
+      "type": "toon",
+      "c": "elderW",
+      "x": {
+       "a": 1200,
+       "b": 800,
+       "t0": 0,
+       "t1": 2.0,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.78,
+      "flip": true,
+      "expr": "smile",
+      "walk": 1
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "fade"
+  },
+  {
+   "at": "L23",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.45
+    ],
+    [
+     540,
+     1160,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "elderW",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "smile",
+      "arms": "clasp",
+      "foxEyes": {
+       "a": 0,
+       "b": 0.6,
+       "t0": 0.4,
+       "t1": 1.2,
+       "e": "io"
+      }
+     }
+    ],
+    "dim": 0.7
+   },
+   "atc": "@L23.2",
+   "tr": "fade",
+   "sfx": [
+    [
+     "heartbeat",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L23",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1480,
+     1.2
+    ],
+    [
+     540,
+     1440,
+     1.3
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "armbox",
+      "x": 540,
+      "y": 1840,
+      "s": 1.2,
+      "open": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.2,
+       "t1": 1.4,
+       "e": "io"
+      }
+     }
+    ],
+    "dim": 0.8
+   },
+   "atc": "@L23.3",
+   "tr": "whip",
+   "sfx": [
+    [
+     "stone",
+     0.2
+    ],
+    [
+     "braam",
+     1.2
+    ]
+   ]
+  },
+  {
+   "at": "L24",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.45
+    ],
+    [
+     540,
+     1160,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "elderW",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "smile",
+      "arms": "clasp",
+      "who": "aunt"
+     }
+    ],
+    "dim": 0.8
+   },
+   "tr": "whip"
+  },
+  {
+   "at": "L24",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.5
+    ],
+    [
+     540,
+     1050,
+     1.7
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "rgba(120,255,120,1)",
+      "a": 0.35
+     },
+     {
+      "type": "toon",
+      "c": "ibaraki",
+      "x": 540,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "shout",
+      "arms": "up",
+      "who": "aunt",
+      "shake": 0.4
+     },
+     {
+      "type": "roofburst",
+      "x": 540,
+      "y": 900,
+      "t0": 0.9,
+      "d": 1.0
+     }
+    ],
+    "dim": 1
+   },
+   "atc": "@L24.1",
+   "tr": "flash",
+   "grade": "blood",
+   "kicks": [
+    0.05
+   ],
+   "shakeAt": [
+    0.05,
+    0.9
+   ],
+   "pops": {
+    "L24:1": [
+     540,
+     1560,
+     0.04,
+     200,
+     "THAT'S MINE!",
+     "@L24.1"
+    ]
+   },
+   "sfx": [
+    [
+     "roar",
+     0.05
+    ],
+    [
+     "boom",
+     0.9
+    ]
+   ]
+  },
+  {
+   "at": "L25",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "museum",
+    "actors": [
+     {
+      "type": "swordcase",
+      "x": 560,
+      "y": 1700,
+      "s": 0.8,
+      "k": 0.85
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 260,
+      "y": 2090,
+      "s": 1.3,
+      "expr": "worry",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "koto"
+  },
+  {
+   "at": "L26",
+   "scene": "jp",
+   "cam": [
+    [
+     640,
+     1560,
+     1.2
+    ],
+    [
+     680,
+     1500,
+     1.3
+    ]
+   ],
+   "o": {
+    "set": "museum",
+    "actors": [
+     {
+      "type": "swordcase",
+      "x": 560,
+      "y": 1720,
+      "s": 0.85,
+      "k": 0.85
+     },
+     {
+      "type": "toon",
+      "c": "elderW",
+      "x": 880,
+      "y": 1700,
+      "s": 0.5,
+      "k": 0.8,
+      "flip": true,
+      "expr": "smug",
+      "foxEyes": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L26.1",
+       "t1": "@L26.1+0.6",
+       "e": "io"
+      },
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": 0,
+       "t1": 1.2,
+       "e": "io"
+      }
+     }
+    ],
+    "front": [
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2010,
+      "s": 1.15,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "sfx": [
+    [
+     "braam",
+     "@L26.1+0.2"
+    ]
+   ]
+  }
+ ]
+}
