@@ -108,6 +108,7 @@ JSETS.nile = { light: { x: 1, col: 'rgba(255,190,120,1)', rim: .8, shade: .3 },
     layerAt(g, c, .3, () => blit(g, cacheLayer('nl_river', x => { waterF(x, 1290, 1440, '#d89a7a', '#6a4a5a', 241); }, { blur: .6 })));
     layerAt(g, c, 1, () => blit(g, cacheLayer('nl_soil', x => { x.fillStyle = lg(x, 0, 1440, 0, 2700, [[0, '#2a1a14'], [1, '#0c0806']]); x.fillRect(-700, 1440, 2480, 1300); for (let y = 1480; y < 2600; y += 60) line(x, [-700, y, 1780, y + 30], 3, 'rgba(90,60,40,.4)'); grassField(x, 1440, 1520, 300, ['#3a5a2a', '#4a6a34'], 242); }, { y0: 1400, h: 1400 })));
   },
+  front(g, o, c, T) { fireflies(g, T, 14, 247, [-200, 900, 1300, 1800], 'rgba(255,220,150,1)'); },
   haze(g) { g.fillStyle = 'rgba(255,170,90,.06)'; g.fillRect(0, 0, 1080, 1920); } };
 JSETS.rice = { light: { x: -1, col: 'rgba(255,230,160,1)', rim: .8, shade: .28 },
   back(g, o, c, T) {
