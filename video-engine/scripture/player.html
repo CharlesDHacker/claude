@@ -45,9 +45,9 @@ function drawCaptions(g, T) {
   for (const l of EP.lines) for (const c of l.caps) { if (c.t0 <= T) cur = { c, l }; else nextT = Math.min(nextT, c.t0); }
   if (!cur) return; const { c, l } = cur, end = Math.min(nextT, c.t1 + 1.0); if (T > end) return;
   const words = (c.words || []).filter(w => w[1] !== 'pop'); if (!words.length) return;
-  const base = l.who === 'toby' || l.who === 'mio' ? CAP.toby : (l.who === 'selah' && shotAt(l.t0 + .01).scene === 'elah') ? CAP.selah : CAP.white;
+  const base = l.who === 'text' ? '#fff3dc' : l.who === 'toby' || l.who === 'mio' ? CAP.toby : (l.who === 'selah' && shotAt(l.t0 + .01).scene === 'elah') ? CAP.selah : CAP.white;
   const fadeOut = 1 - smooth(end - .12, end, T);
-  g.save(); g.font = "900 58px Nunito"; g.textBaseline = 'middle';
+  const story = l.who === 'text'; g.save(); g.font = story ? "900 64px Nunito" : "900 58px Nunito"; g.textBaseline = 'middle';
   const sp = g.measureText(' ').width; const rows = [[]]; let wid = 0;
   words.forEach(w => { const ww = g.measureText(w[0]).width; if (wid + ww > SAFE.w && rows[rows.length - 1].length) { rows.push([]); wid = 0; } rows[rows.length - 1].push([w, ww]); wid += ww + sp; });
   rows.forEach((r, ri) => { const tw = r.reduce((s, [, ww]) => s + ww + sp, -sp); let x = SAFE.cx - tw / 2; const titleOn = EP.title && T < EP.title.t1 + .6; const y = (titleOn ? (EP.title.text.includes('\n') ? 500 : 420) : 330) + ri * 70;

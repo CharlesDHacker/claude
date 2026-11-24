@@ -39,8 +39,14 @@ def kokoro():
 def plain(say):  # drop ElevenLabs audio tags, keep punctuation for pacing
     s = re.sub(r"\[[^\]]*\]", " ", say); s = re.sub(r"\s+", " ", s).strip()
     return s[0].upper() + s[1:] if s and s[0] != "." else s
+READ_WPS = 3.2   # caption-only lines: words per second the viewer reads
 for ln in ep["lines"]:
     dst = os.path.join(out, ln["id"] + ".wav"); who = ln["who"]
+    if who == "text":  # no voice: a silent clip long enough to read, word timings spread across it
+        import soundfile as sf; ws = re.findall(r"[A-Za-z0-9'\u00C0-\u024F\u0100-\u017F]+", plain(ln["say"])); n = max(1, len(ws)); dur = .15 + n / READ_WPS + .5
+        sf.write(dst, np.zeros(int(dur * 44100)), 44100); step = (dur - .65) / n
+        words[ln["id"]] = [[w.lower(), round(.12 + i * step, 3), round(.12 + (i + 1) * step, 3)] for i, w in enumerate(ws)]
+        json.dump(words, open(os.path.join(out, "words.json"), "w")); print(f"{ln['id']} text    {dur:.2f}s  {n} words"); continue
     src = os.path.join(os.path.join(adir, ln["take"]) if ln.get("take") else takes.get(who, "/nonexistent"), ln["id"] + ".wav")
     if os.path.exists(src):
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-ac", "1", "-ar", "44100", dst], check=True)

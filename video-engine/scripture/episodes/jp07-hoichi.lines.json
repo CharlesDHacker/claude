@@ -1,0 +1,216 @@
+{
+ "title": "HŌICHI THE EARLESS",
+ "subtitle": "the musician who played for the dead",
+ "source": "Lafcadio Hearn, Kwaidan (1904), 'The Story of Mimi-nashi-Hoichi'; Amidaji = today's Akama Shrine, Shimonoseki (Hoichi Hall statue); Battle of Dan-no-ura 1185",
+ "voices": {
+  "mio": {
+   "name": "Candy - Girly and Sweet",
+   "voice_id": "Nggzl2QAXh3OijoXD116"
+  },
+  "kon": {
+   "name": "Callum - Husky Trickster (premade, dry)",
+   "voice_id": "N2lVS1w4EtoT3dr4eOWO"
+  }
+ },
+ "takes": {
+  "mio": "mio_a",
+  "kon": "kon_a"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "mio",
+   "say": "[nervous whisper] Kon... why does that statue have no ears?",
+   "cap": [
+    "Kon... why does that statue",
+    "have {r:no ears}?"
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "kon",
+   "say": "[low] A ghost ripped them off.",
+   "cap": [
+    "A {r:ghost} ripped them off."
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "text",
+   "say": "Centuries ago, a blind musician named Hōichi lived at a temple by the sea.",
+   "cap": [
+    "Centuries ago,",
+    "a blind musician named {o:Hōichi}",
+    "lived at a temple by the sea."
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "text",
+   "say": "Every night, he sang of Dan-no-ura, the sea battle where the Heike clan drowned.",
+   "cap": [
+    "Every night, he sang of {o:Dan-no-ura},",
+    "the sea battle where",
+    "the Heike clan {r:drowned}."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "text",
+   "say": "One night, a samurai in armor came for him.",
+   "cap": [
+    "One night,",
+    "a {r:samurai} in armor came for him."
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "kon",
+   "say": "[deep, ghostly] Hoichi. My lord wishes to hear you.",
+   "cap": [
+    "“Hōichi.",
+    "My lord wishes to {o:hear you}.”"
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "text",
+   "say": "He was led to a grand hall full of nobles. He played until dawn, and they wept.",
+   "cap": [
+    "He was led to a {o:grand hall}",
+    "full of nobles.",
+    "He played until dawn,",
+    "and they {o:wept}."
+   ]
+  },
+  {
+   "id": "L08",
+   "who": "text",
+   "say": "Night after night, he went back. So the priest had him followed...",
+   "cap": [
+    "Night after night, he went back.",
+    "So the priest had him {o:followed}..."
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "text",
+   "say": "There was no hall.",
+   "cap": [
+    "There was {r:no hall}."
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "text",
+   "say": "He was playing alone in a graveyard, surrounded by ghost fires.",
+   "cap": [
+    "He was playing alone",
+    "in a {r:graveyard},",
+    "surrounded by {o:ghost fires}."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "mio",
+   "say": "[horrified] He was playing for GHOSTS?!",
+   "cap": [
+    "He was playing for {r:GHOSTS}?!"
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "text",
+   "say": "To hide him, the priest painted holy sutras over every inch of his body.",
+   "cap": [
+    "To hide him,",
+    "the priest painted {o:holy sutras}",
+    "over every inch of his body."
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "text",
+   "say": "Ghosts can't see what the sutras cover.",
+   "cap": [
+    "Ghosts {r:can't see}",
+    "what the sutras cover."
+   ]
+  },
+  {
+   "id": "L14",
+   "who": "text",
+   "say": "That night, the samurai came back.",
+   "cap": [
+    "That night,",
+    "the samurai {r:came back}."
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "kon",
+   "say": "[ghostly whisper] Hoichi... where are you?",
+   "cap": [
+    "“Hōichi...",
+    "where are you?”"
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "text",
+   "say": "Nothing. Just two ears, floating in the dark.",
+   "cap": [
+    "Nothing.",
+    "Just {r:two ears},",
+    "floating in the dark."
+   ]
+  },
+  {
+   "id": "L17",
+   "who": "kon",
+   "say": "[grim] They forgot his ears.",
+   "cap": [
+    "They {r:forgot his ears}."
+   ]
+  },
+  {
+   "id": "L18",
+   "who": "text",
+   "say": "So the ghost took the only part of Hōichi it could see.",
+   "cap": [
+    "So the ghost took",
+    "the only part of Hōichi",
+    "it {r:could see}."
+   ]
+  },
+  {
+   "id": "L19",
+   "who": "text",
+   "say": "Hōichi lived, and became the most famous singer in Japan: Hōichi the Earless.",
+   "cap": [
+    "Hōichi lived,",
+    "and became the most famous singer in Japan:",
+    "{o:Hōichi the Earless}."
+   ]
+  },
+  {
+   "id": "L20",
+   "who": "text",
+   "say": "His statue still sits at Akama Shrine, in Shimonoseki.",
+   "cap": [
+    "His statue still sits",
+    "at {o:Akama Shrine},",
+    "in Shimonoseki."
+   ]
+  },
+  {
+   "id": "L21",
+   "who": "mio",
+   "say": "[nervous] Kon... who's clapping?",
+   "cap": [
+    "Kon...",
+    "who's {r:clapping}?"
+   ]
+  }
+ ]
+}
