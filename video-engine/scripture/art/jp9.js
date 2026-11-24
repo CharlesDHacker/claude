@@ -125,3 +125,21 @@ JPA.pillar = (g, A, c) => { const s = A.s || 1; g.save(); g.translate(A.x, A.y);
   g.fillStyle = '#140c0a'; g.font = "900 96px 'IPAGothic'"; g.textAlign = 'center'; g.textBaseline = 'middle';
   [...(A.text || '奉納')].forEach((ch, i) => g.fillText(ch, 0, -1100 + i * 120)); g.font = "900 60px 'IPAGothic'"; [...(A.sub || '商店一同')].forEach((ch, i) => g.fillText(ch, 0, -780 + i * 80));
   g.restore(); };
+// ---------- a girl's silhouette, standing, facing right (toward the jackal-god): big round head, long straight hair,
+// a feather in her headband, a long flared dress, a brush held out. Ground at y = 0. ----------
+JPA.girlSil = (g, A, c) => { const s = A.s || 1; g.save(); g.translate(A.x, A.y); g.scale((A.flip ? -1 : 1) * s, s); if (A.a != null) g.globalAlpha *= A.a; g.fillStyle = A.col || '#050304';
+  const F = d => g.fill(new Path2D(d)), bob = Math.sin((c.T || 0) * 2) * 3;
+  F('M-44 -6 C-60 -6 -62 8 -44 8 L-14 8 L-14 -6 Z'); F('M18 -6 L18 8 L52 8 C66 8 64 -6 48 -6 Z');                     // feet
+  F('M-86 -8 L86 -8 C70 -110 48 -230 34 -320 L-34 -320 C-48 -230 -70 -110 -86 -8 Z');                              // A-line dress, flaring to the ankles
+  F('M-36 -318 L36 -318 L44 -446 L-44 -446 Z');                                                                       // fitted bodice
+  F('M-14 -444 L14 -444 L12 -470 L-12 -470 Z');                                                                       // thin neck
+  g.save(); g.translate(0, bob);
+  F('M-30 -600 C-90 -600 -112 -560 -112 -500 L-120 -330 C-100 -322 -84 -330 -78 -350 L-70 -470 Z');                   // long straight hair hanging down her back
+  F('M-84 -548 C-84 -616 -44 -648 6 -648 C56 -648 92 -616 92 -548 C92 -488 54 -456 4 -456 C-46 -456 -84 -488 -84 -548 Z');                             // big round head
+  F('M-86 -588 L92 -588 L92 -574 L-86 -574 Z');                                                                       // headband
+  F('M-2 -640 C-26 -684 -14 -742 8 -760 C30 -730 30 -680 14 -640 Z');                                                 // the feather standing up from her headband
+  g.restore();
+  F('M36 -424 C80 -420 118 -408 150 -392 C158 -388 156 -372 146 -372 C112 -380 74 -392 34 -398 Z');                    // arm held out
+  g.lineWidth = 7; g.lineCap = 'round'; g.strokeStyle = A.col || '#050304'; g.beginPath(); g.moveTo(146, -384); g.lineTo(206, -336); g.stroke();   // the brush
+  F('M200 -344 C214 -340 220 -326 210 -318 C200 -322 196 -334 200 -344 Z');
+  g.restore(); };

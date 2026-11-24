@@ -942,10 +942,16 @@
     ],
     "actorsFar": [
      {
-      "type": "anubisSil",
-      "x": 552,
-      "y": 1722,
+      "type": "girlSil",
+      "x": 752,
+      "y": 1741,
       "s": 0.3
+     },
+     {
+      "type": "anubisSil",
+      "x": 836,
+      "y": 1741,
+      "s": 0.22
      }
     ]
    },
@@ -1022,10 +1028,16 @@
     ],
     "actorsFar": [
      {
-      "type": "anubisSil",
-      "x": 552,
-      "y": 1722,
+      "type": "girlSil",
+      "x": 752,
+      "y": 1741,
       "s": 0.3
+     },
+     {
+      "type": "anubisSil",
+      "x": 836,
+      "y": 1741,
+      "s": 0.22
      }
     ]
    },
