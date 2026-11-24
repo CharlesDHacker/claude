@@ -27,18 +27,30 @@ JPA.foxStatue = (g, A, c) => { const s = A.s || 1; g.save(); g.translate(A.x, A.
   if (A.holds === 'jewel') { glow(g, -120, 20, 90, 'rgba(255,230,150,1)', .6); tsh(g, 'M-120 -14 C-100 0 -96 24 -120 40 C-144 24 -140 0 -120 -14 Z', '#f0d070', 4); }
   g.restore(); g.restore(); };
 
-// ---------- the seated jackal-god silhouette: on a block, profile, tall staff held out in front ----------
+// ---------- the seated jackal-god silhouette: upright on a big box, facing left, arm out holding a tall was-staff ----------
+// ground at y = 0; the box runs x -40..260, top at -330. Drawn as one solid shape so it reads as a clean silhouette.
 JPA.anubisSil = (g, A, c) => { const s = A.s || 1; g.save(); g.translate(A.x, A.y); g.scale((A.flip ? -1 : 1) * s, s); if (A.a != null) g.globalAlpha *= A.a; const K = A.col || '#050304';
-  sh(g, 'M-40 0 L170 0 L170 -230 L-40 -230 Z', K);                                                                                     // the block
-  sh(g, 'M20 -230 L150 -230 L150 -250 C150 -300 120 -330 90 -330 L60 -330 C30 -330 10 -300 10 -260 Z', K);                               // lap and thighs
-  sh(g, 'M30 -240 L-10 -240 L-20 -20 L10 -20 Z', K); sh(g, 'M-30 -20 L20 -20 L20 0 L-40 0 Z', K);                                          // shin and foot (facing left)
-  sh(g, 'M40 -320 C30 -420 50 -520 90 -560 L130 -560 C150 -500 150 -400 140 -320 Z', K);                                                  // torso
-  sh(g, 'M70 -560 L120 -560 L116 -600 L74 -600 Z', K);                                                                                    // neck
-  sh(g, 'M60 -600 C50 -650 80 -690 120 -680 C140 -676 150 -650 146 -620 L150 -560 L120 -540 L74 -560 Z', K);                               // head and headcloth lappet
-  sh(g, 'M66 -652 L-6 -640 L-10 -626 L60 -618 Z', K);                                                                                     // long snout
-  sh(g, 'M96 -684 L104 -770 L120 -684 Z', K); sh(g, 'M118 -680 L134 -760 L140 -676 Z', K);                                                // tall ears
-  sh(g, 'M50 -500 L-40 -460 L-46 -440 L46 -470 Z', K);                                                                                    // arm reaching forward
-  line(g, [-52, -840, -52, 0], 12, K, 'round'); sh(g, 'M-52 -840 L-24 -870 L-30 -840 Z', K); sh(g, 'M-52 0 L-70 20 L-34 20 Z', K);       // the staff
+  g.fillStyle = K; g.strokeStyle = K; g.lineCap = 'round'; g.lineJoin = 'round';
+  const F = d => g.fill(new Path2D(d));
+  F('M40 0 L300 0 L300 -300 L40 -300 Z');                                                                     // the box (set back, so the shins stand clear of it)
+  F('M26 -298 L314 -298 L314 -318 L26 -318 Z');                                                              // its lip
+  F('M262 -312 C268 -350 252 -380 226 -380 L60 -374 C10 -372 -40 -372 -52 -356 C-62 -340 -56 -318 -36 -310 C40 -306 160 -306 262 -312 Z');   // thighs on the box, knees jutting past its edge
+  F('M-58 -336 C-60 -240 -54 -120 -48 -40 L-14 -40 C-12 -120 -12 -240 -14 -330 Z');                          // shin, free of the box
+  F('M-48 -44 L-124 -32 C-138 -26 -136 -2 -118 0 L-8 0 L-12 -44 Z');                                         // foot, toes forward
+  F('M150 -376 C152 -436 166 -480 170 -522 C150 -584 142 -632 162 -664 L266 -664 C290 -622 284 -562 260 -522 C260 -472 270 -424 274 -376 Z');   // torso: broad shoulders, narrow waist
+  F('M258 -656 C292 -620 296 -520 276 -430 C270 -406 252 -398 238 -406 C250 -460 262 -540 246 -610 Z');      // back arm down to the lap
+  F('M188 -664 C110 -654 30 -638 -76 -628 C-96 -626 -98 -600 -80 -596 C20 -594 110 -602 190 -612 Z');         // front arm reaching forward, level
+  F('M184 -660 L240 -660 L236 -718 L190 -720 Z');                                                            // neck
+  F('M232 -762 C272 -758 290 -722 292 -682 L302 -590 C302 -574 288 -570 278 -582 L256 -664 Z');              // headcloth falling behind the neck
+  F('M170 -744 C168 -780 192 -800 220 -798 C248 -796 262 -772 258 -742 C256 -718 240 -706 218 -706 L184 -708 C174 -716 170 -730 170 -744 Z');   // the head
+  F('M196 -778 C156 -772 104 -758 52 -740 C40 -736 40 -720 54 -716 C104 -714 156 -712 200 -712 Z');          // the snout: long, but thick at the root
+  F('M190 -782 L206 -900 L234 -790 Z');                                                                      // ear
+  F('M226 -786 L252 -890 L266 -776 Z');                                                                      // ear
+  // the was-staff held upright in front of the knees: forked foot, long shaft, hooked head
+  g.lineWidth = 13; g.beginPath(); g.moveTo(-104, -16); g.lineTo(-104, -1000); g.stroke();
+  F('M-104 -30 L-134 6 L-120 6 L-104 -14 L-88 6 L-74 6 Z');
+  F('M-110 -992 C-120 -1030 -106 -1056 -76 -1052 C-64 -1050 -58 -1040 -62 -1032 C-78 -1036 -92 -1030 -96 -1000 Z');
+  F('M-116 -632 C-124 -620 -124 -600 -114 -590 L-92 -590 C-86 -602 -86 -620 -94 -632 Z');                    // the fist around the shaft
   g.restore(); };
 
 // ---------- a black jackal by the Nile, sitting ----------
