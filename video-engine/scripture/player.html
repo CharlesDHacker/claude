@@ -64,9 +64,9 @@ function drawPops(g, T) {
     const l = EP.lines.find(x => x.id === p.line); const txt = (p.text || l.caps.map(c => (c.text.match(/\{pop:([^}]*)\}/) || [])[1]).find(Boolean) || '').toUpperCase(); if (!txt) continue;
     const t0 = l.t0 + .02 + (p.delay || 0), t1 = Math.min(Math.max(l.t1 + .45, t0 + 1.1), sh.t1 - .32);  // a pop never outlives its shot if (T < t0 || T > t1 + .3) continue;
     const fade = 1 - smooth(t1, t1 + .3, T); const lt = T - t0, n = txt.length, per = Math.min(.06, (l.t1 - l.t0) * .5 / n);
-    g.save(); g.translate(clamp(p.x, 340, 740), clamp(p.y, 560, 1600)); g.rotate(p.rot || 0); g.font = `500 ${p.size || 170}px Garamond`; g.textBaseline = 'middle'; g.globalAlpha = fade;
-    const widths = [...txt].map(ch => g.measureText(ch).width + 6), tw = widths.reduce((a, b) => a + b, 0); let x = -tw / 2;
-    if (tw > 780) { const s = 780 / tw; g.scale(s, s); }
+    g.save(); g.font = `500 ${p.size || 170}px Garamond`; const widths = [...txt].map(ch => g.measureText(ch).width + 6), tw = widths.reduce((a, b) => a + b, 0), fitS = Math.min(1, (SAFE.w - 60) / tw), half = tw * fitS / 2 + 20;
+    g.translate(clamp(clamp(p.x, 340, 740), SAFE.left + half, SAFE.right - half), clamp(p.y, 560, 1600)); g.rotate(p.rot || 0); g.textBaseline = 'middle'; g.globalAlpha = fade; let x = -tw / 2;
+    if (fitS < 1) g.scale(fitS, fitS);
     const wob = Math.sin(lt * 30) * Math.exp(-lt * 5) * 6;
     [...txt].forEach((ch, i) => { const k = clamp((lt - i * per) / .18); if (k <= 0) { x += widths[i]; return; } const s = 1 + (1 - eo(k)) * 1.1, dy = (1 - eo(k)) * -90;
       g.save(); g.translate(x + widths[i] / 2 + wob, dy); g.scale(s, s); g.globalAlpha = fade * clamp(k * 2);
@@ -83,15 +83,15 @@ function drawTitle(g, T) {
   const ti = EP.title; if (!ti || T > ti.t1 + .6) return; const a = smooth(ti.t0, ti.t0 + .5, T) * (1 - smooth(ti.t1, ti.t1 + .6, T)), sp = 8 + 10 * eo((T - ti.t0) / 3);
   g.textBaseline = 'alphabetic'; g.textAlign = 'left';
   const tl = ti.text.split('\n'); let yEnd = 300;
-  goldText(g, (dx, dy) => { tl.forEach((ln, i) => { let fs = tl.length > 1 ? 84 : 96; g.font = `500 ${fs}px Garamond`; const sp2 = ln.length > 12 ? sp * .45 : sp; while (fs > 40 && g.measureText(ln).width + sp2 * ln.length > 900) { fs -= 2; g.font = `500 ${fs}px Garamond`; } const y = tl.length > 1 ? 290 + i * 92 : 300; spaced(g, ln, W / 2 + dx, y + dy, sp2); yEnd = y; }); }, a);
+  goldText(g, (dx, dy) => { tl.forEach((ln, i) => { let fs = tl.length > 1 ? 84 : 96; g.font = `500 ${fs}px Garamond`; const sp2 = ln.length > 12 ? sp * .45 : sp; while (fs > 40 && g.measureText(ln).width + sp2 * ln.length > 840) { fs -= 2; g.font = `500 ${fs}px Garamond`; } const y = tl.length > 1 ? 290 + i * 92 : 300; spaced(g, ln, W / 2 + dx, y + dy, sp2); yEnd = y; }); }, a);
   goldText(g, (dx, dy) => { g.font = "italic 500 36px Garamond"; spaced(g, '— ' + ti.sub + ' —', W / 2 + dx, yEnd + 56 + dy, 2); }, a * .95);
 }
 function drawLabels(g, T) {
   for (const sh of EP.shots) if (sh.label) { const t0 = sh.t0 + (sh.labelAt ?? .4), t1 = Math.min(t0 + (sh.labelDur ?? 2.6), sh.t1 + .2); if (T < t0 || T > t1) continue; const a = smooth(t0, t0 + .35, T) * (1 - smooth(t1 - .35, t1, T));
-    g.save(); g.font = "500 66px Garamond"; const w66 = [...sh.label].reduce((p, ch) => p + g.measureText(ch).width, 0) + 12 * (sh.label.length - 1); g.restore(); const LF = `500 ${Math.round(66 * Math.min(1, 900 / w66))}px Garamond`;
-    { const ly = Math.min(sh.labelY ?? 1400, 1400), lsp = 6 + 6 * eo((T - t0) / 2); g.save(); g.globalAlpha = a * .8; g.font = LF; g.lineJoin = 'round'; g.lineWidth = 9; g.strokeStyle = 'rgba(28,12,6,.9)';
+    g.save(); g.font = "500 66px Garamond"; const w66 = [...sh.label].reduce((p, ch) => p + g.measureText(ch).width, 0) + 12 * (sh.label.length - 1); g.restore(); const LK = Math.min(1, (SAFE.w - 40) / w66), LF = `500 ${Math.floor(66 * LK)}px Garamond`;   // font AND letter-spacing scale together
+    { const ly = Math.min(sh.labelY ?? 1400, 1400), lsp = (6 + 6 * eo((T - t0) / 2)) * LK; g.save(); g.globalAlpha = a * .8; g.font = LF; g.lineJoin = 'round'; g.lineWidth = 9; g.strokeStyle = 'rgba(28,12,6,.9)';
       const ws = [...sh.label].map(ch => g.measureText(ch).width), tw = ws.reduce((p, q) => p + q, 0) + lsp * (sh.label.length - 1); let xx = SAFE.cx - tw / 2; [...sh.label].forEach((ch, i) => { g.strokeText(ch, xx, ly); xx += ws[i] + lsp; }); g.restore(); }
-    goldText(g, (dx, dy) => { g.font = LF; spaced(g, sh.label, SAFE.cx + dx, Math.min(sh.labelY ?? 1400, 1400) + dy, 6 + 6 * eo((T - t0) / 2)); }, a * .95); }
+    goldText(g, (dx, dy) => { g.font = LF; spaced(g, sh.label, SAFE.cx + dx, Math.min(sh.labelY ?? 1400, 1400) + dy, (6 + 6 * eo((T - t0) / 2)) * LK); }, a * .95); }
 }
 // ---------- grain + vignette ----------
 const NZ = document.createElement('canvas'); NZ.width = 540; NZ.height = 960; { const x = NZ.getContext('2d'), d = x.createImageData(540, 960), r = rng(5); for (let i = 0; i < d.data.length; i += 4) { const v = 110 + r() * 40; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } x.putImageData(d, 0, 0); }
