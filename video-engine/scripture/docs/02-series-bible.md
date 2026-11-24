@@ -131,4 +131,7 @@ Applied to every character rig from EP07 on (`art/figure.js`, `art/heroes.js`, `
   ash, spray), a foreground element when it helps (`rail`), and its own colour grade.
 - **QA:** contact sheets of every shot (start/mid/end), then a stillness scan, then a capped-bitrate encode (crf 24, maxrate 5M,
   keyframe every 2 s, faststart) so phones never stall.
-- **Credits:** ElevenLabs free tier is 10,000 characters a month; one episode uses about 2,300. Generate one take per speaker.
+- **Length and voice limit (from JP07 on):** every video is **75 seconds** (+-5 s), about 175 spoken words. Only the hosts speak on
+  ElevenLabs (Kon = Callum, Mio = Candy); guest characters get no ElevenLabs lines, so their words go to Kon or Mio, or they act
+  without speaking. Hard cap **1,200 ElevenLabs characters per video** (tags count). Run `python3 tools/voice_budget.py
+  episodes/X.lines.json` before generating anything; it must pass. One take per speaker, never regenerate to fish for a better one.

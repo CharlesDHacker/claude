@@ -1,0 +1,7 @@
+{
+ "_note": "Per-video limits. Hosts only on ElevenLabs (Kon = Callum, Mio = Candy); guest characters get no ElevenLabs lines (cut them, or give them to Kon/Mio). Check with: python3 tools/voice_budget.py episodes/X.lines.json",
+ "elevenlabs_chars_per_video": 1200,
+ "target_seconds": 75,
+ "tolerance_seconds": 5,
+ "offline_speakers": []
+}
