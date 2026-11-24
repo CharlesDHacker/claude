@@ -19,11 +19,12 @@
  "lines": [
   {
    "id": "L01",
-   "who": "text",
-   "say": "You asked for the Nue.",
+   "who": "kon",
+   "say": "[sly] You asked for the Nue.",
    "cap": [
     "You asked for {r:the Nue}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L02",
@@ -44,63 +45,69 @@
   },
   {
    "id": "L04",
-   "who": "text",
-   "say": "Over 850 years ago, a black cloud crept over the Emperor's palace every night.",
+   "who": "kon",
+   "say": "[ominous] Over 850 years ago, a black cloud crept over the Emperor's palace every night.",
    "cap": [
     "Over 850 years ago,",
     "a {r:black cloud} crept over",
     "the Emperor's palace every night."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L05",
-   "who": "text",
+   "who": "kon",
    "say": "At 2 a.m., something inside it began to cry.",
    "cap": [
     "At 2 a.m.,",
     "something inside it",
     "began to {r:cry}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L06",
-   "who": "text",
+   "who": "kon",
    "say": "The Emperor fell ill. Priests prayed. Nothing worked.",
    "cap": [
     "The Emperor fell {o:ill}.",
     "Priests prayed.",
     "Nothing worked."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L07",
-   "who": "text",
+   "who": "kon",
    "say": "So they called the best archer in Japan: Minamoto no Yorimasa.",
    "cap": [
     "So they called the best archer in Japan:",
     "{o:Minamoto no Yorimasa}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L08",
-   "who": "text",
+   "who": "kon",
    "say": "He brought two arrows. The second was for the man who recommended him... in case he missed.",
    "cap": [
     "He brought {o:two arrows}.",
     "The second was for the man",
     "who recommended him...",
     "in case he {r:missed}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L09",
-   "who": "text",
+   "who": "kon",
    "say": "He prayed, drew his bow, and aimed into the dark.",
    "cap": [
     "He prayed,",
     "drew his bow,",
     "and aimed into the {r:dark}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L10",
@@ -112,40 +119,44 @@
   },
   {
    "id": "L11",
-   "who": "text",
-   "say": "Something shrieked and fell out of the sky.",
+   "who": "kon",
+   "say": "[intense] Something shrieked and fell out of the sky.",
    "cap": [
     "Something {r:shrieked}",
     "and fell out of the sky."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L12",
-   "who": "text",
-   "say": "His retainer Hayata leapt on it and finished it with his sword.",
+   "who": "kon",
+   "say": "His retainer Hayata leapt on it and finished it.",
    "cap": [
     "His retainer Hayata leapt on it",
-    "and finished it with his {o:sword}."
-   ]
+    "and {o:finished it}."
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L13",
-   "who": "text",
+   "who": "kon",
    "say": "Then they raised the torches.",
    "cap": [
     "Then they raised the {o:torches}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L14",
-   "who": "text",
+   "who": "kon",
    "say": "The face of a monkey. The body of a tanuki. The legs of a tiger. A snake for a tail.",
    "cap": [
     "The face of a {o:monkey}.",
     "The body of a {o:tanuki}.",
     "The legs of a {o:tiger}.",
     "A {r:snake} for a tail."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L15",
@@ -158,33 +169,36 @@
   },
   {
    "id": "L16",
-   "who": "text",
-   "say": "The Emperor recovered. Yorimasa was rewarded with the sword Shishiō.",
+   "who": "kon",
+   "say": "The Emperor recovered. Yorimasa was rewarded with the sword Shishio.",
    "cap": [
     "The Emperor {o:recovered}.",
     "Yorimasa was rewarded",
     "with the sword {o:Shishiō}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L17",
-   "who": "text",
+   "who": "kon",
    "say": "The pond where he washed his arrow is still in Kyoto, next to the Nue Shrine.",
    "cap": [
     "The pond where he washed his arrow",
     "is still in {o:Kyoto},",
     "next to the {r:Nue Shrine}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L18",
-   "who": "text",
-   "say": "And its cry? It sounded like a night bird Japan still calls the nue.",
+   "who": "kon",
+   "say": "[hushed] And its cry? It sounded like a night bird Japan still calls the nue.",
    "cap": [
     "And its cry?",
     "It sounded like a {o:night bird}",
     "Japan still calls {r:the nue}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L19",

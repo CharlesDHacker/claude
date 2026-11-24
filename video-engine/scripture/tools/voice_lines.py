@@ -11,7 +11,7 @@ out = os.path.join(adir, "lines"); os.makedirs(out, exist_ok=True)
 # ElevenLabs takes already split per line (tools/split_takes.py), by speaker
 takes = {who: os.path.join(adir, d) for who, d in ep.get("takes", {}).items() if os.path.isdir(os.path.join(adir, d))}
 words = {}
-for d in takes.values():
+for d in set(takes.values()) | {os.path.join(adir, l["take"]) for l in ep["lines"] if l.get("take")}:
     wp = os.path.join(d, "words.json")
     if os.path.exists(wp): words.update(json.load(open(wp)))
 json.dump(words, open(os.path.join(out, "words.json"), "w"))

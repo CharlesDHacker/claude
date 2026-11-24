@@ -2,11 +2,11 @@
 Usage: python3 align_split.py take.mp3 episodes/X.lines.json SPEAKER OUT_DIR
 Writes OUT_DIR/<id>.wav for each of SPEAKER's lines (in script order) and OUT_DIR/words.json {id: [[word, start, end], ...]}
 with times relative to each clip. Cut points sit in the middle of the silence between lines, so nothing is clipped."""
-import sys, json, re, os, subprocess, wave, numpy as np
+import sys, os, json, re, os, subprocess, wave, numpy as np
 from pocketsphinx import Decoder, get_model_path
 take, lines_p, who, out = sys.argv[1:5]
 os.makedirs(out, exist_ok=True)
-EXTRA = {"hoichi": "HH OW IY CH IY", "benkei": "B EH N K EY", "benkei's": "B EH N K EY Z", "kurama": "K UH R AA M AH", "tengu": "T EH NG G UW", "yoshitsune": "Y OW SH IY T S UW N EY", "genghis": "JH EH NG G IH S", "khan": "K AA N", "kyoto": "K IY OW T OW", "shogun": "SH OW G AH N", "shuten": "SH UW T EH N", "doji": "D OW JH IY", "minamoto": "M IY N AA M OW T OW", "oni": "OW N IY", "dojigiri": "D OW JH IY G IY R IY", "demon's": "D IY M AH N Z", "mio": "M IY OW", "masakado": "M AA S AA K AA D OW", "taira": "T AY R AH", "ibaraki": "IY B AA R AA K IY", "tamamo": "T AA M AA M OW", "sessho": "S EH SH OW", "yasunari": "Y AA S UW N AA R IY", "nasu": "N AA S UW", "diviner": "D IH V AY N ER", "takeru": "T AA K EH R UW", "yamato": "Y AA M AA T OW", "kumaso": "K UW M AA S OW", "susanoo": "S UW S AA N OW OW", "izumo": "IY Z UW M OW", "orochi": "AO R OW CH IY", "kushinada": "K UW SH IY N AA D AH", "kusanagi": "K UW S AA N AA G IY", "amaterasu": "AA M AA T EH R AA S UW", "sak": "S AA K EY", "aah": "AA", "anymo": "EH N IY M OW", "ishbi": "IH SH B AY", "benob": "B IY N AA B", "sibbecai": "S IH B AH K AY", "elhanan": "EH L HH EY N AH N", "saph": "S AE F",
+EXTRA = {"nue": "N UW EY", "yorimasa": "Y OW R IY M AA S AA", "hayata": "HH AA Y AA T AA", "shishio": "SH IY SH IY OW", "tanuki": "T AH N UW K IY", "hoichi": "HH OW IY CH IY", "benkei": "B EH N K EY", "benkei's": "B EH N K EY Z", "kurama": "K UH R AA M AH", "tengu": "T EH NG G UW", "yoshitsune": "Y OW SH IY T S UW N EY", "genghis": "JH EH NG G IH S", "khan": "K AA N", "kyoto": "K IY OW T OW", "shogun": "SH OW G AH N", "shuten": "SH UW T EH N", "doji": "D OW JH IY", "minamoto": "M IY N AA M OW T OW", "oni": "OW N IY", "dojigiri": "D OW JH IY G IY R IY", "demon's": "D IY M AH N Z", "mio": "M IY OW", "masakado": "M AA S AA K AA D OW", "taira": "T AY R AH", "ibaraki": "IY B AA R AA K IY", "tamamo": "T AA M AA M OW", "sessho": "S EH SH OW", "yasunari": "Y AA S UW N AA R IY", "nasu": "N AA S UW", "diviner": "D IH V AY N ER", "takeru": "T AA K EH R UW", "yamato": "Y AA M AA T OW", "kumaso": "K UW M AA S OW", "susanoo": "S UW S AA N OW OW", "izumo": "IY Z UW M OW", "orochi": "AO R OW CH IY", "kushinada": "K UW SH IY N AA D AH", "kusanagi": "K UW S AA N AA G IY", "amaterasu": "AA M AA T EH R AA S UW", "sak": "S AA K EY", "aah": "AA", "anymo": "EH N IY M OW", "ishbi": "IH SH B AY", "benob": "B IY N AA B", "sibbecai": "S IH B AH K AY", "elhanan": "EH L HH EY N AH N", "saph": "S AE F",
          "abishai": "AH B IH SH AY", "gath": "G AE TH", "spearhead": "S P IH R HH EH D", "selah": "S IY L AH", "sackcloth": "S AE K K L AO TH", "nineveh": "N IH N AH V AH", "jonah": "JH OW N AH", "ewwww": "IY UW", "tarshish": "T AA R SH IH SH", "balaam": "B EY L AH M",
          "balak": "B EY L AE K", "toby": "T OW B IY", "goliath's": "G AH L AY AH TH S", "philistines": "F IH L AH S T IY N Z",
          "gideon": "G IH D IY AH N", "gideon's": "G IH D IY AH N Z", "gideo": "G IH D IY OW", "midianites": "M IH D IY AH N AY T S", "manasseh": "M AH N AE S AH", "winepress": "W AY N P R EH S", "threshing": "TH R EH SH IH NG",
@@ -16,7 +16,7 @@ def words_of(say):
     for k, v in IPA.items(): say = say.replace(k, v)
     say = re.sub(r"\[[^\]]*\]", " ", say).replace("TWENTY-FOUR", "twenty four").replace("-", " ")
     return [w for w in re.findall(r"[a-z']+", say.lower()) if w.strip("'")]
-E = json.load(open(lines_p)); L = [l for l in E["lines"] if l["who"] == who]
+E = json.load(open(lines_p)); _td = os.path.basename(out.rstrip("/")); L = [l for l in E["lines"] if l["who"] == who and l.get("take", E.get("takes", {}).get(who, _td)) == _td]
 script = [(w, l["id"]) for l in L for w in words_of(l["say"])]
 mp = get_model_path(); have = {}
 for line in open(os.path.join(mp, "en-us", "cmudict-en-us.dict")):
