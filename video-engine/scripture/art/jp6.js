@@ -136,7 +136,7 @@ JPA.sign = (g, A, c) => { const k = clamp((c.lt - (A.t0 || 0)) / .3); if (k <= 0
   g.font = "900 34px Nunito"; g.fillStyle = '#a8242a'; g.fillText(A.en || "BENKEI'S CRYING SPOT", 0, 62); g.restore(); };
 // a bronze statue base (the figures on it are toon actors drawn with stone:true)
 JPA.plinth = (g, A, c) => { g.save(); g.translate(A.x, A.y); g.scale(A.s || 1, A.s || 1); tsh(g, 'M-420 0 L420 0 L400 -160 L-400 -160 Z', lg(g, 0, -160, 0, 0, [[0, '#8a8478'], [1, '#5a564e']]), 6); tsh(g, 'M-440 -160 L440 -160 L440 -190 L-440 -190 Z', '#a8a296', 5);
-  g.fillStyle = '#3a3630'; g.font = "900 40px 'IPAGothic'"; g.textAlign = 'center'; g.fillText('弁慶と牛若丸', 0, -70); g.restore(); };
+  g.fillStyle = '#3a3630'; g.font = "900 40px 'IPAGothic'"; g.textAlign = 'center'; g.fillText(A.text || '弁慶と牛若丸', 0, -70); g.restore(); };
 
 // ================= worlds =================
 function willowF(x, cx, cy, s, col) { x.save(); x.translate(cx, cy); x.scale(s, s); sh(x, 'M-14 0 Q-20 -200 10 -360 L26 -360 Q10 -200 14 0 Z', '#141018');

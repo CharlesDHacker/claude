@@ -279,6 +279,23 @@ def shriek(d=1.3):
     sig = np.tanh(3 * (np.sin(ph) + .5 * np.sin(2.01 * ph))) * .6 + bp(noise(len(t)), 1200, 4000) * .5
     return norm(sig * np.minimum(t / .03, 1) * np.exp(-t * 1.6))
 LIB.update(nuecall=(nuecall, .55), shriek=(shriek, .75))
+# ---- JP07: biwa phrase (plucked, buzzing, falling) and slow ghostly applause ----
+def biwa(d=3.0):
+    t = tt(d); out = np.zeros(len(t))
+    for t0, m in ((0, 52), (.35, 57), (.7, 59), (1.3, 64), (1.6, 62), (2.1, 57)):
+        f = 440 * 2 ** ((m - 69) / 12); n = int(SR / f); buf = R.uniform(-1, 1, n); i0 = int(t0 * SR); L = min(int(1.6 * SR), len(out) - i0); y = np.zeros(L)
+        for i in range(L): y[i] = buf[i % n]; buf[i % n] = .996 * .5 * (buf[i % n] + buf[(i + 1) % n])
+        y = np.tanh(y * 2.2) * np.exp(-np.arange(L) / SR * 2.2); out[i0:i0 + L] += y
+    return norm(out)
+def claps(d=3.0):
+    t = tt(d); out = np.zeros(len(t))
+    for k in range(int(d / .55)):
+        for j in range(3):
+            i0 = int((k * .55 + R.uniform(0, .06)) * SR); tl = tt(.08); c = bp(noise(len(tl)), 900, 3500) * np.exp(-tl * 70); out[i0:i0 + len(c)] += c[: len(out) - i0] * R.uniform(.4, .9)
+    wet = np.zeros(len(out))
+    for dl, gn in ((.07, .4), (.16, .25), (.3, .12)): k = int(dl * SR); wet[k:] += out[:-k] * gn
+    return norm(out + wet)
+LIB.update(biwa=(biwa, .6), claps=(claps, .5))
 
 LIB.update(sword=LIB["clash"], shimmer=LIB["sparkle"], crunch=LIB["hit"])  # names used by episode 1
 sfx = np.zeros(N)

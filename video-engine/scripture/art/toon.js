@@ -171,7 +171,7 @@ function lowerT(g, L, G, t, walk) { const kid = L.kind === 'kid', lw = walk != n
 function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx, ry] = G.hr, H = L.hair, gl = Math.floor(t * .55 + ph * 3.1), glance = (((gl * 9301 + 49297) % 233280) / 233280 - .5) * 2, [lx0, ly0] = o.look || [0, 0], lx = clamp(lx0 + glance * .3, -1, 1), ly = ly0;
   const blink = ((t * .63 + ph) % 3.7) < .1, closed = blink || ex === 'happy' || ex === 'sleep' || ex === 'cry' || ex === 'smile' && !kid && false;
   // ears, face
-  [-1, 1].forEach(s => { tell(g, s * rx * .98, ry * .05, rx * .17, ry * .22, L.skin, 5); tln(g, [s * rx * .98, -ry * .04, s * rx * 1.04, ry * .08], 2.4, L.skinD); });
+  if (!o.noEars) [-1, 1].forEach(s => { tell(g, s * rx * .98, ry * .05, rx * .17, ry * .22, L.skin, 5); tln(g, [s * rx * .98, -ry * .04, s * rx * 1.04, ry * .08], 2.4, L.skinD); });
   const face = kid ? `M${-rx} -10 C${-rx} -${ry * 1.05} ${rx} -${ry * 1.05} ${rx} -10 C${rx} ${ry * .7} ${rx * .5} ${ry * .98} 0 ${ry * .98} C${-rx * .5} ${ry * .98} ${-rx} ${ry * .7} ${-rx} -10 Z`
                    : L.jaw === 'square' ? `M${-rx} -20 C${-rx} -${ry * 1.1} ${rx} -${ry * 1.1} ${rx} -20 L${rx * .92} ${ry * .55} Q${rx * .6} ${ry * .96} 0 ${ry} Q${-rx * .6} ${ry * .96} ${-rx * .92} ${ry * .55} Z`
                    : `M${-rx} -20 C${-rx} -${ry * 1.1} ${rx} -${ry * 1.1} ${rx} -20 C${rx} ${ry * .5} ${rx * .5} ${ry} 0 ${ry} C${-rx * .5} ${ry} ${-rx} ${ry * .5} ${-rx} -20 Z`;

@@ -36,32 +36,35 @@
   },
   {
    "id": "L03",
-   "who": "text",
-   "say": "Centuries ago, a blind musician named Hōichi lived at a temple by the sea.",
+   "who": "kon",
+   "say": "[storytelling] Centuries ago, a blind musician named Hoichi lived at a temple by the sea.",
    "cap": [
     "Centuries ago,",
     "a blind musician named {o:Hōichi}",
     "lived at a temple by the sea."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L04",
-   "who": "text",
+   "who": "kon",
    "say": "Every night, he sang of Dan-no-ura, the sea battle where the Heike clan drowned.",
    "cap": [
     "Every night, he sang of {o:Dan-no-ura},",
     "the sea battle where",
     "the Heike clan {r:drowned}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L05",
-   "who": "text",
+   "who": "kon",
    "say": "One night, a samurai in armor came for him.",
    "cap": [
     "One night,",
     "a {r:samurai} in armor came for him."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L06",
@@ -74,41 +77,45 @@
   },
   {
    "id": "L07",
-   "who": "text",
+   "who": "kon",
    "say": "He was led to a grand hall full of nobles. He played until dawn, and they wept.",
    "cap": [
     "He was led to a {o:grand hall}",
     "full of nobles.",
     "He played until dawn,",
     "and they {o:wept}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L08",
-   "who": "text",
+   "who": "kon",
    "say": "Night after night, he went back. So the priest had him followed...",
    "cap": [
     "Night after night, he went back.",
     "So the priest had him {o:followed}..."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L09",
-   "who": "text",
-   "say": "There was no hall.",
+   "who": "kon",
+   "say": "[low] There was no hall.",
    "cap": [
     "There was {r:no hall}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L10",
-   "who": "text",
-   "say": "He was playing alone in a graveyard, surrounded by ghost fires.",
+   "who": "kon",
+   "say": "[ominous] He was playing alone in a graveyard, surrounded by ghost fires.",
    "cap": [
     "He was playing alone",
     "in a {r:graveyard},",
     "surrounded by {o:ghost fires}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L11",
@@ -120,31 +127,34 @@
   },
   {
    "id": "L12",
-   "who": "text",
+   "who": "kon",
    "say": "To hide him, the priest painted holy sutras over every inch of his body.",
    "cap": [
     "To hide him,",
     "the priest painted {o:holy sutras}",
     "over every inch of his body."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L13",
-   "who": "text",
+   "who": "kon",
    "say": "Ghosts can't see what the sutras cover.",
    "cap": [
     "Ghosts {r:can't see}",
     "what the sutras cover."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L14",
-   "who": "text",
+   "who": "kon",
    "say": "That night, the samurai came back.",
    "cap": [
     "That night,",
     "the samurai {r:came back}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L15",
@@ -157,13 +167,14 @@
   },
   {
    "id": "L16",
-   "who": "text",
-   "say": "Nothing. Just two ears, floating in the dark.",
+   "who": "kon",
+   "say": "[tense] Nothing. Just two ears, floating in the dark.",
    "cap": [
     "Nothing.",
     "Just {r:two ears},",
     "floating in the dark."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L17",
@@ -175,33 +186,36 @@
   },
   {
    "id": "L18",
-   "who": "text",
-   "say": "So the ghost took the only part of Hōichi it could see.",
+   "who": "kon",
+   "say": "[grim] So the ghost took the only part of Hoichi it could see.",
    "cap": [
     "So the ghost took",
     "the only part of Hōichi",
     "it {r:could see}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L19",
-   "who": "text",
-   "say": "Hōichi lived, and became the most famous singer in Japan: Hōichi the Earless.",
+   "who": "kon",
+   "say": "[warm] Hoichi lived, and became the most famous singer in Japan: Hoichi the Earless.",
    "cap": [
     "Hōichi lived,",
     "and became the most famous singer in Japan:",
     "{o:Hōichi the Earless}."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L20",
-   "who": "text",
+   "who": "kon",
    "say": "His statue still sits at Akama Shrine, in Shimonoseki.",
    "cap": [
     "His statue still sits",
     "at {o:Akama Shrine},",
     "in Shimonoseki."
-   ]
+   ],
+   "take": "kon_b"
   },
   {
    "id": "L21",
