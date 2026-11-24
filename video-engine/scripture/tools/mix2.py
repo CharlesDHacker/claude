@@ -265,6 +265,20 @@ def gallop(d=2.4):  # three-beat hoof pattern on hard ground
             i0 = int((k * beat + off) * SR); tl = tt(.12); h = (np.sin(TAU * np.cumsum(90 + 120 * np.exp(-tl * 50)) / SR) + lp(noise(len(tl)), 1200) * .6) * np.exp(-tl * 34); out[i0:i0 + len(h)] += h[: len(out) - i0] * (1 - j * .2)
     return norm(out)
 LIB.update(flute=(flute, .5), volley=(volley, .8), wings=(wings, .55), gallop=(gallop, .6))
+# ---- JP08: the nue's night whistle (thin, falling, lonely) and its shriek ----
+def nuecall(d=3.4):
+    t = tt(d); out = np.zeros(len(t))
+    for t0, f0, f1, du in ((0.0, 2650, 2450, 1.2), (1.7, 2250, 2150, 1.3)):
+        i0 = int(t0 * SR); tl = tt(du); f = np.linspace(f0, f1, len(tl)) * (1 + .004 * np.sin(TAU * 6 * tl)); env = np.minimum(tl / .25, 1) * np.clip((du - tl) / .5, 0, 1) ** 1.5
+        sig = (np.sin(TAU * np.cumsum(f) / SR) + bp(noise(len(tl)), f0 * .9, f0 * 1.1) * .15) * env; out[i0:i0 + len(sig)] += sig[: len(out) - i0]
+    wet = np.zeros(len(out))
+    for dl, gn in ((.11, .35), (.23, .22), (.41, .12)): k = int(dl * SR); wet[k:] += out[:-k] * gn
+    return norm(out + wet)
+def shriek(d=1.3):
+    t = tt(d); f = 900 + 700 * np.sin(TAU * 7 * t) * np.exp(-t * 2) + 400 * np.exp(-t * 3); ph = TAU * np.cumsum(f) / SR
+    sig = np.tanh(3 * (np.sin(ph) + .5 * np.sin(2.01 * ph))) * .6 + bp(noise(len(t)), 1200, 4000) * .5
+    return norm(sig * np.minimum(t / .03, 1) * np.exp(-t * 1.6))
+LIB.update(nuecall=(nuecall, .55), shriek=(shriek, .75))
 
 LIB.update(sword=LIB["clash"], shimmer=LIB["sparkle"], crunch=LIB["hit"])  # names used by episode 1
 sfx = np.zeros(N)

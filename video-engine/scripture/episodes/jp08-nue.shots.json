@@ -1,0 +1,2118 @@
+{
+ "lead": 0.08,
+ "tail": 0.15,
+ "start": 0.35,
+ "loop": true,
+ "title": {
+  "text": "THE NUE",
+  "sub": "the monster in the black cloud",
+  "until": "L03"
+ },
+ "gaps": {
+  "L01": 0.12,
+  "L02": 0.12,
+  "L03": 0.2,
+  "L04": 0.12,
+  "L05": 0.12,
+  "L06": 0.12,
+  "L07": 0.12,
+  "L08": 0.12,
+  "L09": 0.12,
+  "L10": 0.15,
+  "L11": 0.12,
+  "L12": 0.12,
+  "L13": 0.15,
+  "L14": 0.12,
+  "L15": 0.2,
+  "L16": 0.12,
+  "L17": 0.12,
+  "L18": 0.12,
+  "L19": 0.15
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1380,
+     0.95
+    ],
+    [
+     540,
+     1320,
+     1.05
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "blackCloud",
+      "x": {
+       "osc": [
+        560,
+        30,
+        0.12,
+        0
+       ]
+      },
+      "y": {
+       "osc": [
+        640,
+        20,
+        0.15,
+        0
+       ]
+      },
+      "s": 1.1,
+      "eyes": 0
+     },
+     {
+      "type": "comment",
+      "x": 540,
+      "y": 1020,
+      "t0": 0.05,
+      "t1": "@L02.1",
+      "like": 1.0,
+      "s": 1.0
+     }
+    ],
+    "dim": 0.6,
+    "front": [
+     {
+      "type": "mio",
+      "x": 210,
+      "y": 2120,
+      "s": 1.15,
+      "expr": "worry",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.6
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 880,
+      "y": 2060,
+      "s": 0.95,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -1,
+       -0.5
+      ]
+     }
+    ]
+   },
+   "lead": 0,
+   "music": "hush",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "nuecall",
+     0.3
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L02",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1500,
+     1.2
+    ],
+    [
+     440,
+     1470,
+     1.3
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "blackCloud",
+      "x": {
+       "osc": [
+        560,
+        30,
+        0.12,
+        0
+       ]
+      },
+      "y": {
+       "osc": [
+        640,
+        20,
+        0.15,
+        0
+       ]
+      },
+      "s": 1.1,
+      "eyes": 0
+     }
+    ],
+    "dim": 0.6,
+    "front": [
+     {
+      "type": "mio",
+      "x": 380,
+      "y": 2140,
+      "s": 1.4,
+      "expr": "scared",
+      "hands": "cheeks",
+      "look": [
+       0.4,
+       -1
+      ],
+      "shake": 0.2
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L03",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     860,
+     1.25
+    ],
+    [
+     540,
+     800,
+     1.45
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "blackCloud",
+      "x": {
+       "osc": [
+        560,
+        30,
+        0.12,
+        0
+       ]
+      },
+      "y": 760,
+      "s": 1.4,
+      "eyes": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.3,
+       "t1": 0.8,
+       "e": "o"
+      }
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "braam",
+     0.3
+    ]
+   ],
+   "kicks": [
+    0.4
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1200,
+     0.85
+    ],
+    [
+     540,
+     1300,
+     0.95
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "blackCloud",
+      "x": {
+       "a": 1500,
+       "b": 600,
+       "t0": 0,
+       "t1": 4.5,
+       "e": "o"
+      },
+      "y": {
+       "osc": [
+        640,
+        20,
+        0.15,
+        0
+       ]
+      },
+      "s": 1.1,
+      "eyes": 0
+     },
+     {
+      "type": "toon",
+      "c": "konoe",
+      "x": 540,
+      "y": 1880,
+      "s": 0.62,
+      "k": 0.8,
+      "expr": "worry",
+      "arms": "chest",
+      "look": [
+       0.5,
+       -1
+      ]
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "fade",
+   "music": "kotodread",
+   "camEase": "lin",
+   "label": "KYOTO, THE 1150s",
+   "labelY": 505,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "thunder",
+     1.5
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1250,
+     0.98
+    ],
+    [
+     540,
+     1180,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "blackCloud",
+      "x": {
+       "osc": [
+        560,
+        30,
+        0.12,
+        0
+       ]
+      },
+      "y": {
+       "osc": [
+        640,
+        20,
+        0.15,
+        0
+       ]
+      },
+      "s": 1.3,
+      "eyes": {
+       "k": [
+        [
+         0,
+         0
+        ],
+        [
+         "@L05.2",
+         0
+        ],
+        [
+         "@L05.2+0.3",
+         1
+        ]
+       ],
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "konoe",
+      "x": 540,
+      "y": 1880,
+      "s": 0.85,
+      "expr": "scared",
+      "arms": "chest",
+      "look": [
+       0,
+       -1
+      ],
+      "shake": 0.15,
+      "pale": 0.4
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "nuecall",
+     "@L05.2"
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1650,
+     1.2
+    ],
+    [
+     540,
+     1620,
+     1.3
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "sickbed",
+      "x": 540,
+      "y": 1860,
+      "s": 1.0
+     },
+     {
+      "type": "toon",
+      "c": "konoe",
+      "x": 470,
+      "y": 2080,
+      "s": 0.72,
+      "rot": -1.5,
+      "pale": 0.6,
+      "expr": "sad",
+      "sweat": true,
+      "shake": {
+       "osc": [
+        0,
+        0.1,
+        1,
+        0
+       ]
+      },
+      "shadow": false
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1450,
+     1.02
+    ],
+    [
+     540,
+     1420,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "monk",
+      "x": 280,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "sleep",
+      "arms": "clasp",
+      "talk": {
+       "osc": [
+        0.4,
+        0.4,
+        3,
+        0
+       ]
+      },
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "monk2",
+      "x": 540,
+      "y": 1880,
+      "s": 0.84,
+      "expr": "sleep",
+      "arms": "clasp",
+      "talk": {
+       "osc": [
+        0.4,
+        0.4,
+        3,
+        0.3
+       ]
+      },
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0.3
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "monk",
+      "x": 800,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "sleep",
+      "arms": "clasp",
+      "talk": {
+       "osc": [
+        0.4,
+        0.4,
+        3,
+        0.6
+       ]
+      },
+      "ph": 1
+     },
+     {
+      "type": "smoke",
+      "x": 540,
+      "y": 1500,
+      "w": 300
+     }
+    ],
+    "dim": 0.6
+   },
+   "atc": "@L06.1",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "bell",
+     0.1
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     900,
+     1.0
+    ],
+    [
+     540,
+     880,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "blackCloud",
+      "x": {
+       "osc": [
+        560,
+        30,
+        0.12,
+        0
+       ]
+      },
+      "y": 900,
+      "s": 1.6,
+      "eyes": 0.7
+     }
+    ],
+    "dim": 0.6
+   },
+   "atc": "@L06.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "thunder",
+     0.2
+    ]
+   ],
+   "flashes": [
+    0.2
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L07",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1430,
+     1.0
+    ],
+    [
+     520,
+     1400,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 1000,
+      "r": 1800,
+      "a": 0.3
+     },
+     {
+      "type": "toon",
+      "c": "yorimasa",
+      "x": {
+       "a": -150,
+       "b": 520,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.9,
+      "expr": "fierce",
+      "walk": 1,
+      "walkRate": 4,
+      "arms": [
+       [
+        -40,
+        -640
+       ],
+       [
+        300,
+        -640
+       ]
+      ],
+      "hold": "bow",
+      "bowFlip": true,
+      "holdRot": -0.6,
+      "draw": 0.2
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "label": "MINAMOTO NO YORIMASA",
+   "labelY": 505,
+   "labelAt": "@L07.1",
+   "sfx": [
+    [
+     "horn",
+     "@L07.1"
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.38
+    ],
+    [
+     540,
+     1150,
+     1.48
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "yorimasa",
+      "x": 540,
+      "y": 2120,
+      "s": 1.2,
+      "expr": "fierce",
+      "arms": [
+       [
+        -40,
+        -640
+       ],
+       [
+        300,
+        -640
+       ]
+      ],
+      "hold": "bow",
+      "bowFlip": true,
+      "holdRot": -0.6,
+      "draw": 0.2
+     },
+     {
+      "type": "arrow",
+      "x0": 760,
+      "y0": 1150,
+      "x1": 760,
+      "y1": 1150,
+      "t0": 0.2,
+      "d": 0.01,
+      "hold": true
+     },
+     {
+      "type": "sparkle",
+      "x": 760,
+      "y": 1150,
+      "t0": 0.2,
+      "d": 0.8,
+      "r": 220
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "clank",
+     0.2
+    ],
+    [
+     "clank",
+     0.5
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1350,
+     1.2
+    ],
+    [
+     540,
+     1300,
+     1.35
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "official",
+      "x": 540,
+      "y": 1880,
+      "s": 0.9,
+      "expr": "scared",
+      "arms": "chest",
+      "sweat": true,
+      "shake": 0.15,
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        1.2,
+        0
+       ]
+      }
+     }
+    ],
+    "dim": 0.6
+   },
+   "atc": "@L08.1",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "gulp",
+     0.6
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1420,
+     1.05
+    ],
+    [
+     560,
+     1400,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "official",
+      "x": 820,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "scared",
+      "arms": "chest",
+      "shake": 0.3,
+      "sweat": true
+     },
+     {
+      "type": "toon",
+      "c": "yorimasa",
+      "x": 330,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "smug",
+      "arms": [
+       [
+        -40,
+        -640
+       ],
+       [
+        300,
+        -640
+       ]
+      ],
+      "hold": "bow",
+      "bowFlip": true,
+      "holdRot": -0.6,
+      "draw": 0.2,
+      "look": [
+       1,
+       0
+      ]
+     }
+    ],
+    "dim": 0.6
+   },
+   "atc": "@L08.3",
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.4
+    ],
+    [
+     540,
+     1160,
+     1.5
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "yorimasa",
+      "x": 540,
+      "y": 2120,
+      "s": 1.2,
+      "expr": "sleep",
+      "arms": "clasp",
+      "tilt": {
+       "osc": [
+        0,
+        0.02,
+        0.4,
+        0
+       ]
+      }
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "fade",
+   "music": "hush",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "heartbeat",
+     0.2
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1400,
+     1.1
+    ],
+    [
+     540,
+     1380,
+     1.18
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "yorimasa",
+      "x": 540,
+      "y": 1880,
+      "s": 0.92,
+      "expr": "fierce",
+      "arms": [
+       [
+        -40,
+        -640
+       ],
+       [
+        300,
+        -640
+       ]
+      ],
+      "hold": "bow",
+      "bowFlip": true,
+      "holdRot": -0.6,
+      "draw": {
+       "a": 0.2,
+       "b": 1,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "o"
+      }
+     }
+    ],
+    "dim": 0.6
+   },
+   "atc": "@L09.1",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "sling",
+     0.1
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     480,
+     1250,
+     0.95
+    ],
+    [
+     500,
+     1150,
+     1.05
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "blackCloud",
+      "x": {
+       "osc": [
+        560,
+        30,
+        0.12,
+        0
+       ]
+      },
+      "y": 650,
+      "s": 1.2,
+      "eyes": 1
+     },
+     {
+      "type": "toon",
+      "c": "yorimasa",
+      "x": 300,
+      "y": 2150,
+      "s": 1.2,
+      "expr": "fierce",
+      "arms": [
+       [
+        -40,
+        -640
+       ],
+       [
+        300,
+        -640
+       ]
+      ],
+      "hold": "bow",
+      "bowFlip": true,
+      "holdRot": -1.0,
+      "draw": 1
+     }
+    ],
+    "dim": 0.6
+   },
+   "atc": "@L09.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "heartbeat",
+     0.0
+    ],
+    [
+     "heartbeat",
+     0.8
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     480,
+     1150,
+     1.0
+    ],
+    [
+     520,
+     950,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "blackCloud",
+      "x": {
+       "osc": [
+        560,
+        30,
+        0.12,
+        0
+       ]
+      },
+      "y": 650,
+      "s": 1.2,
+      "eyes": 1
+     },
+     {
+      "type": "toon",
+      "c": "yorimasa",
+      "x": 300,
+      "y": 2150,
+      "s": 1.2,
+      "expr": "shout",
+      "arms": [
+       [
+        -40,
+        -640
+       ],
+       [
+        300,
+        -640
+       ]
+      ],
+      "hold": "bow",
+      "bowFlip": true,
+      "holdRot": -1.0,
+      "draw": {
+       "a": 1,
+       "b": 0.2,
+       "t0": 0.15,
+       "t1": 0.25,
+       "e": "lin"
+      }
+     },
+     {
+      "type": "arrow",
+      "x0": 380,
+      "y0": 1250,
+      "x1": 560,
+      "y1": 650,
+      "t0": 0.2,
+      "d": 0.35,
+      "arc": 20
+     },
+     {
+      "type": "burst",
+      "x": 560,
+      "y": 650,
+      "t0": 0.55,
+      "r": 700
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "music": "taiko",
+   "impacts": [
+    0.55
+   ],
+   "kicks": [
+    0.55
+   ],
+   "shakeAt": [
+    0.55
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.2
+    ],
+    [
+     "hit",
+     0.55
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1000,
+     0.85
+    ],
+    [
+     580,
+     1500,
+     0.92
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "blackCloud",
+      "x": {
+       "osc": [
+        560,
+        30,
+        0.12,
+        0
+       ]
+      },
+      "y": 600,
+      "s": 1.2,
+      "eyes": 0
+     },
+     {
+      "type": "nue",
+      "x": {
+       "a": 560,
+       "b": 600,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "lin"
+      },
+      "y": {
+       "a": 600,
+       "b": 1880,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "i"
+      },
+      "s": 0.8,
+      "spin": {
+       "a": 0,
+       "b": 5.5,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "lin"
+      },
+      "arrowIn": true,
+      "shriek": 1,
+      "noShadow": true,
+      "sil": 0.35
+     },
+     {
+      "type": "burst",
+      "x": 600,
+      "y": 1860,
+      "t0": 1.4,
+      "r": 800
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "impacts": [
+    1.42
+   ],
+   "shakeAt": [
+    1.42
+   ],
+   "kicks": [
+    1.42
+   ],
+   "sfx": [
+    [
+     "shriek",
+     0.0
+    ],
+    [
+     "boom",
+     1.42
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     460,
+     1450,
+     1.0
+    ],
+    [
+     560,
+     1430,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "nue",
+      "x": 640,
+      "y": 1880,
+      "s": 0.85,
+      "shriek": {
+       "osc": [
+        0.6,
+        0.4,
+        3,
+        0
+       ]
+      },
+      "arrowIn": true,
+      "sil": 0.35,
+      "crouch": true
+     },
+     {
+      "type": "toon",
+      "c": "hayata",
+      "x": {
+       "a": 150,
+       "b": 520,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "io"
+      },
+      "y": {
+       "k": [
+        [
+         0,
+         1880
+        ],
+        [
+         0.4,
+         1350
+        ],
+        [
+         0.8,
+         1700
+        ]
+       ],
+       "e": "io"
+      },
+      "s": 0.85,
+      "expr": "shout",
+      "arms": "raise",
+      "hold": "tsurugi",
+      "spin": {
+       "a": 0,
+       "b": -6.28,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "io"
+      },
+      "trail": 5,
+      "gy": 1880
+     },
+     {
+      "type": "slash",
+      "x": 600,
+      "y": 1500,
+      "t0": 0.85,
+      "rot": -0.5,
+      "seed": 3
+     },
+     {
+      "type": "slash",
+      "x": 640,
+      "y": 1450,
+      "t0": 1.2,
+      "rot": 0.5,
+      "seed": 4
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "impacts": [
+    0.86,
+    1.22
+   ],
+   "shakeAt": [
+    0.86,
+    1.22
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ],
+    [
+     "clash",
+     0.86
+    ],
+    [
+     "hit",
+     1.22
+    ],
+    [
+     "shriek",
+     0.9
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L13",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.0
+    ],
+    [
+     540,
+     1460,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1600,
+      "r": 1000,
+      "col": "rgba(255,150,60,1)",
+      "a": {
+       "a": 0,
+       "b": 0.7,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "io"
+      }
+     },
+     {
+      "type": "crowd",
+      "x0": -100,
+      "x1": 1180,
+      "y": {
+       "a": 2300,
+       "b": 2050,
+       "t0": 0,
+       "t1": 1.2,
+       "e": "o"
+      },
+      "n": 8,
+      "s": 0.9,
+      "col": "#0c0a0e",
+      "torches": true
+     },
+     {
+      "type": "nue",
+      "x": 540,
+      "y": 1860,
+      "s": 0.8,
+      "sil": {
+       "a": 0.05,
+       "b": 0.5,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "io"
+      },
+      "arrowIn": true,
+      "noShadow": true
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "fade",
+   "music": "kotodread",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "crowd",
+     0.2
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1350,
+     1.55
+    ],
+    [
+     420,
+     1330,
+     1.7
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "nue",
+      "x": 860,
+      "y": 2050,
+      "s": 1.5,
+      "arrowIn": true,
+      "glowEyes": 0.4,
+      "shriek": {
+       "osc": [
+        0.3,
+        0.3,
+        1.2,
+        0
+       ]
+      }
+     }
+    ],
+    "dim": 0.6
+   },
+   "tr": "flash",
+   "camEase": "lin",
+   "label": "MONKEY",
+   "labelY": 505,
+   "labelAt": 0.15,
+   "sfx": [
+    [
+     "braam",
+     0.05
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     700,
+     1700,
+     1.3
+    ],
+    [
+     400,
+     1680,
+     1.35
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "nue",
+      "x": 560,
+      "y": 2100,
+      "s": 1.4,
+      "arrowIn": true,
+      "glowEyes": 0.4
+     }
+    ],
+    "dim": 0.6
+   },
+   "atc": "@L14.1",
+   "tr": "whip",
+   "camEase": "lin",
+   "label": "TANUKI",
+   "labelY": 505,
+   "labelAt": 0.1,
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     480,
+     1780,
+     1.7
+    ],
+    [
+     700,
+     1780,
+     1.75
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "nue",
+      "x": 540,
+      "y": 1950,
+      "s": 1.5,
+      "arrowIn": true,
+      "glowEyes": 0.4,
+      "walk": 1
+     }
+    ],
+    "dim": 0.6
+   },
+   "atc": "@L14.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "label": "TIGER",
+   "labelY": 505,
+   "labelAt": 0.1,
+   "sfx": [
+    [
+     "stomp",
+     0.3
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     700,
+     1500,
+     1.4
+    ],
+    [
+     760,
+     1300,
+     1.6
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "nue",
+      "x": 300,
+      "y": 2200,
+      "s": 1.4,
+      "arrowIn": true,
+      "glowEyes": 0.4
+     }
+    ],
+    "dim": 0.6
+   },
+   "atc": "@L14.3",
+   "tr": "whip",
+   "camEase": "lin",
+   "label": "SNAKE",
+   "labelY": 505,
+   "labelAt": 0.1,
+   "impacts": [
+    0.35
+   ],
+   "kicks": [
+    0.35
+   ],
+   "shakeAt": [
+    0.35
+   ],
+   "sfx": [
+    [
+     "shriek",
+     0.3
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "nue",
+      "x": 720,
+      "y": 1760,
+      "s": 0.7,
+      "arrowIn": true,
+      "glowEyes": 0.4,
+      "shriek": {
+       "osc": [
+        0.3,
+        0.3,
+        1.5,
+        0
+       ]
+      }
+     }
+    ],
+    "dim": 0.6,
+    "front": [
+     {
+      "type": "mio",
+      "x": 260,
+      "y": 2100,
+      "s": 1.3,
+      "expr": "scared",
+      "hands": "cheeks",
+      "shake": 0.5
+     }
+    ]
+   },
+   "tr": "whip",
+   "pops": {
+    "L15": [
+     560,
+     1450,
+     -0.04,
+     170,
+     "SNAKE TAIL?!",
+     "@L15.1"
+    ]
+   },
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1400,
+     1.04
+    ],
+    [
+     540,
+     1360,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 900,
+      "r": 1800,
+      "a": 0.4
+     },
+     {
+      "type": "toon",
+      "c": "konoe",
+      "x": 540,
+      "y": 1880,
+      "s": 0.85,
+      "expr": "smile",
+      "arms": "open",
+      "lean": {
+       "osc": [
+        0,
+        0.02,
+        0.5,
+        0
+       ]
+      }
+     }
+    ],
+    "tod": "day"
+   },
+   "tr": "fade",
+   "music": "kotohope",
+   "camEase": "lin",
+   "grade": "warm"
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1360,
+     1.06
+    ],
+    [
+     540,
+     1300,
+     1.16
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 900,
+      "r": 1800,
+      "a": 0.45
+     },
+     {
+      "type": "toon",
+      "c": "yorimasa",
+      "x": 540,
+      "y": 1880,
+      "s": 0.9,
+      "expr": "smile",
+      "arms": "raise",
+      "hold": "tsurugi",
+      "glint": {
+       "osc": [
+        0.6,
+        0.4,
+        1.2,
+        0
+       ]
+      }
+     },
+     {
+      "type": "sparkle",
+      "x": 640,
+      "y": 900,
+      "t0": 0.3,
+      "d": 0.9,
+      "r": 300
+     }
+    ],
+    "tod": "day"
+   },
+   "atc": "@L16.1",
+   "tr": "whip",
+   "camEase": "lin",
+   "label": "THE SWORD SHISHI\u014c",
+   "labelY": 505,
+   "labelAt": 0.3,
+   "bloom": 0.45,
+   "sfx": [
+    [
+     "sparkle",
+     0.3
+    ],
+    [
+     "choir",
+     0.2
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     380,
+     1520,
+     1.25
+    ],
+    [
+     640,
+     1500,
+     1.3
+    ]
+   ],
+   "o": {
+    "set": "nueShrine",
+    "actors": [],
+    "front": [
+     {
+      "type": "mio",
+      "x": {
+       "a": -150,
+       "b": 230,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "o"
+      },
+      "y": 2120,
+      "s": 1.1,
+      "expr": "happy",
+      "hands": "point",
+      "look": [
+       1,
+       -0.4
+      ]
+     },
+     {
+      "type": "fox",
+      "x": {
+       "a": 1250,
+       "b": 900,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "o"
+      },
+      "y": 2070,
+      "s": 0.9,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       -1,
+       -0.4
+      ]
+     }
+    ]
+   },
+   "tr": "flash",
+   "camEase": "lin",
+   "label": "NUE SHRINE, NIJ\u014c PARK, KYOTO",
+   "labelY": 505,
+   "labelAt": "@L17.2",
+   "sfx": [
+    [
+     "bell",
+     "@L17.2"
+    ]
+   ]
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1300,
+     0.95
+    ],
+    [
+     600,
+     1200,
+     1.05
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "thrush",
+      "x": 700,
+      "y": 1100,
+      "s": 0.7,
+      "flip": true
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "hush",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "wind",
+     0.0
+    ]
+   ],
+   "grade": "teal",
+   "leak": false
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1200,
+     1.2
+    ],
+    [
+     540,
+     1180,
+     1.3
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "thrush",
+      "x": 540,
+      "y": 1250,
+      "s": 1.6,
+      "flip": true,
+      "sing": true
+     }
+    ]
+   },
+   "atc": "@L18.1",
+   "tr": "whip",
+   "camEase": "lin",
+   "label": "WHITE'S THRUSH",
+   "labelY": 505,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "nuecall",
+     0.2
+    ]
+   ],
+   "grade": "teal",
+   "leak": false
+  },
+  {
+   "at": "L19",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1600,
+     1.25
+    ],
+    [
+     620,
+     1580,
+     1.32
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.2,
+      "expr": "worry",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 720,
+      "y": 2160,
+      "s": 1.45,
+      "flip": false,
+      "expr": "calm",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "teal",
+   "leak": false
+  },
+  {
+   "at": "L20",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1600,
+     1.2
+    ],
+    [
+     600,
+     1560,
+     1.3
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "nue",
+      "x": 860,
+      "y": 1700,
+      "s": 0.6,
+      "k": 0.7,
+      "sil": 0.05,
+      "glowEyes": {
+       "k": [
+        [
+         0,
+         0
+        ],
+        [
+         "@L20.1",
+         0
+        ],
+        [
+         "@L20.1+0.4",
+         1
+        ]
+       ],
+       "e": "io"
+      },
+      "noShadow": true
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.25,
+      "expr": "scared",
+      "hands": "cheeks",
+      "shake": 0.4,
+      "look": [
+       1,
+       -0.2
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 720,
+      "y": 2160,
+      "s": 1.4,
+      "flip": false,
+      "expr": "calm",
+      "look": [
+       1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "nuecall",
+     0.0
+    ],
+    [
+     "braam",
+     "@L20.1"
+    ]
+   ],
+   "grade": "teal",
+   "leak": false
+  }
+ ]
+}
