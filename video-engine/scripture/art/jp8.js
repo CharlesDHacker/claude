@@ -63,7 +63,7 @@ JPA.comment = (g, A, c) => { const k = clamp((c.lt - (A.t0 || 0)) / .35); if (k 
   g.restore(); };
 
 // ---------- the night thrush that still carries the name ----------
-JPA.thrush = (g, A, c) => { const T = c.T, sing = A.sing ? (Math.sin(T * 1.6) > .2 ? 1 : 0) : 0; g.save(); g.translate(A.x, A.y); g.scale((A.flip ? -1 : 1) * (A.s || 1), A.s || 1);
+JPA.thrush = (g, A, c) => { const T = c.T, sing = A.sing ? (Math.sin(T * 1.6) > .2 ? 1 : 0) : 0; g.save(); g.translate(A.x, A.y); g.rotate(A.rot || 0); g.scale((A.flip ? -1 : 1) * (A.s || 1), A.s || 1);
   line(g, [-260, 40, 260, 30], 16, '#2a1e16', 'round'); tsh(g, 'M-30 30 L-150 110 L-120 120 L-10 50 Z', '#6a4e24', 4);
   const BD = 'M-60 30 C-90 -30 -40 -110 20 -110 C60 -110 70 -60 60 -20 C50 20 20 40 -60 30 Z'; tsh(g, BD, '#b8944a', 5);
   const r = rng(95); g.save(); g.clip(path(BD)); for (let i = 0; i < 40; i++) tsh(g, `M${-100 + r() * 200} ${-80 + r() * 120} q8 6 16 0`, null, 2.4, '#3a2810'); g.restore();
