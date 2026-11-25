@@ -75,7 +75,8 @@ function toon(g, o) {
     else { const ke = .8, ex2 = el[0] + fdx * ke, ey2 = el[1] + fdy * ke; ttube(g, ex2, ey2, h[0], h[1], cuff, cuff * .9, skin, 5);
       if (kid) { ttube(g, el[0], el[1], ex2, ey2, sw * .95, cuff * 1.5, col, 5); tln(g, [ex2 - nx * cuff * .75, ey2 - ny * cuff * .75, ex2 + nx * cuff * .75, ey2 + ny * cuff * .75], 7, L.collar); }
       else { ttube(g, el[0], el[1], ex2, ey2, sw * .9, cuff * 1.15, col, 5); tln(g, [ex2 - nx * cuff * .6, ey2 - ny * cuff * .6, ex2 + nx * cuff * .6, ey2 + ny * cuff * .6], 6, L.cord || L.belt || OUT); } }
-    mitten(g, h[0], h[1], Math.atan2(h[1] - el[1], h[0] - el[0]), G.hand, skin, front && ['gesture', 'point', 'open', 'up', 'offer', 'ears', 'cheeks', 'shrug'].includes(armsK)); };
+    const hArgs = [h[0], h[1], Math.atan2(h[1] - el[1], h[0] - el[0]), G.hand, skin, front && ['gesture', 'point', 'open', 'up', 'offer', 'ears', 'cheeks', 'shrug'].includes(armsK)];
+    mitten(g, ...hArgs); if (h[1] < G.shY + 30) raisedHands.push(hArgs); };   // hands up by the face get drawn again over the head
   // torso garment
   const tw = kid ? 92 : 98 * bk, ww = kid ? 86 : 84 * bk, top = `M${-tw} ${G.shY - 4} C${-tw - 8} ${G.shY + 80} ${-ww - 6} ${G.waist - 60} ${-ww} ${G.waist + (kid ? 150 : 50)} L${ww} ${G.waist + (kid ? 150 : 50)} C${ww + 6} ${G.waist - 60} ${tw + 8} ${G.shY + 80} ${tw} ${G.shY - 4} Q0 ${G.shY - 22} ${-tw} ${G.shY - 4} Z`;
   g.save(); g.translate(0, G.waist); g.scale(1, breath); g.translate(0, -G.waist);
@@ -110,6 +111,7 @@ function toon(g, o) {
     else tell(g, x, y, 6, 6, i % 2 ? mix(L.magatama, '#fff', .35) : L.magatama, 2.6); }); }
   if (L.sword && !o.noSword) { g.save(); g.translate(-ww - 4, G.waist + 6); g.rotate(.5); tsh(g, 'M-8 0 L8 0 L10 240 L-10 240 Z', '#1e1a24', 4); tsh(g, 'M-22 -8 L22 -8 L18 6 L-18 6 Z', '#c8a040', 3.4); tsh(g, 'M-7 -8 L7 -8 L8 -70 L-8 -70 Z', '#4a2e1a', 3.4); tell(g, 0, -80, 11, 11, null, 4, 0, '#c8a040'); g.restore(); }
   g.restore();
+  const raisedHands = [];
   // arms (viewer-left first), held props
   armT(sh0, hl, -1, false); if (!(o.noArmR > .5)) armT(sh1, hr, 1, true);   // noArmR: the right arm has been cut off
   if (o.hold && THOLD[o.hold] && !(o.noArmR > .5)) THOLD[o.hold](g, hr, o, t, L);
@@ -121,6 +123,7 @@ function toon(g, o) {
   else ttube(g, 0, G.hr[1] * .7, 0, G.hr[1] * 1.08, 52, 56, L.skinD, 5);
   faceT(g, L, G, o, t, ph, ex, talk);
   g.restore();
+  raisedHands.forEach(a => mitten(g, ...a));   // never behind the head
   if (L.frontX) L.frontX(g, L, G, o, t);
   if (o.arrows) arrowsStuck(g, G, o.arrows, o.arrowSeed || 3, kid);
   g.restore();

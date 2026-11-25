@@ -130,7 +130,7 @@ var JPA = {};
 const _drawActorJp = drawActor;
 drawActor = function (g, a, c, P, o) { const A = avAll(a, c.lt);
   if (A.type === 'mio' || A.type === 'fox') { if (A.alpha != null && A.alpha <= 0) return; g.save(); if (A.alpha != null) g.globalAlpha *= A.alpha;
-    if (A.type === 'mio') toon(g, Object.assign({}, A, { c: 'mio', t: c.T + (A.ph || 0), talk: c.V('mio') })); else kitsune(g, Object.assign({}, A, { t: c.T + (A.ph || 0), talk: A.mute ? 0 : c.V('kon') })); g.restore(); return; }
+    if (A.type === 'mio') { let walk = A.walk; if (walk && a.x && typeof a.x === 'object' && a.x.t1 != null) walk = c.lt >= (a.x.t0 || 0) && c.lt <= a.x.t1 + .05 ? walk : 0; toon(g, Object.assign({}, A, { c: 'mio', walk, t: c.T + (A.ph || 0), talk: A.mute ? 0 : c.V('mio') })); } else kitsune(g, Object.assign({}, A, { t: c.T + (A.ph || 0), talk: A.mute ? 0 : c.V('kon') })); g.restore(); return; }
   if (A.type === 'toon') { if (A.alpha != null && A.alpha <= 0) return; g.save(); if (A.alpha != null) g.globalAlpha *= A.alpha;
     let walk = A.walk; if (walk && a.x && typeof a.x === 'object' && a.x.t1 != null) walk = c.lt >= (a.x.t0 || 0) && c.lt <= a.x.t1 + .05 ? walk : 0;   // walkers stop when they arrive
     if (A.sil) g.filter = `brightness(${A.sil === true ? 0.04 : A.sil})`; toon(g, Object.assign({}, A, { walk, t: c.T + (A.ph || 0), talk: A.who ? c.V(A.who) : (A.talk || 0) })); g.filter = 'none'; g.restore(); return; }

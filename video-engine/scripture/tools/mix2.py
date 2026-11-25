@@ -313,9 +313,14 @@ amb *= vr / rms(amb) * 10 ** (-22 / 20)
 sfx *= vr / (np.percentile(np.abs(sfx[np.abs(sfx) > 1e-3]), 99.5) + 1e-9) * 10 ** (4 / 20)
 env = lfilter([1 - .9995], [1, -.9995], np.abs(voice)); env = env / (env.max() + 1e-9); duck = 1 - .35 * np.clip(env * 6, 0, 1)
 mix = voice + music * duck + amb + sfx * (1 - .25 * np.clip(env * 6, 0, 1))
-mix = mix[:int(total * SR)]
-if ep.get("loop"):  # seamless loop: no long fades, just 30 ms to avoid clicks at the wrap
-    f3 = int(.03 * SR); mix[:f3] *= np.linspace(0, 1, f3); mix[-f3:] *= np.linspace(1, 0, f3)
+if ep.get("loop"):  # seamless loop: the score and ambience that would play past the end are folded back over the start,
+    # so the bed runs continuously through the wrap (the voice is untouched; it never crosses the end)
+    T0, n = int(total * SR), int(1.2 * SR); bed = mix - voice; tail = bed[T0:T0 + n]; n = len(tail); r = np.linspace(0, 1, n)
+    mix = mix[:T0].copy(); mix[:n] = voice[:n] + bed[:n] * r + tail * (1 - r)
+else:
+    mix = mix[:int(total * SR)]
+if ep.get("loop"):
+    pass   # (no fades on a loop)
 else:
     fo = int(.6 * SR); mix[-fo:] *= np.linspace(1, 0, fo); mix[:int(.05 * SR)] *= np.linspace(0, 1, int(.05 * SR))
 mix = np.tanh(mix / (np.abs(mix).max() + 1e-9) * 1.6) * .92  # gentle saturation glues the bed

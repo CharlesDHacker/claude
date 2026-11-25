@@ -1,0 +1,1731 @@
+{
+ "lead": 0.08,
+ "tail": 0.25,
+ "start": 0.3,
+ "loop": true,
+ "title": {
+  "text": "HOW MIO MET KON",
+  "sub": "the night of the fox's wedding",
+  "until": "L02"
+ },
+ "gaps": {
+  "L01": 0.45,
+  "L02": 0.6,
+  "L03": 0.45,
+  "L04": 0.45,
+  "L05": 0.45,
+  "L06": 0.65,
+  "L07": 0.45,
+  "L08": 0.45,
+  "L09": 0.7,
+  "L10": 0.7,
+  "L11": 0.55,
+  "L12": 0.45,
+  "L13": 0.45,
+  "L14": 0.45,
+  "L15": 0.65,
+  "L16": 0.7,
+  "L17": 0.45,
+  "L18": 0.75,
+  "L19": 0.6
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     0.96
+    ],
+    [
+     540,
+     1440,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "sakuraFall",
+      "n": 18
+     }
+    ],
+    "tod": "dusk",
+    "front": [
+     {
+      "type": "mio",
+      "x": 330,
+      "y": 2140,
+      "s": 1.15,
+      "expr": "happy",
+      "hands": "point",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2090,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "lead": 0,
+   "music": "koto",
+   "camEase": "lin",
+   "grade": "warm"
+  },
+  {
+   "at": "L02",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1620,
+     1.3
+    ],
+    [
+     540,
+     1600,
+     1.4
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "sakuraFall",
+      "n": 18
+     }
+    ],
+    "tod": "dusk",
+    "front": [
+     {
+      "type": "fox",
+      "x": 600,
+      "y": 2160,
+      "s": 1.45,
+      "flip": false,
+      "expr": "smug",
+      "look": [
+       1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "warm"
+  },
+  {
+   "at": "L03",
+   "scene": "jp",
+   "cam": [
+    [
+     380,
+     1460,
+     0.98
+    ],
+    [
+     520,
+     1420,
+     1.06
+    ]
+   ],
+   "o": {
+    "set": "rice",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "mio",
+      "x": {
+       "a": -100,
+       "b": 380,
+       "t0": 0,
+       "t1": 2.4,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.82,
+      "mute": true,
+      "walk": 1,
+      "expr": "happy"
+     },
+     {
+      "type": "toon",
+      "c": "grandma",
+      "x": {
+       "a": -300,
+       "b": 180,
+       "t0": 0,
+       "t1": 2.6,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.7,
+      "walk": 1,
+      "walkRate": 3,
+      "expr": "smile"
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "kotohope",
+   "camEase": "lin",
+   "label": "WHEN I WAS FIVE",
+   "labelY": 505,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "wind",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "L03",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1520,
+     1.0
+    ],
+    [
+     540,
+     1470,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "mio",
+      "x": {
+       "a": 150,
+       "b": 420,
+       "t0": 0,
+       "t1": 1.8,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.82,
+      "mute": true,
+      "walk": 1,
+      "expr": "happy",
+      "hop": {
+       "osc": [
+        0.2,
+        0.2,
+        1.6,
+        0
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "grandma",
+      "x": 760,
+      "y": 1880,
+      "s": 0.7,
+      "flip": true,
+      "expr": "smile",
+      "arms": "open"
+     }
+    ],
+    "tod": "day"
+   },
+   "atc": "@L03.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "bell",
+     0.3
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1520,
+     1.04
+    ],
+    [
+     560,
+     1470,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "toon",
+      "c": "grandma",
+      "x": 640,
+      "y": 1880,
+      "s": 0.78,
+      "flip": true,
+      "expr": "smile",
+      "arms": "offer"
+     },
+     {
+      "type": "inariSushi",
+      "x": 800,
+      "y": 1470,
+      "s": 0.55
+     },
+     {
+      "type": "mio",
+      "x": 330,
+      "y": 1880,
+      "s": 0.82,
+      "mute": true,
+      "expr": "happy",
+      "hands": "chest",
+      "hop": {
+       "osc": [
+        0.3,
+        0.3,
+        1.8,
+        0
+       ]
+      }
+     },
+     {
+      "type": "sparkle",
+      "x": 780,
+      "y": 1450,
+      "t0": 0.3,
+      "d": 1.0,
+      "r": 260
+     }
+    ],
+    "tod": "day"
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "sparkle",
+     0.3
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1300,
+     0.9
+    ],
+    [
+     540,
+     1420,
+     1.05
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "sunRain",
+      "a": {
+       "a": 0,
+       "b": 1,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "io"
+      },
+      "rainbow": false
+     },
+     {
+      "type": "mio",
+      "x": 540,
+      "y": 1880,
+      "s": 0.82,
+      "mute": true,
+      "expr": "wide",
+      "hands": "up",
+      "look": [
+       0,
+       -1
+      ]
+     }
+    ],
+    "tod": "day"
+   },
+   "tr": "fade",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "wind",
+     0.0
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1200,
+     0.86
+    ],
+    [
+     540,
+     1250,
+     0.94
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "sunRain",
+      "rx": 760
+     },
+     {
+      "type": "mio",
+      "x": 400,
+      "y": 1880,
+      "s": 0.82,
+      "mute": true,
+      "expr": "happy",
+      "hands": "up",
+      "look": [
+       1,
+       -1
+      ],
+      "hop": {
+       "osc": [
+        0.3,
+        0.3,
+        1.6,
+        0
+       ]
+      }
+     }
+    ],
+    "tod": "day"
+   },
+   "atc": "@L05.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "bloom": 0.5,
+   "grade": "gold"
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1200,
+     1.4
+    ],
+    [
+     540,
+     1170,
+     1.52
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "sunRain",
+      "rainbow": false
+     },
+     {
+      "type": "toon",
+      "c": "grandma",
+      "x": 540,
+      "y": 2140,
+      "s": 1.2,
+      "expr": "serious",
+      "arms": "point",
+      "lean": {
+       "osc": [
+        0.03,
+        0.03,
+        0.5,
+        0
+       ]
+      }
+     }
+    ],
+    "tod": "day"
+   },
+   "tr": "whip",
+   "music": "hush",
+   "camEase": "lin",
+   "grade": "warm"
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.6
+    ],
+    [
+     540,
+     1140,
+     1.75
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "sunRain",
+      "rainbow": false
+     },
+     {
+      "type": "toon",
+      "c": "grandma",
+      "x": 540,
+      "y": 2140,
+      "s": 1.2,
+      "expr": "serious",
+      "arms": "point"
+     }
+    ],
+    "tod": "day"
+   },
+   "atc": "@L06.3",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "heartbeat",
+     0.1
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L07",
+   "scene": "jp",
+   "cam": [
+    [
+     300,
+     1440,
+     1.0
+    ],
+    [
+     620,
+     1420,
+     1.06
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "foxfire",
+      "x0": -200,
+      "x1": 1300,
+      "y0": 1250,
+      "y1": 1150,
+      "n": 10,
+      "spread": 260
+     },
+     {
+      "type": "sunRain",
+      "rainbow": false,
+      "a": 0.6
+     },
+     {
+      "type": "toon",
+      "c": "foxGuest",
+      "x": {
+       "a": -250,
+       "b": 260,
+       "t0": 0,
+       "t1": 4.0,
+       "e": "lin"
+      },
+      "y": 1830,
+      "s": 0.66,
+      "walk": 1,
+      "walkRate": 3,
+      "hold": "lanternPole",
+      "arms": "hold",
+      "foxTails": 1
+     },
+     {
+      "type": "toon",
+      "c": "foxBride",
+      "x": {
+       "a": -30,
+       "b": 520,
+       "t0": 0,
+       "t1": 4.0,
+       "e": "lin"
+      },
+      "y": 1840,
+      "s": 0.7,
+      "walk": 1,
+      "walkRate": 2.6,
+      "hold": "wagasa",
+      "arms": "hold",
+      "foxTails": 1
+     },
+     {
+      "type": "toon",
+      "c": "foxGroom",
+      "x": {
+       "a": -500,
+       "b": 0,
+       "t0": 0,
+       "t1": 4.0,
+       "e": "lin"
+      },
+      "y": 1830,
+      "s": 0.72,
+      "walk": 1,
+      "walkRate": 2.6,
+      "hold": "lanternPole",
+      "arms": "hold",
+      "foxTails": 1
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "kotodread",
+   "camEase": "lin",
+   "label": "THE FOX'S WEDDING",
+   "labelY": 505,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "bell",
+     0.4
+    ],
+    [
+     "flute",
+     0.6
+    ]
+   ],
+   "grade": "teal",
+   "leak": false
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     300,
+     1440,
+     1.0
+    ],
+    [
+     600,
+     1420,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "foxfire",
+      "x0": 700,
+      "x1": 1500,
+      "y0": 1250,
+      "y1": 1150,
+      "n": 6
+     },
+     {
+      "type": "mio",
+      "x": {
+       "a": -120,
+       "b": 620,
+       "t0": 0.5,
+       "t1": 3.0,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.82,
+      "mute": true,
+      "walk": 1,
+      "expr": "smug",
+      "look": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "teal",
+   "leak": false
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     0.9
+    ],
+    [
+     540,
+     1050,
+     1.0
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "foxfire",
+      "x0": -200,
+      "x1": 1300,
+      "y0": 1100,
+      "y1": 900,
+      "n": 16,
+      "spread": 600,
+      "s": 1.2
+     }
+    ]
+   },
+   "tr": "fade",
+   "camEase": "lin",
+   "bloom": 0.5,
+   "sfx": [
+    [
+     "choir",
+     0.2
+    ]
+   ],
+   "grade": "teal",
+   "leak": false
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     500,
+     1400,
+     1.12
+    ],
+    [
+     620,
+     1360,
+     1.22
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "foxfire",
+      "x0": -200,
+      "x1": 1300,
+      "y0": 1200,
+      "y1": 1100,
+      "n": 8
+     },
+     {
+      "type": "toon",
+      "c": "foxGuest",
+      "x": {
+       "a": 10,
+       "b": 520,
+       "t0": 0,
+       "t1": 3.6,
+       "e": "lin"
+      },
+      "y": 1830,
+      "s": 0.66,
+      "walk": 1,
+      "walkRate": 3,
+      "hold": "lanternPole",
+      "arms": "hold",
+      "foxTails": 1
+     },
+     {
+      "type": "toon",
+      "c": "foxBride",
+      "x": {
+       "a": 230,
+       "b": 780,
+       "t0": 0,
+       "t1": 3.6,
+       "e": "lin"
+      },
+      "y": 1840,
+      "s": 0.7,
+      "walk": 1,
+      "walkRate": 2.6,
+      "hold": "wagasa",
+      "arms": "hold",
+      "foxTails": 1
+     },
+     {
+      "type": "toon",
+      "c": "foxGroom",
+      "x": {
+       "a": -240,
+       "b": 260,
+       "t0": 0,
+       "t1": 3.6,
+       "e": "lin"
+      },
+      "y": 1830,
+      "s": 0.72,
+      "walk": 1,
+      "walkRate": 2.6,
+      "hold": "lanternPole",
+      "arms": "hold",
+      "foxTails": 1
+     }
+    ]
+   },
+   "atc": "@L09.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "flute",
+     0.2
+    ]
+   ],
+   "grade": "teal",
+   "leak": false
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1300,
+     1.3
+    ],
+    [
+     540,
+     1500,
+     0.85
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "foxfire",
+      "x0": 600,
+      "x1": 1300,
+      "y0": 1200,
+      "y1": 1150,
+      "n": 8,
+      "a": 1,
+      "s": {
+       "a": 1,
+       "b": 0.01,
+       "t0": 0,
+       "t1": 1.2,
+       "e": "i"
+      }
+     },
+     {
+      "type": "mio",
+      "x": 540,
+      "y": 1820,
+      "s": 0.6,
+      "mute": true,
+      "expr": "scared",
+      "hands": "chest",
+      "shake": 0.15
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "sorrow",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "wind",
+     0.0
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1600,
+     1.15
+    ],
+    [
+     540,
+     1560,
+     1.25
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "mio",
+      "x": 540,
+      "y": 1980,
+      "s": 1.0,
+      "mute": true,
+      "expr": "cry",
+      "hands": "cheeks",
+      "shake": {
+       "osc": [
+        0.1,
+        0.1,
+        1,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "tr": "fade",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1560,
+     1.05
+    ],
+    [
+     600,
+     1540,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "fox",
+      "x": {
+       "a": 1300,
+       "b": 760,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.7,
+      "mute": true,
+      "expr": "calm",
+      "walk": {
+       "k": [
+        [
+         0,
+         1
+        ],
+        [
+         1.5,
+         1
+        ],
+        [
+         1.6,
+         0
+        ]
+       ],
+       "e": "io"
+      },
+      "flip": true
+     },
+     {
+      "type": "mio",
+      "x": 300,
+      "y": 1960,
+      "s": 0.92,
+      "mute": true,
+      "expr": "shock",
+      "hands": "chest",
+      "look": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "atc": "@L11.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "sparkle",
+     1.4
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1640,
+     1.25
+    ],
+    [
+     560,
+     1620,
+     1.35
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "mio",
+      "x": 380,
+      "y": 1960,
+      "s": 0.92,
+      "mute": true,
+      "expr": "happy",
+      "hands": "point"
+     },
+     {
+      "type": "inariSushi",
+      "x": 560,
+      "y": 1950,
+      "s": 0.45
+     },
+     {
+      "type": "fox",
+      "x": 720,
+      "y": 1950,
+      "s": 0.7,
+      "mute": true,
+      "expr": "smile",
+      "flip": true,
+      "hop": {
+       "osc": [
+        0.1,
+        0.1,
+        2,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "kotohope",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "gulp",
+     1.2
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L13",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1620,
+     1.3
+    ],
+    [
+     540,
+     1600,
+     1.4
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "sakuraFall",
+      "n": 18
+     }
+    ],
+    "tod": "dusk",
+    "front": [
+     {
+      "type": "fox",
+      "x": 560,
+      "y": 2160,
+      "s": 1.45,
+      "flip": false,
+      "expr": "serious",
+      "look": [
+       1,
+       -0.2
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "warm"
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     360,
+     1460,
+     1.0
+    ],
+    [
+     760,
+     1440,
+     1.04
+    ]
+   ],
+   "o": {
+    "set": "kurama",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "foxfire",
+      "x0": -100,
+      "x1": 1200,
+      "y0": 1300,
+      "y1": 1250,
+      "n": 6,
+      "speed": 0.1
+     },
+     {
+      "type": "fox",
+      "x": {
+       "a": 420,
+       "b": 980,
+       "t0": 0,
+       "t1": 3.4,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.6,
+      "mute": true,
+      "expr": "calm",
+      "walk": 1,
+      "walkRate": 7,
+      "flip": false
+     },
+     {
+      "type": "mio",
+      "x": {
+       "a": 150,
+       "b": 700,
+       "t0": 0,
+       "t1": 3.4,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.78,
+      "mute": true,
+      "walk": 1,
+      "expr": "smile"
+     }
+    ]
+   },
+   "tr": "fade",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1520,
+     1.0
+    ],
+    [
+     540,
+     1500,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "fox",
+      "x": 700,
+      "y": 1880,
+      "s": 0.6,
+      "mute": true,
+      "expr": "calm",
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": 0.6,
+       "t1": 1.8,
+       "e": "io"
+      }
+     },
+     {
+      "type": "mio",
+      "x": 400,
+      "y": 1880,
+      "s": 0.78,
+      "mute": true,
+      "expr": "sleep",
+      "hands": "chest",
+      "lean": 0.08
+     }
+    ]
+   },
+   "atc": "@L14.2",
+   "tr": "fade",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1520,
+     1.0
+    ],
+    [
+     480,
+     1500,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "memory",
+      "a": 0.5
+     },
+     {
+      "type": "sushiBox",
+      "x": 470,
+      "y": 1880,
+      "s": 0.8,
+      "rot": 0.05
+     },
+     {
+      "type": "mio",
+      "x": 330,
+      "y": 1880,
+      "s": 0.82,
+      "mute": true,
+      "expr": "sleep",
+      "hands": "chest",
+      "lean": -0.12,
+      "tilt": 0.15
+     },
+     {
+      "type": "toon",
+      "c": "grandma",
+      "x": {
+       "a": 1250,
+       "b": 760,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.72,
+      "flip": true,
+      "walk": 1,
+      "walkRate": 3,
+      "expr": "smile",
+      "arms": "clasp"
+     },
+     {
+      "type": "sparkle",
+      "x": 470,
+      "y": 1820,
+      "t0": 2.4,
+      "d": 1.0,
+      "r": 200
+     }
+    ],
+    "tod": "day"
+   },
+   "tr": "fade",
+   "music": "kotohope",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "bell",
+     0.2
+    ],
+    [
+     "sparkle",
+     2.4
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1460,
+     1.0
+    ],
+    [
+     560,
+     1420,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "rice",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "inariKami",
+      "x": 360,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "serious",
+      "arms": "point",
+      "hold": "rice"
+     },
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 1880,
+      "s": 0.75,
+      "mute": true,
+      "expr": "calm",
+      "flip": true,
+      "headRot": 0.25,
+      "look": [
+       -1,
+       0.5
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "sorrow",
+   "camEase": "lin",
+   "grade": "warm"
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1460,
+     1.06
+    ],
+    [
+     700,
+     1440,
+     1.16
+    ]
+   ],
+   "o": {
+    "set": "rice",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "inariKami",
+      "x": {
+       "a": 360,
+       "b": -200,
+       "t0": 0,
+       "t1": 2.0,
+       "e": "i"
+      },
+      "y": 1880,
+      "s": 0.86,
+      "expr": "serious",
+      "flip": true,
+      "walk": 1,
+      "walkRate": 3
+     },
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 1880,
+      "s": 0.75,
+      "mute": true,
+      "expr": "calm",
+      "flip": true,
+      "headRot": 0.3,
+      "look": [
+       -1,
+       0.6
+      ]
+     }
+    ]
+   },
+   "atc": "@L16.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "wind",
+     0.0
+    ]
+   ],
+   "grade": "cold",
+   "leak": false
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "sakuraFall",
+      "n": 18
+     }
+    ],
+    "tod": "dusk",
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "shock",
+      "hands": "cheeks",
+      "hop": {
+       "osc": [
+        0.3,
+        0.3,
+        1.4,
+        0
+       ]
+      }
+     },
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2090,
+      "s": 1.0,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "kicks": [
+    0.05
+   ],
+   "camEase": "lin",
+   "pops": {
+    "L17": [
+     540,
+     640,
+     -0.04,
+     170,
+     "FIRED?!",
+     "@L17.1"
+    ]
+   },
+   "grade": "warm"
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1620,
+     1.3
+    ],
+    [
+     540,
+     1600,
+     1.4
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "sakuraFall",
+      "n": 18
+     }
+    ],
+    "tod": "dusk",
+    "front": [
+     {
+      "type": "fox",
+      "x": 600,
+      "y": 2160,
+      "s": 1.45,
+      "flip": false,
+      "expr": "smug",
+      "look": [
+       1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "koto",
+   "camEase": "lin",
+   "grade": "warm"
+  },
+  {
+   "at": "L19",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1460,
+     1.1
+    ],
+    [
+     540,
+     1420,
+     1.16
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "sakuraFall",
+      "n": 18
+     },
+     {
+      "type": "sunRain",
+      "a": {
+       "a": 0,
+       "b": 0.8,
+       "t0": 0,
+       "t1": 1.5,
+       "e": "io"
+      },
+      "rx": 760
+     }
+    ],
+    "tod": "dusk",
+    "front": [
+     {
+      "type": "mio",
+      "x": 360,
+      "y": 2120,
+      "s": 1.15,
+      "expr": "happy",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 720,
+      "y": 2090,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smile",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "camEase": "lin",
+   "grade": "gold",
+   "bloom": 0.45
+  },
+  {
+   "at": "L20",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1440,
+     1.08
+    ],
+    [
+     540,
+     1500,
+     0.96
+    ]
+   ],
+   "o": {
+    "set": "inari",
+    "actors": [
+     {
+      "type": "sakuraFall",
+      "n": 18
+     }
+    ],
+    "tod": "dusk",
+    "front": [
+     {
+      "type": "mio",
+      "x": 330,
+      "y": 2140,
+      "s": 1.15,
+      "expr": "happy",
+      "hands": "point",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2090,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "camEase": "lin",
+   "grade": "warm"
+  }
+ ]
+}

@@ -18,7 +18,7 @@ cap, tgt, tol = B["elevenlabs_chars_per_video"], B["target_seconds"], B.get("tol
 nlines = {}
 for l in E["lines"]:
     if l["who"] != "text" and l["who"] not in offline: nlines[l["who"]] = nlines.get(l["who"], 0) + 1
-for k, n in nlines.items(): per[k] += 14 * (n - 1)
+for k, n in nlines.items(): per[k] += 0 if E.get("continuous") else 14 * (n - 1)
 total = sum(per.values()); ok = True
 print(f"{'speaker':10} {'chars':>6} {'words':>6}")
 for k in per: print(f"{k:10} {per[k]:6} {words[k]:6}" + ("   (caption only, free)" if k == "text" else "   (offline, free)" if k in offline else ""))
