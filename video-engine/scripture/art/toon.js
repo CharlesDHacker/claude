@@ -254,24 +254,35 @@ function hairFrontT(g, L, G, t, ph) { const H = L.hair, HL = L.hairHi, [rx, ry] 
 function kitsune(g, o) { const t = o.t || 0, ex = o.expr || 'calm', talk = o.talk || 0, ph = o.ph || 0, br = Math.sin(t * 1.9 + ph);
   const W0 = '#fbf6ee', WD = '#dcd2d6', R = '#d8342a', RD = '#a82420', GO = '#f2c94c';
   g.save(); g.translate(o.x, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1), o.s || 1);
+  const WK = o.walk ? t * (o.walkRate || 6) : null, wb = WK != null ? -Math.abs(Math.sin(WK)) * 6 : 0;   // walking: four-legged gait, body level
   g.fillStyle = rg(g, 0, 0, 8, 150, [[0, 'rgba(25,12,20,.32)'], [1, 'rgba(25,12,20,0)']]); g.beginPath(); g.ellipse(-10, 4, 150, 16, 0, 0, 7); g.fill();
   // three tails fanned behind, red tips
   const nT = o.nTails || 3, nn = Math.round(nT), big = nT > 3 ? Math.min(1, (nT - 3) / 6) : 0, TAILS = nn <= 3 ? [[-.9, 0], [-.45, .7], [-1.3, 1.4]] : Array.from({ length: nn }, (_, i) => [lerp(-.9, -.2 - i * (1.5 / (nn - 1)), 1) * (1 - big) + (.9 - i * (2.7 / (nn - 1))) * big, i * .5]);
   if (o.glowEyes) { glow(g, -40, -260, 520, 'rgba(160,80,255,1)', o.glowEyes * .5); }
-  TAILS.forEach(([a0, p2], i) => { const wv = Math.sin(t * 1.7 + ph + p2) * .1; g.save(); g.translate(-70 + big * 40, -40 - big * 60); g.rotate(a0 + wv); g.scale(1 + big * .45, 1 + big * .55);
+  TAILS.forEach(([a0, p2], i) => { const wv = Math.sin(t * 1.7 + ph + p2) * .1; g.save(); if (WK != null) { g.translate(-118, -112 + wb); g.rotate(a0 - .55 + wv * 1.4); } else { g.translate(-70 + big * 40, -40 - big * 60); g.rotate(a0 + wv); } g.scale(1 + big * .45, 1 + big * .55);
     const tl = 'M0 0 C-20 -60 -40 -150 -10 -210 C10 -250 50 -250 56 -214 C40 -170 40 -90 36 0 Z'; tsh(g, tl, i === 1 ? W0 : WD, 5); g.save(); g.clip(path(tl)); g.fillStyle = R; g.beginPath(); g.ellipse(20, -230, 60, 56, 0, 0, 7); g.fill(); g.fillStyle = RD; g.beginPath(); g.ellipse(26, -246, 40, 30, 0, 0, 7); g.fill(); g.restore(); tsh(g, tl, null, 5); g.restore(); });
+  if (WK != null) { // walking side-on, facing right: far legs, level body, near legs, bib at the chest
+    const leg = (x, phs, col) => { const a = Math.sin(WK + phs) * .5, lift = Math.max(0, Math.cos(WK + phs)) * 18, fx = x + Math.sin(a) * 70, fy = -8 - lift;
+      ttube(g, x, -84 + wb, fx, fy, 28, 22, col, 5); tsh(g, `M${fx - 16} ${fy} L${fx + 22} ${fy} Q${fx + 28} ${fy + 14} ${fx + 14} ${fy + 14} L${fx - 16} ${fy + 14} Z`, col, 4); tln(g, [fx - 10, fy - 16, fx + 12, fy - 16], 4, R); };
+    leg(-74, Math.PI, WD); leg(86, 0, WD);
+    const bw = `M-136 ${-96 + wb} C-146 ${-156 + wb} -80 ${-176 + wb} 0 ${-172 + wb} C84 ${-170 + wb} 138 ${-156 + wb} 148 ${-114 + wb} C154 ${-72 + wb} 116 ${-54 + wb} 40 ${-52 + wb} L-84 ${-54 + wb} C-124 ${-56 + wb} -132 ${-74 + wb} -136 ${-96 + wb} Z`;
+    tsh(g, bw, W0, 5); g.save(); g.clip(path(bw)); g.fillStyle = 'rgba(150,130,160,.2)'; g.beginPath(); g.ellipse(-20, -40 + wb, 200, 40, 0, 0, 7); g.fill(); g.restore(); tsh(g, bw, null, 5);
+    leg(-50, 0, W0); leg(112, Math.PI, W0);
+    tsh(g, `M90 ${-178 + wb} Q128 ${-160 + wb} 162 ${-178 + wb} L140 ${-118 + wb} Q116 ${-128 + wb} 98 ${-140 + wb} Z`, lg(g, 0, -178 + wb, 0, -118 + wb, [[0, '#e8443a'], [1, RD]]), 4.4); tell(g, 132, -124 + wb, 10, 10, GO, 4);
+  } else {
   // body: a compact sitting pear, chest fluff
-  const body = 'M-100 0 C-130 -60 -110 -170 -40 -200 C0 -216 50 -220 70 -200 C96 -170 100 -80 90 0 Z'; tsh(g, body, W0, 5);
-  g.save(); g.clip(path(body)); g.fillStyle = 'rgba(150,130,160,.2)'; g.beginPath(); g.ellipse(-110, -40, 70, 200, 0, 0, 7); g.fill(); g.restore(); tsh(g, body, null, 5);
-  tsh(g, 'M10 -190 L-6 -150 L14 -158 L4 -116 L28 -132 L30 -96 L48 -124 L60 -100 L66 -150 Z', W0, 4);
-  // bib + bell
-  tsh(g, 'M-14 -206 Q40 -186 84 -206 L60 -140 Q30 -150 4 -162 Z', lg(g, 0, -206, 0, -140, [[0, '#e8443a'], [1, RD]]), 4.4); tell(g, 50, -146, 11, 11, GO, 4); tln(g, [44, -144, 56, -144], 2.4);
-  // legs with red sock tips
-  [[-50, WD, -1], [40, W0, 1], [66, W0, 1]].forEach(([x, col, s], i) => { if (i === 0) { tell(g, x, -30, 46, 30, col, 5); tsh(g, `M${x - 6} -6 L${x + 40} -6 Q${x + 46} 6 ${x + 34} 6 L${x - 8} 6 Z`, col, 4); return; }
-    ttube(g, x, -140, x + 2, -10, 26, 22, col, 5); tsh(g, `M${x - 13} -10 L${x + 20} -10 Q${x + 26} 6 ${x + 14} 6 L${x - 14} 6 Z`, col, 4); tln(g, [x - 8, -28, x + 10, -28], 4, R); });
+    const body = 'M-100 0 C-130 -60 -110 -170 -40 -200 C0 -216 50 -220 70 -200 C96 -170 100 -80 90 0 Z'; tsh(g, body, W0, 5);
+    g.save(); g.clip(path(body)); g.fillStyle = 'rgba(150,130,160,.2)'; g.beginPath(); g.ellipse(-110, -40, 70, 200, 0, 0, 7); g.fill(); g.restore(); tsh(g, body, null, 5);
+    tsh(g, 'M10 -190 L-6 -150 L14 -158 L4 -116 L28 -132 L30 -96 L48 -124 L60 -100 L66 -150 Z', W0, 4);
+    // bib + bell
+    tsh(g, 'M-14 -206 Q40 -186 84 -206 L60 -140 Q30 -150 4 -162 Z', lg(g, 0, -206, 0, -140, [[0, '#e8443a'], [1, RD]]), 4.4); tell(g, 50, -146, 11, 11, GO, 4); tln(g, [44, -144, 56, -144], 2.4);
+    // legs with red sock tips
+    [[-50, WD, -1], [40, W0, 1], [66, W0, 1]].forEach(([x, col, s], i) => { if (i === 0) { tell(g, x, -30, 46, 30, col, 5); tsh(g, `M${x - 6} -6 L${x + 40} -6 Q${x + 46} 6 ${x + 34} 6 L${x - 8} 6 Z`, col, 4); return; }
+      ttube(g, x, -140, x + 2, -10, 26, 22, col, 5); tsh(g, `M${x - 13} -10 L${x + 20} -10 Q${x + 26} 6 ${x + 14} 6 L${x - 14} 6 Z`, col, 4); tln(g, [x - 8, -28, x + 10, -28], 4, R); });
+  }
   // head (3/4 view facing right): big ears, tapered muzzle, red kitsune markings
   const nod = talk * (.06 * Math.sin(t * 8.4 + ph) + .03) + .03 * Math.sin(t * .8 + ph), earF = Math.max(0, Math.sin(t * 3.1 + ph * 5)) > .985 ? .25 : 0;
-  g.save(); g.translate(30, -250 + br * 2); g.scale(1.12, 1.12); g.rotate((o.headRot || 0) - nod * .7 + (o.tilt || 0));
+  g.save(); if (WK != null) { g.translate(150, -214 + wb + br * 2); g.scale(.96, .96); } else { g.translate(30, -250 + br * 2); g.scale(1.12, 1.12); } g.rotate((o.headRot || 0) - nod * .7 + (o.tilt || 0));
   [[-62, -1], [26, 1]].forEach(([x, s], i) => { g.save(); g.translate(x, -52); g.rotate(s * .18 - (i ? earF : 0)); const ear = `M-30 20 L${s * 6} -110 L34 14 Z`; tsh(g, ear, i ? W0 : WD, 5); tsh(g, `M-16 6 L${s * 4} -76 L18 2 Z`, '#f6c0c4', 0); tsh(g, `M${s * 6 - 14} -70 L${s * 6} -110 L${s * 6 + 14} -70 Z`, R, 0); tsh(g, ear, null, 5); g.restore(); });
   const head = 'M-90 -10 C-98 -78 -36 -108 16 -104 C66 -100 96 -70 96 -36 Q114 -24 112 -4 Q110 14 92 22 C70 38 40 48 10 48 C-34 50 -86 36 -90 -10 Z';
   tsh(g, head, W0, 6); g.save(); g.clip(path(head)); g.fillStyle = 'rgba(150,130,160,.18)'; g.beginPath(); g.ellipse(-90, 20, 60, 90, 0, 0, 7); g.fill(); g.restore(); tsh(g, head, null, 6);
