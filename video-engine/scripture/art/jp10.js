@@ -19,8 +19,10 @@ Object.assign(TOON, {
     sleeve: 'wide', bottom: 'hakama', hakama: '#6a6a74', hakamaD: '#54545e', hakamaPat: 'tiger', hakamaPatCol: 'rgba(30,30,40,.25)', belt: '#e8c050', feet: 'straw', wraps: '#fbf8f2', eyes: 'adult', iris: '#c8302a', brow: 7, jaw: 'square', h: 1.04, headX: foxMask },
   foxGuest: { kind: 'adult', skin: '#f0dcc8', skinD: '#d8c0aa', hair: '#15121a', hairHi: '#3a3040', hairStyle: 'mizura', top: '#d8342a', topD: '#b02822', pat: 'diamond', patCol: 'rgba(255,220,180,.3)', collar: '#fbf8f2', trimCol: '#fbf8f2', trimDot: '#e8c050',
     sleeve: 'wide', bottom: 'hakama', hakama: '#fbf8f2', hakamaD: '#e0d8cc', belt: '#e8c050', feet: 'straw', wraps: '#fbf8f2', eyes: 'adult', iris: '#c8302a', brow: 6, jaw: 'round', h: .96, headX: foxMask },
-  grandma: { kind: 'elder', female: true, skin: '#e0b090', skinD: '#c49070', hair: '#e8e4dc', hairHi: '#ffffff', hairStyle: 'lowtie', top: '#5a6a8a', topD: '#46546e', pat: 'diamond', patCol: 'rgba(250,240,220,.3)', collar: '#e8e2d2',
-    sleeve: 'wide', bottom: 'skirt', skirt: '#3a4460', skirtD: '#2e364e', belt: '#c8a050', feet: 'straw', eyes: 'adult', iris: '#2a1810', brow: 5, browCol: '#c8c4bc', lips: '#a86a60', stoop: .08, h: .86 },
+  // Grandma: Mio's family face. Mio's buns in silver, Mio's red kimono with the same cherry blossoms, her teal sash and gold cord, rosy cheeks
+  grandma: { kind: 'elder', female: true, skin: '#f0caa8', skinD: '#d6a682', blush: 'rgba(240,120,110,.35)', hair: '#d8d4dc', hairHi: '#ffffff', hairStyle: 'mio', top: '#a8343a', topD: '#86282e', pat: 'petals', patCol: 'rgba(255,236,240,.85)', collar: '#f8f2e6',
+    trimCol: '#2f6f6c', trimDot: '#f2c94c', sleeve: 'wide', bottom: 'skirt', skirt: '#7a2a30', skirtD: '#5e1e24', belt: '#2f6f6c', feet: 'geta', eyes: 'adult', iris: '#2a1810', brow: 5, browCol: '#c8c4cc', lips: '#c0606a', stoop: .08, h: .86,
+    headX: (g, L, rx, ry) => { g.save(); g.translate(rx * .62, -ry * .78); g.scale(.95, .95); sakura(g, 0, 0, 16, '#f6a8be'); g.restore(); } },
 });
 Object.assign(THOLD, {
   wagasa: (g, h, o, t) => { g.save(); g.translate(h[0], h[1]); const sw = Math.sin(t * 1.3) * .03; g.rotate(sw); tln(g, [0, 20, 0, -560], 9, '#3a2418');

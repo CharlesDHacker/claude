@@ -161,7 +161,7 @@
        "e": "o"
       },
       "y": 1880,
-      "s": 0.82,
+      "s": 0.56,
       "mute": true,
       "walk": 1,
       "expr": "happy"
@@ -177,7 +177,7 @@
        "e": "o"
       },
       "y": 1880,
-      "s": 0.7,
+      "s": 0.82,
       "walk": 1,
       "walkRate": 3,
       "expr": "smile"
@@ -229,7 +229,7 @@
        "e": "o"
       },
       "y": 1880,
-      "s": 0.82,
+      "s": 0.56,
       "mute": true,
       "walk": 1,
       "expr": "happy",
@@ -247,7 +247,7 @@
       "c": "grandma",
       "x": 760,
       "y": 1880,
-      "s": 0.7,
+      "s": 0.82,
       "flip": true,
       "expr": "smile",
       "arms": "open"
@@ -293,7 +293,7 @@
       "c": "grandma",
       "x": 640,
       "y": 1880,
-      "s": 0.78,
+      "s": 0.84,
       "flip": true,
       "expr": "smile",
       "arms": "offer"
@@ -308,7 +308,7 @@
       "type": "mio",
       "x": 330,
       "y": 1880,
-      "s": 0.82,
+      "s": 0.56,
       "mute": true,
       "expr": "happy",
       "hands": "chest",
@@ -379,7 +379,7 @@
       "type": "mio",
       "x": 540,
       "y": 1880,
-      "s": 0.82,
+      "s": 0.56,
       "mute": true,
       "expr": "wide",
       "hands": "up",
@@ -431,7 +431,7 @@
       "type": "mio",
       "x": 400,
       "y": 1880,
-      "s": 0.82,
+      "s": 0.56,
       "mute": true,
       "expr": "happy",
       "hands": "up",
@@ -708,7 +708,7 @@
        "e": "lin"
       },
       "y": 1880,
-      "s": 0.82,
+      "s": 0.56,
       "mute": true,
       "walk": 1,
       "expr": "smug",
@@ -910,7 +910,7 @@
       "type": "mio",
       "x": 540,
       "y": 1820,
-      "s": 0.6,
+      "s": 0.45,
       "mute": true,
       "expr": "scared",
       "hands": "chest",
@@ -955,8 +955,8 @@
      {
       "type": "mio",
       "x": 540,
-      "y": 1980,
-      "s": 1.0,
+      "y": 1960,
+      "s": 0.8,
       "mute": true,
       "expr": "cry",
       "hands": "cheeks",
@@ -1033,8 +1033,8 @@
      {
       "type": "mio",
       "x": 300,
-      "y": 1960,
-      "s": 0.92,
+      "y": 1940,
+      "s": 0.72,
       "mute": true,
       "expr": "shock",
       "hands": "chest",
@@ -1082,8 +1082,8 @@
      {
       "type": "mio",
       "x": 380,
-      "y": 1960,
-      "s": 0.92,
+      "y": 1940,
+      "s": 0.72,
       "mute": true,
       "expr": "happy",
       "hands": "point"
@@ -1226,7 +1226,7 @@
        "e": "lin"
       },
       "y": 1880,
-      "s": 0.78,
+      "s": 0.58,
       "mute": true,
       "walk": 1,
       "expr": "smile"
@@ -1279,7 +1279,7 @@
       "type": "mio",
       "x": 400,
       "y": 1880,
-      "s": 0.78,
+      "s": 0.58,
       "mute": true,
       "expr": "sleep",
       "hands": "chest",
@@ -1326,7 +1326,7 @@
       "type": "mio",
       "x": 330,
       "y": 1880,
-      "s": 0.82,
+      "s": 0.56,
       "mute": true,
       "expr": "sleep",
       "hands": "chest",
@@ -1344,7 +1344,7 @@
        "e": "o"
       },
       "y": 1880,
-      "s": 0.72,
+      "s": 0.84,
       "flip": true,
       "walk": 1,
       "walkRate": 3,

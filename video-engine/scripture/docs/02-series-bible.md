@@ -136,3 +136,11 @@ Applied to every character rig from EP07 on (`art/figure.js`, `art/heroes.js`, `
   without speaking. Hard cap **1,200 ElevenLabs characters per video** (tags count). **Kon always narrates the story** (the
   viewers asked for it: a captions-only cut of JP08 was rejected). Record the narration as one continuous take with no pause tags.
   Run `python3 tools/voice_budget.py episodes/X.lines.json` before generating anything; it must pass. One take per speaker, never regenerate to fish for a better one.
+
+## Character design rules
+- **Every character gets their own design.** Do not reuse a look from an earlier episode for a different person (no recoloured monks, officials,
+  ladies or guards standing in for someone new). Reuse is fine only for the same character (Inari, Kon, Mio) or for a deliberate crowd (an army,
+  a procession of identical attendants).
+- **Family resemblance and age read at a glance:** relatives share features (Grandma has Mio's buns, kimono pattern, sash and hairpin); a child
+  is clearly smaller than the adults around her.
+- **Nothing overlaps wrongly:** hands raised to the face are drawn over the head; props sit in front of or behind bodies as they would in life.
