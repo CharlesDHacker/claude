@@ -1,0 +1,1321 @@
+{
+ "lead": 0.08,
+ "tail": 0.3,
+ "start": 0.3,
+ "loop": true,
+ "title": {
+  "text": "SHE NEVER AGED",
+  "sub": "the snow woman",
+  "until": "L02"
+ },
+ "gaps": {
+  "L01": 0.22,
+  "L02": 0.3,
+  "L03": 0.22,
+  "L04": 0.22,
+  "L05": 0.35,
+  "L06": 0.22,
+  "L07": 0.22,
+  "L08": 0.35,
+  "L09": 0.22,
+  "L10": 0.22,
+  "L11": 0.3,
+  "L12": 0.22,
+  "L13": 0.4,
+  "L14": 0.3,
+  "L15": 0.22,
+  "L16": 0.4,
+  "L17": 0.22,
+  "L18": 0.22
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.0
+    ],
+    [
+     600,
+     1440,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [
+     {
+      "type": "andon",
+      "x": 880,
+      "y": 1820,
+      "s": 1.0
+     },
+     {
+      "type": "toon",
+      "c": "oyuki",
+      "x": 640,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "smile",
+      "arms": "hold",
+      "hold": "sewing",
+      "look": [
+       -1,
+       0.3
+      ]
+     },
+     {
+      "type": "toon",
+      "c": "minokichiOld",
+      "x": 300,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "smile",
+      "arms": "down",
+      "look": [
+       1,
+       0
+      ]
+     },
+     {
+      "type": "mistRise",
+      "x": 640,
+      "y": 1500,
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L01.3",
+       "t1": "@L01.3+1.2",
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "lead": 0,
+   "music": "hush",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1440,
+     1.12
+    ],
+    [
+     620,
+     1380,
+     1.22
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [
+     {
+      "type": "andon",
+      "x": 880,
+      "y": 1820,
+      "s": 1.0
+     },
+     {
+      "type": "toon",
+      "c": "oyuki",
+      "x": 640,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "neutral",
+      "arms": "clasp",
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": 0.2,
+       "t1": 1.4,
+       "e": "io"
+      }
+     },
+     {
+      "type": "mistRise",
+      "x": 640,
+      "y": 1500,
+      "k": {
+       "a": 0.3,
+       "b": 1,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "minokichiOld",
+      "x": 300,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "shock",
+      "arms": "open",
+      "look": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "atc": "@L01.3",
+   "tr": "flash",
+   "kicks": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L02",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "worry",
+      "hands": "chest",
+      "lean": {
+       "osc": [
+        0,
+        0.04,
+        0.7,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L03",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1480,
+     1.0
+    ],
+    [
+     600,
+     1440,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "blizzard",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "mosaku",
+      "x": {
+       "a": -200,
+       "b": 560,
+       "t0": 0,
+       "t1": 3.6,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "walk": 1,
+      "walkRate": 2.4,
+      "sideWalk": true,
+      "expr": "worry"
+     },
+     {
+      "type": "toon",
+      "c": "minokichi",
+      "x": {
+       "a": -420,
+       "b": 360,
+       "t0": 0,
+       "t1": 3.8,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "walk": 1,
+      "walkRate": 2.8,
+      "sideWalk": true,
+      "expr": "worry"
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "kotodread",
+   "label": "KWAIDAN \u00b7 1904",
+   "labelY": 600,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "wind",
+     0.0
+    ]
+   ],
+   "grade": "cold",
+   "leak": false
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1500,
+     1.0
+    ],
+    [
+     560,
+     1460,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "hut",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "mosaku",
+      "x": 620,
+      "y": 2021.0,
+      "s": 0.7,
+      "rot": -1.5708,
+      "shadow": false,
+      "expr": "sleep"
+     },
+     {
+      "type": "toon",
+      "c": "minokichi",
+      "x": 170,
+      "y": 1960,
+      "s": 0.86,
+      "expr": "shock",
+      "arms": "chest",
+      "look": [
+       1,
+       -0.2
+      ]
+     },
+     {
+      "type": "toon",
+      "c": "yukionna",
+      "x": {
+       "a": 960,
+       "b": 700,
+       "t0": "@L04.3",
+       "t1": "@L04.3+1.2",
+       "e": "o"
+      },
+      "y": 1840,
+      "s": 0.82,
+      "flip": true,
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L04.2",
+       "t1": "@L04.2+0.8",
+       "e": "io"
+      },
+      "expr": "neutral",
+      "arms": "clasp",
+      "lean": {
+       "a": 0,
+       "b": 0.14,
+       "t0": "@L04.4",
+       "t1": "@L04.4+0.8",
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "sfx": [
+    [
+     "wind",
+     "@L04.2"
+    ]
+   ],
+   "grade": "cold",
+   "leak": false
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1560,
+     1.15
+    ],
+    [
+     540,
+     1540,
+     1.28
+    ]
+   ],
+   "o": {
+    "set": "hut",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "mosaku",
+      "x": 620,
+      "y": 2021.0,
+      "s": 0.7,
+      "rot": -1.5708,
+      "shadow": false,
+      "expr": "sleep",
+      "pale": {
+       "a": 0,
+       "b": 0.9,
+       "t0": "@L05.2",
+       "t1": "@L05.3",
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "yukionna",
+      "x": 720,
+      "y": 1840,
+      "s": 0.82,
+      "flip": true,
+      "expr": "neutral",
+      "arms": "clasp",
+      "lean": 0.16
+     },
+     {
+      "type": "frostBreath",
+      "x": 680,
+      "y": 1260,
+      "x1": 420,
+      "y1": 1660,
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.2,
+       "t1": 1.2,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "kicks": [
+    "@L05.3"
+   ],
+   "sfx": [
+    [
+     "wind",
+     0.2
+    ],
+    [
+     "heartbeat",
+     "@L05.3"
+    ]
+   ],
+   "grade": "cold",
+   "leak": false
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "hut",
+    "actors": [],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "scared",
+      "hands": "cheeks",
+      "shake": 0.5
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false
+  },
+  {
+   "at": "L07",
+   "scene": "jp",
+   "cam": [
+    [
+     480,
+     1520,
+     1.06
+    ],
+    [
+     440,
+     1480,
+     1.24
+    ]
+   ],
+   "o": {
+    "set": "hut",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "minokichi",
+      "x": 300,
+      "y": 1960,
+      "s": 0.86,
+      "expr": "scared",
+      "arms": "chest",
+      "shake": 0.3,
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "toon",
+      "c": "yukionna",
+      "x": {
+       "a": 620,
+       "b": 520,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "o"
+      },
+      "y": 1840,
+      "s": 0.82,
+      "flip": true,
+      "expr": "neutral",
+      "arms": "clasp",
+      "lean": {
+       "a": 0.16,
+       "b": 0.04,
+       "t0": 0,
+       "t1": 1.0,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "kicks": [
+    "@L07.1"
+   ],
+   "sfx": [
+    [
+     "boom",
+     "@L07.1"
+    ]
+   ],
+   "grade": "cold",
+   "leak": false
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1300,
+     1.35
+    ],
+    [
+     540,
+     1260,
+     1.52
+    ]
+   ],
+   "o": {
+    "set": "hut",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1300,
+      "r": 700,
+      "col": "rgba(170,220,255,1)",
+      "a": 0.4
+     },
+     {
+      "type": "toon",
+      "c": "yukionna",
+      "x": 540,
+      "y": 2100,
+      "s": 1.25,
+      "expr": "fierce",
+      "arms": "clasp"
+     },
+     {
+      "type": "frostBreath",
+      "x": 540,
+      "y": 1150,
+      "x1": 540,
+      "y1": 1900,
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L08.4",
+       "t1": "@L08.4+0.6",
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "flash",
+   "music": "taiko",
+   "kicks": [
+    "@L08.4"
+   ],
+   "shakeAt": [
+    "@L08.4"
+   ],
+   "sfx": [
+    [
+     "boom",
+     "@L08.4"
+    ]
+   ],
+   "grade": "cold",
+   "leak": false
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.0
+    ],
+    [
+     600,
+     1460,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "rice",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "minokichi",
+      "x": {
+       "a": -200,
+       "b": 330,
+       "t0": 0,
+       "t1": 2.6,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "walk": 1,
+      "walkRate": 3,
+      "sideWalk": true,
+      "expr": "smile"
+     },
+     {
+      "type": "toon",
+      "c": "oyuki",
+      "x": {
+       "a": 1250,
+       "b": 740,
+       "t0": 0,
+       "t1": 2.6,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "walk": 1,
+      "walkRate": 2.6,
+      "sideWalk": true,
+      "expr": "smile",
+      "arms": "clasp"
+     }
+    ],
+    "tod": "day"
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "kotohope",
+   "label": "O-YUKI \u00b7 \u96ea",
+   "labelY": 600,
+   "labelAt": "@L09.2",
+   "grade": "warm"
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.0
+    ],
+    [
+     520,
+     1440,
+     1.16
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [
+     {
+      "type": "andon",
+      "x": 960,
+      "y": 1820,
+      "s": 0.9
+     },
+     {
+      "type": "toon",
+      "c": "minokichiOld",
+      "x": 240,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "happy",
+      "arms": "open"
+     },
+     {
+      "type": "toon",
+      "c": "oyuki",
+      "x": 520,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "smile",
+      "arms": "clasp"
+     },
+     {
+      "type": "toon",
+      "c": "child1",
+      "x": 720,
+      "y": 1890,
+      "s": 0.5,
+      "expr": "happy",
+      "hands": "up",
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L10.1",
+       "t1": "@L10.1+0.4",
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "child2",
+      "x": 840,
+      "y": 1900,
+      "s": 0.44,
+      "expr": "happy",
+      "hop": 0.4,
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L10.1+0.2",
+       "t1": "@L10.1+0.6",
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "child3",
+      "x": 400,
+      "y": 1910,
+      "s": 0.4,
+      "expr": "happy",
+      "hands": "chest",
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L10.1+0.4",
+       "t1": "@L10.1+0.8",
+       "e": "io"
+      }
+     },
+     {
+      "type": "sparkle",
+      "x": 520,
+      "y": 1300,
+      "t0": "@L10.2",
+      "d": 1.0,
+      "r": 300
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "sfx": [
+    [
+     "sparkle",
+     "@L10.2"
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "annoyed",
+      "hands": "chin",
+      "look": [
+       1,
+       -0.2
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "kotodread",
+   "kicks": [
+    "@L11.1"
+   ],
+   "pops": {
+    "L11": [
+     540,
+     1440,
+     -0.04,
+     170,
+     null,
+     "@L11.1"
+    ]
+   },
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.04
+    ],
+    [
+     480,
+     1460,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [
+     {
+      "type": "andon",
+      "x": 880,
+      "y": 1820,
+      "s": 1.0
+     },
+     {
+      "type": "toon",
+      "c": "oyuki",
+      "x": 640,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "smile",
+      "arms": "hold",
+      "hold": "sewing",
+      "look": [
+       -1,
+       0.3
+      ]
+     },
+     {
+      "type": "toon",
+      "c": "minokichiOld",
+      "x": 300,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "smile",
+      "arms": "down",
+      "look": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "hush",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L13",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1300,
+     1.3
+    ],
+    [
+     540,
+     1240,
+     1.48
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [
+     {
+      "type": "andon",
+      "x": 900,
+      "y": 2000,
+      "s": 1.2
+     },
+     {
+      "type": "toon",
+      "c": "minokichiOld",
+      "x": 480,
+      "y": 2060,
+      "s": 1.25,
+      "expr": "smile",
+      "arms": "gesture"
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "sfx": [
+    [
+     "heartbeat",
+     0.2
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.0
+    ],
+    [
+     520,
+     1440,
+     1.2
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 620,
+      "y": 1300,
+      "r": 700,
+      "col": "rgba(170,220,255,1)",
+      "a": {
+       "a": 0,
+       "b": 0.5,
+       "t0": "@L14.1",
+       "t1": "@L14.1+0.3",
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "oyuki",
+      "x": 620,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "angry",
+      "arms": "clasp",
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": "@L14.1",
+       "t1": "@L14.1+0.3",
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "yukionna",
+      "x": 620,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "fierce",
+      "arms": "open",
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L14.1",
+       "t1": "@L14.1+0.3",
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "minokichiOld",
+      "x": 260,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "scared",
+      "arms": "chest",
+      "lean": -0.06,
+      "shake": {
+       "a": 0,
+       "b": 0.5,
+       "t0": "@L14.1",
+       "t1": "@L14.1+0.2",
+       "e": "io"
+      }
+     },
+     {
+      "type": "frostBreath",
+      "x": 620,
+      "y": 1250,
+      "x1": 260,
+      "y1": 1350,
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L14.2",
+       "t1": "@L14.2+0.6",
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "taiko",
+   "kicks": [
+    "@L14.1"
+   ],
+   "shakeAt": [
+    "@L14.1"
+   ],
+   "sfx": [
+    [
+     "boom",
+     "@L14.1"
+    ],
+    [
+     "wind",
+     "@L14.2"
+    ]
+   ],
+   "grade": "cold",
+   "leak": false
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1560,
+     1.1
+    ],
+    [
+     560,
+     1540,
+     1.22
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "child1",
+      "x": 640,
+      "y": 1978.5,
+      "s": 0.45,
+      "rot": -1.5708,
+      "shadow": false,
+      "expr": "sleep"
+     },
+     {
+      "type": "toon",
+      "c": "child2",
+      "x": 820,
+      "y": 1972.0,
+      "s": 0.4,
+      "rot": -1.5708,
+      "shadow": false,
+      "expr": "sleep"
+     },
+     {
+      "type": "toon",
+      "c": "child3",
+      "x": 460,
+      "y": 1975.4,
+      "s": 0.38,
+      "rot": -1.5708,
+      "shadow": false,
+      "expr": "sleep"
+     },
+     {
+      "type": "toon",
+      "c": "yukionna",
+      "x": 300,
+      "y": 1860,
+      "s": 0.8,
+      "expr": "sad",
+      "arms": "chest",
+      "lean": 0.08
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "sorrow",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.0
+    ],
+    [
+     540,
+     1100,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "yukionna",
+      "x": 540,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "sad",
+      "arms": "clasp",
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": 0.6,
+       "t1": 2.4,
+       "e": "io"
+      }
+     },
+     {
+      "type": "mistRise",
+      "x": 540,
+      "y": 1500,
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.4,
+       "t1": 2.4,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "sfx": [
+    [
+     "choir",
+     0.4
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "sad",
+      "hands": "chest",
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.6,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1440,
+     1.12
+    ],
+    [
+     540,
+     1500,
+     1.0
+    ]
+   ],
+   "o": {
+    "set": "farm",
+    "actors": [
+     {
+      "type": "andon",
+      "x": 880,
+      "y": 1820,
+      "s": 1.0
+     },
+     {
+      "type": "toon",
+      "c": "oyuki",
+      "x": 640,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "smile",
+      "arms": "hold",
+      "hold": "sewing",
+      "look": [
+       -1,
+       0.3
+      ]
+     },
+     {
+      "type": "toon",
+      "c": "minokichiOld",
+      "x": 300,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "smile",
+      "arms": "down",
+      "look": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "hush",
+   "grade": "night",
+   "leak": false
+  }
+ ]
+}
