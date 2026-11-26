@@ -11,16 +11,16 @@
     g.restore(); if (!['bob', 'ponytail', 'long', 'short', 'buzz', 'bald', 'bun', 'curly', 'spiky', 'parted'].includes(st)) backOld(g, L, G, t, ph); };
   hairFrontT = function (g, L, G, t, ph) { const H = L.hair, HL = L.hairHi, [rx, ry] = G.hr, st = L.hairStyle;
     const cap = (bottom, edge) => tsh(g, `M${-rx - 6} ${bottom} C${-rx - 10} -${ry * 1.16} ${rx + 10} -${ry * 1.16} ${rx + 6} ${bottom} ${edge} Z`, H, 5);
-    if (st === 'short') { cap(-10, `C${rx} -${ry * .58} ${rx * .4} -${ry * .74} 0 -${ry * .7} C${-rx * .4} -${ry * .74} ${-rx} -${ry * .58} ${-rx - 6} -10`); tln(g, [-rx * .3, -ry * 1.0, rx * .2, -ry * .98], 3, HL); return; }
+    if (st === 'short') { cap(14, `L${rx - 2} 8 C${rx - 4} -${ry * .3} ${rx * .55} -${ry * .5} ${rx * .2} -${ry * .44} C${-rx * .1} -${ry * .62} ${-rx * .5} -${ry * .5} ${-rx * .8} -${ry * .34} C${-rx + 2} -${ry * .2} ${-rx + 2} 0 ${-rx + 2} 8 L${-rx - 6} 14`); tln(g, [-rx * .3, -ry * 1.0, rx * .2, -ry * .98], 3, HL); return; }
     if (st === 'parted') { cap(10, `C${rx} -${ry * .44} ${rx * .5} -${ry * .62} ${rx * .2} -${ry * .54} C${-rx * .2} -${ry * .74} ${-rx} -${ry * .56} ${-rx - 6} 10`); tln(g, [rx * .22, -ry * 1.06, rx * .2, -ry * .6], 3, 'rgba(0,0,0,.4)'); tln(g, [-rx * .5, -ry * .96, 0, -ry * 1.04], 3, HL); return; }
     if (st === 'spiky') { let d = `M${-rx - 6} -6`; const pts = [[-1.2, -.5], [-1.0, -1.0], [-.7, -.9], [-.55, -1.4], [-.25, -1.06], [0, -1.5], [.25, -1.08], [.55, -1.42], [.7, -.92], [1.0, -1.02], [1.2, -.5]]; pts.forEach(([a, b]) => d += ` L${a * rx} ${b * ry}`);
       d += ` L${rx + 6} -6 L${rx - 6} -${ry * .5} L${rx * .5} -${ry * .62} L${rx * .3} -${ry * .44} L${rx * .05} -${ry * .64} L${-rx * .2} -${ry * .44} L${-rx * .45} -${ry * .64} L${-rx + 6} -${ry * .48} Z`; tsh(g, d, H, 5); return; }
     if (st === 'buzz') { tsh(g, `M${-rx - 2} -16 C${-rx - 6} -${ry * 1.12} ${rx + 6} -${ry * 1.12} ${rx + 2} -16 C${rx - 4} -${ry * .62} ${-rx + 4} -${ry * .62} ${-rx - 2} -16 Z`, mix(H, L.skin, .45), 3); return; }
     if (st === 'bald') { [-1, 1].forEach(sd => tsh(g, `M${sd * rx * 1.02} ${ry * .14} C${sd * (rx + 14)} -${ry * .2} ${sd * rx * .9} -${ry * .52} ${sd * rx * .6} -${ry * .6} C${sd * rx * .8} -${ry * .3} ${sd * rx * .84} 0 ${sd * rx * .86} ${ry * .14} Z`, H, 4)); tln(g, [-rx * .3, -ry * .92, -rx * .05, -ry * .98], 6, 'rgba(255,255,255,.35)'); return; }
     if (st === 'bob') { tsh(g, `M${-rx - 12} ${ry * .7} C${-rx - 20} -${ry * 1.2} ${rx + 20} -${ry * 1.2} ${rx + 12} ${ry * .7} L${rx - 4} ${ry * .7} C${rx - 4} 0 ${rx - 8} -${ry * .32} ${rx - 14} -${ry * .36} L${-rx + 14} -${ry * .36} C${-rx + 8} -${ry * .32} ${-rx + 4} 0 ${-rx + 4} ${ry * .7} Z`, H, 5); tsh(g, `M${-rx * .5} -${ry * .94} Q0 -${ry * 1.04} ${rx * .5} -${ry * .94}`, null, 4, HL); return; }
-    if (st === 'ponytail') { cap(0, `C${rx} -${ry * .62} ${rx * .2} -${ry * .56} ${-rx * .3} -${ry * .78} C${-rx * .7} -${ry * .5} ${-rx} -${ry * .4} ${-rx - 6} 0`); tln(g, [rx * .62, -ry * .86, rx * .9, -ry * .7], 8, L.tie || '#d23a3a'); return; }
+    if (st === 'ponytail') { cap(10, `L${rx - 4} 4 C${rx - 6} -${ry * .34} ${rx * .3} -${ry * .48} ${-rx * .2} -${ry * .52} C${-rx * .7} -${ry * .44} ${-rx + 4} -${ry * .26} ${-rx + 4} 4 L${-rx - 6} 10`); tln(g, [rx * .62, -ry * .86, rx * .9, -ry * .7], 8, L.tie || '#d23a3a'); return; }
     if (st === 'long') { cap(30, `L${rx - 4} 10 C${rx - 4} -${ry * .4} ${rx * .2} -${ry * .64} 0 -${ry * .9} C${-rx * .2} -${ry * .64} ${-rx + 4} -${ry * .4} ${-rx + 4} 10`); return; }
-    if (st === 'bun') { tell(g, 0, -ry * 1.16, rx * .42, ry * .3, H, 5); tln(g, [-rx * .3, -ry * 1.02, rx * .3, -ry * 1.02], 6, L.tie || '#c8a040'); cap(0, `C${rx} -${ry * .7} ${rx * .3} -${ry * .78} 0 -${ry * .76} C${-rx * .3} -${ry * .78} ${-rx} -${ry * .7} ${-rx - 6} 0`); return; }
+    if (st === 'bun') { tell(g, 0, -ry * 1.16, rx * .42, ry * .3, H, 5); tln(g, [-rx * .3, -ry * 1.02, rx * .3, -ry * 1.02], 6, L.tie || '#c8a040'); cap(20, `L${rx - 4} 10 C${rx - 6} -${ry * .3} ${rx * .45} -${ry * .52} 0 -${ry * .44} C${-rx * .45} -${ry * .52} ${-rx + 6} -${ry * .3} ${-rx + 4} 10 L${-rx - 6} 20`); tln(g, [0, -ry * 1.0, 0, -ry * .5], 2.4, 'rgba(0,0,0,.3)'); return; }
     if (st === 'curly') { let d = ''; for (let i = 0; i <= 14; i++) { const a = Math.PI * (1.05 + i / 14 * .9), x = Math.cos(a) * rx * 1.12, y = Math.sin(a) * ry * 1.12 - 6; tell(g, x, y, 26, 24, H, 4); } tsh(g, `M${-rx * .8} -${ry * .6} Q0 -${ry * .82} ${rx * .8} -${ry * .6} L${rx * .9} -${ry * .9} Q0 -${ry * 1.2} ${-rx * .9} -${ry * .9} Z`, H, 0); return; }
     frontOld(g, L, G, t, ph); };
 })();
@@ -36,7 +36,10 @@ function toonSide(g, o, L) {
   g.translate(0, bob); const lean = (L.stoop || 0) + (o.lean || 0); if (lean) { g.translate(0, hipY); g.rotate(lean); g.translate(0, -hipY); }
   const lowCol = L.bottom === 'pants' ? L.pants : L.bottom === 'hakama' ? L.hakama : null;
   // legs: thigh + shin, the back leg bends at the knee as it swings
-  const leg = (sd, far) => { const a = sd * lw * .42, kn = Math.max(0, -sd * lw) * .55, kx = Math.sin(a) * 205, ky = hipY + Math.cos(a) * 205, fx = kx + Math.sin(a - kn) * 205, fy = Math.min(-4, ky + Math.cos(a - kn) * 205);
+  const skirted = L.bottom === 'skirt' || L.bottom === 'robe';
+  const leg = (sd, far) => { if (skirted) { const fx = sd * lw * 58 + 10, lift = Math.max(0, -sd * lw) * 8, fy = -4 - lift, shoe = '#c8a868';   // under a long skirt: only the feet step out below the hem
+      tsh(g, `M${fx - 22} ${fy - 12} L${fx + 30} ${fy - 10} Q${fx + 44} ${fy - 2} ${fx + 38} ${fy + 6} L${fx - 24} ${fy + 6} Z`, far ? D(shoe) : shoe, 4); tsh(g, `M${fx - 18} ${fy - 12} Q${fx} ${fy - 26} ${fx + 22} ${fy - 12} Z`, far ? D('#f6f2ea') : '#f6f2ea', 3); return; }
+    const a = sd * lw * .42, kn = Math.max(0, -sd * lw) * .55, kx = Math.sin(a) * 205, ky = hipY + Math.cos(a) * 205, fx = kx + Math.sin(a - kn) * 205, fy = Math.min(-4, ky + Math.cos(a - kn) * 205);
     const c0 = lowCol || skin, c = far ? D(c0) : c0, wTop = L.bottom === 'hakama' ? 96 : L.bottom === 'pants' ? 70 : 36, wLow = L.bottom === 'hakama' ? 84 : L.bottom === 'pants' ? 58 : 32;
     if (L.bottom === 'hakama') { ttube(g, kx, ky, fx, fy, 40, 34, far ? D(L.wraps || skin) : (L.wraps || skin), 5); ttube(g, kx * .9, ky - 20, (kx + fx) / 2, (ky + fy) / 2, wLow, wLow, c, 5); }
     else ttube(g, kx, ky, fx, fy, wLow, wLow * .92, c, 5);
@@ -54,7 +57,7 @@ function toonSide(g, o, L) {
   if (longBack) { const len = st === 'heian' ? 700 : st === 'lowtie' ? 260 : 330, sw = Math.sin(t * 1.5 + ph) * 6; tsh(g, `M${-rx * .9} -${772 + ry * .3} C${-rx * 1.3} -700 ${-rx * 1.2 + sw} ${-772 + len * .6} ${-rx * .8 + sw} ${-772 + len} L${-rx * .1 + sw} ${-772 + len} C${-rx * .3} -650 ${-rx * .2} -720 ${-rx * .2} -${772 + ry * .3} Z`, L.hair, 5); }
   if (o.foxTails) foxTailsT(g, o.foxTails, { shY, waist, hip: hipY }, t, o.foxCol);
   arm(true); leg(-1, true);
-  if (L.bottom === 'skirt') { leg(1, false); const s2 = lw * 18; tsh(g, `M${-tw * .9} ${waist} L${tw} ${waist} L${tw + 50 + s2} -12 Q0 4 ${-tw - 40 + s2 * .5} -12 Z`, L.skirt, 5); }
+  if (L.bottom === 'skirt') { leg(1, false); const s2 = lw * 14; const sk = `M${-tw * .9} ${waist} L${tw} ${waist} C${tw + 20} ${waist + 200} ${tw + 40 + s2} -120 ${tw + 46 + s2} -10 Q0 2 ${-tw - 34 + s2 * .4} -10 C${-tw - 30} -140 ${-tw - 10} ${waist + 200} ${-tw * .9} ${waist} Z`; tsh(g, sk, L.skirt, 5); g.save(); g.clip(path(sk)); for (let k = -3; k <= 3; k++) tln(g, [k * 20, waist + 20, k * 26 + s2 * .5, -10], 3, L.skirtD || D(L.skirt)); g.restore(); tsh(g, sk, null, 5); }
   else if (L.bottom === 'robe') { leg(1, false); tsh(g, `M${-tw * .9} ${waist} L${tw} ${waist} L${tw + 20} -26 L${-tw - 10} -26 Z`, L.top, 5); }
   else leg(1, false);
   // torso in profile: rounded back, chest forward

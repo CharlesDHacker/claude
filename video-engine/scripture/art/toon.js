@@ -190,6 +190,7 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
   const age = L.age ?? (L.kind === 'elder' ? 1 : .3);
   tsh(g, face, L.skin, 6); g.save(); g.clip(path(face)); g.fillStyle = 'rgba(160,80,60,.12)'; g.beginPath(); g.ellipse(rx * .9, ry * .2, rx * .5, ry * 1.2, 0, 0, 7); g.fill(); g.restore(); tsh(g, face, null, 6);
   if (L.paint) { [-1, 1].forEach(sd => { tln(g, [sd * rx * .3, ry * .12, sd * rx * .86, ry * .02], 7, L.paint); tln(g, [sd * rx * .36, ry * .3, sd * rx * .84, ry * .22], 7, L.paint); }); tln(g, [-rx * .18, -ry * .5, rx * .18, -ry * .5], 6, L.paint); }
+  if (L.female && !L.blush && !kid) { tell(g, -rx * .56, ry * .36, rx * .2, ry * .1, 'rgba(240,120,120,.22)', 0); tell(g, rx * .56, ry * .36, rx * .2, ry * .1, 'rgba(240,120,120,.22)', 0); }
   if (L.blush || kid) { tell(g, -rx * .58, ry * .38, rx * .2, ry * .1, L.blush || 'rgba(240,120,110,.35)', 0); tell(g, rx * .58, ry * .38, rx * .2, ry * .1, L.blush || 'rgba(240,120,110,.35)', 0); }
   // eyes
   const ex0 = kid ? 46 : rx * .42, ey = kid ? 6 : -ry * .06;
@@ -197,17 +198,27 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
     if (closed) { if (ex === 'cry') { tln(g, [cx - 22, ey - 2, cx, ey + 8, cx + 22, ey - 2], kid ? 6 : 5); } else if (ex === 'sleep') tln(g, [cx - 20, ey + 4, cx, ey + 10, cx + 20, ey + 4], 5); else tln(g, [cx - (kid ? 26 : 18), ey + 4, cx, ey - (ex === 'happy' ? 14 : 2), cx + (kid ? 26 : 18), ey + 4], kid ? 6 : 5); return; }
     if (kid) { const ry2 = ex === 'shock' || ex === 'wide' || ex === 'scared' ? 40 : 34, rx2 = 30; tell(g, cx, ey, rx2, ry2, '#fffdf8', 6); const pr = ex === 'shock' || ex === 'scared' ? 7 : 11; tell(g, cx + lx * 12, ey + 4 + ly * 12, pr, pr * 1.08, '#1c1418', 0);
       if (ex === 'sad' || ex === 'annoyed' || ex === 'worry' || ex === 'smug') { const lid = ex === 'annoyed' || ex === 'smug' ? .45 : .3; tsh(g, `M${cx - rx2 - 3} ${ey - ry2 * .2} Q${cx} ${ey - ry2 - 6} ${cx + rx2 + 3} ${ey - ry2 * .2} L${cx + rx2 + 3} ${ey - ry2 * (1 - lid * 2) } L${cx - rx2 - 3} ${ey - ry2 * (1 - lid * 2)} Z`, L.skin, 0); tln(g, [cx - rx2, ey - ry2 * (1 - lid * 2) + (ex === 'sad' ? s * 4 : 0), cx + rx2, ey - ry2 * (1 - lid * 2) - (ex === 'sad' ? s * 4 : 0)], 6); } }
-    else { const op = ex === 'shock' || ex === 'scared' ? 1.25 : ex === 'angry' || ex === 'fierce' ? .75 : 1, ES = EYES[L.eyeShape || 'almond'] || EYES.almond, w2 = rx * .29 * ES.w * (L.eyeS || 1), h2 = ry * .125 * op * ES.h * (L.eyeS || 1), xi = cx - s * w2, xo = cx + s * w2, oy = ES.tilt;
-      tsh(g, `M${xi} ${ey} Q${cx} ${ey - h2 * 1.9} ${xo} ${ey + oy} Q${cx} ${ey + h2 * 1.3} ${xi} ${ey} Z`, '#fffdf8', 3.4); const ix = cx + lx * w2 * .35, iy = ey - 1 + ly * 3;
-      if (o.foxEyes) { glow(g, ix, iy, 60, 'rgba(255,190,60,1)', o.foxEyes * .8); tell(g, ix, iy, w2 * .48, h2 * 1.25, '#ffc23a', 0); tell(g, ix, iy, w2 * .08, h2 * 1.0, '#140c08', 0); } else { tell(g, ix, iy, w2 * .44, h2 * 1.2, L.iris || '#3a2418', 0); tell(g, ix, iy, w2 * .2, h2 * .62, '#140c08', 0); } tell(g, ix + 3, iy - 3, 2.4, 2.4, '#fff', 0);
-      tln(g, [xi - s * 2, ey + 1, cx, ey - h2 * 1.9, xo + s * 2, ey + oy + 1], ES.lid || 5.4); if (age >= .6) tln(g, [cx - w2 * .6, ey + h2 * 1.5, cx + w2 * .6, ey + h2 * 1.5], 2, 'rgba(120,60,40,.45)');
-      if (age >= .75) [-6, 4].forEach(dy => tln(g, [xo + s * 6, ey + dy * .3, xo + s * 18, ey + dy], 2, 'rgba(120,60,40,.45)')); if (L.lashes) tln(g, [cx + s * w2, ey - 1, cx + s * (w2 + 9), ey - 9], 4); } });
+    else { // adult eye: almond sclera, a round iris clipped by the lids, pupil, two catch-lights, a strong lash line; lower lid barely there
+      const op = ex === 'shock' || ex === 'scared' ? 1.3 : ex === 'angry' || ex === 'fierce' ? .72 : 1, ES = EYES[L.eyeShape || 'almond'] || EYES.almond, k = L.eyeS || 1,
+        w2 = rx * .28 * ES.w * k, h2 = ry * .15 * op * ES.h * k, xi = cx - s * w2, xo = cx + s * w2, oy = ES.tilt;
+      const eyeP = `M${xi} ${ey + 2} C${xi + s * w2 * .3} ${ey - h2 * 1.35} ${xo - s * w2 * .35} ${ey - h2 * 1.4 + oy * .4} ${xo} ${ey + oy - h2 * .15} C${xo - s * w2 * .3} ${ey + h2 * 1.0} ${xi + s * w2 * .35} ${ey + h2 * 1.05} ${xi} ${ey + 2} Z`;
+      tsh(g, eyeP, '#fffdf8', 0); const ix = cx + lx * w2 * .3 + s * w2 * .04, iy = ey + ly * 3 - h2 * .05, ir = Math.min(w2 * .58, h2 * 1.08);
+      g.save(); g.clip(path(eyeP)); if (o.foxEyes) { glow(g, ix, iy, 60, 'rgba(255,190,60,1)', o.foxEyes * .8); tell(g, ix, iy, ir, ir, '#ffc23a', 0); tell(g, ix, iy, ir * .18, ir * .9, '#140c08', 0); }
+      else { const ic = L.iris || '#3a2418'; tell(g, ix, iy, ir, ir, rg(g, ix, iy - ir * .4, ir * .1, ir * 1.1, [[0, mix(ic, '#ffffff', .25)], [.7, ic], [1, mix(ic, '#000000', .45)]]), 0); tell(g, ix, iy, ir * .48, ir * .48, '#120a08', 0); }
+      g.fillStyle = 'rgba(60,30,20,.18)'; g.fillRect(cx - w2 - 4, ey - h2 * 2, w2 * 2 + 8, h2 * .9); g.restore();
+      tell(g, ix + s * ir * .28, iy - ir * .32, ir * .24, ir * .24, '#ffffff', 0); tell(g, ix - s * ir * .3, iy + ir * .3, ir * .1, ir * .1, 'rgba(255,255,255,.8)', 0);
+      g.save(); g.lineCap = 'round'; g.beginPath(); g.moveTo(xi, ey + 2); g.bezierCurveTo(xi + s * w2 * .3, ey - h2 * 1.35, xo - s * w2 * .35, ey - h2 * 1.4 + oy * .4, xo + s * 3, ey + oy - h2 * .2); g.lineWidth = L.female ? 6.5 : 5.5; g.strokeStyle = '#1e1210'; g.stroke(); g.restore();
+      if (L.female || L.lashes) { tln(g, [xo, ey + oy - h2 * .2, xo + s * 10, ey + oy - h2 * .7], 4.4, '#1e1210'); tln(g, [xo - s * w2 * .25, ey - h2 * 1.1 + oy * .3, xo - s * w2 * .1, ey - h2 * 1.55 + oy * .3], 3, '#1e1210'); }
+      tln(g, [xo - s * w2 * .55, ey + h2 * .95, xo - s * 2, ey + oy + h2 * .3], 2, 'rgba(90,50,40,.35)');
+      if (ES.crease !== false && !L.female) tln(g, [xi + s * w2 * .3, ey - h2 * 1.7, xo - s * w2 * .2, ey - h2 * 1.65 + oy * .4], 1.8, 'rgba(90,50,40,.3)');
+      if (age >= .6) tln(g, [cx - w2 * .5, ey + h2 * 1.6, cx + w2 * .5, ey + h2 * 1.55], 1.8, 'rgba(120,60,40,.35)');
+      if (age >= .75) [-6, 4].forEach(dy => tln(g, [xo + s * 8, ey + dy * .3, xo + s * 18, ey + dy], 1.8, 'rgba(120,60,40,.4)')); } });
   // nose
   if (kid) tln(g, [-4, 30, 4, 36, -2, 40], 4.4); else { const nz = L.nose || 'line';
     if (nz === 'button') { tln(g, [-9, ry * .26, 0, ry * .32, 9, ry * .26], 4); tell(g, 0, ry * .2, 8, 6, 'rgba(150,80,50,.18)', 0); }
     else if (nz === 'broad') { tln(g, [0, ry * .02, -4, ry * .24], 3.4, 'rgba(90,50,30,.6)'); tln(g, [-16, ry * .26, -8, ry * .34, 0, ry * .3, 8, ry * .34, 16, ry * .26], 4); }
     else if (nz === 'long') { tsh(g, `M2 ${-ry * .1} L-9 ${ry * .36} Q0 ${ry * .42} 9 ${ry * .38} Z`, 'rgba(150,80,50,.22)', 0); tln(g, [2, -ry * .1, -8, ry * .36, 5, ry * .4], 4); }
-    else { tsh(g, `M2 ${-ry * .02} L-8 ${ry * .3} Q0 ${ry * .36} 8 ${ry * .32} Z`, 'rgba(150,80,50,.22)', 0); tln(g, [2, -ry * .02, -6, ry * .3, 4, ry * .34], 4); }
+    else { tln(g, [4, ry * .08, -3, ry * .28], 2.4, 'rgba(120,60,40,.35)'); tln(g, [-7, ry * .3, 0, ry * .34, 6, ry * .31], 3.4); }
     if (age >= .45) { tln(g, [-rx * .62, ry * .24, -rx * .5, ry * .44], 2.4, 'rgba(150,80,50,.35)'); tln(g, [rx * .62, ry * .24, rx * .5, ry * .44], 2.4, 'rgba(150,80,50,.35)'); }
     if (age >= .8) [-.62, -.52].forEach(q => tln(g, [-rx * .36, ry * q, 0, ry * (q - .04), rx * .36, ry * q], 2, 'rgba(130,70,45,.35)'));
     if (L.freckles) { const r = rng(L.freckles); for (let i = 0; i < 14; i++) { const sd = i % 2 ? 1 : -1; tell(g, sd * rx * (.36 + r() * .3), ry * (.16 + r() * .2), 2.2, 2.2, 'rgba(150,80,50,.5)', 0); } }
@@ -218,7 +229,7 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
     for (let i = -2; i <= 2; i++) tln(g, [i * 12, ry * .7, i * 10, ry * 1.6 - Math.abs(i) * 12], 2.4, 'rgba(160,150,140,.6)'); }
   if (L.beard === 'storm' || L.beard === 'short') { tsh(g, `M${-rx * .92} ${ry * .1} C${-rx * .9} ${ry * .8} ${-rx * .4} ${ry * 1.18} 0 ${ry * 1.22} C${rx * .4} ${ry * 1.18} ${rx * .9} ${ry * .8} ${rx * .92} ${ry * .1} C${rx * .6} ${ry * .5} ${rx * .3} ${ry * .55} 0 ${ry * .5} C${-rx * .3} ${ry * .55} ${-rx * .6} ${ry * .5} ${-rx * .92} ${ry * .1} Z`, H, 5);
     if (L.beard === 'storm') [[-20, 1.1], [0, 1.3], [20, 1.1]].forEach(([x, q]) => tsh(g, `M${x - 10} ${ry * 1.1} L${x} ${ry * q + 16} L${x + 10} ${ry * 1.1} Z`, H, 3)); }
-  if (L.beard === 'stubble') { const r = rng(4); for (let i = 0; i < 40; i++) tell(g, (r() - .5) * rx * 1.4, ry * .4 + r() * ry * .5, 1.8, 1.8, 'rgba(40,30,30,.45)', 0); }
+  if (L.beard === 'stubble') { const r = rng(4); { g.save(); g.globalAlpha = .22; g.fillStyle = L.hair; g.beginPath(); g.ellipse(0, ry * .62, rx * .7, ry * .34, 0, 0, 7); g.fill(); g.restore(); } }
   // mouth
   const my = kid ? 66 : ry * .56;
   if (L.beard === 'storm' || L.beard === 'short' || L.beard === 'longWhite') tsh(g, `M${-rx * .5} ${my - 8} Q${-rx * .2} ${my - 20} 0 ${my - 12} Q${rx * .2} ${my - 20} ${rx * .5} ${my - 8} Q${rx * .2} ${my - 6} 0 ${my - 6} Q${-rx * .2} ${my - 6} ${-rx * .5} ${my - 8} Z`, L.beard === 'longWhite' ? L.hair : H, 4);
@@ -234,7 +245,7 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
   else if (ex === 'whisper') tell(g, 0, my + 4, kid ? 9 : 6, kid ? 7 : 5, '#4a1418', 4);
   else tln(g, [-(kid ? 18 : 12), my, 0, my + (kid ? 10 : 4), kid ? 18 : 12, my], 5);
   if (L.fangs) [-1, 1].forEach(sd => tsh(g, `M${sd * rx * .22 - 8} ${my + 8} L${sd * rx * .22 + 8} ${my + 8} L${sd * rx * .24} ${my - L.fangs} Z`, '#fbf6ea', 3.4));
-  if (L.lips && talk <= .04 && !shout) tln(g, [-10, my + 1, 10, my + 1], 3, L.lips);
+  if (L.lips && talk <= .04 && !shout) { tsh(g, `M-11 ${my + 1} Q-4 ${my - 3} 0 ${my} Q4 ${my - 3} 11 ${my + 1} Q0 ${my + 8} -11 ${my + 1} Z`, L.lips, 2.4); }
   if (ex === 'cry') { const q = (t * .8) % 1; [-1, 1].forEach(s => { tln(g, [s * ex0, ey + 12, s * (ex0 + 4), ey + 60], 6, 'rgba(150,200,235,.85)'); tsh(g, `M${s * (ex0 + 4) - 7} ${ey + 40 + q * 50} Q${s * (ex0 + 4)} ${ey + 22 + q * 50} ${s * (ex0 + 4) + 7} ${ey + 40 + q * 50} Q${s * (ex0 + 4)} ${ey + 52 + q * 50} ${s * (ex0 + 4) - 7} ${ey + 40 + q * 50} Z`, 'rgba(190,225,245,.95)', 2.4); }); }
   if (o.sweat) { const q = (t * .7) % 1; tsh(g, `M${rx * .8} ${-ry * .5 + q * 30} q12 18 0 28 q-12 -10 0 -28 Z`, 'rgba(170,215,240,.95)', 3); }
   // front hair
