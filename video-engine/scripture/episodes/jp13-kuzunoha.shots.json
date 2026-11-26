@@ -51,6 +51,14 @@
     "tod": "night",
     "front": [
      {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 60,
+      "n": 80,
+      "r": 2.3
+     },
+     {
       "type": "mio",
       "x": 320,
       "y": 2120,
@@ -132,6 +140,14 @@
       },
       "foxEyes": 1
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,210,150,1)",
+      "dir": "drift",
+      "seed": 61
+     }
     ]
    },
    "camEase": "lin",
@@ -172,6 +188,14 @@
     "actors": [],
     "tod": "night",
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 62,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "mio",
       "x": 280,
@@ -243,7 +267,15 @@
       "arms": "down"
      }
     ],
-    "tod": "day"
+    "tod": "day",
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 63
+     }
+    ]
    },
    "camEase": "lin",
    "tr": "fade",
@@ -340,7 +372,15 @@
       "arms": "open"
      }
     ],
-    "tod": "day"
+    "tod": "day",
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 64
+     }
+    ]
    },
    "camEase": "lin",
    "atc": "@L03.3",
@@ -426,7 +466,15 @@
       "arms": "point"
      }
     ],
-    "tod": "day"
+    "tod": "day",
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 65
+     }
+    ]
    },
    "camEase": "lin",
    "tr": "whip",
@@ -495,7 +543,17 @@
       "arms": "clasp"
      }
     ],
-    "tod": "night"
+    "tod": "night",
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 66,
+      "n": 80,
+      "r": 2.3
+     }
+    ]
    },
    "camEase": "lin",
    "tr": "fade",
@@ -567,6 +625,14 @@
       "d": 1.0,
       "r": 300
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,230,180,1)",
+      "dir": "drift",
+      "seed": 67
+     }
     ]
    },
    "camEase": "lin",
@@ -626,6 +692,14 @@
       "hands": "up",
       "hop": 0.5
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,230,180,1)",
+      "dir": "drift",
+      "seed": 68
+     }
     ]
    },
    "camEase": "lin",
@@ -660,6 +734,12 @@
     "actors": [],
     "tod": "day",
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 69
+     },
      {
       "type": "mio",
       "x": 280,
@@ -701,6 +781,14 @@
     "actors": [],
     "tod": "night",
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 70,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "fox",
       "x": 560,
@@ -788,6 +876,14 @@
        -0.4
       ]
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,230,180,1)",
+      "dir": "drift",
+      "seed": 71
+     }
     ]
    },
    "camEase": "lin",
@@ -826,6 +922,12 @@
     "set": "room",
     "actors": [],
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,230,180,1)",
+      "dir": "drift",
+      "seed": 72
+     },
      {
       "type": "mio",
       "x": 280,
@@ -883,6 +985,14 @@
       "foxTails": 0.7,
       "foxEars": 1
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,230,180,1)",
+      "dir": "drift",
+      "seed": 73
+     }
     ]
    },
    "camEase": "lin",
@@ -919,6 +1029,14 @@
       "n": 10,
       "seed": 31
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,230,180,1)",
+      "dir": "drift",
+      "seed": 74
+     }
     ]
    },
    "camEase": "lin",
@@ -943,6 +1061,12 @@
     "set": "room",
     "actors": [],
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,230,180,1)",
+      "dir": "drift",
+      "seed": 75
+     },
      {
       "type": "mio",
       "x": 280,
@@ -1043,7 +1167,17 @@
       "r": 300
      }
     ],
-    "tod": "night"
+    "tod": "night",
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 76,
+      "n": 80,
+      "r": 2.3
+     }
+    ]
    },
    "camEase": "lin",
    "tr": "whip",
@@ -1100,7 +1234,17 @@
       "s": 0.8
      }
     ],
-    "tod": "night"
+    "tod": "night",
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 77,
+      "n": 80,
+      "r": 2.3
+     }
+    ]
    },
    "camEase": "lin",
    "tr": "fade",
@@ -1144,6 +1288,14 @@
       "arms": "offer",
       "hold": "orb"
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,210,150,1)",
+      "dir": "drift",
+      "seed": 78
+     }
     ]
    },
    "camEase": "lin",
@@ -1181,6 +1333,14 @@
     "actors": [],
     "tod": "night",
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 79,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "mio",
       "x": 320,
@@ -1233,6 +1393,14 @@
     "actors": [],
     "tod": "night",
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(190,255,190,1)",
+      "dir": "drift",
+      "seed": 80,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "mio",
       "x": 320,

@@ -75,6 +75,14 @@
     ],
     "front": [
      {
+      "type": "motes",
+      "col": "rgba(200,150,255,1)",
+      "dir": "up",
+      "seed": 60,
+      "n": 80,
+      "r": 2.3
+     },
+     {
       "type": "fox",
       "x": 760,
       "y": 2090,
@@ -132,6 +140,16 @@
       "arms": "clasp",
       "sil": 0.12
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,140,60,1)",
+      "dir": "up",
+      "seed": 61,
+      "n": 80,
+      "r": 2.3
+     }
     ]
    },
    "camEase": "lin",
@@ -180,6 +198,14 @@
      }
     ],
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(200,150,255,1)",
+      "dir": "up",
+      "seed": 62,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "mio",
       "x": 280,
@@ -272,6 +298,16 @@
       "d": 1.0,
       "r": 360
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,140,60,1)",
+      "dir": "up",
+      "seed": 63,
+      "n": 80,
+      "r": 2.3
+     }
     ]
    },
    "camEase": "lin",
@@ -337,6 +373,16 @@
       "expr": "smug",
       "arms": "clasp"
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,140,60,1)",
+      "dir": "up",
+      "seed": 64,
+      "n": 80,
+      "r": 2.3
+     }
     ]
    },
    "camEase": "lin",
@@ -385,6 +431,16 @@
        -1,
        0.2
       ]
+     }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,140,60,1)",
+      "dir": "up",
+      "seed": 65,
+      "n": 80,
+      "r": 2.3
      }
     ]
    },
@@ -449,6 +505,16 @@
       "expr": "smug",
       "arms": "clasp"
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,140,60,1)",
+      "dir": "up",
+      "seed": 66,
+      "n": 80,
+      "r": 2.3
+     }
     ]
    },
    "camEase": "lin",
@@ -497,6 +563,14 @@
      }
     ],
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(200,150,255,1)",
+      "dir": "up",
+      "seed": 67,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "mio",
       "x": 280,
@@ -575,6 +649,14 @@
        0
       ]
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,225,170,1)",
+      "dir": "drift",
+      "seed": 68
+     }
     ]
    },
    "camEase": "lin",
@@ -628,6 +710,14 @@
       "flip": true,
       "expr": "smug",
       "arms": "clasp"
+     }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,225,170,1)",
+      "dir": "drift",
+      "seed": 69
      }
     ]
    },
@@ -685,6 +775,14 @@
      }
     ],
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(200,150,255,1)",
+      "dir": "up",
+      "seed": 70,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "fox",
       "x": 560,
@@ -764,7 +862,17 @@
      "t0": "@L10.2",
      "t1": "@L10.3",
      "e": "io"
-    }
+    },
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,150,70,1)",
+      "dir": "up",
+      "seed": 71,
+      "n": 80,
+      "r": 2.3
+     }
+    ]
    },
    "camEase": "lin",
    "tr": "fade",
@@ -847,7 +955,17 @@
       ]
      ],
      "e": "io"
-    }
+    },
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,150,70,1)",
+      "dir": "up",
+      "seed": 72,
+      "n": 80,
+      "r": 2.3
+     }
+    ]
    },
    "camEase": "lin",
    "tr": "whip",
@@ -901,7 +1019,17 @@
      "t0": 0.4,
      "t1": 2.4,
      "e": "io"
-    }
+    },
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,150,70,1)",
+      "dir": "up",
+      "seed": 73,
+      "n": 80,
+      "r": 2.3
+     }
+    ]
    },
    "camEase": "lin",
    "atc": "@L11.2",
@@ -944,6 +1072,14 @@
      }
     ],
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(200,150,255,1)",
+      "dir": "up",
+      "seed": 74,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "mio",
       "x": 280,
@@ -1014,6 +1150,14 @@
       "s": 0.42,
       "expr": "smile",
       "arms": "clasp"
+     }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(230,240,255,1)",
+      "dir": "drift",
+      "seed": 75
      }
     ]
    },
@@ -1088,7 +1232,15 @@
       "r": 380
      }
     ],
-    "petals": true
+    "petals": true,
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,210,150,1)",
+      "dir": "drift",
+      "seed": 76
+     }
+    ]
    },
    "camEase": "lin",
    "tr": "whip",
@@ -1139,6 +1291,14 @@
       "arms": "clasp",
       "foxEyes": 1
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(255,210,150,1)",
+      "dir": "drift",
+      "seed": 77
+     }
     ]
    },
    "camEase": "lin",
@@ -1187,6 +1347,14 @@
      }
     ],
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(200,150,255,1)",
+      "dir": "up",
+      "seed": 78,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "mio",
       "x": 260,
@@ -1253,6 +1421,16 @@
        ]
       }
      }
+    ],
+    "front": [
+     {
+      "type": "motes",
+      "col": "rgba(200,150,255,1)",
+      "dir": "up",
+      "seed": 79,
+      "n": 80,
+      "r": 2.3
+     }
     ]
    },
    "camEase": "lin",
@@ -1300,6 +1478,14 @@
      }
     ],
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(200,150,255,1)",
+      "dir": "up",
+      "seed": 80,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "mio",
       "x": 280,
@@ -1356,6 +1542,14 @@
      }
     ],
     "front": [
+     {
+      "type": "motes",
+      "col": "rgba(200,150,255,1)",
+      "dir": "up",
+      "seed": 81,
+      "n": 80,
+      "r": 2.3
+     },
      {
       "type": "fox",
       "x": 760,

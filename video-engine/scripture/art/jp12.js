@@ -71,3 +71,9 @@ JSETS.beacon = { light: { x: 1, col: 'rgba(255,170,90,1)', rim: .9, shade: .45 }
     layerAt(g, c, 1, () => blit(g, cacheLayer('bc_ground', x => { x.fillStyle = lg(x, 0, 1540, 0, 2700, [[0, '#2a2430'], [1, '#0e0a10']]); x.fillRect(-700, 1540, 2480, 1300); }, { y0: 1500, h: 1300 })));
   },
   haze(g) { g.fillStyle = 'rgba(255,120,50,.05)'; g.fillRect(0, 0, 1080, 1920); } };
+// ambient motes that keep dark scenes alive: embers rising, dust drifting, snow falling (dir: up | down | drift)
+JPA.motes = (g, A, c) => { const T = c.T, r = rng(A.seed || 61), dir = A.dir || 'up'; g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalCompositeOperation = 'lighter';
+  for (let k = 0; k < (A.n ?? 46); k++) { const sp = (A.sp || 1.6) * (50 + r() * 90), R = (A.r || 1.8) * (8 + r() * 18), ox = r() * 1300, oy = r() * 2100, sw = Math.sin(T * (.6 + r()) + k) * 70;
+    const x = ((ox + sw + (dir === 'drift' ? T * sp * .6 : T * 14)) % 1300) - 110, y = dir === 'up' ? 2000 - ((oy + T * sp) % 2100) : dir === 'down' ? ((oy + T * sp) % 2100) - 100 : (oy + Math.sin(T * .7 + k) * 60) % 2000;
+    g.globalAlpha = (A.a ?? .85) * (.55 + .45 * Math.sin(T * 2.3 + k * 1.7)); g.fillStyle = rg(g, x, y, 0, R, [[0, A.col || 'rgba(255,160,80,1)'], [1, 'rgba(0,0,0,0)']]); g.beginPath(); g.arc(x, y, R, 0, 7); g.fill(); }
+  g.restore(); };
