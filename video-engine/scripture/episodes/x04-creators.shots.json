@@ -1,0 +1,712 @@
+{
+ "lead": 0.12,
+ "tail": 0.8,
+ "loop": true,
+ "title": {
+  "text": "THE PEOPLE BEHIND\nTHE TOP 10",
+  "sub": "who made your favorite graphic novels",
+  "until": "C00"
+ },
+ "gaps": {
+  "C00": 0.35,
+  "C08": 0.35,
+  "C07": 0.35,
+  "C06": 0.35,
+  "C05": 0.35,
+  "C04": 0.35,
+  "C03": 0.35,
+  "C02": 0.35,
+  "C01": 0.35
+ },
+ "shots": [
+  {
+   "at": "C00",
+   "scene": "room",
+   "cam": [
+    [
+     560,
+     1180,
+     1.3
+    ],
+    [
+     560,
+     1160,
+     1.4
+    ]
+   ],
+   "o": {
+    "kind": "study",
+    "actors": [
+     {
+      "type": "p",
+      "c": "host",
+      "x": 540,
+      "y": 2060,
+      "s": 1.12,
+      "who": "narr",
+      "pose": "explain",
+      "expr": "smile"
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1560,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "lead": 0,
+   "grade": "warm",
+   "leak": false,
+   "music": "legend"
+  },
+  {
+   "at": "C08",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.04
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "#ff6aa8",
+      "a": 0.18
+     },
+     {
+      "type": "creator",
+      "rank": 8,
+      "name": "Rachel Ren\u00e9e Russell",
+      "books": "Dork Diaries",
+      "col": "#ff6aa8",
+      "t0": 0.05
+     },
+     {
+      "type": "vignette",
+      "kind": "lawyer",
+      "x": 540,
+      "y": 1160,
+      "s": 1.55,
+      "t0": "@C08.1"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "C07",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.04
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "#8a9ac8",
+      "a": 0.18
+     },
+     {
+      "type": "creator",
+      "rank": 7,
+      "name": "Aaron Blabey",
+      "books": "The Bad Guys",
+      "col": "#8a9ac8",
+      "t0": 0.05
+     },
+     {
+      "type": "vignette",
+      "kind": "actor",
+      "x": 540,
+      "y": 1160,
+      "s": 1.55,
+      "t0": "@C07.1"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "C06",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.04
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "#e8503a",
+      "a": 0.18
+     },
+     {
+      "type": "creator",
+      "rank": 6,
+      "name": "Jeff Kinney",
+      "books": "Diary of a Wimpy Kid",
+      "col": "#e8503a",
+      "t0": 0.05
+     },
+     {
+      "type": "vignette",
+      "kind": "islands",
+      "x": 560,
+      "y": 1160,
+      "s": 1.32,
+      "t0": "@C06.1"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "C05",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.04
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "#ff8a3a",
+      "a": 0.18
+     },
+     {
+      "type": "creator",
+      "rank": 5,
+      "name": "Tui T. Sutherland",
+      "books": "Wings of Fire",
+      "col": "#ff8a3a",
+      "t0": 0.05
+     },
+     {
+      "type": "vignette",
+      "kind": "quiz",
+      "x": 540,
+      "y": 1160,
+      "s": 1.55,
+      "t0": "@C05.1"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "C04",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.04
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "#5ad8ff",
+      "a": 0.18
+     },
+     {
+      "type": "creator",
+      "rank": 4,
+      "name": "Kazu Kibuishi",
+      "books": "Amulet",
+      "col": "#5ad8ff",
+      "t0": 0.05
+     },
+     {
+      "type": "vignette",
+      "kind": "covers",
+      "x": 540,
+      "y": 1160,
+      "s": 1.15,
+      "t0": "@C04.1"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "C03",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.04
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "#5aa8ff",
+      "a": 0.18
+     },
+     {
+      "type": "creator",
+      "rank": 3,
+      "name": "Dav Pilkey",
+      "books": "Captain Underpants \u00b7 Dog Man",
+      "col": "#5aa8ff",
+      "t0": 0.05
+     },
+     {
+      "type": "book",
+      "x": 360,
+      "y": 1160,
+      "s": 1.35,
+      "col": "#e8402a",
+      "title": "CAPTAIN\nUNDERPANTS",
+      "rot": -0.06
+     },
+     {
+      "type": "book",
+      "x": 720,
+      "y": 1180,
+      "s": 1.35,
+      "col": "#2a5ac8",
+      "title": "DOG\nMAN",
+      "rot": 0.06
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "C03",
+   "scene": "set",
+   "cam": [
+    [
+     540,
+     1300,
+     1.05
+    ],
+    [
+     540,
+     1260,
+     1.15
+    ]
+   ],
+   "o": {
+    "set": "hallway",
+    "actors": [
+     {
+      "type": "p",
+      "c": "kid",
+      "x": 520,
+      "y": 1880,
+      "s": 1.15,
+      "pose": "write",
+      "item": "pencil",
+      "expr": "focus",
+      "look": [
+       0.2,
+       1
+      ]
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1700,
+      "s": 0.62
+     },
+     {
+      "type": "comicspage",
+      "x": 610,
+      "y": 1655,
+      "s": 0.17,
+      "rot": 0.08
+     }
+    ]
+   },
+   "tr": "fade",
+   "atc": "@C03.2",
+   "grade": "warm",
+   "leak": false,
+   "music": "hope"
+  },
+  {
+   "at": "C03",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1100,
+     1.0
+    ],
+    [
+     540,
+     1100,
+     1.08
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "rgba(255,200,110,1)",
+      "a": 0.3
+     },
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 1100,
+      "r": 1600,
+      "a": 0.3
+     },
+     {
+      "type": "book",
+      "x": 380,
+      "y": 1100,
+      "s": 1.15,
+      "col": "#e8402a",
+      "title": "CAPTAIN\nUNDERPANTS",
+      "rot": -0.06
+     },
+     {
+      "type": "book",
+      "x": 700,
+      "y": 1120,
+      "s": 1.15,
+      "col": "#2a5ac8",
+      "title": "DOG\nMAN",
+      "rot": 0.06
+     }
+    ]
+   },
+   "tr": "flash",
+   "atc": "@C03.4",
+   "grade": "gold",
+   "bloom": 0.5,
+   "sfx": [
+    [
+     "sparkle",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "C02",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.04
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "#ffc04a",
+      "a": 0.18
+     },
+     {
+      "type": "creator",
+      "rank": 2,
+      "name": "Raina Telgemeier",
+      "books": "Smile \u00b7 The Baby-Sitters Club",
+      "col": "#ffc04a",
+      "t0": 0.05
+     },
+     {
+      "type": "vignette",
+      "kind": "teeth",
+      "x": 560,
+      "y": 1180,
+      "s": 1.5,
+      "t0": "@C02.2"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "cold",
+   "leak": false,
+   "sfx": [
+    [
+     "whoosh",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "C01",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 1050,
+      "r": 1800,
+      "a": 0.3
+     },
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "#ffb02a",
+      "a": 0.25
+     },
+     {
+      "type": "creator",
+      "rank": 1,
+      "name": "Lincoln Peirce",
+      "books": "Big Nate",
+      "col": "#ffb02a",
+      "t0": 0.05
+     },
+     {
+      "type": "book",
+      "x": 540,
+      "y": 1170,
+      "s": 1.6,
+      "col": "#e8302a",
+      "title": "BIG\nNATE",
+      "rot": -0.04
+     }
+    ]
+   },
+   "tr": "flash",
+   "grade": "warm",
+   "bloom": 0.4,
+   "music": "glory",
+   "sfx": [
+    [
+     "choir",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "C01",
+   "scene": "set",
+   "cam": [
+    [
+     540,
+     1250,
+     1.0
+    ],
+    [
+     540,
+     1240,
+     1.06
+    ]
+   ],
+   "o": {
+    "set": "classroom",
+    "actors": [
+     {
+      "type": "p",
+      "c": "teacher",
+      "x": 360,
+      "y": 1880,
+      "s": 1.05,
+      "pose": "gesture",
+      "expr": "smile",
+      "look": [
+       0.6,
+       -0.4
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "atc": "@C01.2",
+   "grade": "warm",
+   "leak": false
+  },
+  {
+   "at": "C09",
+   "scene": "room",
+   "cam": [
+    [
+     560,
+     1160,
+     1.35
+    ],
+    [
+     560,
+     1180,
+     1.3
+    ]
+   ],
+   "o": {
+    "kind": "study",
+    "actors": [
+     {
+      "type": "p",
+      "c": "host",
+      "x": 540,
+      "y": 2060,
+      "s": 1.12,
+      "who": "narr",
+      "pose": "gesture",
+      "expr": "smile"
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1560,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "leak": false,
+   "music": "warm"
+  }
+ ]
+}

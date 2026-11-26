@@ -1,0 +1,38 @@
+{
+  "title": "TAMAMO-NO-MAE",
+  "subtitle": "the fox who fooled an emperor",
+  "source": "Otogi-zoshi 'Tamamo-no-mae'; Noh play 'Sessho-seki'; Sessho-seki, Nasu, Tochigi (split March 2022)",
+  "voices": {
+    "mio": { "name": "Candy - Girly and Sweet", "voice_id": "Nggzl2QAXh3OijoXD116" },
+    "kon": { "name": "Callum - Husky Trickster (premade, dry)", "voice_id": "N2lVS1w4EtoT3dr4eOWO" },
+    "tamamo": { "name": "Moriana - Dark, Seductive, Dangerous", "voice_id": "ahuwlnygfGOZ2gufNQh7" },
+    "yasunari": { "name": "Bill Adams - Wise and Motivational American Storyteller", "voice_id": "V2bPluzT7MuirpucVAKH" }
+  },
+  "takes": { "mio": "mio_a", "kon": "kon_a", "tamamo": "tamamo_a", "yasunari": "yasunari_a" },
+  "lines": [
+    { "id": "L01", "who": "mio", "say": "[nervous] Kon... why is that rock smoking?", "cap": ["Kon... why is that rock {o:smoking}?"] },
+    { "id": "L02", "who": "kon", "say": "[sly] Because it's not a rock. It's a prison.", "cap": ["Because it's not a rock.", "It's a {r:prison}."] },
+    { "id": "L03", "who": "mio", "say": "[shocked] A PRISON?!", "cap": ["{pop:A PRISON?!}"] },
+    { "id": "L04", "who": "kon", "say": "[storytelling] Nine hundred years ago, the most beautiful woman in Japan appeared at the emperor's palace. Her name was Tamamo-no-Mae.", "cap": ["Nine hundred years ago,", "the most beautiful woman in Japan", "appeared at the emperor's palace.", "Her name was {g:Tamamo-no-Mae}."] },
+    { "id": "L05", "who": "kon", "say": "She knew every poem, every answer, every secret. Some say her body glowed in the dark.", "cap": ["She knew every poem,", "every answer, every {o:secret}.", "Some say her body", "{o:glowed in the dark}."] },
+    { "id": "L06", "who": "mio", "say": "[suspicious] Okay, that's not normal.", "cap": ["Okay, that's {r:not normal}."] },
+    { "id": "L07", "who": "kon", "say": "[ominous] The emperor fell in love. Then he fell sick. Every night, a little weaker. No doctor could explain it.", "cap": ["The emperor fell in {g:love}.", "Then he fell {r:sick}.", "Every night, a little weaker.", "No doctor could explain it."] },
+    { "id": "L08", "who": "kon", "say": "So the court called its greatest diviner. Abe no Yasunari.", "cap": ["So the court called its greatest diviner.", "{g:Abe no Yasunari}."] },
+    { "id": "L09", "who": "yasunari", "say": "[cold] Your Majesty... that woman is not human.", "cap": ["“Your Majesty...", "that woman is {r:not human}.”"] },
+    { "id": "L10", "who": "kon", "say": "[intense] He held a sacred mirror up to her. And in the reflection... nine tails.", "cap": ["He held a {o:sacred mirror} up to her.", "And in the reflection...", "{r:nine tails}."] },
+    { "id": "L11", "who": "mio", "say": "[screaming] NINE TAILS?!", "cap": ["{pop:NINE TAILS?!}"] },
+    { "id": "L12", "who": "tamamo", "say": "[menacing laugh] I have ruined greater kings than yours.", "cap": ["“I have ruined", "{r:greater kings} than yours.”"] },
+    { "id": "L13", "who": "kon", "say": "Legends say she had already brought down kingdoms in India and China. Japan was supposed to be next.", "cap": ["Legends say she had already", "brought down kingdoms in {o:India} and {o:China}.", "Japan was supposed to be {r:next}."] },
+    { "id": "L14", "who": "kon", "say": "[excited] She fled to the plains of Nasu. The emperor sent eighty thousand warriors after her.", "cap": ["She fled to the plains of {g:Nasu}.", "The emperor sent {r:eighty thousand}", "warriors after her."] },
+    { "id": "L15", "who": "kon", "say": "For days she outran them all. Until an archer's arrow finally struck her down.", "cap": ["For days she outran them all.", "Until an archer's {r:arrow}", "finally struck her down."] },
+    { "id": "L16", "who": "mio", "say": "[relieved] So she's dead!", "cap": ["So she's {g:dead}!"] },
+    { "id": "L17", "who": "kon", "say": "[darkly] Her body turned to stone. And anything that touched that stone... died. Birds. Animals. People.", "cap": ["Her body turned to {o:stone}.", "And anything that touched that stone...", "{r:died}.", "Birds. Animals. {r:People}."] },
+    { "id": "L18", "who": "kon", "say": "They called it Sessho-seki. The Killing Stone.", "cap": ["They called it {o:Sessho-seki}.", "The {r:Killing Stone}."] },
+    { "id": "L19", "who": "kon", "say": "[whispering] For centuries it sat on that mountain, tied with sacred rope. Until March, twenty twenty-two... when it split in half.", "cap": ["For centuries it sat on that mountain,", "tied with {o:sacred rope}.", "Until {o:March 2022}...", "when it {r:split in half}."] },
+    { "id": "L20", "who": "mio", "say": "[panicking] Wait, THAT rock?! It's OPEN?!", "cap": ["Wait, {o:THAT} rock?!", "{pop:IT'S OPEN?!}"] },
+    { "id": "L21", "who": "kon", "say": "[casually] Relax. Experts said it was just the weather.", "cap": ["Relax.", "Experts said it was just the {g:weather}."] },
+    { "id": "L22", "who": "mio", "say": "[nervous] ...And what do YOU say?", "cap": ["...And what do {o:YOU} say?"] },
+    { "id": "L23", "who": "kon", "say": "[sly] [amused] I say... it feels good to stretch my tails.", "cap": ["I say...", "it feels good to {r:stretch my tails}."] },
+    { "id": "L24", "who": "mio", "say": "[terrified] ...KON?!", "cap": ["{pop:...KON?!}"] }
+  ]
+}

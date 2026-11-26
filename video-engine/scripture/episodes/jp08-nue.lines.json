@@ -1,0 +1,221 @@
+{
+ "title": "THE NUE",
+ "subtitle": "the monster in the black cloud",
+ "source": "Heike monogatari, Book 4 'The Nightbird' (Yorimasa, Ino Hayata, Emperor Konoe, Shishio); Nue Shrine and Nue Pond, Nijo Park, Kyoto; White's thrush (toratsugumi) called 'nue'",
+ "voices": {
+  "mio": {
+   "name": "Candy - Girly and Sweet",
+   "voice_id": "Nggzl2QAXh3OijoXD116"
+  },
+  "kon": {
+   "name": "Callum - Husky Trickster (premade, dry)",
+   "voice_id": "N2lVS1w4EtoT3dr4eOWO"
+  }
+ },
+ "takes": {
+  "mio": "mio_a",
+  "kon": "kon_a"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "kon",
+   "say": "[sly] You asked for the Nue.",
+   "cap": [
+    "You asked for {r:the Nue}."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L02",
+   "who": "mio",
+   "say": "[scared whisper] Kon... what is that sound?",
+   "cap": [
+    "Kon...",
+    "what is {o:that sound}?"
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "kon",
+   "say": "[low] Pray it's a bird.",
+   "cap": [
+    "Pray it's a {r:bird}."
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "kon",
+   "say": "[ominous] Over 850 years ago, a black cloud crept over the Emperor's palace every night.",
+   "cap": [
+    "Over 850 years ago,",
+    "a {r:black cloud} crept over",
+    "the Emperor's palace every night."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L05",
+   "who": "kon",
+   "say": "At 2 a.m., something inside it began to cry.",
+   "cap": [
+    "At 2 a.m.,",
+    "something inside it",
+    "began to {r:cry}."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L06",
+   "who": "kon",
+   "say": "The Emperor fell ill. Priests prayed. Nothing worked.",
+   "cap": [
+    "The Emperor fell {o:ill}.",
+    "Priests prayed.",
+    "Nothing worked."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L07",
+   "who": "kon",
+   "say": "So they called the best archer in Japan: Minamoto no Yorimasa.",
+   "cap": [
+    "So they called the best archer in Japan:",
+    "{o:Minamoto no Yorimasa}."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L08",
+   "who": "kon",
+   "say": "He brought two arrows. The second was for the man who recommended him... in case he missed.",
+   "cap": [
+    "He brought {o:two arrows}.",
+    "The second was for the man",
+    "who recommended him...",
+    "in case he {r:missed}."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L09",
+   "who": "kon",
+   "say": "He prayed, drew his bow, and aimed into the dark.",
+   "cap": [
+    "He prayed,",
+    "drew his bow,",
+    "and aimed into the {r:dark}."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L10",
+   "who": "kon",
+   "say": "[intense] One arrow.",
+   "cap": [
+    "{r:One arrow}."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "kon",
+   "say": "[intense] Something shrieked and fell out of the sky.",
+   "cap": [
+    "Something {r:shrieked}",
+    "and fell out of the sky."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L12",
+   "who": "kon",
+   "say": "His retainer Hayata leapt on it and finished it.",
+   "cap": [
+    "His retainer Hayata leapt on it",
+    "and {o:finished it}."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L13",
+   "who": "kon",
+   "say": "Then they raised the torches.",
+   "cap": [
+    "Then they raised the {o:torches}."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L14",
+   "who": "kon",
+   "say": "The face of a monkey. The body of a tanuki. The legs of a tiger. A snake for a tail.",
+   "cap": [
+    "The face of a {o:monkey}.",
+    "The body of a {o:tanuki}.",
+    "The legs of a {o:tiger}.",
+    "A {r:snake} for a tail."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L15",
+   "who": "mio",
+   "say": "[horrified] Monkey face, TIGER legs, SNAKE tail?!",
+   "cap": [
+    "Monkey face, {o:TIGER} legs,",
+    "{r:SNAKE} tail?!"
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "kon",
+   "say": "The Emperor recovered. Yorimasa was rewarded with the sword Shishio.",
+   "cap": [
+    "The Emperor {o:recovered}.",
+    "Yorimasa was rewarded",
+    "with the sword {o:Shishiō}."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L17",
+   "who": "kon",
+   "say": "The pond where he washed his arrow is still in Kyoto, next to the Nue Shrine.",
+   "cap": [
+    "The pond where he washed his arrow",
+    "is still in {o:Kyoto},",
+    "next to the {r:Nue Shrine}."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L18",
+   "who": "kon",
+   "say": "[hushed] And its cry? It sounded like a night bird Japan still calls the nue.",
+   "cap": [
+    "And its cry?",
+    "It sounded like a {o:night bird}",
+    "Japan still calls {r:the nue}."
+   ],
+   "take": "kon_b"
+  },
+  {
+   "id": "L19",
+   "who": "kon",
+   "say": "[whisper] You can still hear it.",
+   "cap": [
+    "You can {r:still hear it}."
+   ]
+  },
+  {
+   "id": "L20",
+   "who": "mio",
+   "say": "[terrified] Kon... that one didn't sound like a bird.",
+   "cap": [
+    "Kon...",
+    "that one {r:didn't} sound like a bird."
+   ]
+  }
+ ]
+}

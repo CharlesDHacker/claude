@@ -1,0 +1,169 @@
+{
+ "title": "JAPAN'S ANUBIS",
+ "subtitle": "the white foxes of Inari",
+ "source": "Inari Okami and kitsune messengers; Inari shrine fox statues (key, jewel, red yodarekake); Fushimi Inari-taisha senbon torii (~10,000); aburaage, kitsune udon, inarizushi; folk belief of a tail per century",
+ "voices": {
+  "mio": {
+   "name": "Candy - Girly and Sweet",
+   "voice_id": "Nggzl2QAXh3OijoXD116"
+  },
+  "kon": {
+   "name": "Callum - Husky Trickster (premade, dry)",
+   "voice_id": "N2lVS1w4EtoT3dr4eOWO"
+  }
+ },
+ "takes": {
+  "mio": "mio_a",
+  "kon": "kon_a"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "mio",
+   "say": "[curious] Kon, Egypt has Anubis. Does Japan have one?",
+   "cap": [
+    "Kon, Egypt has {o:Anubis}.",
+    "Does Japan have one?"
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "kon",
+   "say": "[sly] We have thousands.",
+   "cap": [
+    "We have {r:thousands}."
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "kon",
+   "say": "Meet Inari, the god of rice. Her messengers are white foxes.",
+   "cap": [
+    "Meet {o:Inari},",
+    "the god of {o:rice}.",
+    "Her messengers are {r:white foxes}."
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "kon",
+   "say": "Egypt's jackal is black, like the fertile soil of the Nile. Japan's fox is white... and it guards the rice.",
+   "cap": [
+    "Egypt's jackal is {o:black},",
+    "like the fertile soil of the Nile.",
+    "Japan's fox is {o:white}...",
+    "and it guards the {r:rice}."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "kon",
+   "say": "Inari has over thirty thousand shrines. And at almost every one, two stone foxes stand guard.",
+   "cap": [
+    "Inari has over",
+    "{o:thirty thousand} shrines.",
+    "And at almost every one,",
+    "two {r:stone foxes} stand guard."
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "kon",
+   "say": "One holds a key to the rice storehouse. The other holds a jewel.",
+   "cap": [
+    "One holds a {o:key}",
+    "to the rice storehouse.",
+    "The other holds a {o:jewel}."
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "kon",
+   "say": "People dress them in red bibs, and leave them fried tofu. It's their favorite.",
+   "cap": [
+    "People dress them in {r:red bibs},",
+    "and leave them {o:fried tofu}.",
+    "It's their favorite."
+   ]
+  },
+  {
+   "id": "L08",
+   "who": "mio",
+   "say": "[surprised] Fried TOFU?!",
+   "cap": [
+    "Fried {o:TOFU}?!"
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "kon",
+   "say": "[amused] That's why inari sushi is called inari.",
+   "cap": [
+    "That's why {o:inari sushi}",
+    "is called inari."
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "mio",
+   "say": "[delighted] Okay, I'm eating ALL the inari sushi.",
+   "cap": [
+    "Okay, I'm eating",
+    "{o:ALL} the inari sushi."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "kon",
+   "say": "At Fushimi Inari in Kyoto, ten thousand red gates tunnel up the mountain. Some say the foxes walk them at night.",
+   "cap": [
+    "At {o:Fushimi Inari} in Kyoto,",
+    "{r:ten thousand} red gates",
+    "tunnel up the mountain.",
+    "Some say the foxes",
+    "walk them at {r:night}."
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "kon",
+   "take": "kon_b",
+   "say": "[sly] Every one of those gates was donated by a business, and the company's name is carved right into the wood.",
+   "cap": [
+    "Every one of those gates",
+    "was {o:donated} by a business,",
+    "and the company's name",
+    "is {r:carved} right into the wood."
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "kon",
+   "say": "[hushed] And legend says the oldest foxes grow a new tail every hundred years... until they have nine.",
+   "cap": [
+    "And legend says the oldest foxes",
+    "grow a new tail",
+    "every hundred years...",
+    "until they have {r:nine}."
+   ]
+  },
+  {
+   "id": "L14",
+   "who": "mio",
+   "say": "[suspicious] Wait. Red bib... white fur... Kon, are YOU one of them?",
+   "cap": [
+    "Wait. {r:Red bib}...",
+    "{o:white fur}...",
+    "Kon, are {r:YOU} one of them?"
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "kon",
+   "say": "[sly] I'm on a break.",
+   "cap": [
+    "I'm on a {o:break}."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,148 @@
+{
+ "title": "TOP 10",
+ "subtitle": "graphic novels, ranked by quality",
+ "voices": {
+  "narr": {
+   "name": "Stray - Deep and Grounded",
+   "voice_id": "DT7zBOa8kCzTWHNN60AC"
+  }
+ },
+ "takes": {
+  "narr": "final"
+ },
+ "lines": [
+  {
+   "id": "F00",
+   "who": "narr",
+   "say": "the ten best graphic novels kids grew up on ranked by quality not sales",
+   "cap": [
+    "The {o:ten best} graphic novels kids grew up on.",
+    "Ranked by {g:quality}, not sales."
+   ]
+  },
+  {
+   "id": "F10",
+   "who": "narr",
+   "say": "ten dork diaries doodles and middle school drama for a lot of kids this was the other diary",
+   "cap": [
+    "{pop:#10}",
+    "Dork Diaries. Doodles and middle school drama.",
+    "For a lot of kids, this was {o:the other diary}."
+   ]
+  },
+  {
+   "id": "F09",
+   "who": "narr",
+   "say": "nine the bad guys villains trying to be heroes short fast and big enough to get its own movie",
+   "cap": [
+    "{pop:#9}",
+    "The Bad Guys. Villains trying to be {g:heroes}.",
+    "Short, fast, and big enough",
+    "to get its own {o:movie}."
+   ]
+  },
+  {
+   "id": "F08",
+   "who": "narr",
+   "say": "eight diary of a wimpy kid the most popular book on this list but popular isn't the same as good",
+   "cap": [
+    "{pop:#8}",
+    "Diary of a Wimpy Kid.",
+    "The most {o:popular} book on this list.",
+    "But popular isn't the same as {r:good}."
+   ]
+  },
+  {
+   "id": "F07",
+   "who": "narr",
+   "say": "seven captain underpants potty humor that drove parents crazy and kids lined up anyway",
+   "cap": [
+    "{pop:#7}",
+    "Captain Underpants.",
+    "Potty humor that drove parents {r:crazy},",
+    "and kids lined up {o:anyway}."
+   ]
+  },
+  {
+   "id": "F06",
+   "who": "narr",
+   "say": "six the baby sitters club an eighties series reborn as graphic novels then a netflix show",
+   "cap": [
+    "{pop:#6}",
+    "The Baby-Sitters Club.",
+    "An {o:eighties} series reborn as graphic novels,",
+    "then a {o:Netflix} show."
+   ]
+  },
+  {
+   "id": "F05",
+   "who": "narr",
+   "say": "five wings of fire the graphic novels dragon tribes prophecies and fan art in every notebook margin",
+   "cap": [
+    "{pop:#5}",
+    "Wings of Fire, the graphic novels.",
+    "Dragon tribes, prophecies,",
+    "and fan art in every notebook margin."
+   ]
+  },
+  {
+   "id": "F04",
+   "who": "narr",
+   "say": "four dog man the spin off that outgrew the original new books launch straight to number one",
+   "cap": [
+    "{pop:#4}",
+    "Dog Man. The spin-off that {o:outgrew} the original.",
+    "New books launch straight to {g:number one}."
+   ]
+  },
+  {
+   "id": "F03",
+   "who": "narr",
+   "say": "three amulet a real fantasy epic and the series that turned library skeptics into readers",
+   "cap": [
+    "{pop:#3}",
+    "Amulet. A real {o:fantasy epic},",
+    "the series that turned library skeptics into readers."
+   ]
+  },
+  {
+   "id": "F02",
+   "who": "narr",
+   "say": "two smile a true story about braces and growing up and it stayed on bestseller lists for years",
+   "cap": [
+    "{pop:#2}",
+    "Smile. A {g:true story} about braces and growing up,",
+    "and it stayed on bestseller lists for {o:years}."
+   ]
+  },
+  {
+   "id": "F01",
+   "who": "narr",
+   "say": "and number one big nate not the biggest seller here but thirty five years of comic strips the best crafted on this list",
+   "cap": [
+    "{pop:#1}",
+    "Big Nate. Not the biggest seller here,",
+    "but {o:thirty-five years} of comic strips.",
+    "The {g:best crafted} on this list."
+   ]
+  },
+  {
+   "id": "F11",
+   "who": "narr",
+   "say": "and if your favorite didn't make the cut it was either too niche or it just falls behind these ten",
+   "cap": [
+    "And if your favorite didn't make the cut,",
+    "it was either {o:too niche},",
+    "or it just {r:falls behind} these ten."
+   ]
+  },
+  {
+   "id": "F12",
+   "who": "narr",
+   "say": "so which one did you read first",
+   "cap": [
+    "So, which one did you read {o:first}?"
+   ]
+  }
+ ]
+}

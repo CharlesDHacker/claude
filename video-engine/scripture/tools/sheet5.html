@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><style>@font-face{font-family:'Nunito';font-weight:900;src:url('../fonts/nunito-latin-900-normal.woff2')}html,body{margin:0;background:#000}</style></head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script src="../art/lib.js"></script><script src="../art/chars.js"></script><script src="../art/warriors.js"></script><script src="../art/figure.js"></script><script src="../art/heroes.js"></script><script src="../art/scenes.js"></script><script src="../art/stage.js"></script><script src="../art/sea.js"></script><script src="../art/village.js"></script><script src="../art/painter.js"></script><script src="../art/babylon.js"></script>
+<script>
+const g=document.getElementById('c').getContext('2d');
+document.fonts.load('900 44px Nunito').then(()=>{
+g.fillStyle='#e9d3ae';g.fillRect(0,0,1080,1920);
+lion(g,{x:300,y:560,s:.85,mouth:1},1); lion(g,{x:780,y:560,s:.75,male:false,pose:'prowl',flip:true},1.4);
+lion(g,{x:330,y:980,s:.75,pose:'sleep'},1); lion(g,{x:800,y:980,s:.7,pose:'lie',eyes:'shut',flip:true},1);
+warrior(g,{x:170,y:1500,s:.55,c:'daniel',pose:'pray',t:1}); warrior(g,{x:420,y:1500,s:.55,c:'darius',expr:'shock',t:1}); warrior(g,{x:680,y:1500,s:.55,c:'satrap',expr:'smile',t:1,flip:true}); warrior(g,{x:920,y:1500,s:.55,c:'guard',t:1,flip:true});
+decree(g,{x:250,y:1750,s:.35},1); denStone(g,{x:760,y:1880,s:.55,sealed:true},1);
+window.__done=true;});
+</script></body></html>

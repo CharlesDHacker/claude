@@ -1,0 +1,216 @@
+{
+ "title": "HOW MIO MET KON",
+ "subtitle": "the night of the fox's wedding",
+ "source": "Folk belief: kitsune no yomeiri (a sun-shower is a fox's wedding; humans must not watch or follow); kitsunebi fox lanterns; Inari fox messengers. Mio and Kon backstory is original to the series.",
+ "voices": {
+  "mio": {
+   "name": "Candy - Girly and Sweet",
+   "voice_id": "Nggzl2QAXh3OijoXD116"
+  },
+  "kon": {
+   "name": "Callum - Husky Trickster (premade, dry)",
+   "voice_id": "N2lVS1w4EtoT3dr4eOWO"
+  }
+ },
+ "takes": {
+  "mio": "mio_a",
+  "kon": "kon_a"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "mio",
+   "say": "[cheerful] Everyone asks me where I found a talking fox.",
+   "cap": [
+    "Everyone asks me where",
+    "I found a {o:talking fox}."
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "mio",
+   "say": "[softer] Honestly? He found me.",
+   "cap": [
+    "Honestly?",
+    "He {r:found me}."
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "mio",
+   "say": "[storytelling] I was five. Every summer I stayed with my grandma, at her tiny shrine up in the mountains.",
+   "cap": [
+    "I was {o:five}.",
+    "Every summer I stayed with my {o:grandma},",
+    "at her tiny shrine",
+    "up in the {o:mountains}."
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "mio",
+   "say": "[fond] She made the best inari sushi in the whole world.",
+   "cap": [
+    "She made the best",
+    "{o:inari sushi}",
+    "in the whole world."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "mio",
+   "say": "One afternoon, it started raining... but the sun was still out.",
+   "cap": [
+    "One afternoon,",
+    "it started {o:raining}...",
+    "but the sun was {r:still out}."
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "mio",
+   "say": "[whispering, imitating an old woman] Grandma said, sun rain means the foxes are getting married. Never, ever follow them.",
+   "cap": [
+    "Grandma said,",
+    "“Sun rain means the foxes",
+    "are getting {o:married}.",
+    "{r:Never, ever} follow them.”"
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "kon",
+   "say": "[sly] In Japan, they call it the fox's wedding.",
+   "cap": [
+    "In Japan, they call it",
+    "{o:the fox's wedding}."
+   ]
+  },
+  {
+   "id": "L08",
+   "who": "mio",
+   "say": "[sheepish] So obviously... I followed them.",
+   "cap": [
+    "So obviously...",
+    "I {r:followed} them."
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "mio",
+   "say": "[awed] There were lanterns floating through the trees. Foxes in wedding robes, under a big red umbrella.",
+   "cap": [
+    "There were {o:lanterns}",
+    "floating through the trees.",
+    "Foxes in {o:wedding robes},",
+    "under a big {r:red umbrella}."
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "mio",
+   "say": "[small, scared] And then they were gone. It was dark. I didn't know where I was.",
+   "cap": [
+    "And then they were {r:gone}.",
+    "It was {o:dark}.",
+    "I didn't know where I was."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "mio",
+   "say": "[tender] I just sat down and cried. And when I looked up... there was a little white fox, staring at me.",
+   "cap": [
+    "I just sat down and {o:cried}.",
+    "And when I looked up...",
+    "there was a little {r:white fox},",
+    "staring at me."
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "mio",
+   "say": "[giggling] So I gave him my inari sushi.",
+   "cap": [
+    "So I gave him",
+    "my {o:inari sushi}."
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "kon",
+   "say": "[defensive] It was very good sushi.",
+   "cap": [
+    "It was {o:very good} sushi."
+   ]
+  },
+  {
+   "id": "L14",
+   "who": "mio",
+   "say": "[warm] He walked me all the way home. I never even heard him leave.",
+   "cap": [
+    "He walked me",
+    "all the way {o:home}.",
+    "I never even heard him {r:leave}."
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "mio",
+   "say": "[smiling] Grandma found me asleep on the porch the next morning, holding an empty sushi box.",
+   "cap": [
+    "Grandma found me",
+    "asleep on the porch",
+    "the next morning,",
+    "holding an {o:empty sushi box}."
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "kon",
+   "say": "[quiet, serious] Messengers aren't allowed to help a human who sees the wedding. So they took my job away.",
+   "cap": [
+    "Messengers aren't allowed",
+    "to help a human who sees the wedding.",
+    "So they took my {r:job away}."
+   ]
+  },
+  {
+   "id": "L17",
+   "who": "mio",
+   "say": "[stunned] Wait... you got FIRED... because of ME?",
+   "cap": [
+    "Wait...",
+    "you got {r:FIRED}...",
+    "because of {o:ME}?"
+   ]
+  },
+  {
+   "id": "L18",
+   "who": "kon",
+   "say": "[gentle, sly] I'm on a break.",
+   "cap": [
+    "I'm on a {o:break}."
+   ]
+  },
+  {
+   "id": "L19",
+   "who": "kon",
+   "say": "[soft] Best break I ever took.",
+   "cap": [
+    "Best break",
+    "I {o:ever} took."
+   ]
+  },
+  {
+   "id": "L20",
+   "who": "mio",
+   "say": "[cheerful] So when people ask me where I found a talking fox...",
+   "cap": [
+    "So when people ask me",
+    "where I found a {o:talking fox}..."
+   ]
+  }
+ ],
+ "continuous": true
+}

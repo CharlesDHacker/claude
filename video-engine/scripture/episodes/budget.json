@@ -1,0 +1,7 @@
+{
+ "_note": "ElevenLabs Starter: 30,000 chars/month, about 20 videos. Kon narrates (Mio narrates her own backstory). 85 s +-5, 1,500 chars per video. Check: python3 tools/voice_budget.py episodes/X.lines.json",
+ "elevenlabs_chars_per_video": 1500,
+ "target_seconds": 85,
+ "tolerance_seconds": 5,
+ "offline_speakers": []
+}

@@ -1,0 +1,2717 @@
+{
+ "lead": 0.12,
+ "tail": 0.35,
+ "title": {
+  "text": "GOLIATH HAD BROTHERS",
+  "sub": "the giants David couldn't fight alone",
+  "until": "L05"
+ },
+ "gaps": {
+  "L01": 0.15,
+  "L02": 0.12,
+  "L03": 0.12,
+  "L04": 0.05,
+  "L05": 0.35,
+  "L07": 0.3,
+  "L08": 0.3,
+  "L10": 0.1,
+  "L11": 0.2,
+  "L12": 0.2,
+  "L13": 0.15,
+  "L14": 0.1,
+  "L15": 0.05,
+  "L16": 0.1,
+  "L17": 0.3,
+  "L18": 0.15,
+  "L19": 0.3,
+  "L20": 0.1,
+  "L22": 0.2,
+  "L23": 0.1,
+  "L24": 0.05,
+  "L25": 0.2,
+  "L26": 0.25,
+  "L27": 0.15,
+  "L28": 0.3,
+  "L29": 0.05,
+  "L30": 0.3,
+  "L31": 0.1,
+  "L32": 0.15,
+  "L33": 0.1,
+  "L34": 0.25
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "lead": 0,
+   "scene": "elah",
+   "cam": [
+    [
+     540,
+     1150,
+     1.08
+    ],
+    [
+     380,
+     1250,
+     1.4
+    ]
+   ],
+   "grade": "warm",
+   "o": {
+    "tobyX": 260,
+    "selahX": 880,
+    "tobySling": true,
+    "tobyExpr": "happy",
+    "tobyLook": [
+     0.6,
+     -0.4
+    ],
+    "selahExpr": "calm",
+    "selahLook": [
+     -0.6,
+     0
+    ]
+   },
+   "pops": {
+    "L01": [
+     560,
+     640,
+     -0.05,
+     190
+    ]
+   },
+   "kicks": [
+    "@L01.0+2.85"
+   ],
+   "sfx": [
+    [
+     "sling",
+     0.2
+    ],
+    [
+     "boom",
+     "@L01.0+2.85"
+    ]
+   ],
+   "music": "warm"
+  },
+  {
+   "at": "L02",
+   "scene": "elah",
+   "cam": [
+    [
+     650,
+     1100,
+     1.9
+    ],
+    [
+     650,
+     1095,
+     2.0
+    ]
+   ],
+   "o": {
+    "tobyX": 260,
+    "selahX": 880,
+    "tobyExpr": "neutral",
+    "selahExpr": "smug",
+    "selahLook": [
+     0.7,
+     0
+    ]
+   }
+  },
+  {
+   "at": "L03",
+   "scene": "elah",
+   "cam": [
+    [
+     270,
+     1290,
+     1.85
+    ],
+    [
+     270,
+     1285,
+     1.95
+    ]
+   ],
+   "o": {
+    "tobyX": 260,
+    "selahX": 880,
+    "tobyExpr": "worry",
+    "tobyHands": "chin",
+    "tobyLook": [
+     0.6,
+     -0.3
+    ]
+   }
+  },
+  {
+   "at": "L04",
+   "scene": "elah",
+   "cam": [
+    [
+     640,
+     1070,
+     2.4
+    ],
+    [
+     660,
+     1060,
+     3.1
+    ]
+   ],
+   "grade": "blood",
+   "o": {
+    "tobyX": 260,
+    "selahX": 880,
+    "selahExpr": "smug",
+    "selahLook": [
+     0.9,
+     0.2
+    ]
+   },
+   "sfx": [
+    [
+     "riser",
+     "@L04.1-1.2"
+    ]
+   ]
+  },
+  {
+   "at": "L05",
+   "scene": "elah",
+   "cam": [
+    [
+     300,
+     1250,
+     1.55
+    ],
+    [
+     300,
+     1250,
+     1.7
+    ]
+   ],
+   "o": {
+    "tobyX": 260,
+    "selahX": 880,
+    "tobyExpr": "shock",
+    "tobyHands": "up",
+    "tobyHop": 0.7
+   },
+   "pops": {
+    "L05": [
+     540,
+     640,
+     -0.04,
+     200
+    ]
+   },
+   "kicks": [
+    0.12
+   ],
+   "sfx": [
+    [
+     "braam",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L06",
+   "lead": 0.3,
+   "tr": "whip",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     880,
+     0.95
+    ],
+    [
+     500,
+     880,
+     0.95
+    ]
+   ],
+   "grade": "warm",
+   "label": "THE VALLEY OF ELAH",
+   "music": "legend",
+   "o": {
+    "sky": "sunset",
+    "sunX": 620,
+    "sunR": 260,
+    "embers": 0,
+    "far": [
+     {
+      "type": "army",
+      "x0": -500,
+      "x1": 250,
+      "y": 1330,
+      "s": 0.32,
+      "n": 26,
+      "shields": true,
+      "par": 0.6
+     },
+     {
+      "type": "army",
+      "x0": 820,
+      "x1": 1600,
+      "y": 1330,
+      "s": 0.34,
+      "n": 26,
+      "feather": true,
+      "flip": true,
+      "par": 0.6
+     }
+    ],
+    "actors": [
+     {
+      "type": "w",
+      "c": "youngDavid",
+      "x": 290,
+      "y": 1720,
+      "s": 1.05,
+      "pose": "sling",
+      "sil": false,
+      "rim": -9
+     },
+     {
+      "type": "w",
+      "c": "goliath",
+      "x": 860,
+      "y": 1760,
+      "s": 1.75,
+      "flip": true,
+      "sil": false,
+      "rim": 9,
+      "expr": "roar"
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "sling",
+     0.4
+    ],
+    [
+     "crowd",
+     0
+    ]
+   ]
+  },
+  {
+   "at": "L07",
+   "scene": "stage",
+   "cam": [
+    [
+     330,
+     615,
+     0.95
+    ],
+    [
+     880,
+     615,
+     0.95
+    ]
+   ],
+   "camEase": "lin",
+   "grade": "warm",
+   "speed": 0.55,
+   "handheld": 0,
+   "o": {
+    "sky": "sunset",
+    "sunX": 600,
+    "sunR": 260,
+    "clouds": true,
+    "actors": [
+     {
+      "type": "w",
+      "c": "goliath",
+      "x": 1080,
+      "y": 1720,
+      "s": 2.0,
+      "flip": true,
+      "sil": false,
+      "rim": 9
+     },
+     {
+      "type": "stone",
+      "x0": 180,
+      "y0": 1060,
+      "x1": 1015,
+      "y1": 470,
+      "arc": 90,
+      "t0": 0.1,
+      "t1": "@L07.1-0.1",
+      "r": 26
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ]
+   ]
+  },
+  {
+   "atc": "@L07.1-0.12",
+   "at": "L07",
+   "tr": "flash",
+   "scene": "stage",
+   "cam": [
+    [
+     640,
+     1000,
+     1.0
+    ],
+    [
+     660,
+     1080,
+     0.95
+    ]
+   ],
+   "grade": "warm",
+   "kicks": [
+    0.02
+   ],
+   "shakeAt": [
+    1.05
+   ],
+   "o": {
+    "sky": "sunset",
+    "sunX": 300,
+    "sunR": 220,
+    "actors": [
+     {
+      "type": "w",
+      "c": "goliath",
+      "x": 720,
+      "y": 1760,
+      "s": 2.0,
+      "flip": true,
+      "sil": true,
+      "rim": 9,
+      "pose": "fall",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.05,
+       "t1": 1.05,
+       "e": "i"
+      }
+     },
+     {
+      "type": "burst",
+      "x": 690,
+      "y": 470,
+      "t0": 0.0,
+      "r": 320
+     },
+     {
+      "type": "dust",
+      "x": 1250,
+      "y": 1760,
+      "t0": 1.0,
+      "s": 1.6
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "crack",
+     0.02
+    ],
+    [
+     "boom",
+     1.05
+    ],
+    [
+     "crowd",
+     1.1
+    ]
+   ]
+  },
+  {
+   "at": "L08",
+   "tr": "flash",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     685,
+     0.95
+    ],
+    [
+     540,
+     692,
+     0.94
+    ]
+   ],
+   "grade": "blood",
+   "music": "dread",
+   "o": {
+    "sky": "blood",
+    "sun": false,
+    "lightning": true,
+    "clouds": true,
+    "embers": 40,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1700,
+      "r": 900,
+      "col": "rgba(255,90,40,1)",
+      "a": 0.25
+     },
+     {
+      "type": "w",
+      "c": "ishbi",
+      "x": 160,
+      "y": 1760,
+      "s": 1.75,
+      "sil": true,
+      "rim": 7,
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.2,
+       "t1": 0.9
+      }
+     },
+     {
+      "type": "w",
+      "c": "goliath",
+      "x": 420,
+      "y": 1790,
+      "s": 1.95,
+      "sil": true,
+      "rim": 7,
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.6,
+       "t1": 1.3
+      }
+     },
+     {
+      "type": "w",
+      "c": "gathGiant",
+      "x": 690,
+      "y": 1790,
+      "s": 2.0,
+      "flip": true,
+      "sil": true,
+      "rim": -7,
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": 1.0,
+       "t1": 1.7
+      }
+     },
+     {
+      "type": "w",
+      "c": "ishbi",
+      "x": 950,
+      "y": 1760,
+      "s": 1.8,
+      "flip": true,
+      "sil": true,
+      "rim": -7,
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": 1.4,
+       "t1": 2.1
+      }
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "thunder",
+     0.1
+    ],
+    [
+     "braam",
+     0.25
+    ],
+    [
+     "boom",
+     1.5
+    ]
+   ]
+  },
+  {
+   "at": "L09",
+   "tr": "fade",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1050,
+     1.15
+    ],
+    [
+     575,
+     790,
+     2.1
+    ]
+   ],
+   "grade": "gold",
+   "label": "KING DAVID",
+   "labelAt": 0.6,
+   "music": "hope",
+   "o": {
+    "sky": "gold",
+    "sunX": 260,
+    "sunY": 900,
+    "sunR": 160,
+    "rays": 0.25,
+    "far": [
+     {
+      "type": "tent",
+      "x": 140,
+      "y": 1360,
+      "s": 1.6,
+      "par": 0.6
+     },
+     {
+      "type": "tent",
+      "x": 980,
+      "y": 1350,
+      "s": 1.4,
+      "par": 0.6
+     },
+     {
+      "type": "banner",
+      "x": 860,
+      "y": 1500,
+      "s": 1.1,
+      "col": "#2a4a8a",
+      "sym": true,
+      "par": 0.8
+     }
+    ],
+    "actors": [
+     {
+      "type": "w",
+      "c": "david",
+      "x": 540,
+      "y": 1830,
+      "s": 1.65,
+      "expr": {
+       "a": 0,
+       "b": 0,
+       "t0": 0,
+       "t1": 1
+      },
+      "pose": "stand"
+     }
+    ]
+   }
+  },
+  {
+   "at": "L10",
+   "tr": "whip",
+   "scene": "stage",
+   "cam": [
+    [
+     300,
+     1150,
+     1.05
+    ],
+    [
+     760,
+     1120,
+     1.05
+    ]
+   ],
+   "grade": "blood",
+   "music": "battle",
+   "o": {
+    "sky": "sunset",
+    "sunX": 820,
+    "sunR": 200,
+    "embers": 30,
+    "far": [
+     {
+      "type": "army",
+      "x0": -600,
+      "x1": 1700,
+      "y": 1430,
+      "s": 0.55,
+      "n": 40,
+      "feather": true,
+      "shields": true,
+      "march": true,
+      "flip": true,
+      "par": 0.75
+     }
+    ],
+    "actors": [
+     {
+      "type": "banner",
+      "x": 120,
+      "y": 1700,
+      "s": 1.3,
+      "col": "#5a1a3a"
+     },
+     {
+      "type": "banner",
+      "x": 980,
+      "y": 1690,
+      "s": 1.2,
+      "col": "#5a1a3a"
+     },
+     {
+      "type": "army",
+      "x0": -500,
+      "x1": 1600,
+      "y": 1820,
+      "s": 0.85,
+      "n": 22,
+      "feather": true,
+      "shields": true,
+      "march": true,
+      "flip": true,
+      "seed": 9
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "march",
+     0
+    ],
+    [
+     "horn",
+     0.3
+    ]
+   ]
+  },
+  {
+   "atc": "@L10.1-0.15",
+   "at": "L10",
+   "tr": "flash",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     755,
+     0.95
+    ],
+    [
+     560,
+     755,
+     0.95
+    ]
+   ],
+   "grade": "blood",
+   "kicks": [
+    0.05
+   ],
+   "rumble": 3,
+   "o": {
+    "sky": "blood",
+    "sunX": 540,
+    "sunY": 1060,
+    "sunR": 360,
+    "lightning": false,
+    "embers": 50,
+    "far": [
+     {
+      "type": "army",
+      "x0": -600,
+      "x1": 1700,
+      "y": 1500,
+      "s": 0.5,
+      "n": 40,
+      "feather": true,
+      "par": 0.75,
+      "flip": true
+     }
+    ],
+    "actors": [
+     {
+      "type": "w",
+      "c": "ishbi",
+      "x": 560,
+      "y": {
+       "a": 2400,
+       "b": 1900,
+       "t0": 0,
+       "t1": 1.2,
+       "e": "o"
+      },
+      "s": 2.0,
+      "flip": true,
+      "sil": false,
+      "rim": 0,
+      "expr": "roar"
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "braam",
+     0.05
+    ],
+    [
+     "roar",
+     0.6
+    ]
+   ]
+  },
+  {
+   "at": "L11",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     760,
+     1.55
+    ],
+    [
+     570,
+     700,
+     1.75
+    ]
+   ],
+   "grade": "blood",
+   "label": "ISHBI-BENOB",
+   "labelAt": 0.05,
+   "labelY": 1650,
+   "shake": 6,
+   "flashes": [
+    0.15
+   ],
+   "o": {
+    "sky": "storm",
+    "lightning": true,
+    "embers": 40,
+    "actors": [
+     {
+      "type": "w",
+      "c": "ishbi",
+      "x": 540,
+      "y": 2320,
+      "s": 2.6,
+      "flip": true,
+      "expr": "roar"
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "thunder",
+     0.1
+    ],
+    [
+     "roar",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L12",
+   "tr": "zoom",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1150,
+     1.15
+    ],
+    [
+     540,
+     1180,
+     1.05
+    ]
+   ],
+   "grade": "gold",
+   "music": "dread",
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "clouds": false,
+    "horizon": 1700,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1200,
+      "r": 900,
+      "col": "rgba(255,190,110,1)",
+      "a": 0.45
+     },
+     {
+      "type": "scale",
+      "x": 540,
+      "y": 1640,
+      "s": 1.05
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "clank",
+     0.3
+    ],
+    [
+     "clank",
+     0.9
+    ]
+   ]
+  },
+  {
+   "atc": "@L12.1-0.1",
+   "at": "L12",
+   "scene": "stage",
+   "cam": [
+    [
+     620,
+     820,
+     0.95
+    ],
+    [
+     520,
+     820,
+     0.95
+    ]
+   ],
+   "grade": "blood",
+   "rumble": 4,
+   "o": {
+    "sky": "blood",
+    "sunX": 300,
+    "sunR": 220,
+    "embers": 40,
+    "actors": [
+     {
+      "type": "w",
+      "c": "ishbi",
+      "x": {
+       "a": 1000,
+       "b": 640,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 1.95,
+      "flip": true,
+      "pose": "stride",
+      "expr": "angry"
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "stomp",
+     0.2
+    ],
+    [
+     "stomp",
+     0.8
+    ],
+    [
+     "stomp",
+     1.4
+    ],
+    [
+     "stomp",
+     2.0
+    ]
+   ]
+  },
+  {
+   "at": "L13",
+   "tr": "whip",
+   "scene": "elah",
+   "cam": [
+    [
+     270,
+     1290,
+     1.8
+    ],
+    [
+     270,
+     1290,
+     1.9
+    ]
+   ],
+   "grade": "warm",
+   "music": "warm",
+   "o": {
+    "tobyX": 260,
+    "selahX": 880,
+    "tobyExpr": "worry",
+    "tobyHands": "mouth",
+    "selahExpr": "sad",
+    "selahLook": [
+     0.7,
+     0.2
+    ]
+   }
+  },
+  {
+   "at": "L14",
+   "scene": "elah",
+   "cam": [
+    [
+     650,
+     1100,
+     1.9
+    ],
+    [
+     650,
+     1100,
+     1.98
+    ]
+   ],
+   "grade": "warm",
+   "o": {
+    "tobyX": 260,
+    "selahX": 880,
+    "selahExpr": "sad",
+    "selahLook": [
+     0.7,
+     0.3
+    ]
+   }
+  },
+  {
+   "atc": "@L14.1-0.1",
+   "at": "L14",
+   "tr": "whip",
+   "scene": "stage",
+   "cam": [
+    [
+     520,
+     1160,
+     1.08
+    ],
+    [
+     500,
+     1130,
+     1.18
+    ]
+   ],
+   "grade": "blood",
+   "music": "battle",
+   "rumble": 2,
+   "o": {
+    "sky": "sunset",
+    "sunX": 820,
+    "sunR": 180,
+    "embers": 60,
+    "far": [
+     {
+      "type": "army",
+      "x0": -500,
+      "x1": 450,
+      "y": 1450,
+      "s": 0.5,
+      "n": 22,
+      "shields": true,
+      "par": 0.7,
+      "march": true
+     },
+     {
+      "type": "army",
+      "x0": 600,
+      "x1": 1600,
+      "y": 1450,
+      "s": 0.5,
+      "n": 22,
+      "feather": true,
+      "par": 0.7,
+      "flip": true,
+      "march": true
+     }
+    ],
+    "actors": [
+     {
+      "type": "w",
+      "c": "david",
+      "x": 420,
+      "y": 1780,
+      "s": 1.2,
+      "pose": "raise",
+      "k": {
+       "a": 0.2,
+       "b": 1,
+       "t0": 0,
+       "t1": 0.5
+      },
+      "expr": "fierce"
+     },
+     {
+      "type": "w",
+      "c": "philistine",
+      "x": 770,
+      "y": 1790,
+      "s": 1.15,
+      "flip": true,
+      "pose": "thrust",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.2,
+       "t1": 0.6
+      },
+      "expr": "angry"
+     },
+     {
+      "type": "dust",
+      "x": 600,
+      "y": 1800,
+      "t0": 0.4,
+      "s": 0.8
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "clash",
+     0.45
+    ],
+    [
+     "crowd",
+     0
+    ]
+   ]
+  },
+  {
+   "atc": "@L14.2-0.1",
+   "at": "L14",
+   "scene": "stage",
+   "cam": [
+    [
+     480,
+     800,
+     0.95
+    ],
+    [
+     470,
+     800,
+     0.95
+    ]
+   ],
+   "grade": "cold",
+   "woozy": 1,
+   "bloom": 0.45,
+   "o": {
+    "sky": "sunset",
+    "sunX": 800,
+    "sunR": 170,
+    "embers": 30,
+    "actors": [
+     {
+      "type": "w",
+      "c": "ishbi",
+      "x": 1020,
+      "y": 1860,
+      "s": 1.95,
+      "flip": true,
+      "sil": false,
+      "rim": -6
+     },
+     {
+      "type": "w",
+      "c": "david",
+      "x": 470,
+      "y": 1790,
+      "s": 1.3,
+      "pose": "faint",
+      "expr": "tired"
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "heartbeat",
+     0
+    ],
+    [
+     "heartbeat",
+     0.9
+    ]
+   ]
+  },
+  {
+   "at": "L15",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     800,
+     0.95
+    ],
+    [
+     540,
+     800,
+     0.95
+    ]
+   ],
+   "grade": "blood",
+   "rumble": 1.5,
+   "o": {
+    "sky": "blood",
+    "sunX": 600,
+    "sunY": 980,
+    "sunR": 380,
+    "embers": 40,
+    "actors": [
+     {
+      "type": "w",
+      "c": "ishbi",
+      "x": 660,
+      "y": 1860,
+      "s": 1.95,
+      "flip": true,
+      "sil": false,
+      "rim": 0,
+      "pose": "raise",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.1,
+       "t1": 1.9,
+       "e": "io"
+      }
+     },
+     {
+      "type": "w",
+      "c": "david",
+      "x": 230,
+      "y": 1900,
+      "s": 0.95,
+      "pose": "faint",
+      "sil": false,
+      "rim": 6
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "heartbeat",
+     0
+    ],
+    [
+     "heartbeat",
+     0.75
+    ],
+    [
+     "riser",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L16",
+   "scene": "elah",
+   "cam": [
+    [
+     290,
+     1260,
+     1.6
+    ],
+    [
+     290,
+     1250,
+     1.75
+    ]
+   ],
+   "grade": "warm",
+   "shake": 10,
+   "o": {
+    "tobyX": 260,
+    "selahX": 880,
+    "tobyExpr": "shout",
+    "tobyHands": "up",
+    "tobyHop": 1,
+    "selahExpr": "wide"
+   },
+   "pops": {
+    "L16": [
+     540,
+     620,
+     0.04,
+     190
+    ]
+   }
+  },
+  {
+   "at": "L17",
+   "tr": "whip",
+   "scene": "stage",
+   "cam": [
+    [
+     150,
+     1180,
+     1.12
+    ],
+    [
+     700,
+     1150,
+     1.12
+    ]
+   ],
+   "camEase": "lin",
+   "grade": "gold",
+   "speed": 0.7,
+   "label": "ABISHAI",
+   "labelAt": 0.25,
+   "music": "glory",
+   "o": {
+    "sky": "gold",
+    "sunX": 900,
+    "sunR": 220,
+    "rays": 0.35,
+    "embers": 30,
+    "actors": [
+     {
+      "type": "w",
+      "c": "abishai",
+      "x": {
+       "a": -250,
+       "b": 820,
+       "t0": 0,
+       "t1": "@L17.1",
+       "e": "lin"
+      },
+      "y": 1790,
+      "s": 1.35,
+      "pose": "charge",
+      "expr": "fierce"
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "whoosh",
+     0.05
+    ],
+    [
+     "horn",
+     0.1
+    ],
+    [
+     "crowd",
+     0.4
+    ]
+   ]
+  },
+  {
+   "atc": "@L17.1-0.05",
+   "at": "L17",
+   "tr": "flash",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1050,
+     1.0
+    ],
+    [
+     600,
+     1120,
+     0.95
+    ]
+   ],
+   "grade": "gold",
+   "kicks": [
+    0.05
+   ],
+   "shakeAt": [
+    1.2
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 520,
+    "sunY": 1000,
+    "sunR": 300,
+    "rays": 0.6,
+    "actors": [
+     {
+      "type": "w",
+      "c": "ishbi",
+      "x": 720,
+      "y": 1880,
+      "s": 1.95,
+      "flip": true,
+      "sil": true,
+      "rim": 0,
+      "pose": "fall",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.1,
+       "t1": 1.2,
+       "e": "i"
+      }
+     },
+     {
+      "type": "w",
+      "c": "abishai",
+      "x": 330,
+      "y": 1820,
+      "s": 1.35,
+      "sil": true,
+      "rim": 0,
+      "pose": "raise",
+      "k": {
+       "a": 1,
+       "b": 0,
+       "t0": 0,
+       "t1": 0.2
+      }
+     },
+     {
+      "type": "burst",
+      "x": 640,
+      "y": 900,
+      "t0": 0.02,
+      "r": 380
+     },
+     {
+      "type": "dust",
+      "x": 1250,
+      "y": 1880,
+      "t0": 1.15,
+      "s": 1.8
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "clash",
+     0.03
+    ],
+    [
+     "boom",
+     1.2
+    ],
+    [
+     "crowd",
+     1.25
+    ]
+   ]
+  },
+  {
+   "at": "L18",
+   "tr": "fade",
+   "lead": 0.3,
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1250,
+     1.05
+    ],
+    [
+     540,
+     1260,
+     1.12
+    ]
+   ],
+   "grade": "night",
+   "leak": false,
+   "music": "hope",
+   "o": {
+    "sky": "night",
+    "sunX": 830,
+    "sunY": 420,
+    "sunR": 70,
+    "clouds": true,
+    "actors": [
+     {
+      "type": "fire",
+      "x": 540,
+      "y": 1760,
+      "s": 1.6
+     },
+     {
+      "type": "w",
+      "c": "israelite",
+      "x": 150,
+      "y": 1810,
+      "s": 1.05
+     },
+     {
+      "type": "w",
+      "c": "david",
+      "x": 380,
+      "y": 1790,
+      "s": 1.1,
+      "pose": "kneel",
+      "expr": "tired"
+     },
+     {
+      "type": "w",
+      "c": "abishai",
+      "x": 740,
+      "y": 1790,
+      "s": 1.12,
+      "flip": true,
+      "who": "abishai"
+     },
+     {
+      "type": "w",
+      "c": "israelite",
+      "x": 960,
+      "y": 1820,
+      "s": 1.05,
+      "flip": true
+     }
+    ]
+   },
+   "amb": "fire"
+  },
+  {
+   "at": "L19",
+   "scene": "stage",
+   "cam": [
+    [
+     700,
+     1080,
+     2.1
+    ],
+    [
+     700,
+     1070,
+     2.25
+    ]
+   ],
+   "grade": "night",
+   "leak": false,
+   "o": {
+    "sky": "night",
+    "sunX": 830,
+    "sunY": 420,
+    "sunR": 70,
+    "actors": [
+     {
+      "type": "fire",
+      "x": 540,
+      "y": 1760,
+      "s": 1.6
+     },
+     {
+      "type": "w",
+      "c": "david",
+      "x": 380,
+      "y": 1790,
+      "s": 1.1,
+      "pose": "kneel",
+      "expr": "tired"
+     },
+     {
+      "type": "w",
+      "c": "abishai",
+      "x": 740,
+      "y": 1790,
+      "s": 1.12,
+      "flip": true,
+      "who": "abishai",
+      "expr": "fierce"
+     }
+    ]
+   },
+   "amb": "fire"
+  },
+  {
+   "atc": "@L19.1-0.1",
+   "at": "L19",
+   "tr": "fade",
+   "scene": "stage",
+   "cam": [
+    [
+     600,
+     1420,
+     1.5
+    ],
+    [
+     620,
+     1440,
+     1.75
+    ]
+   ],
+   "grade": "night",
+   "leak": false,
+   "bloom": 0.5,
+   "o": {
+    "sky": "night",
+    "sun": false,
+    "horizon": 1600,
+    "actors": [
+     {
+      "type": "w",
+      "c": "david",
+      "x": 760,
+      "y": 1860,
+      "s": 1.25,
+      "pose": "kneel",
+      "sil": true,
+      "rim": -6,
+      "rimCol": "#ffb060"
+     },
+     {
+      "type": "lamp",
+      "x": 470,
+      "y": 1600,
+      "s": 2.1
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "choir",
+     0.3
+    ]
+   ],
+   "amb": "fire"
+  },
+  {
+   "at": "L20",
+   "tr": "whip",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     928,
+     0.9
+    ],
+    [
+     540,
+     890,
+     0.95
+    ]
+   ],
+   "grade": "blood",
+   "rumble": 3,
+   "music": "battle",
+   "o": {
+    "sky": "blood",
+    "sunR": 300,
+    "lightning": true,
+    "embers": 30,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1750,
+      "r": 1000,
+      "col": "rgba(200,180,220,1)",
+      "a": 0.25
+     },
+     {
+      "type": "w",
+      "c": "gathGiant",
+      "x": {
+       "a": 1100,
+       "b": 860,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "y": 1700,
+      "s": 1.35,
+      "flip": true,
+      "pose": "stride",
+      "sil": true,
+      "rim": -6
+     },
+     {
+      "type": "w",
+      "c": "goliath",
+      "x": {
+       "a": 760,
+       "b": 540,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "y": 1780,
+      "s": 1.6,
+      "flip": true,
+      "pose": "stride",
+      "sil": true,
+      "rim": -6,
+      "ph": 1
+     },
+     {
+      "type": "w",
+      "c": "ishbi",
+      "x": {
+       "a": 420,
+       "b": 200,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "y": 1860,
+      "s": 1.85,
+      "flip": true,
+      "pose": "stride",
+      "sil": true,
+      "rim": -6,
+      "ph": 2
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "thunder",
+     0.1
+    ],
+    [
+     "stomp",
+     0.3
+    ],
+    [
+     "stomp",
+     0.9
+    ],
+    [
+     "stomp",
+     1.5
+    ]
+   ]
+  },
+  {
+   "at": "L21",
+   "tr": "flash",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1150,
+     1.05
+    ],
+    [
+     560,
+     1180,
+     1.0
+    ]
+   ],
+   "grade": "warm",
+   "label": "SIBBECAI",
+   "labelAt": "@L21.0+0.6",
+   "kicks": [
+    0.75
+   ],
+   "shakeAt": [
+    1.7
+   ],
+   "o": {
+    "sky": "sunset",
+    "sunX": 560,
+    "sunR": 280,
+    "actors": [
+     {
+      "type": "w",
+      "c": "philistine",
+      "x": 760,
+      "y": 1800,
+      "s": 1.95,
+      "flip": true,
+      "sil": false,
+      "rim": 0,
+      "pose": "fall",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.75,
+       "t1": 1.7,
+       "e": "i"
+      }
+     },
+     {
+      "type": "w",
+      "c": "israelite",
+      "x": 320,
+      "y": 1790,
+      "s": 1.2,
+      "sil": false,
+      "rim": 0,
+      "pose": "thrust",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.45,
+       "t1": 0.75
+      }
+     },
+     {
+      "type": "burst",
+      "x": 640,
+      "y": 1150,
+      "t0": 0.75,
+      "r": 260
+     },
+     {
+      "type": "dust",
+      "x": 1180,
+      "y": 1800,
+      "t0": 1.65,
+      "s": 1.4
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "hit",
+     0.75
+    ],
+    [
+     "boom",
+     1.7
+    ]
+   ]
+  },
+  {
+   "at": "L22",
+   "tr": "whip",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1100,
+     1.0
+    ]
+   ],
+   "grade": "blood",
+   "label": "ELHANAN",
+   "labelAt": "@L22.1",
+   "kicks": [
+    "@L22.1+0.3"
+   ],
+   "shakeAt": [
+    "@L22.1+1.2"
+   ],
+   "o": {
+    "sky": "blood",
+    "sunX": 600,
+    "sunR": 300,
+    "embers": 40,
+    "actors": [
+     {
+      "type": "w",
+      "c": "goliath",
+      "x": 760,
+      "y": 1820,
+      "s": 1.95,
+      "flip": true,
+      "sil": false,
+      "rim": 0,
+      "pose": "fall",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L22.1+0.3",
+       "t1": "@L22.1+1.2",
+       "e": "i"
+      }
+     },
+     {
+      "type": "w",
+      "c": "abishai",
+      "x": {
+       "a": -100,
+       "b": 330,
+       "t0": "@L22.1-0.4",
+       "t1": "@L22.1+0.2",
+       "e": "o"
+      },
+      "y": 1800,
+      "s": 1.2,
+      "sil": false,
+      "rim": 0,
+      "pose": "raise",
+      "k": {
+       "a": 1,
+       "b": 0,
+       "t0": "@L22.1+0.15",
+       "t1": "@L22.1+0.35"
+      }
+     },
+     {
+      "type": "burst",
+      "x": 650,
+      "y": 950,
+      "t0": "@L22.1+0.3",
+      "r": 300
+     },
+     {
+      "type": "dust",
+      "x": 1200,
+      "y": 1820,
+      "t0": "@L22.1+1.15",
+      "s": 1.5
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "clash",
+     "@L22.1+0.3"
+    ],
+    [
+     "boom",
+     "@L22.1+1.2"
+    ]
+   ]
+  },
+  {
+   "at": "L23",
+   "tr": "fade",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1650,
+     1.25
+    ],
+    [
+     560,
+     820,
+     1.08
+    ]
+   ],
+   "grade": "gold",
+   "label": "GATH",
+   "labelAt": 0.4,
+   "labelY": 1780,
+   "music": "dread",
+   "o": {
+    "sky": "day",
+    "sunX": 900,
+    "sunY": 600,
+    "sunR": 120,
+    "horizon": 1300,
+    "far": [
+     {
+      "type": "gate",
+      "x": 540,
+      "y": 1520,
+      "s": 1.0,
+      "par": 0.75
+     }
+    ],
+    "actors": [
+     {
+      "type": "w",
+      "c": "gathGiant",
+      "x": 560,
+      "y": 2050,
+      "s": 2.65,
+      "flip": true,
+      "expr": "angry"
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "braam",
+     0.3
+    ]
+   ]
+  },
+  {
+   "at": "L24",
+   "tr": "zoom",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1250,
+     1.05
+    ],
+    [
+     540,
+     1220,
+     1.12
+    ]
+   ],
+   "grade": "gold",
+   "leak": false,
+   "o": {
+    "sky": "storm",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2400,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1200,
+      "r": 900,
+      "col": "rgba(255,200,120,1)",
+      "a": 0.4
+     },
+     {
+      "type": "hand",
+      "x": 520,
+      "y": 1500,
+      "s": 1.25,
+      "count": {
+       "a": 0,
+       "b": 6.6,
+       "t0": 0.15,
+       "t1": "@L24.1-0.15",
+       "e": "lin"
+      }
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "tick6",
+     0.15
+    ]
+   ]
+  },
+  {
+   "atc": "@L24.1-0.12",
+   "at": "L24",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1300,
+     1.05
+    ],
+    [
+     560,
+     1280,
+     1.12
+    ]
+   ],
+   "grade": "gold",
+   "leak": false,
+   "o": {
+    "sky": "storm",
+    "sun": false,
+    "clouds": false,
+    "horizon": 2400,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1200,
+      "r": 900,
+      "col": "rgba(255,200,120,1)",
+      "a": 0.4
+     },
+     {
+      "type": "foot",
+      "x": 560,
+      "y": 1520,
+      "s": 1.25,
+      "count": {
+       "a": 0,
+       "b": 6.6,
+       "t0": 0.1,
+       "t1": 2.1,
+       "e": "lin"
+      }
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "tick6",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L25",
+   "tr": "whip",
+   "scene": "elah",
+   "cam": [
+    [
+     300,
+     1240,
+     1.5
+    ],
+    [
+     300,
+     1240,
+     1.65
+    ]
+   ],
+   "grade": "warm",
+   "music": "warm",
+   "o": {
+    "tobyX": 260,
+    "selahX": 880,
+    "tobyExpr": "shock",
+    "tobyHands": "up",
+    "tobyHop": 0.8,
+    "selahExpr": "smug"
+   },
+   "pops": {
+    "L25": [
+     560,
+     620,
+     -0.05,
+     260
+    ]
+   },
+   "kicks": [
+    0.3
+   ],
+   "sfx": [
+    [
+     "braam",
+     0.3
+    ]
+   ]
+  },
+  {
+   "at": "L26",
+   "tr": "whip",
+   "scene": "stage",
+   "cam": [
+    [
+     640,
+     800,
+     0.95
+    ],
+    [
+     600,
+     800,
+     0.95
+    ]
+   ],
+   "grade": "blood",
+   "rumble": 2,
+   "music": "battle",
+   "o": {
+    "sky": "sunset",
+    "sunX": 300,
+    "sunR": 200,
+    "embers": 30,
+    "far": [
+     {
+      "type": "army",
+      "x0": -600,
+      "x1": 500,
+      "y": 1500,
+      "s": 0.5,
+      "n": 24,
+      "shields": true,
+      "par": 0.75
+     }
+    ],
+    "actors": [
+     {
+      "type": "w",
+      "c": "gathGiant",
+      "x": 760,
+      "y": 1860,
+      "s": 1.95,
+      "flip": true,
+      "expr": "roar",
+      "pose": "stand"
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "roar",
+     0.2
+    ],
+    [
+     "crowd",
+     0.5
+    ]
+   ]
+  },
+  {
+   "atc": "@L26.1-0.1",
+   "at": "L26",
+   "tr": "flash",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1100,
+     1.0
+    ],
+    [
+     600,
+     1150,
+     0.96
+    ]
+   ],
+   "grade": "gold",
+   "label": "JONATHAN",
+   "labelAt": 0.3,
+   "kicks": [
+    "@L26.1+1.1"
+   ],
+   "shakeAt": [
+    "@L26.1+2.0"
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 560,
+    "sunY": 1000,
+    "sunR": 300,
+    "rays": 0.5,
+    "actors": [
+     {
+      "type": "w",
+      "c": "gathGiant",
+      "x": 760,
+      "y": 1880,
+      "s": 1.95,
+      "flip": true,
+      "sil": false,
+      "rim": 0,
+      "pose": "fall",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L26.1+1.1",
+       "t1": "@L26.1+2.0",
+       "e": "i"
+      }
+     },
+     {
+      "type": "w",
+      "c": {
+       "skin": "#b4784e",
+       "tunic": "#2a4a7a",
+       "armor": "leather",
+       "armorCol": "#6a4a2a",
+       "kilt": "#7a2a22",
+       "cape": "#2a6a5a",
+       "beard": null,
+       "helmet": "cap",
+       "weapon": "sword",
+       "shield": "leather"
+      },
+      "x": {
+       "a": -150,
+       "b": 320,
+       "t0": 0,
+       "t1": "@L26.1+0.8",
+       "e": "o"
+      },
+      "y": 1820,
+      "s": 1.3,
+      "sil": false,
+      "rim": 0,
+      "pose": "raise",
+      "k": {
+       "a": 1,
+       "b": 0,
+       "t0": "@L26.1+0.95",
+       "t1": "@L26.1+1.15"
+      }
+     },
+     {
+      "type": "burst",
+      "x": 660,
+      "y": 900,
+      "t0": "@L26.1+1.1",
+      "r": 340
+     },
+     {
+      "type": "dust",
+      "x": 1250,
+      "y": 1880,
+      "t0": "@L26.1+1.95",
+      "s": 1.8
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "clash",
+     "@L26.1+1.1"
+    ],
+    [
+     "boom",
+     "@L26.1+2.0"
+    ],
+    [
+     "crowd",
+     "@L26.1+2.0"
+    ]
+   ]
+  },
+  {
+   "at": "L27",
+   "tr": "fade",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     675,
+     0.95
+    ],
+    [
+     540,
+     675,
+     0.95
+    ]
+   ],
+   "grade": "blood",
+   "music": "dread",
+   "o": {
+    "sky": "blood",
+    "sunX": 540,
+    "sunY": 1100,
+    "sunR": 320,
+    "embers": 30,
+    "actors": [
+     {
+      "type": "w",
+      "c": "ishbi",
+      "x": 150,
+      "y": 1760,
+      "s": 1.75,
+      "sil": true,
+      "rim": 0,
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": 0.6,
+       "t1": 1.0
+      }
+     },
+     {
+      "type": "w",
+      "c": "philistine",
+      "x": 410,
+      "y": 1780,
+      "s": 2.0,
+      "sil": true,
+      "rim": 0,
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": 1.2,
+       "t1": 1.6
+      }
+     },
+     {
+      "type": "w",
+      "c": "goliath",
+      "x": 680,
+      "y": 1790,
+      "s": 2.0,
+      "flip": true,
+      "sil": true,
+      "rim": 0,
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": 1.8,
+       "t1": 2.2
+      }
+     },
+     {
+      "type": "w",
+      "c": "gathGiant",
+      "x": 950,
+      "y": 1770,
+      "s": 1.85,
+      "flip": true,
+      "sil": true,
+      "rim": 0,
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": 2.4,
+       "t1": 2.8
+      }
+     },
+     {
+      "type": "dust",
+      "x": 150,
+      "y": 1760,
+      "t0": 0.6,
+      "s": 0.9
+     },
+     {
+      "type": "dust",
+      "x": 410,
+      "y": 1780,
+      "t0": 1.2,
+      "s": 1.0
+     },
+     {
+      "type": "dust",
+      "x": 680,
+      "y": 1790,
+      "t0": 1.8,
+      "s": 1.0
+     },
+     {
+      "type": "dust",
+      "x": 950,
+      "y": 1770,
+      "t0": 2.4,
+      "s": 0.9
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "boom",
+     0.6
+    ],
+    [
+     "boom",
+     1.2
+    ],
+    [
+     "boom",
+     1.8
+    ],
+    [
+     "boom",
+     2.4
+    ]
+   ]
+  },
+  {
+   "at": "L28",
+   "tr": "flash",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1150,
+     1.3
+    ],
+    [
+     540,
+     1180,
+     1.02
+    ]
+   ],
+   "grade": "gold",
+   "music": "glory",
+   "o": {
+    "sky": "gold",
+    "sunX": 540,
+    "sunY": 1060,
+    "sunR": 260,
+    "rays": 0.7,
+    "embers": 20,
+    "actors": [
+     {
+      "type": "banner",
+      "x": 60,
+      "y": 1720,
+      "s": 1.3,
+      "col": "#2a4a8a",
+      "sym": true
+     },
+     {
+      "type": "banner",
+      "x": 1010,
+      "y": 1720,
+      "s": 1.3,
+      "col": "#2a4a8a",
+      "sym": true,
+      "ph": 1
+     },
+     {
+      "type": "w",
+      "c": "israelite",
+      "x": 120,
+      "y": 1850,
+      "s": 1.1
+     },
+     {
+      "type": "w",
+      "c": "abishai",
+      "x": 320,
+      "y": 1830,
+      "s": 1.15,
+      "expr": "smile"
+     },
+     {
+      "type": "w",
+      "c": "israelite",
+      "x": 960,
+      "y": 1850,
+      "s": 1.1,
+      "flip": true
+     },
+     {
+      "type": "w",
+      "c": {
+       "skin": "#b4784e",
+       "tunic": "#2a4a7a",
+       "armor": "leather",
+       "armorCol": "#6a4a2a",
+       "kilt": "#7a2a22",
+       "cape": "#2a6a5a",
+       "helmet": "cap",
+       "weapon": "sword",
+       "shield": "leather"
+      },
+      "x": 770,
+      "y": 1830,
+      "s": 1.15,
+      "flip": true,
+      "expr": "smile"
+     },
+     {
+      "type": "w",
+      "c": "david",
+      "x": 540,
+      "y": 1810,
+      "s": 1.3,
+      "expr": "smile"
+     }
+    ]
+   },
+   "sfx": [
+    [
+     "horn",
+     0.1
+    ],
+    [
+     "choir",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L29",
+   "tr": "fade",
+   "scene": "elah",
+   "cam": [
+    [
+     280,
+     1290,
+     1.8
+    ],
+    [
+     280,
+     1290,
+     1.9
+    ]
+   ],
+   "grade": "warm",
+   "music": "warm",
+   "o": {
+    "late": true,
+    "tobyX": 260,
+    "selahX": 880,
+    "tobyExpr": "worry",
+    "tobyLook": [
+     0.7,
+     -0.2
+    ],
+    "selahExpr": "calm"
+   }
+  },
+  {
+   "at": "L30",
+   "scene": "elah",
+   "cam": [
+    [
+     650,
+     1100,
+     1.9
+    ],
+    [
+     650,
+     1095,
+     2.0
+    ]
+   ],
+   "grade": "warm",
+   "o": {
+    "late": true,
+    "tobyX": 260,
+    "selahX": 880,
+    "selahExpr": "smile"
+   }
+  },
+  {
+   "at": "L31",
+   "scene": "elah",
+   "cam": [
+    [
+     280,
+     1290,
+     1.8
+    ],
+    [
+     280,
+     1290,
+     1.9
+    ]
+   ],
+   "grade": "warm",
+   "o": {
+    "late": true,
+    "tobyX": 260,
+    "selahX": 880,
+    "tobyExpr": "sheepish",
+    "tobyHands": "chin",
+    "tobyLook": [
+     0.7,
+     -0.4
+    ]
+   }
+  },
+  {
+   "at": "L32",
+   "scene": "elah",
+   "cam": [
+    [
+     650,
+     1100,
+     1.95
+    ],
+    [
+     650,
+     1100,
+     2.05
+    ]
+   ],
+   "grade": "warm",
+   "o": {
+    "late": true,
+    "tobyX": 260,
+    "selahX": 880,
+    "selahExpr": "smug",
+    "selahLook": [
+     0.8,
+     0
+    ]
+   }
+  },
+  {
+   "at": "L33",
+   "tr": "fade",
+   "scene": "elah",
+   "cam": [
+    [
+     420,
+     1250,
+     1.25
+    ],
+    [
+     560,
+     1200,
+     1.1
+    ]
+   ],
+   "grade": "warm",
+   "o": {
+    "late": true,
+    "ride": true,
+    "rideMove": -70,
+    "selahX": 300,
+    "selahY": 1640,
+    "selahFlip": false,
+    "selahExpr": "smile",
+    "tobyX": 285,
+    "tobyY": 1351,
+    "tobyS": 0.8,
+    "tobyRide": true,
+    "tobyExpr": "happy",
+    "tobyHands": "up"
+   }
+  },
+  {
+   "at": "L34",
+   "scene": "elah",
+   "cam": [
+    [
+     620,
+     1180,
+     1.35
+    ],
+    [
+     700,
+     1150,
+     1.05
+    ]
+   ],
+   "grade": "warm",
+   "o": {
+    "late": true,
+    "ride": true,
+    "rideMove": -40,
+    "selahX": 560,
+    "selahY": 1640,
+    "selahFlip": false,
+    "selahExpr": "smile",
+    "tobyX": 545,
+    "tobyY": 1351,
+    "tobyS": 0.8,
+    "tobyRide": true,
+    "tobyExpr": "happy",
+    "tobyHands": "hug"
+   },
+   "sfx": [
+    [
+     "sparkle",
+     1.0
+    ]
+   ]
+  },
+  {
+   "at": "L35",
+   "scene": "elah",
+   "cam": [
+    [
+     420,
+     1250,
+     1.3
+    ],
+    [
+     540,
+     1150,
+     1.08
+    ]
+   ],
+   "grade": "warm",
+   "music": "warm",
+   "o": {
+    "late": false,
+    "tobyX": 260,
+    "selahX": 880,
+    "tobySling": true,
+    "tobyExpr": "happy",
+    "tobyLook": [
+     0.6,
+     -0.4
+    ],
+    "selahExpr": "smug",
+    "selahLook": [
+     -0.6,
+     0
+    ]
+   }
+  }
+ ],
+ "loop": true
+}

@@ -1,0 +1,2459 @@
+{
+ "lead": 0.08,
+ "tail": 0.15,
+ "start": 0.35,
+ "loop": true,
+ "title": {
+  "text": "H\u014cICHI THE EARLESS",
+  "sub": "the musician who played for the dead",
+  "until": "L02"
+ },
+ "gaps": {
+  "L01": 0.12,
+  "L02": 0.2,
+  "L03": 0.12,
+  "L04": 0.12,
+  "L05": 0.12,
+  "L06": 0.12,
+  "L07": 0.12,
+  "L08": 0.12,
+  "L09": 0.2,
+  "L10": 0.12,
+  "L11": 0.18,
+  "L12": 0.12,
+  "L13": 0.12,
+  "L14": 0.12,
+  "L15": 0.12,
+  "L16": 0.12,
+  "L17": 0.2,
+  "L18": 0.25,
+  "L19": 0.12,
+  "L20": 0.18
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1460,
+     0.98
+    ],
+    [
+     540,
+     1400,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "akama",
+    "actors": [
+     {
+      "type": "plinth",
+      "x": 540,
+      "y": 1880,
+      "s": 0.72,
+      "text": "\u8033\u306a\u3057\u82b3\u4e00"
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1730,
+      "s": 0.72,
+      "stone": true,
+      "light": false,
+      "noEars": true,
+      "expr": "sleep",
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     }
+    ],
+    "tod": "dusk",
+    "front": [
+     {
+      "type": "mio",
+      "x": 210,
+      "y": 2120,
+      "s": 1.15,
+      "expr": "worry",
+      "hands": "point",
+      "look": [
+       1,
+       -0.5
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 880,
+      "y": 2060,
+      "s": 0.95,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -1,
+       -0.4
+      ]
+     }
+    ]
+   },
+   "lead": 0,
+   "music": "hush",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "biwa",
+     0.4
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L02",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.7
+    ],
+    [
+     540,
+     1170,
+     1.9
+    ]
+   ],
+   "o": {
+    "set": "akama",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": 780,
+      "y": 1880,
+      "s": 0.8,
+      "ghost": {
+       "a": 0,
+       "b": 0.35,
+       "t0": 0.2,
+       "t1": 1.2,
+       "e": "io"
+      },
+      "expr": "neutral",
+      "arms": "hips",
+      "ghostGlow": true
+     },
+     {
+      "type": "plinth",
+      "x": 540,
+      "y": 1880,
+      "s": 0.72,
+      "text": "\u8033\u306a\u3057\u82b3\u4e00"
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1730,
+      "s": 0.72,
+      "stone": true,
+      "light": false,
+      "noEars": true,
+      "expr": "sleep",
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     }
+    ],
+    "tod": "dusk"
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "braam",
+     0.3
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L03",
+   "scene": "jp",
+   "cam": [
+    [
+     620,
+     1150,
+     0.82
+    ],
+    [
+     520,
+     1420,
+     1.16
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1880,
+      "s": 0.88,
+      "lean": {
+       "osc": [
+        0,
+        0.05,
+        0.4,
+        0
+       ]
+      },
+      "expr": "sleep",
+      "talk": {
+       "osc": [
+        0.45,
+        0.35,
+        2.6,
+        0
+       ]
+      },
+      "tilt": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      },
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     },
+     {
+      "type": "notes",
+      "x": 640,
+      "y": 1150,
+      "n": 6
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "koto",
+   "camEase": "lin",
+   "label": "AMIDAJI TEMPLE, SHIMONOSEKI",
+   "labelY": 505,
+   "labelAt": "@L03.1",
+   "sfx": [
+    [
+     "biwa",
+     0.2
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1200,
+     1.4
+    ],
+    [
+     540,
+     1170,
+     1.52
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 2120,
+      "s": 1.2,
+      "expr": "sleep",
+      "talk": {
+       "osc": [
+        0.55,
+        0.4,
+        3,
+        0
+       ]
+      },
+      "tilt": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      },
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "biwa",
+     0.0
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     420,
+     1400,
+     0.95
+    ],
+    [
+     640,
+     1560,
+     1.15
+    ]
+   ],
+   "o": {
+    "set": "sea",
+    "actors": [
+     {
+      "type": "boat",
+      "x": 300,
+      "y": 1720,
+      "s": 0.9,
+      "flag": "#c8302a",
+      "dir": 1,
+      "sinking": {
+       "a": 0,
+       "b": 1.3,
+       "t0": 0.2,
+       "t1": 3.2,
+       "e": "lin"
+      }
+     },
+     {
+      "type": "boat",
+      "x": 820,
+      "y": 1780,
+      "s": 0.85,
+      "flag": "#c8302a",
+      "dir": -1,
+      "ph": 1,
+      "sinking": {
+       "a": 0.2,
+       "b": 1.4,
+       "t0": 0,
+       "t1": 3.2,
+       "e": "lin"
+      }
+     },
+     {
+      "type": "splash",
+      "x": 320,
+      "y": 1760,
+      "t0": 1.2,
+      "s": 1.1
+     },
+     {
+      "type": "splash",
+      "x": 820,
+      "y": 1800,
+      "t0": 2.2,
+      "s": 1.0,
+      "seed": 63
+     }
+    ]
+   },
+   "atc": "@L04.1",
+   "tr": "fade",
+   "camEase": "lin",
+   "label": "DAN-NO-URA, 1185",
+   "labelY": 505,
+   "labelAt": 0.2,
+   "sfx": [
+    [
+     "splash",
+     1.2
+    ],
+    [
+     "splash",
+     2.2
+    ],
+    [
+     "wind",
+     0.0
+    ]
+   ],
+   "grade": "cold",
+   "leak": false
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     620,
+     1440,
+     1.0
+    ],
+    [
+     600,
+     1420,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 330,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "worry",
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa",
+      "look": [
+       1,
+       0
+      ]
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": {
+       "a": 1250,
+       "b": 800,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.85,
+      "ghost": 0.7,
+      "expr": "fierce",
+      "arms": "hips",
+      "ghostGlow": true,
+      "walk": 1,
+      "walkRate": 3.5
+     }
+    ]
+   },
+   "tr": "whip",
+   "music": "kotodread",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "stomp",
+     0.4
+    ],
+    [
+     "clank",
+     0.45
+    ],
+    [
+     "stomp",
+     1.2
+    ],
+    [
+     "clank",
+     1.25
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.45
+    ],
+    [
+     540,
+     1120,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1050,
+      "r": 700,
+      "col": "rgba(140,200,255,1)",
+      "a": 0.3
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": 540,
+      "y": 2120,
+      "s": 1.15,
+      "ghost": 0.8,
+      "expr": "fierce",
+      "arms": "hips",
+      "who": "kon"
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L07",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1440,
+     0.98
+    ],
+    [
+     540,
+     1400,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "illusion",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "lady1",
+      "x": 150,
+      "y": 1880,
+      "s": 0.68,
+      "expr": "neutral",
+      "arms": "clasp",
+      "ghost": null,
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "official",
+      "x": 340,
+      "y": 1880,
+      "s": 0.7,
+      "expr": "neutral",
+      "arms": "clasp",
+      "ghost": null,
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0.3
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "lady2",
+      "x": 760,
+      "y": 1880,
+      "s": 0.68,
+      "flip": true,
+      "expr": "neutral",
+      "arms": "clasp",
+      "ghost": null,
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0.6
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": 940,
+      "y": 1880,
+      "s": 0.72,
+      "flip": true,
+      "expr": "fierce",
+      "arms": "hips",
+      "ghost": null,
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0.9
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "sleep",
+      "talk": {
+       "osc": [
+        0.45,
+        0.35,
+        2.6,
+        0
+       ]
+      },
+      "tilt": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      },
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "sorrow",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "biwa",
+     0.1
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L07",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1200,
+     1.4
+    ],
+    [
+     540,
+     1170,
+     1.5
+    ]
+   ],
+   "o": {
+    "set": "illusion",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 2120,
+      "s": 1.2,
+      "expr": "sleep",
+      "talk": {
+       "osc": [
+        0.6,
+        0.4,
+        3.2,
+        0
+       ]
+      },
+      "tilt": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      },
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa",
+      "strum": 1.5
+     }
+    ]
+   },
+   "atc": "@L07.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "biwa",
+     0.0
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L07",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1420,
+     1.04
+    ],
+    [
+     540,
+     1380,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "illusion",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "lady1",
+      "x": 150,
+      "y": 1880,
+      "s": 0.68,
+      "expr": "cry",
+      "arms": "weep",
+      "ghost": null,
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "official",
+      "x": 340,
+      "y": 1880,
+      "s": 0.7,
+      "expr": "cry",
+      "arms": "weep",
+      "ghost": null,
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0.3
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "lady2",
+      "x": 760,
+      "y": 1880,
+      "s": 0.68,
+      "flip": true,
+      "expr": "cry",
+      "arms": "weep",
+      "ghost": null,
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0.6
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": 940,
+      "y": 1880,
+      "s": 0.72,
+      "flip": true,
+      "expr": "cry",
+      "arms": "weep",
+      "ghost": null,
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0.9
+       ]
+      }
+     }
+    ]
+   },
+   "atc": "@L07.3",
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "warm"
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     480,
+     1430,
+     1.0
+    ],
+    [
+     700,
+     1410,
+     1.06
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": {
+       "a": 560,
+       "b": 1250,
+       "t0": 0,
+       "t1": 2.6,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.85,
+      "ghost": 0.7,
+      "expr": "fierce",
+      "arms": "hips",
+      "ghostGlow": true,
+      "walk": 1,
+      "walkRate": 3.5
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": {
+       "a": 260,
+       "b": 950,
+       "t0": 0,
+       "t1": 2.6,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.84,
+      "expr": "sleep",
+      "walk": 1,
+      "walkRate": 3.5,
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "kotodread",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     300,
+     1440,
+     1.02
+    ],
+    [
+     420,
+     1420,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "osho",
+      "x": {
+       "a": -150,
+       "b": 420,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.84,
+      "expr": "worry",
+      "walk": 1,
+      "walkRate": 3,
+      "lean": 0.08
+     },
+     {
+      "type": "crowd",
+      "x0": {
+       "a": -500,
+       "b": 60,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "x1": {
+       "a": -250,
+       "b": 260,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "y": 1900,
+      "n": 2,
+      "s": 0.7,
+      "col": "#14101a",
+      "torches": true
+     }
+    ]
+   },
+   "atc": "@L08.1",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "heartbeat",
+     0.4
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1440,
+     1.0
+    ],
+    [
+     540,
+     1420,
+     1.06
+    ]
+   ],
+   "o": {
+    "set": "illusion",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "rgba(255,200,120,1)",
+      "a": {
+       "a": 0.4,
+       "b": 0,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "lady1",
+      "x": 150,
+      "y": 1880,
+      "s": 0.68,
+      "expr": "neutral",
+      "arms": "clasp",
+      "ghost": {
+       "a": 1,
+       "b": 0.15,
+       "t0": 0.2,
+       "t1": 0.9,
+       "e": "io"
+      },
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "official",
+      "x": 340,
+      "y": 1880,
+      "s": 0.7,
+      "expr": "neutral",
+      "arms": "clasp",
+      "ghost": {
+       "a": 1,
+       "b": 0.15,
+       "t0": 0.2,
+       "t1": 0.9,
+       "e": "io"
+      },
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0.3
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "lady2",
+      "x": 760,
+      "y": 1880,
+      "s": 0.68,
+      "flip": true,
+      "expr": "neutral",
+      "arms": "clasp",
+      "ghost": {
+       "a": 1,
+       "b": 0.15,
+       "t0": 0.2,
+       "t1": 0.9,
+       "e": "io"
+      },
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0.6
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": 940,
+      "y": 1880,
+      "s": 0.72,
+      "flip": true,
+      "expr": "fierce",
+      "arms": "hips",
+      "ghost": {
+       "a": 1,
+       "b": 0.15,
+       "t0": 0.2,
+       "t1": 0.9,
+       "e": "io"
+      },
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.5,
+        0.9
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "sleep",
+      "talk": {
+       "osc": [
+        0.45,
+        0.35,
+        2.6,
+        0
+       ]
+      },
+      "tilt": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      },
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "impacts": [
+    0.95
+   ],
+   "sfx": [
+    [
+     "braam",
+     0.2
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1400,
+     1.04
+    ],
+    [
+     540,
+     1440,
+     0.94
+    ]
+   ],
+   "o": {
+    "set": "graveyard",
+    "actors": [
+     {
+      "type": "onibi",
+      "x": 540,
+      "y": 1300,
+      "n": 10,
+      "r": 460
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "sleep",
+      "talk": {
+       "osc": [
+        0.6,
+        0.4,
+        3.2,
+        0
+       ]
+      },
+      "tilt": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      },
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa",
+      "strum": 1.4
+     }
+    ]
+   },
+   "tr": "flash",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "biwa",
+     0.1
+    ],
+    [
+     "wind",
+     0.0
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1100,
+     0.85
+    ],
+    [
+     540,
+     1300,
+     0.95
+    ]
+   ],
+   "o": {
+    "set": "graveyard",
+    "actors": [
+     {
+      "type": "onibi",
+      "x": 540,
+      "y": 1250,
+      "n": 12,
+      "r": 520
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1800,
+      "s": 0.6,
+      "expr": "sleep",
+      "talk": {
+       "osc": [
+        0.45,
+        0.35,
+        2.6,
+        0
+       ]
+      },
+      "tilt": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      },
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     },
+     {
+      "type": "toon",
+      "c": "lady1",
+      "x": 220,
+      "y": 1760,
+      "s": 0.5,
+      "ghost": 0.45,
+      "expr": "cry",
+      "arms": "weep"
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": 860,
+      "y": 1760,
+      "s": 0.55,
+      "flip": true,
+      "ghost": 0.45,
+      "arms": "hips"
+     }
+    ]
+   },
+   "atc": "@L10.1",
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.25
+    ],
+    [
+     540,
+     1140,
+     1.35
+    ]
+   ],
+   "o": {
+    "set": "graveyard",
+    "actors": [
+     {
+      "type": "onibi",
+      "x": 540,
+      "y": 1150,
+      "n": 14,
+      "r": 380,
+      "s": 1.6,
+      "spin": 0.7
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1880,
+      "s": 0.9,
+      "expr": "sleep",
+      "talk": {
+       "osc": [
+        0.45,
+        0.35,
+        2.6,
+        0
+       ]
+      },
+      "tilt": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      },
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     }
+    ]
+   },
+   "atc": "@L10.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "choir",
+     0.0
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "graveyard",
+    "actors": [
+     {
+      "type": "onibi",
+      "x": 700,
+      "y": 1200,
+      "n": 9,
+      "r": 360
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 720,
+      "y": 1760,
+      "s": 0.6,
+      "expr": "sleep",
+      "talk": {
+       "osc": [
+        0.45,
+        0.35,
+        2.6,
+        0
+       ]
+      },
+      "tilt": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      },
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 260,
+      "y": 2100,
+      "s": 1.3,
+      "expr": "scared",
+      "hands": "cheeks",
+      "shake": 0.4
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1420,
+     1.04
+    ],
+    [
+     520,
+     1380,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "osho",
+      "x": 790,
+      "y": 1880,
+      "s": 0.84,
+      "flip": true,
+      "expr": "serious",
+      "arms": "offer",
+      "lean": {
+       "osc": [
+        0.05,
+        0.05,
+        0.6,
+        0
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 360,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "sleep",
+      "arms": "chest",
+      "sutra": {
+       "a": 0,
+       "b": 0.5,
+       "t0": 0,
+       "t1": 3.0,
+       "e": "lin"
+      }
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "hush",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "bell",
+     0.2
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1400,
+     1.2
+    ],
+    [
+     540,
+     1150,
+     1.4
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 2120,
+      "s": 1.2,
+      "expr": "sleep",
+      "arms": "chest",
+      "sutra": {
+       "a": 0.5,
+       "b": 1,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "lin"
+      },
+      "earGlow": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.8,
+       "t1": 1.4,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "atc": "@L12.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L13",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1130,
+     1.6
+    ],
+    [
+     540,
+     1120,
+     1.8
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "sparkle",
+      "x": 540,
+      "y": 1100,
+      "t0": 0.2,
+      "d": 1.0,
+      "r": 360
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 2200,
+      "s": 1.3,
+      "expr": "sleep",
+      "arms": "chest",
+      "sutra": 1,
+      "earGlow": 1
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "sparkle",
+     0.2
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1440,
+     1.0
+    ],
+    [
+     580,
+     1420,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 330,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "sleep",
+      "arms": "chest",
+      "sutra": 1,
+      "shake": 0.12
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": {
+       "a": 1250,
+       "b": 820,
+       "t0": 0,
+       "t1": 2.0,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.85,
+      "ghost": 0.7,
+      "expr": "fierce",
+      "arms": "hips",
+      "ghostGlow": true,
+      "walk": 1,
+      "walkRate": 3.5
+     }
+    ]
+   },
+   "tr": "fade",
+   "music": "kotodread",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "stomp",
+     0.4
+    ],
+    [
+     "clank",
+     0.45
+    ],
+    [
+     "stomp",
+     1.1
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1150,
+     1.45
+    ],
+    [
+     540,
+     1120,
+     1.58
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1050,
+      "r": 700,
+      "col": "rgba(140,200,255,1)",
+      "a": 0.3
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": {
+       "osc": [
+        540,
+        40,
+        0.4,
+        0
+       ]
+      },
+      "y": 2120,
+      "s": 1.15,
+      "ghost": 0.8,
+      "expr": "angry",
+      "arms": "hips",
+      "tilt": {
+       "osc": [
+        0,
+        0.1,
+        0.5,
+        0
+       ]
+      },
+      "who": "kon"
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1440,
+     1.02
+    ],
+    [
+     440,
+     1330,
+     1.2
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "ears",
+      "x": 330,
+      "y": {
+       "a": 1240,
+       "b": 1230,
+       "t0": 0,
+       "t1": 2.0,
+       "e": "io"
+      },
+      "s": 0.7,
+      "gap": 140
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": 820,
+      "y": 1880,
+      "s": 0.85,
+      "ghost": 0.7,
+      "expr": "fierce",
+      "arms": "hips",
+      "ghostGlow": true,
+      "look": [
+       -1,
+       0
+      ],
+      "lean": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "heartbeat",
+     0.0
+    ],
+    [
+     "heartbeat",
+     1.0
+    ]
+   ],
+   "grade": "night",
+   "leak": false,
+   "bloom": 0.4
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.25
+    ],
+    [
+     540,
+     1170,
+     1.4
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "ears",
+      "x": 540,
+      "y": 1180,
+      "s": {
+       "a": 1.3,
+       "b": 1.6,
+       "t0": 0,
+       "t1": 1.6,
+       "e": "io"
+      },
+      "gap": 170
+     }
+    ]
+   },
+   "atc": "@L16.1",
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "heartbeat",
+     0.2
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1180,
+     1.45
+    ],
+    [
+     540,
+     1180,
+     1.7
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "ears",
+      "x": 540,
+      "y": 1180,
+      "s": 1.7,
+      "gap": 170
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "braam",
+     0.1
+    ]
+   ],
+   "kicks": [
+    0.1
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     620,
+     1430,
+     1.04
+    ],
+    [
+     500,
+     1380,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "temple",
+    "actors": [
+     {
+      "type": "ears",
+      "x": 380,
+      "y": 1240,
+      "s": 0.8,
+      "gap": 150,
+      "a": {
+       "a": 1,
+       "b": 0,
+       "t0": "@L18.2",
+       "t1": "@L18.2+0.1",
+       "e": "lin"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": {
+       "k": [
+        [
+         0,
+         880
+        ],
+        [
+         "@L18.2",
+         520
+        ]
+       ],
+       "e": "io"
+      },
+      "y": 1880,
+      "s": 0.85,
+      "ghost": 0.85,
+      "expr": "fierce",
+      "arms": "hips",
+      "ghostGlow": true,
+      "arms2": "point",
+      "mix": {
+       "a": 0,
+       "b": 1,
+       "t0": 0,
+       "t1": "@L18.2",
+       "e": "io"
+      },
+      "lean": 0.12
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "impacts": [
+    "@L18.2"
+   ],
+   "kicks": [
+    "@L18.2"
+   ],
+   "shakeAt": [
+    "@L18.2"
+   ],
+   "sfx": [
+    [
+     "whoosh",
+     "@L18.1"
+    ],
+    [
+     "hit",
+     "@L18.2"
+    ],
+    [
+     "shriek",
+     "@L18.2"
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L19",
+   "scene": "jp",
+   "cam": [
+    [
+     460,
+     1520,
+     0.92
+    ],
+    [
+     580,
+     1330,
+     1.2
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "crowd",
+      "x0": -100,
+      "x1": 1180,
+      "y": 2300,
+      "n": 9,
+      "s": 1.0,
+      "col": "#2a1a14"
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1800,
+      "s": 0.78,
+      "noEars": true,
+      "lean": {
+       "osc": [
+        0,
+        0.05,
+        0.45,
+        0
+       ]
+      },
+      "expr": "smile",
+      "talk": {
+       "osc": [
+        0.45,
+        0.35,
+        2.6,
+        0
+       ]
+      },
+      "tilt": {
+       "osc": [
+        0,
+        0.04,
+        0.5,
+        0
+       ]
+      },
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     },
+     {
+      "type": "notes",
+      "x": 640,
+      "y": 1100,
+      "n": 7
+     },
+     {
+      "type": "sparkle",
+      "x": 540,
+      "y": 1300,
+      "t0": 0.5,
+      "d": 1.0,
+      "r": 400
+     },
+     {
+      "type": "sparkle",
+      "x": 380,
+      "y": 1200,
+      "t0": 2.6,
+      "d": 1.0,
+      "r": 300
+     }
+    ],
+    "tod": "day"
+   },
+   "tr": "fade",
+   "music": "kotohope",
+   "camEase": "lin",
+   "label": "H\u014cICHI THE EARLESS",
+   "labelY": 505,
+   "labelAt": "@L19.2",
+   "sfx": [
+    [
+     "biwa",
+     0.1
+    ],
+    [
+     "crowd",
+     0.6
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L20",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1300,
+     0.9
+    ],
+    [
+     540,
+     1380,
+     1.0
+    ]
+   ],
+   "o": {
+    "set": "akama",
+    "actors": [
+     {
+      "type": "plinth",
+      "x": 540,
+      "y": 1880,
+      "s": 0.72,
+      "text": "\u8033\u306a\u3057\u82b3\u4e00"
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1730,
+      "s": 0.72,
+      "stone": true,
+      "light": false,
+      "noEars": true,
+      "expr": "sleep",
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     }
+    ]
+   },
+   "tr": "fade",
+   "camEase": "lin",
+   "label": "AKAMA SHRINE, SHIMONOSEKI",
+   "labelY": 505,
+   "labelAt": "@L20.1",
+   "sfx": [
+    [
+     "bell",
+     0.2
+    ]
+   ],
+   "grade": "warm"
+  },
+  {
+   "at": "L20",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.4
+    ],
+    [
+     540,
+     1300,
+     1.6
+    ]
+   ],
+   "o": {
+    "set": "akama",
+    "actors": [
+     {
+      "type": "plinth",
+      "x": 540,
+      "y": 1880,
+      "s": 0.72,
+      "text": "\u8033\u306a\u3057\u82b3\u4e00"
+     },
+     {
+      "type": "toon",
+      "c": "hoichi",
+      "x": 540,
+      "y": 1730,
+      "s": 0.72,
+      "stone": true,
+      "light": false,
+      "noEars": true,
+      "expr": "sleep",
+      "arms": [
+       [
+        -150,
+        -640
+       ],
+       [
+        40,
+        -500
+       ]
+      ],
+      "hold": "biwa"
+     }
+    ]
+   },
+   "atc": "@L20.2",
+   "tr": "whip",
+   "camEase": "lin",
+   "grade": "warm"
+  },
+  {
+   "at": "L21",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1560,
+     1.15
+    ],
+    [
+     560,
+     1500,
+     1.26
+    ]
+   ],
+   "o": {
+    "set": "akama",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "lady1",
+      "x": 140,
+      "y": 1760,
+      "s": 0.55,
+      "ghost": {
+       "a": 0,
+       "b": 0.5,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "io"
+      },
+      "expr": "smile",
+      "arms": "clasp",
+      "arms2": "open",
+      "mix": {
+       "osc": [
+        0.5,
+        0.5,
+        1.8,
+        0
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "official",
+      "x": 330,
+      "y": 1760,
+      "s": 0.55,
+      "ghost": {
+       "a": 0,
+       "b": 0.5,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "io"
+      },
+      "expr": "smile",
+      "arms": "clasp",
+      "arms2": "open",
+      "mix": {
+       "osc": [
+        0.5,
+        0.5,
+        1.8,
+        0.3
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "lady2",
+      "x": 760,
+      "y": 1760,
+      "s": 0.55,
+      "ghost": {
+       "a": 0,
+       "b": 0.5,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "io"
+      },
+      "expr": "smile",
+      "arms": "clasp",
+      "arms2": "open",
+      "mix": {
+       "osc": [
+        0.5,
+        0.5,
+        1.8,
+        0.6
+       ]
+      },
+      "flip": true
+     },
+     {
+      "type": "toon",
+      "c": "heikeSam",
+      "x": 950,
+      "y": 1760,
+      "s": 0.55,
+      "ghost": {
+       "a": 0,
+       "b": 0.5,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "io"
+      },
+      "expr": "smile",
+      "arms": "clasp",
+      "arms2": "open",
+      "mix": {
+       "osc": [
+        0.5,
+        0.5,
+        1.8,
+        0.9
+       ]
+      },
+      "flip": true
+     },
+     {
+      "type": "onibi",
+      "x": 540,
+      "y": 1300,
+      "n": 7,
+      "r": 460
+     }
+    ],
+    "tod": "dusk",
+    "front": [
+     {
+      "type": "mio",
+      "x": 270,
+      "y": 2120,
+      "s": 1.25,
+      "expr": "scared",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.3
+      ],
+      "shake": 0.2
+     },
+     {
+      "type": "fox",
+      "x": 780,
+      "y": 2070,
+      "s": 1.0,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "tr": "whip",
+   "camEase": "lin",
+   "sfx": [
+    [
+     "claps",
+     0.3
+    ]
+   ],
+   "grade": "warm"
+  }
+ ]
+}

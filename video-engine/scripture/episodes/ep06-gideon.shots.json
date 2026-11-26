@@ -1,0 +1,3115 @@
+{
+ "lead": 0.12,
+ "tail": 0.25,
+ "loop": true,
+ "title": {
+  "text": "GIDEON",
+  "sub": "300 vs. the army that destroyed itself",
+  "until": "L03"
+ },
+ "gaps": {
+  "L01": 0.12,
+  "L02": 0.1,
+  "L03": 0.3,
+  "L04": 0.2,
+  "L05": 0.15,
+  "L06": 0.2,
+  "L07": 0.15,
+  "L08": 0.2,
+  "L09": 0.15,
+  "L10": 0.1,
+  "L11": 0.2,
+  "L12": 0.15,
+  "L13": 0.1,
+  "L14": 0.15,
+  "L15": 0.3,
+  "L16": 0.15,
+  "L17": 0.1,
+  "L18": 0.25,
+  "L19": 0.15,
+  "L20": 0.5,
+  "L21": 0.1,
+  "L22": 0.15,
+  "L23": 0.15,
+  "L24": 0.25,
+  "L25": 0.35,
+  "L26": 0.15,
+  "L27": 0.15,
+  "L28": 0.3,
+  "L29": 0.1,
+  "L30": 0.25
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1300,
+     1.15
+    ],
+    [
+     480,
+     1330,
+     1.35
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "jar",
+      "x": 420,
+      "y": 1800,
+      "s": 0.55,
+      "t0": -0.02,
+      "d": 0.9
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "sheepish",
+      "hands": "shrug",
+      "look": [
+       0.4,
+       0.6
+      ]
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       -0.6,
+       0.3
+      ]
+     }
+    ]
+   },
+   "lead": 0,
+   "grade": "night",
+   "leak": false,
+   "music": "legend",
+   "kicks": [
+    0.02
+   ],
+   "sfx": [
+    [
+     "smash",
+     0.0
+    ]
+   ],
+   "amb": "fire"
+  },
+  {
+   "at": "L02",
+   "scene": "stage",
+   "cam": [
+    [
+     660,
+     1220,
+     1.9
+    ],
+    [
+     650,
+     1210,
+     2.05
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       0.6,
+       0
+      ]
+     }
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L03",
+   "scene": "stage",
+   "cam": [
+    [
+     300,
+     1280,
+     1.55
+    ],
+    [
+     300,
+     1280,
+     1.75
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "shout",
+      "hands": "up",
+      "hop": 0.7
+     }
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "kicks": [
+    0.06
+   ],
+   "pops": {
+    "L03": [
+     480,
+     660,
+     -0.04,
+     140
+    ]
+   },
+   "sfx": [
+    [
+     "braam",
+     0.06
+    ]
+   ],
+   "amb": "fire"
+  },
+  {
+   "at": "L04",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1200,
+     1.0
+    ],
+    [
+     600,
+     1280,
+     1.15
+    ]
+   ],
+   "o": {
+    "sky": "blood",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1300,
+    "far": [
+     {
+      "type": "swarm",
+      "x": -50,
+      "y": 500,
+      "w": 1200,
+      "h": 500,
+      "n": 220,
+      "col": "rgba(40,15,15,.8)"
+     }
+    ],
+    "actors": [
+     {
+      "type": "camels",
+      "x0": -200,
+      "x1": 1300,
+      "y": 1290,
+      "n": 16,
+      "s": 0.14,
+      "walk": true,
+      "vx": 30,
+      "col": "#3a1a1a",
+      "par": 0.5
+     },
+     {
+      "type": "camel",
+      "x": {
+       "a": 1150,
+       "b": 250,
+       "t0": 0,
+       "t1": 8,
+       "e": "lin"
+      },
+      "y": 1560,
+      "s": 0.55,
+      "walk": true,
+      "flip": true,
+      "blanket": "#2a4a6a"
+     },
+     {
+      "type": "camel",
+      "x": {
+       "a": 1350,
+       "b": 760,
+       "t0": 0,
+       "t1": 7,
+       "e": "lin"
+      },
+      "y": 1760,
+      "s": 0.95,
+      "walk": true,
+      "flip": true
+     },
+     {
+      "type": "w",
+      "c": "midianite",
+      "x": {
+       "a": 1000,
+       "b": 400,
+       "t0": 0,
+       "t1": 7,
+       "e": "lin"
+      },
+      "y": 1900,
+      "s": 1.0,
+      "flip": true,
+      "pose": "stride",
+      "expr": "angry"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "blood",
+   "music": "dread",
+   "sfx": [
+    [
+     "horn",
+     0.3
+    ],
+    [
+     "stomp",
+     1.0
+    ],
+    [
+     "stomp",
+     2.0
+    ]
+   ],
+   "amb": "wind"
+  },
+  {
+   "at": "L05",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1500,
+     1.1
+    ],
+    [
+     560,
+     1450,
+     1.3
+    ]
+   ],
+   "o": {
+    "sky": "sunset",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1300,
+    "actors": [
+     {
+      "type": "caves",
+      "x": 540,
+      "y": 1900,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm"
+  },
+  {
+   "at": "L05",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1450,
+     1.15
+    ],
+    [
+     540,
+     1480,
+     1.3
+    ]
+   ],
+   "o": {
+    "sky": "day",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1300,
+    "actors": [
+     {
+      "type": "winepress",
+      "x": 540,
+      "y": 1900,
+      "part": "back"
+     },
+     {
+      "type": "w",
+      "c": "gideon",
+      "x": 500,
+      "y": 1890,
+      "s": 1.05,
+      "pose": "preach",
+      "hold": "stick",
+      "holdRot": -0.5,
+      "expr": "worry",
+      "look": [
+       1,
+       0
+      ]
+     },
+     {
+      "type": "chaff",
+      "x": 700,
+      "y": 1640,
+      "n": 40
+     },
+     {
+      "type": "winepress",
+      "x": 540,
+      "y": 1900,
+      "part": "front"
+     }
+    ]
+   },
+   "atc": "@L05.1",
+   "tr": "whip",
+   "grade": "warm",
+   "label": "GIDEON",
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "thump",
+     0.2
+    ],
+    [
+     "thump",
+     1.1
+    ],
+    [
+     "thump",
+     2.0
+    ]
+   ]
+  },
+  {
+   "at": "L06",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1350,
+     1.0
+    ],
+    [
+     600,
+     1250,
+     1.15
+    ]
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1300,
+    "actors": [
+     {
+      "type": "oak",
+      "x": 800,
+      "y": 1600,
+      "s": 1.0
+     },
+     {
+      "type": "rays",
+      "x": 760,
+      "y": 900,
+      "r": 1800,
+      "a": 0.45
+     },
+     {
+      "type": "angel",
+      "x": 780,
+      "y": 1640,
+      "s": 0.55,
+      "rays": 0.3,
+      "eyesOpen": true
+     },
+     {
+      "type": "winepress",
+      "x": 200,
+      "y": 2100,
+      "part": "back",
+      "s": 0.8
+     },
+     {
+      "type": "w",
+      "c": "gideon",
+      "x": 200,
+      "y": 2090,
+      "s": 0.95,
+      "expr": "shock",
+      "look": [
+       1,
+       -0.6
+      ]
+     },
+     {
+      "type": "winepress",
+      "x": 200,
+      "y": 2100,
+      "part": "front",
+      "s": 0.8
+     }
+    ]
+   },
+   "tr": "flash",
+   "grade": "gold",
+   "bloom": 0.5,
+   "music": "hope",
+   "sfx": [
+    [
+     "choir",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "L07",
+   "scene": "stage",
+   "cam": [
+    [
+     420,
+     1300,
+     1.4
+    ],
+    [
+     380,
+     1300,
+     1.6
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "happy",
+      "hands": "up",
+      "hop": 0.5
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smile"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "night",
+   "leak": false,
+   "pops": {
+    "L07": [
+     480,
+     640,
+     -0.05,
+     120
+    ]
+   },
+   "amb": "fire",
+   "music": "legend"
+  },
+  {
+   "at": "L08",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1240,
+     1.6
+    ],
+    [
+     560,
+     1220,
+     1.8
+    ]
+   ],
+   "o": {
+    "sky": "day",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1300,
+    "actors": [
+     {
+      "type": "winepress",
+      "x": 540,
+      "y": 1900,
+      "part": "back"
+     },
+     {
+      "type": "w",
+      "c": "gideon",
+      "x": 540,
+      "y": 1880,
+      "s": 1.2,
+      "expr": "worry",
+      "pose": "cross",
+      "who": "gideon",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "winepress",
+      "x": 540,
+      "y": 1900,
+      "part": "front"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "warm"
+  },
+  {
+   "at": "L09",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1350,
+     1.0
+    ],
+    [
+     540,
+     1300,
+     1.12
+    ]
+   ],
+   "o": {
+    "sky": "day",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1300,
+    "actors": [
+     {
+      "type": "army",
+      "x0": -100,
+      "x1": 1200,
+      "y": 1380,
+      "n": 70,
+      "s": 0.14,
+      "col": "#5a4632",
+      "shields": true,
+      "par": 0.6
+     },
+     {
+      "type": "army",
+      "x0": -150,
+      "x1": 1250,
+      "y": 1460,
+      "n": 55,
+      "s": 0.2,
+      "col": "#4a3a2a",
+      "seed": 7,
+      "par": 0.75
+     },
+     {
+      "type": "banner",
+      "x": 180,
+      "y": 1700,
+      "s": 0.9
+     },
+     {
+      "type": "w",
+      "c": "gideonW",
+      "x": 560,
+      "y": 1880,
+      "s": 1.05,
+      "pose": "raise",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": 0.3,
+       "t1": 1.2,
+       "e": "o"
+      },
+      "expr": "smile"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "music": "legend",
+   "sfx": [
+    [
+     "horn",
+     0.5
+    ],
+    [
+     "crowd",
+     0.6
+    ]
+   ],
+   "pops": {
+    "L09": [
+     480,
+     700,
+     -0.03,
+     170,
+     "32,000",
+     "@L09.1"
+    ]
+   }
+  },
+  {
+   "at": "L09",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     540,
+     1340,
+     1.2
+    ]
+   ],
+   "o": {
+    "sky": "blood",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1150,
+    "actors": [
+     {
+      "type": "camp",
+      "y": 1180,
+      "s": 0.13,
+      "n": 14,
+      "rows": 4,
+      "dy": 40,
+      "par": 0.6
+     },
+     {
+      "type": "camels",
+      "x0": -100,
+      "x1": 1200,
+      "y": 1420,
+      "n": 26,
+      "s": 0.12,
+      "col": "#2a1418",
+      "seed": 3,
+      "par": 0.6
+     },
+     {
+      "type": "army",
+      "x0": -100,
+      "x1": 1200,
+      "y": 1700,
+      "n": 40,
+      "s": 0.3,
+      "col": "#1e1014",
+      "seed": 9
+     }
+    ]
+   },
+   "atc": "@L09.2",
+   "tr": "whip",
+   "grade": "blood",
+   "shakeAt": [
+    0.2
+   ],
+   "sfx": [
+    [
+     "braam",
+     0.0
+    ],
+    [
+     "crowd",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L10",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.3
+    ],
+    [
+     540,
+     1250,
+     1.5
+    ]
+   ],
+   "o": {
+    "sky": "storm",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1300,
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 200,
+      "r": 2200,
+      "a": 0.5
+     },
+     {
+      "type": "w",
+      "c": "gideonW",
+      "x": 540,
+      "y": 1900,
+      "s": 1.15,
+      "expr": "shock",
+      "look": [
+       0,
+       -1
+      ]
+     }
+    ]
+   },
+   "tr": "flash",
+   "grade": "cold",
+   "music": "dread",
+   "sfx": [
+    [
+     "thunder",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L11",
+   "scene": "stage",
+   "cam": [
+    [
+     300,
+     1280,
+     1.6
+    ],
+    [
+     300,
+     1280,
+     1.8
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "shout",
+      "hands": "up",
+      "hop": 0.8
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "night",
+   "leak": false,
+   "kicks": [
+    0.03
+   ],
+   "pops": {
+    "L11": [
+     480,
+     660,
+     0.04,
+     140
+    ]
+   },
+   "amb": "fire"
+  },
+  {
+   "at": "L12",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1350,
+     1.0
+    ],
+    [
+     600,
+     1360,
+     1.1
+    ]
+   ],
+   "o": {
+    "sky": "sunset",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1300,
+    "actors": [
+     {
+      "type": "army",
+      "x0": -100,
+      "x1": 1200,
+      "y": 1400,
+      "n": {
+       "a": 70,
+       "b": 22,
+       "t0": 1.6,
+       "t1": 3.6,
+       "e": "io"
+      },
+      "s": 0.16,
+      "col": "#5a4632",
+      "par": 0.6
+     },
+     {
+      "type": "army",
+      "x0": {
+       "a": 400,
+       "b": 1400,
+       "t0": 1.2,
+       "t1": 4.2,
+       "e": "io"
+      },
+      "x1": {
+       "a": 1300,
+       "b": 2400,
+       "t0": 1.2,
+       "t1": 4.2,
+       "e": "io"
+      },
+      "y": 1480,
+      "n": 40,
+      "s": 0.2,
+      "col": "#3a2a1e",
+      "march": true,
+      "seed": 5,
+      "par": 0.6
+     },
+     {
+      "type": "w",
+      "c": "gideonW",
+      "x": 300,
+      "y": 1880,
+      "s": 1.0,
+      "expr": "worry",
+      "look": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "sfx": [
+    [
+     "march",
+     0.8
+    ]
+   ],
+   "pops": {
+    "L12": [
+     480,
+     700,
+     0.03,
+     170,
+     "-22,000",
+     "@L12.1"
+    ]
+   }
+  },
+  {
+   "at": "L13",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1450,
+     1.0
+    ],
+    [
+     540,
+     1420,
+     1.1
+    ]
+   ],
+   "o": {
+    "sky": "day",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1200,
+    "actors": [
+     {
+      "type": "stream",
+      "y": 1560,
+      "h": 200
+     },
+     {
+      "type": "w",
+      "c": "man300",
+      "x": 200,
+      "y": 1640,
+      "s": 0.7,
+      "pose": "kneel",
+      "flip": false
+     },
+     {
+      "type": "w",
+      "c": "man300b",
+      "x": 420,
+      "y": 1650,
+      "s": 0.72,
+      "pose": "kneel",
+      "ph": 1
+     },
+     {
+      "type": "w",
+      "c": "man300",
+      "x": 680,
+      "y": 1630,
+      "s": 0.7,
+      "pose": "kneel",
+      "ph": 2
+     },
+     {
+      "type": "w",
+      "c": "man300c",
+      "x": 900,
+      "y": 1640,
+      "s": 0.7,
+      "pose": "kneel",
+      "ph": 3
+     },
+     {
+      "type": "w",
+      "c": "gideonW",
+      "x": 560,
+      "y": 1920,
+      "s": 1.0,
+      "expr": "smile",
+      "flip": true
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "amb": "brook",
+   "pops": {
+    "L13": [
+     480,
+     760,
+     0.0,
+     190,
+     "300",
+     "@L13.2"
+    ]
+   }
+  },
+  {
+   "at": "L14",
+   "scene": "stage",
+   "cam": [
+    [
+     400,
+     1300,
+     1.45
+    ],
+    [
+     360,
+     1300,
+     1.65
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "shock",
+      "hands": "mouth"
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smug"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "night",
+   "leak": false,
+   "kicks": [
+    0.02,
+    1.6
+   ],
+   "pops": {
+    "L14": [
+     480,
+     640,
+     -0.05,
+     150
+    ]
+   },
+   "amb": "fire"
+  },
+  {
+   "at": "L15",
+   "scene": "stage",
+   "cam": [
+    [
+     660,
+     1220,
+     1.9
+    ],
+    [
+     660,
+     1210,
+     2.0
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       0.7,
+       0
+      ]
+     }
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L16",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1350,
+     1.0
+    ],
+    [
+     600,
+     1380,
+     1.2
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1250,
+    "actors": [
+     {
+      "type": "camp",
+      "y": 1270,
+      "s": 0.14,
+      "n": 12,
+      "rows": 4,
+      "dy": 44,
+      "lit": true,
+      "fires": true,
+      "par": 0.6
+     },
+     {
+      "type": "camels",
+      "x0": -100,
+      "x1": 1200,
+      "y": 1470,
+      "n": 18,
+      "s": 0.1,
+      "col": "#120a10",
+      "seed": 4,
+      "par": 0.6
+     },
+     {
+      "type": "rock",
+      "x": 300,
+      "y": 1920,
+      "w": 420,
+      "h": 260,
+      "col": "#4a3a40"
+     },
+     {
+      "type": "w",
+      "c": "gideonW",
+      "x": {
+       "a": 120,
+       "b": 330,
+       "t0": 0,
+       "t1": 5,
+       "e": "o"
+      },
+      "y": 1800,
+      "s": 0.9,
+      "pose": "kneel",
+      "expr": "worry",
+      "look": [
+       1,
+       0.4
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "music": "dread",
+   "amb": "wind"
+  },
+  {
+   "at": "L17",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1380,
+     1.2
+    ],
+    [
+     480,
+     1380,
+     1.45
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1400,
+    "actors": [
+     {
+      "type": "mtent",
+      "x": 540,
+      "y": 1500,
+      "s": 1.2,
+      "lit": true
+     },
+     {
+      "type": "campfire",
+      "x": 540,
+      "y": 1820,
+      "s": 1.1
+     },
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1750,
+      "r": 600,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "w",
+      "c": "midsoldier",
+      "x": 330,
+      "y": 1900,
+      "s": 1.05,
+      "expr": "shock",
+      "who": "soldier",
+      "pose": "flail"
+     },
+     {
+      "type": "w",
+      "c": "midianite2",
+      "x": 790,
+      "y": 1900,
+      "s": 1.0,
+      "flip": true,
+      "expr": "shock"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "amb": "fire"
+  },
+  {
+   "at": "L17",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1350,
+     1.1
+    ],
+    [
+     600,
+     1400,
+     1.2
+    ]
+   ],
+   "o": {
+    "sky": "storm",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1500,
+    "actors": [
+     {
+      "type": "mtent",
+      "x": 700,
+      "y": 1700,
+      "s": 1.3,
+      "squash": {
+       "a": 0,
+       "b": 1,
+       "t0": 1.0,
+       "t1": 1.25,
+       "e": "i"
+      }
+     },
+     {
+      "type": "loaf",
+      "x0": -200,
+      "y0": 1300,
+      "x1": 680,
+      "y1": 1700,
+      "t0": 0,
+      "t1": 1.1,
+      "r": 130,
+      "bounce": 120,
+      "spin": 10,
+      "trail": true
+     }
+    ]
+   },
+   "atc": "@L17.1",
+   "tr": "whip",
+   "grade": "cold",
+   "woozy": 0.5,
+   "shakeAt": [
+    1.15
+   ],
+   "kicks": [
+    1.15
+   ],
+   "sfx": [
+    [
+     "stone",
+     0.0
+    ],
+    [
+     "thump",
+     1.15
+    ],
+    [
+     "hit",
+     1.15
+    ]
+   ]
+  },
+  {
+   "at": "L17",
+   "scene": "stage",
+   "cam": [
+    [
+     440,
+     1150,
+     1.6
+    ],
+    [
+     440,
+     1120,
+     1.85
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1400,
+    "actors": [
+     {
+      "type": "campfire",
+      "x": 540,
+      "y": 1820,
+      "s": 1.1
+     },
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1750,
+      "r": 600,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "w",
+      "c": "midsoldier",
+      "x": 420,
+      "y": 1960,
+      "s": 1.4,
+      "expr": "shock",
+      "who": "soldier",
+      "pose": "flail"
+     }
+    ]
+   },
+   "atc": "@L17.2",
+   "tr": "whip",
+   "grade": "blood",
+   "kicks": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "braam",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "L18",
+   "scene": "stage",
+   "cam": [
+    [
+     420,
+     1300,
+     1.45
+    ],
+    [
+     400,
+     1300,
+     1.6
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "annoyed",
+      "hands": "shrug",
+      "look": [
+       0.5,
+       0
+      ]
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "calm"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "night",
+   "leak": false,
+   "pops": {
+    "L18": [
+     480,
+     660,
+     0.0,
+     150,
+     null,
+     "@L18.0+1.25"
+    ]
+   },
+   "amb": "fire"
+  },
+  {
+   "at": "L19",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     540,
+     1500,
+     1.45
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1500,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1500,
+      "r": 900,
+      "col": "rgba(255,170,80,1)",
+      "a": 0.25
+     },
+     {
+      "type": "w",
+      "c": "man300",
+      "x": 180,
+      "y": 1880,
+      "s": 0.95,
+      "hold": "horn",
+      "hold2": "jar",
+      "ph": 0
+     },
+     {
+      "type": "w",
+      "c": "man300b",
+      "x": 540,
+      "y": 1900,
+      "s": 1.0,
+      "hold": "horn",
+      "hold2": "jar",
+      "ph": 1.3
+     },
+     {
+      "type": "w",
+      "c": "man300c",
+      "x": 900,
+      "y": 1880,
+      "s": 0.95,
+      "hold": "horn",
+      "hold2": "jar",
+      "ph": 2.1,
+      "flip": true
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "music": "dread",
+   "sfx": [
+    [
+     "heartbeat",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "L20",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.0
+    ],
+    [
+     540,
+     1330,
+     1.1
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 40,
+    "horizon": 1200,
+    "actors": [
+     {
+      "type": "camp",
+      "y": 1220,
+      "s": 0.12,
+      "n": 14,
+      "rows": 4,
+      "dy": 40,
+      "lit": false,
+      "par": 0.6
+     },
+     {
+      "type": "torchring",
+      "cx": 540,
+      "cy": 1400,
+      "rx": 700,
+      "ry": 300,
+      "n": 46,
+      "t0": 99,
+      "s": 0.8
+     },
+     {
+      "type": "w",
+      "c": "man300",
+      "x": 120,
+      "y": 1900,
+      "s": 0.9,
+      "sil": true,
+      "hold": "horn"
+     },
+     {
+      "type": "w",
+      "c": "man300",
+      "x": 960,
+      "y": 1900,
+      "s": 0.9,
+      "sil": true,
+      "hold": "horn",
+      "flip": true
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "sfx": [
+    [
+     "heartbeat",
+     0.0
+    ],
+    [
+     "heartbeat",
+     1.3
+    ],
+    [
+     "riser",
+     1.2
+    ]
+   ]
+  },
+  {
+   "at": "L21",
+   "scene": "stage",
+   "cam": [
+    [
+     500,
+     1250,
+     1.3
+    ],
+    [
+     500,
+     1180,
+     1.6
+    ]
+   ],
+   "o": {
+    "sky": "blood",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1500,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1100,
+      "r": 900,
+      "col": "rgba(255,150,60,1)",
+      "a": 0.5
+     },
+     {
+      "type": "jar",
+      "x": 760,
+      "y": 1900,
+      "s": 0.9,
+      "t0": 0.05
+     },
+     {
+      "type": "w",
+      "c": "gideonW",
+      "x": 480,
+      "y": 1940,
+      "s": 1.35,
+      "pose": "raise",
+      "k": {
+       "a": 0.2,
+       "b": 1,
+       "t0": 0,
+       "t1": 0.35,
+       "e": "o"
+      },
+      "hold": "torch",
+      "expr": "roar",
+      "who": "gideon"
+     }
+    ]
+   },
+   "tr": "flash",
+   "grade": "blood",
+   "bloom": 0.6,
+   "music": "battle",
+   "kicks": [
+    0.05,
+    1.2
+   ],
+   "shakeAt": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "smash",
+     0.05
+    ],
+    [
+     "braam",
+     0.05
+    ],
+    [
+     "horn",
+     0.9
+    ]
+   ],
+   "pops": {
+    "L21": [
+     480,
+     600,
+     -0.04,
+     120
+    ],
+    "L21:2": [
+     480,
+     800,
+     0.04,
+     120,
+     "AND FOR GIDEON!",
+     "@L21.1"
+    ]
+   }
+  },
+  {
+   "at": "L22",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1600,
+     1.3
+    ],
+    [
+     540,
+     1500,
+     1.1
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1500,
+    "actors": [
+     {
+      "type": "jar",
+      "x": 160,
+      "y": 1700,
+      "s": 0.7,
+      "t0": "@L22.0+0.75"
+     },
+     {
+      "type": "jar",
+      "x": 420,
+      "y": 1760,
+      "s": 0.8,
+      "t0": "@L22.0+0.85"
+     },
+     {
+      "type": "jar",
+      "x": 680,
+      "y": 1730,
+      "s": 0.75,
+      "t0": "@L22.0+0.8"
+     },
+     {
+      "type": "jar",
+      "x": 930,
+      "y": 1700,
+      "s": 0.7,
+      "t0": "@L22.0+0.95"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "blood",
+   "shakeAt": [
+    "@L22.0+0.8"
+   ],
+   "kicks": [
+    "@L22.0+0.8"
+   ],
+   "sfx": [
+    [
+     "smashes",
+     "@L22.0+0.7"
+    ]
+   ]
+  },
+  {
+   "at": "L22",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1350,
+     1.05
+    ],
+    [
+     540,
+     1330,
+     1.0
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 40,
+    "horizon": 1200,
+    "actors": [
+     {
+      "type": "camp",
+      "y": 1220,
+      "s": 0.12,
+      "n": 14,
+      "rows": 4,
+      "dy": 40,
+      "par": 0.6
+     },
+     {
+      "type": "torchring",
+      "cx": 540,
+      "cy": 1400,
+      "rx": 700,
+      "ry": 300,
+      "n": 46,
+      "t0": 0.1,
+      "spread": 0.7,
+      "s": 0.8
+     },
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1400,
+      "r": 1000,
+      "col": "rgba(255,140,60,1)",
+      "a": {
+       "a": 0,
+       "b": 0.4,
+       "t0": 0.2,
+       "t1": 1.2,
+       "e": "io"
+      }
+     }
+    ]
+   },
+   "atc": "@L22.1",
+   "tr": "flash",
+   "grade": "blood",
+   "bloom": 0.6,
+   "sfx": [
+    [
+     "whoosh",
+     0.1
+    ],
+    [
+     "crowd",
+     0.4
+    ]
+   ]
+  },
+  {
+   "at": "L22",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1350,
+     1.05
+    ],
+    [
+     540,
+     1300,
+     1.2
+    ]
+   ],
+   "o": {
+    "sky": "blood",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1500,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1300,
+      "r": 900,
+      "col": "rgba(255,150,60,1)",
+      "a": 0.4
+     },
+     {
+      "type": "w",
+      "c": "man300",
+      "x": 200,
+      "y": 1900,
+      "s": 1.0,
+      "hold": "horn",
+      "blow": 1,
+      "holdRot": -0.9,
+      "pose": "raise",
+      "k": 0.6,
+      "sil": true
+     },
+     {
+      "type": "w",
+      "c": "israelite",
+      "x": 540,
+      "y": 1940,
+      "s": 1.1,
+      "hold": "horn",
+      "blow": 1,
+      "holdRot": -0.9,
+      "pose": "raise",
+      "k": 0.6,
+      "sil": true,
+      "ph": 1
+     },
+     {
+      "type": "w",
+      "c": "man300",
+      "x": 880,
+      "y": 1900,
+      "s": 1.0,
+      "hold": "horn",
+      "blow": 1,
+      "holdRot": -0.9,
+      "pose": "raise",
+      "k": 0.6,
+      "sil": true,
+      "flip": true,
+      "ph": 2
+     },
+     {
+      "type": "hornwaves",
+      "pts": [
+       [
+        300,
+        1100
+       ],
+       [
+        640,
+        1050
+       ],
+       [
+        780,
+        1100
+       ]
+      ],
+      "r": 420
+     }
+    ]
+   },
+   "atc": "@L22.2",
+   "tr": "whip",
+   "grade": "blood",
+   "rumble": 0.6,
+   "sfx": [
+    [
+     "horn",
+     0.0
+    ],
+    [
+     "horn",
+     0.35
+    ],
+    [
+     "horn",
+     0.7
+    ]
+   ]
+  },
+  {
+   "at": "L23",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1400,
+     1.1
+    ],
+    [
+     540,
+     1420,
+     1.2
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1450,
+    "actors": [
+     {
+      "type": "mtent",
+      "x": 300,
+      "y": 1550,
+      "s": 0.9,
+      "lit": true
+     },
+     {
+      "type": "mtent",
+      "x": 860,
+      "y": 1520,
+      "s": 0.8
+     },
+     {
+      "type": "w",
+      "c": "midianite",
+      "x": {
+       "a": 200,
+       "b": 600,
+       "t0": 0,
+       "t1": 2.5,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 1.0,
+      "pose": "stride",
+      "expr": "shock"
+     },
+     {
+      "type": "w",
+      "c": "midianite2",
+      "x": {
+       "a": 950,
+       "b": 520,
+       "t0": 0,
+       "t1": 2.5,
+       "e": "lin"
+      },
+      "y": 1900,
+      "s": 1.0,
+      "pose": "stride",
+      "flip": true,
+      "expr": "shock"
+     },
+     {
+      "type": "torchring",
+      "cx": 540,
+      "cy": 1350,
+      "rx": 800,
+      "ry": 200,
+      "n": 30,
+      "t0": -5,
+      "s": 0.7
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "night",
+   "rumble": 0.4,
+   "sfx": [
+    [
+     "crowd",
+     0.0
+    ],
+    [
+     "horn",
+     0.5
+    ]
+   ]
+  },
+  {
+   "at": "L23",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1400,
+     1.1
+    ],
+    [
+     540,
+     1380,
+     1.25
+    ]
+   ],
+   "o": {
+    "sky": "blood",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1500,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1300,
+      "r": 1000,
+      "col": "rgba(255,90,40,1)",
+      "a": 0.5
+     },
+     {
+      "type": "camel",
+      "x": {
+       "a": -200,
+       "b": 1300,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "lin"
+      },
+      "y": 1650,
+      "s": 0.7,
+      "walk": true,
+      "rate": 12,
+      "sil": true,
+      "silCol": "#140810"
+     },
+     {
+      "type": "w",
+      "c": "midianite",
+      "x": 250,
+      "y": 1900,
+      "s": 0.95,
+      "pose": "thrust",
+      "sil": true,
+      "ph": 0.5
+     },
+     {
+      "type": "w",
+      "c": "midianite2",
+      "x": 470,
+      "y": 1900,
+      "s": 0.95,
+      "pose": "raise",
+      "k": 1,
+      "flip": true,
+      "sil": true
+     },
+     {
+      "type": "w",
+      "c": "midianite2",
+      "x": 700,
+      "y": 1880,
+      "s": 0.9,
+      "pose": "charge",
+      "sil": true,
+      "ph": 1
+     },
+     {
+      "type": "w",
+      "c": "midianite",
+      "x": 930,
+      "y": 1900,
+      "s": 0.95,
+      "pose": "thrust",
+      "flip": true,
+      "sil": true,
+      "ph": 2
+     },
+     {
+      "type": "sparks",
+      "pts": [
+       [
+        360,
+        1350
+       ],
+       [
+        810,
+        1360
+       ]
+      ],
+      "per": 0.45
+     }
+    ]
+   },
+   "atc": "@L23.2",
+   "tr": "flash",
+   "grade": "blood",
+   "speed": 0.4,
+   "shakeAt": [
+    0.1,
+    0.9,
+    1.6
+   ],
+   "flashes": [
+    0.4,
+    1.3
+   ],
+   "sfx": [
+    [
+     "clash",
+     0.2
+    ],
+    [
+     "clash",
+     0.65
+    ],
+    [
+     "clash",
+     1.1
+    ],
+    [
+     "clash",
+     1.5
+    ],
+    [
+     "crowd",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L23",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1300,
+     1.2
+    ],
+    [
+     540,
+     1260,
+     1.45
+    ]
+   ],
+   "o": {
+    "sky": "blood",
+    "sunX": 820,
+    "sunY": 420,
+    "sunR": 60,
+    "horizon": 1500,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1300,
+      "r": 900,
+      "col": "rgba(255,90,40,1)",
+      "a": 0.5
+     },
+     {
+      "type": "w",
+      "c": "midianite",
+      "x": 360,
+      "y": 1920,
+      "s": 1.3,
+      "pose": "thrust",
+      "expr": "roar",
+      "sil": true
+     },
+     {
+      "type": "w",
+      "c": "midianite2",
+      "x": 720,
+      "y": 1920,
+      "s": 1.3,
+      "pose": "thrust",
+      "flip": true,
+      "expr": "roar",
+      "sil": true,
+      "ph": 1
+     },
+     {
+      "type": "sparks",
+      "pts": [
+       [
+        540,
+        1240
+       ]
+      ],
+      "per": 0.5
+     }
+    ]
+   },
+   "atc": "@L23.3",
+   "tr": "whip",
+   "grade": "blood",
+   "kicks": [
+    0.1,
+    0.6
+   ],
+   "shakeAt": [
+    0.1,
+    0.6
+   ],
+   "sfx": [
+    [
+     "clash",
+     0.1
+    ],
+    [
+     "clash",
+     0.6
+    ],
+    [
+     "braam",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L24",
+   "scene": "stage",
+   "cam": [
+    [
+     400,
+     1300,
+     1.45
+    ],
+    [
+     360,
+     1300,
+     1.7
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "shout",
+      "hands": "up",
+      "hop": 1.0
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smile"
+     }
+    ]
+   },
+   "tr": "whip",
+   "grade": "night",
+   "leak": false,
+   "kicks": [
+    0.03
+   ],
+   "pops": {
+    "L24": [
+     480,
+     640,
+     -0.04,
+     120
+    ]
+   },
+   "amb": "fire"
+  },
+  {
+   "at": "L25",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1450,
+     1.0
+    ],
+    [
+     540,
+     1400,
+     1.1
+    ]
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 820,
+    "sunY": 1250,
+    "sunR": 120,
+    "horizon": 1450,
+    "far": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1450,
+      "r": 1100,
+      "col": "rgba(255,150,60,1)",
+      "a": 0.6
+     }
+    ],
+    "actors": [
+     {
+      "type": "w",
+      "c": "man300",
+      "x": 150,
+      "y": 1880,
+      "s": 0.85,
+      "hold": "torch",
+      "pose": "raise",
+      "k": 1,
+      "sil": true,
+      "rim": 0
+     },
+     {
+      "type": "w",
+      "c": "israelite",
+      "x": 360,
+      "y": 1860,
+      "s": 0.85,
+      "hold": "torch",
+      "pose": "raise",
+      "k": 1,
+      "sil": true,
+      "rim": 0,
+      "ph": 1
+     },
+     {
+      "type": "w",
+      "c": "gideonW",
+      "x": 560,
+      "y": 1900,
+      "s": 1.0,
+      "hold": "torch",
+      "pose": "raise",
+      "k": 1,
+      "sil": true,
+      "rim": 0,
+      "ph": 2
+     },
+     {
+      "type": "w",
+      "c": "man300",
+      "x": 760,
+      "y": 1860,
+      "s": 0.85,
+      "hold": "torch",
+      "pose": "raise",
+      "k": 1,
+      "sil": true,
+      "rim": 0,
+      "ph": 3,
+      "flip": true
+     },
+     {
+      "type": "w",
+      "c": "israelite",
+      "x": 960,
+      "y": 1880,
+      "s": 0.85,
+      "hold": "torch",
+      "pose": "raise",
+      "k": 1,
+      "sil": true,
+      "rim": 0,
+      "ph": 4,
+      "flip": true
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "gold",
+   "bloom": 0.6,
+   "music": "glory",
+   "sfx": [
+    [
+     "choir",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L26",
+   "scene": "stage",
+   "cam": [
+    [
+     560,
+     1300,
+     1.15
+    ],
+    [
+     520,
+     1300,
+     1.3
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "worry",
+      "look": [
+       0.6,
+       -0.4
+      ]
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -0.6,
+       0.2
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "leak": false,
+   "music": "hope",
+   "amb": "fire"
+  },
+  {
+   "at": "L27",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1350,
+     1.3
+    ],
+    [
+     540,
+     1360,
+     1.4
+    ]
+   ],
+   "o": {
+    "sky": "day",
+    "sunX": 820,
+    "sunY": 900,
+    "sunR": 150,
+    "horizon": 1300,
+    "actors": [
+     {
+      "type": "winepress",
+      "x": 540,
+      "y": 1900,
+      "part": "back"
+     },
+     {
+      "type": "w",
+      "c": "gideon",
+      "x": 540,
+      "y": 1890,
+      "s": 1.1,
+      "expr": "worry",
+      "pose": "cross",
+      "look": [
+       1,
+       0
+      ]
+     },
+     {
+      "type": "winepress",
+      "x": 540,
+      "y": 1900,
+      "part": "front"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm"
+  },
+  {
+   "at": "L27",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1200,
+     1.35
+    ],
+    [
+     540,
+     1150,
+     1.55
+    ]
+   ],
+   "o": {
+    "sky": "gold",
+    "sunX": 540,
+    "sunY": 1100,
+    "sunR": 200,
+    "horizon": 1500,
+    "actors": [
+     {
+      "type": "rays",
+      "x": 540,
+      "y": 1100,
+      "r": 2000,
+      "a": 0.5
+     },
+     {
+      "type": "w",
+      "c": "gideonW",
+      "x": 540,
+      "y": 1900,
+      "s": 1.3,
+      "hold": "torch",
+      "pose": "raise",
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "o"
+      },
+      "expr": "smile"
+     }
+    ]
+   },
+   "atc": "@L27.2",
+   "tr": "flash",
+   "grade": "gold",
+   "bloom": 0.6,
+   "sfx": [
+    [
+     "choir",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "L28",
+   "scene": "stage",
+   "cam": [
+    [
+     660,
+     1220,
+     1.85
+    ],
+    [
+     660,
+     1210,
+     1.95
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smile",
+      "look": [
+       0.6,
+       0.1
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L28",
+   "scene": "stage",
+   "cam": [
+    [
+     540,
+     1000,
+     0.95
+    ],
+    [
+     540,
+     1050,
+     1.0
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 520,
+      "y": 1760,
+      "s": 0.6,
+      "expr": "worry",
+      "look": [
+       0.2,
+       -1
+      ]
+     },
+     {
+      "type": "donkey",
+      "x": 760,
+      "y": 1750,
+      "s": 0.6,
+      "flip": true,
+      "expr": "calm"
+     }
+    ]
+   },
+   "atc": "@L28.1",
+   "tr": "fade",
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L29",
+   "scene": "stage",
+   "cam": [
+    [
+     320,
+     1260,
+     1.6
+    ],
+    [
+     320,
+     1260,
+     1.7
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "worry",
+      "look": [
+       0.6,
+       0
+      ]
+     }
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L30",
+   "scene": "stage",
+   "cam": [
+    [
+     660,
+     1220,
+     1.9
+    ],
+    [
+     660,
+     1215,
+     2.0
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "smile",
+      "look": [
+       0.7,
+       0.1
+      ]
+     }
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "amb": "fire"
+  },
+  {
+   "at": "L31",
+   "scene": "stage",
+   "cam": [
+    [
+     480,
+     1300,
+     1.2
+    ],
+    [
+     480,
+     1290,
+     1.45
+    ]
+   ],
+   "o": {
+    "sky": "night",
+    "sunX": 300,
+    "sunY": 520,
+    "sunR": 80,
+    "horizon": 1360,
+    "actors": [
+     {
+      "type": "glow",
+      "x": 560,
+      "y": 1700,
+      "r": 700,
+      "col": "rgba(255,160,70,1)",
+      "a": 0.45
+     },
+     {
+      "type": "campfire",
+      "x": 560,
+      "y": 1770,
+      "s": 1.2
+     },
+     {
+      "type": "toby",
+      "x": 300,
+      "y": 1720,
+      "s": 1.0,
+      "expr": "shout",
+      "hands": "up",
+      "hop": 0.5
+     },
+     {
+      "type": "jar",
+      "x": 300,
+      "y": {
+       "a": 1500,
+       "b": 1150,
+       "t0": 0,
+       "t1": 0.5,
+       "e": "o"
+      },
+      "s": 0.55
+     },
+     {
+      "type": "donkey",
+      "x": 860,
+      "y": 1690,
+      "s": 1.0,
+      "flip": true,
+      "expr": "wide",
+      "look": [
+       -0.6,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "grade": "night",
+   "leak": false,
+   "music": "battle",
+   "amb": "fire",
+   "kicks": [
+    "@L31.1"
+   ],
+   "pops": {
+    "L31": [
+     480,
+     640,
+     -0.04,
+     130
+    ]
+   }
+  }
+ ]
+}

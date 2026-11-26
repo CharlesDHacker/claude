@@ -1,0 +1,365 @@
+{
+ "title": "BALAAM",
+ "subtitle": "the donkey who saw the angel",
+ "source": "Numbers 22:21-35, 23:7-8, 24:10; 2 Peter 2:15-16",
+ "voices": {
+  "toby": {
+   "name": "Piku - Expressive Kid Character",
+   "voice_id": "EeQEodFZVtBkjtgK3HBc"
+  },
+  "selah": {
+   "name": "Imogen - Warm, Natural, and Expressive",
+   "voice_id": "jv41DhCf464zw0TI7I1w"
+  },
+  "balaam": {
+   "name": "AK - British Posh Well-Spoken Old Man",
+   "voice_id": "y0SYydk17lMbUIUvSf3N"
+  },
+  "donkey": {
+   "name": "Nan - Warm Vintage Storyteller",
+   "voice_id": "jVMsZEw3hfmEAe9OUUtS"
+  },
+  "angel": {
+   "name": "Atlas - The Epic Voice",
+   "voice_id": "zfWx5IjUaWGWTId9hv9t"
+  }
+ },
+ "takes": {
+  "toby": "take_b"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "toby",
+   "say": "[shouting] Selah! MOVE!",
+   "cap": [
+    "Selah! {pop:MOVE!}"
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "selah",
+   "say": "[calmly] No.",
+   "cap": [
+    "No."
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "toby",
+   "say": "[frustrated] Why NOT?!",
+   "cap": [
+    "Why {o:NOT}?!"
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "selah",
+   "say": "[softly] The last donkey who stopped on a road like this... saved a man's life.",
+   "cap": [
+    "The last donkey who stopped on a road like this...",
+    "saved a man's {g:life}."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "toby",
+   "say": "[surprised] By SITTING DOWN?!",
+   "cap": [
+    "{pop:SITTING DOWN?!}"
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "selah",
+   "say": "[storytelling] His name was Balaam.",
+   "cap": [
+    "His name was {g:Balaam}."
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "selah",
+   "say": "A king offered him gold... to curse God's people.",
+   "cap": [
+    "A king offered him {g:gold}...",
+    "to {r:curse} God's people."
+   ]
+  },
+  {
+   "id": "L08",
+   "who": "selah",
+   "say": "And Balaam wanted that gold.",
+   "cap": [
+    "And Balaam {o:wanted} that gold."
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "selah",
+   "say": "So he saddled his donkey... and rode out.",
+   "cap": [
+    "So he saddled his donkey...",
+    "and rode out."
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "selah",
+   "say": "[mysteriously] But someone was waiting on the road.",
+   "cap": [
+    "But someone was waiting on the road."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "selah",
+   "say": "The angel of the Lord. [pause] With a drawn sword.",
+   "cap": [
+    "The {g:angel of the Lord}.",
+    "With a {r:drawn sword}."
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "selah",
+   "say": "Balaam didn't see him.",
+   "cap": [
+    "Balaam didn't see him."
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "selah",
+   "say": "But the donkey did.",
+   "cap": [
+    "But the {o:donkey} did."
+   ]
+  },
+  {
+   "id": "L14",
+   "who": "toby",
+   "say": "[nervous] Run, donkey!",
+   "cap": [
+    "{o:Run, donkey!}"
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "selah",
+   "say": "She ran into a field. [pause] And Balaam beat her.",
+   "cap": [
+    "She ran into a field.",
+    "And Balaam {r:beat} her."
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "selah",
+   "say": "Then, between two vineyard walls...",
+   "cap": [
+    "Then, between two vineyard walls..."
+   ]
+  },
+  {
+   "id": "L17",
+   "who": "selah",
+   "say": "she pressed against the wall... and crushed his foot.",
+   "cap": [
+    "she pressed against the wall...",
+    "and {r:crushed} his foot."
+   ]
+  },
+  {
+   "id": "L18",
+   "who": "selah",
+   "say": "He beat her again.",
+   "cap": [
+    "He beat her {r:again}."
+   ]
+  },
+  {
+   "id": "L19",
+   "who": "selah",
+   "say": "Then the path got too narrow to turn.",
+   "cap": [
+    "Then the path got too narrow to turn."
+   ]
+  },
+  {
+   "id": "L20",
+   "who": "selah",
+   "say": "So she lay down.",
+   "cap": [
+    "So she lay down."
+   ]
+  },
+  {
+   "id": "L21",
+   "who": "selah",
+   "say": "[sadly] And Balaam beat her with his staff.",
+   "cap": [
+    "And Balaam beat her with his {r:staff}."
+   ]
+  },
+  {
+   "id": "L22",
+   "who": "toby",
+   "say": "[shocked] THREE times?!",
+   "cap": [
+    "{pop:THREE TIMES?!}"
+   ]
+  },
+  {
+   "id": "L23",
+   "who": "selah",
+   "say": "[slowly] Then God opened the donkey's mouth.",
+   "cap": [
+    "Then God {g:opened} the donkey's {g:mouth}."
+   ]
+  },
+  {
+   "id": "L24",
+   "who": "donkey",
+   "say": "[hurt] What have I done to you... that you have beaten me these three times?",
+   "cap": [
+    "“What have I done to you...",
+    "that you have beaten me these {o:three times}?”"
+   ]
+  },
+  {
+   "id": "L25",
+   "who": "balaam",
+   "say": "[angry] [shouting] You made a FOOL of me! If I had a sword in my hand, I would kill you right now!",
+   "cap": [
+    "“You made a {r:FOOL} of me!",
+    "If I had a sword, I would {r:kill} you!”"
+   ]
+  },
+  {
+   "id": "L26",
+   "who": "donkey",
+   "say": "[gently] Am I not your donkey? [pause] Have I ever done this to you before?",
+   "cap": [
+    "“Am I not your donkey?",
+    "Have I {o:ever} done this to you before?”"
+   ]
+  },
+  {
+   "id": "L27",
+   "who": "balaam",
+   "say": "[quietly] ...No.",
+   "cap": [
+    "“...No.”"
+   ]
+  },
+  {
+   "id": "L28",
+   "who": "selah",
+   "say": "Then God opened Balaam's eyes.",
+   "cap": [
+    "Then God opened {g:Balaam's} eyes."
+   ]
+  },
+  {
+   "id": "L29",
+   "who": "angel",
+   "say": "[deep voice] [slowly] If she had not turned away from me... I would have killed you by now. [pause] And spared her.",
+   "cap": [
+    "“If she had not turned away from me...",
+    "I would have killed {r:you}.",
+    "And {g:spared her}.”"
+   ]
+  },
+  {
+   "id": "L30",
+   "who": "toby",
+   "say": "[softly] [surprised] She was... saving him?",
+   "cap": [
+    "She was... {o:saving} him?"
+   ]
+  },
+  {
+   "id": "L31",
+   "who": "selah",
+   "say": "[warmly] The whole time.",
+   "cap": [
+    "{g:The whole time.}"
+   ]
+  },
+  {
+   "id": "L32",
+   "who": "selah",
+   "say": "[storytelling] Balaam reached the king.",
+   "cap": [
+    "Balaam reached the king."
+   ]
+  },
+  {
+   "id": "L33",
+   "who": "selah",
+   "say": "Three times, he opened his mouth to curse.",
+   "cap": [
+    "Three times, he opened his mouth to {r:curse}."
+   ]
+  },
+  {
+   "id": "L34",
+   "who": "selah",
+   "say": "Three times... [pause] only blessings came out.",
+   "cap": [
+    "Three times...",
+    "only {g:blessings} came out."
+   ]
+  },
+  {
+   "id": "L35",
+   "who": "balaam",
+   "say": "[in awe] How can I curse those whom God has not cursed?",
+   "cap": [
+    "“How can I curse those",
+    "whom {g:God} has not cursed?”"
+   ]
+  },
+  {
+   "id": "L36",
+   "who": "toby",
+   "say": "[sheepishly] ...Sorry I yelled at you, Selah.",
+   "cap": [
+    "{o:...Sorry I yelled at you, Selah.}"
+   ]
+  },
+  {
+   "id": "L37",
+   "who": "selah",
+   "say": "[warmly] If God can speak through a donkey...",
+   "cap": [
+    "If God can speak through a {o:donkey}..."
+   ]
+  },
+  {
+   "id": "L38",
+   "who": "toby",
+   "say": "[excited] He can speak through ANYONE!",
+   "cap": [
+    "He can speak through {o:ANYONE}!"
+   ]
+  },
+  {
+   "id": "L39",
+   "who": "selah",
+   "say": "[teasing] Even you.",
+   "cap": [
+    "{g:Even you.}"
+   ]
+  },
+  {
+   "id": "L40",
+   "who": "toby",
+   "say": "[offended] HEY!",
+   "cap": [
+    "{pop:HEY!}"
+   ]
+  }
+ ]
+}

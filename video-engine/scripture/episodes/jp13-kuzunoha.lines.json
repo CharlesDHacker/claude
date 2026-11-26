@@ -1,0 +1,210 @@
+{
+ "title": "JAPAN'S GREATEST SORCERER WAS HALF FOX",
+ "subtitle": "Kuzunoha, the fox mother",
+ "source": "Kuzunoha legend (Shinoda Forest, Izumi; the 1734 puppet play Ashiya Doman Ouchi Kagami and earlier tales); Abe no Seimei (921-1005), onmyoji of the Heian court; Kuzunoha Inari Shrine, Izumi, Osaka; Seimei Shrine, Kyoto.",
+ "voices": {
+  "mio": {
+   "name": "Candy - Girly and Sweet",
+   "voice_id": "Nggzl2QAXh3OijoXD116"
+  },
+  "kon": {
+   "name": "Callum - Husky Trickster (premade, dry)",
+   "voice_id": "N2lVS1w4EtoT3dr4eOWO"
+  }
+ },
+ "takes": {
+  "mio": "mio_a",
+  "kon": "kon_a"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "kon",
+   "say": "[storytelling, low] The most powerful sorcerer in Japanese history... was half fox.",
+   "cap": [
+    "The most powerful {o:sorcerer}",
+    "in Japanese history...",
+    "was {r:half fox}."
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "mio",
+   "say": "[gasp] Half?!",
+   "cap": [
+    "{o:Half?!}"
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "kon",
+   "say": "A thousand years ago, a young man named Yasuna was walking through Shinoda Forest, when hunters chased a white fox right into his arms.",
+   "cap": [
+    "{o:1,000 years ago},",
+    "a young man named {o:Yasuna}",
+    "was walking through {o:Shinoda Forest},",
+    "when hunters chased a {o:white fox}",
+    "right into his arms."
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "kon",
+   "say": "He hid it. The hunters beat him for it. And the fox got away.",
+   "cap": [
+    "He {o:hid it}.",
+    "The hunters {r:beat him} for it.",
+    "And the fox got away."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "kon",
+   "say": "[gentle] That night, a beautiful woman found him hurt by the road. Her name was Kuzunoha.",
+   "cap": [
+    "That night, a beautiful woman",
+    "found him hurt by the road.",
+    "Her name was {o:Kuzunoha}."
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "kon",
+   "say": "She nursed him back to health. They fell in love. They married. They had a son.",
+   "cap": [
+    "She nursed him back to health.",
+    "They fell in {o:love}.",
+    "They {o:married}.",
+    "They had a {o:son}."
+   ]
+  },
+  {
+   "who": "kon",
+   "say": "[warm] For six years, they were the happiest family in Izumi.",
+   "cap": [
+    "For {o:six years},",
+    "they were the {o:happiest family}",
+    "in {o:Izumi}."
+   ],
+   "id": "L07"
+  },
+  {
+   "id": "L08",
+   "who": "mio",
+   "say": "[soft] Aww.",
+   "cap": [
+    "{o:Aww.}"
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "kon",
+   "say": "[beat] But here's the thing. Foxes can't hide forever.",
+   "cap": [
+    "But here's the thing.",
+    "Foxes {r:can't hide forever}."
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "kon",
+   "say": "[quiet] One morning, their little boy looked at his mother... and saw a tail.",
+   "cap": [
+    "One morning, their little boy",
+    "looked at his mother...",
+    "and saw a {r:tail}."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "mio",
+   "say": "[whisper] Oh no.",
+   "cap": [
+    "{r:Oh no.}"
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "kon",
+   "say": "[sad] She couldn't stay. A fox who has been seen must go home. Before she left, she wrote a poem on the paper door.",
+   "cap": [
+    "She {r:couldn't stay}.",
+    "A fox who has been seen",
+    "must {r:go home}.",
+    "Before she left,",
+    "she wrote a {o:poem}",
+    "on the paper door."
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "kon",
+   "say": "[softly] If you miss me, come find me, in the forest of Shinoda.",
+   "cap": [
+    "\"If you {o:miss me},",
+    "come find me,",
+    "in the forest of {o:Shinoda}.\""
+   ]
+  },
+  {
+   "id": "L14",
+   "who": "mio",
+   "say": "[sniffling] Did they ever see her again?",
+   "cap": [
+    "Did they ever",
+    "see her {o:again?}"
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "kon",
+   "say": "[gentle] They searched the forest. She came out one last time, as a white fox, and gave her son a crystal orb.",
+   "cap": [
+    "They searched the forest.",
+    "She came out {o:one last time},",
+    "as a {o:white fox},",
+    "and gave her son a {o:crystal orb}."
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "kon",
+   "say": "With it, he could hear the voices of animals, and see spirits no one else could.",
+   "cap": [
+    "With it, he could hear",
+    "the {o:voices of animals},",
+    "and see {o:spirits}",
+    "no one else could."
+   ]
+  },
+  {
+   "id": "L17",
+   "who": "kon",
+   "say": "[proud] That boy grew up to be Abe no Seimei. The greatest onmyoji who ever lived.",
+   "cap": [
+    "That boy grew up to be",
+    "{o:Abe no Seimei}.",
+    "The greatest {o:onmyōji}",
+    "who ever lived."
+   ]
+  },
+  {
+   "id": "L18",
+   "who": "mio",
+   "say": "[curious] Kon... are you two related?",
+   "cap": [
+    "Kon...",
+    "are you two {o:related?}"
+   ]
+  },
+  {
+   "id": "L19",
+   "who": "kon",
+   "say": "[smug] Every fox in Japan says yes.",
+   "cap": [
+    "Every fox in Japan",
+    "says {o:yes}."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,206 @@
+{
+ "title": "SHE NEVER AGED",
+ "subtitle": "Yuki-onna, the snow woman",
+ "source": "Lafcadio Hearn, Kwaidan: Stories and Studies of Strange Things (1904), 'Yuki-Onna' (told to Hearn by a farmer of Chofu, Musashi Province); yuki-onna in Japanese folklore.",
+ "voices": {
+  "mio": {
+   "name": "Candy - Girly and Sweet",
+   "voice_id": "Nggzl2QAXh3OijoXD116"
+  },
+  "kon": {
+   "name": "Callum - Husky Trickster (premade, dry)",
+   "voice_id": "N2lVS1w4EtoT3dr4eOWO"
+  }
+ },
+ "takes": {
+  "mio": "mio_a",
+  "kon": "kon_a"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "kon",
+   "say": "[low] He married a woman who never got older. Then one night, he told her a story... and she vanished forever.",
+   "cap": [
+    "He married a woman",
+    "who {o:never got older}.",
+    "Then one night, he told her a story...",
+    "and she {r:vanished forever}."
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "mio",
+   "say": "[nervous] What story?",
+   "cap": [
+    "What {o:story?}"
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "kon",
+   "say": "[storytelling] Two woodcutters, old Mosaku and young Minokichi, were trapped by a blizzard in a ferryman's hut.",
+   "cap": [
+    "Two woodcutters,",
+    "old {o:Mosaku} and young {o:Minokichi},",
+    "were trapped by a {r:blizzard}",
+    "in a ferryman's hut."
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "kon",
+   "say": "That night, Minokichi woke up. The door was open. A woman in white was leaning over Mosaku.",
+   "cap": [
+    "That night,",
+    "Minokichi woke up.",
+    "The door was {r:open}.",
+    "A {r:woman in white}",
+    "was leaning over Mosaku."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "kon",
+   "say": "[whisper] She breathed on him. A white, freezing breath. And the old man never woke up.",
+   "cap": [
+    "She {o:breathed} on him.",
+    "A white, {r:freezing} breath.",
+    "And the old man",
+    "{r:never woke up}."
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "mio",
+   "say": "[scared] No, no, no...",
+   "cap": [
+    "{r:No, no, no...}"
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "kon",
+   "say": "Then she turned to Minokichi. [beat] But she stopped. He was young. So she made him a deal.",
+   "cap": [
+    "Then she turned to {o:Minokichi}.",
+    "But she {o:stopped}.",
+    "He was young.",
+    "So she made him a {o:deal}."
+   ]
+  },
+  {
+   "id": "L08",
+   "who": "kon",
+   "say": "[cold] Never tell anyone what you saw tonight. Not even your mother. If you do... I will know.",
+   "cap": [
+    "\"Never tell {r:anyone}",
+    "what you saw tonight.",
+    "Not even your mother.",
+    "If you do...",
+    "I will {r:know}.\""
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "kon",
+   "say": "[storytelling] A year later, he met a beautiful girl on the road. Her name was O-Yuki. Snow.",
+   "cap": [
+    "A year later, he met",
+    "a beautiful girl on the road.",
+    "Her name was {o:O-Yuki}.",
+    "{o:Snow}."
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "kon",
+   "say": "They married. They had ten children. And she never aged a single day.",
+   "cap": [
+    "They married.",
+    "They had {o:ten children}.",
+    "And she {r:never aged}",
+    "a single day."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "mio",
+   "say": "[suspicious] Kon. Kon, that's her.",
+   "cap": [
+    "Kon.",
+    "Kon, {r:that's her}."
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "kon",
+   "say": "[sly] One winter night, he watched her sew, and said: you remind me of something strange.",
+   "cap": [
+    "One winter night,",
+    "he watched her sew, and said:",
+    "\"You remind me",
+    "of something {o:strange}.\""
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "kon",
+   "say": "[slow] And he told her everything.",
+   "cap": [
+    "And he told her",
+    "{r:everything}."
+   ]
+  },
+  {
+   "id": "L14",
+   "who": "kon",
+   "say": "[cold, rising] She stood up. That was me! I told you what would happen if you ever said a word!",
+   "cap": [
+    "She stood up.",
+    "\"That was {r:ME}!",
+    "I told you what would happen",
+    "if you ever said {r:a word}!\""
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "kon",
+   "say": "[soft] But she looked at the children sleeping... and she couldn't do it.",
+   "cap": [
+    "But she looked at",
+    "the {o:children} sleeping...",
+    "and she {o:couldn't do it}."
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "kon",
+   "say": "She turned into white mist, rose through the roof... and was never seen again.",
+   "cap": [
+    "She turned into {o:white mist},",
+    "rose through the roof...",
+    "and was {r:never seen again}."
+   ]
+  },
+  {
+   "id": "L17",
+   "who": "mio",
+   "say": "[sad] He only had one rule.",
+   "cap": [
+    "He only had",
+    "{o:one rule}."
+   ]
+  },
+  {
+   "id": "L18",
+   "who": "kon",
+   "say": "[gentle] Some secrets are promises. Keep them.",
+   "cap": [
+    "Some secrets",
+    "are {o:promises}.",
+    "{o:Keep them}."
+   ]
+  }
+ ]
+}

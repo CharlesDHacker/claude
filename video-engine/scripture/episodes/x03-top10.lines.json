@@ -1,0 +1,149 @@
+{
+ "title": "TOP 10",
+ "subtitle": "graphic novels every kid was obsessed with",
+ "voices": {
+  "narr": {
+   "name": "Stray - Deep and Grounded",
+   "voice_id": "DT7zBOa8kCzTWHNN60AC"
+  }
+ },
+ "takes": {
+  "narr": "narr_a"
+ },
+ "lines": [
+  {
+   "id": "L00",
+   "who": "narr",
+   "say": "The ten graphic novels every kid was obsessed with. Ranked by how popular they really got.",
+   "cap": [
+    "The {o:ten graphic novels}",
+    "every kid was obsessed with.",
+    "Ranked by how {o:popular} they really got."
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "narr",
+   "say": "Ten. Amulet. A real fantasy epic, and the series that turned library skeptics into readers.",
+   "cap": [
+    "{pop:#10}",
+    "Amulet. A real {o:fantasy epic},",
+    "the series that turned library skeptics into readers."
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "narr",
+   "say": "Nine. Wings of Fire, the graphic novels. Dragon tribes, prophecies, and fan art in every notebook margin.",
+   "cap": [
+    "{pop:#9}",
+    "Wings of Fire, the graphic novels.",
+    "Dragon tribes, prophecies,",
+    "and fan art in every notebook margin."
+   ]
+  },
+  {
+   "id": "L08",
+   "who": "narr",
+   "say": "Eight. The Bad Guys. Villains trying to be heroes. Short, fast, and big enough to get its own movie.",
+   "cap": [
+    "{pop:#8}",
+    "The Bad Guys. Villains trying to be {g:heroes}.",
+    "Short, fast, and big enough",
+    "to get its own {o:movie}."
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "narr",
+   "say": "Seven. Dork Diaries. Doodles and middle school drama. For a lot of kids, this was the other diary.",
+   "cap": [
+    "{pop:#7}",
+    "Dork Diaries. Doodles and middle school drama.",
+    "For a lot of kids, this was {o:the other diary}."
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "narr",
+   "say": "Six. Big Nate. Not the biggest seller here, but thirty-five years of comic strips. The best crafted on this list.",
+   "cap": [
+    "{pop:#6}",
+    "Big Nate. Not the biggest seller here,",
+    "but {o:thirty-five years} of comic strips.",
+    "The {g:best crafted} on this list."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "narr",
+   "say": "Five. The Baby-Sitters Club. An eighties series reborn as graphic novels, then a Netflix show.",
+   "cap": [
+    "{pop:#5}",
+    "The Baby-Sitters Club.",
+    "An {o:eighties} series reborn as graphic novels,",
+    "then a {o:Netflix} show."
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "narr",
+   "say": "Four. Smile. A true story about braces and growing up, and it stayed on bestseller lists for years.",
+   "cap": [
+    "{pop:#4}",
+    "Smile. A {g:true story} about braces and growing up,",
+    "and it stayed on bestseller lists for {o:years}."
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "narr",
+   "say": "Three. Captain Underpants. Potty humor that drove parents crazy, and kids lined up anyway.",
+   "cap": [
+    "{pop:#3}",
+    "Captain Underpants.",
+    "Potty humor that drove parents {r:crazy},",
+    "and kids lined up {o:anyway}."
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "narr",
+   "say": "Two. Dog Man. The spin-off that outgrew the original. New books launch straight to number one.",
+   "cap": [
+    "{pop:#2}",
+    "Dog Man. The spin-off that {o:outgrew} the original.",
+    "New books launch straight to {g:number one}."
+   ]
+  },
+  {
+   "id": "L01",
+   "who": "narr",
+   "say": "And number one. Diary of a Wimpy Kid. Over three hundred million copies. Love it or not, nothing else comes close.",
+   "cap": [
+    "{pop:#1}",
+    "Diary of a Wimpy Kid.",
+    "Over {o:300 million} copies.",
+    "Love it or not, {g:nothing else comes close}."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "narr",
+   "say": "And if your favorite didn't make the cut, it was either too niche, or it just falls behind these ten.",
+   "cap": [
+    "And if your favorite didn't make the cut,",
+    "it was either {o:too niche},",
+    "or it just {r:falls behind} these ten."
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "narr",
+   "say": "So, which one did you read first?",
+   "cap": [
+    "So, which one did you read {o:first}?"
+   ]
+  }
+ ]
+}

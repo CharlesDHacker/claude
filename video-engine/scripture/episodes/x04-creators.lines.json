@@ -1,0 +1,18 @@
+{
+  "title": "THE PEOPLE BEHIND THE TOP 10",
+  "subtitle": "who actually made your favorite graphic novels",
+  "voices": { "narr": { "name": "Stray - Deep and Grounded", "voice_id": "DT7zBOa8kCzTWHNN60AC" } },
+  "takes": { "narr": "narr_a" },
+  "lines": [
+    { "id": "C00", "who": "narr", "say": "You've read their books a hundred times. But do you know who made them? The people behind the top ten.", "cap": ["You've read their books a {o:hundred times}.", "But do you know who {o:made} them?", "The people behind the {g:top ten}."] },
+    { "id": "C08", "who": "narr", "say": "Rachel Renée Russell. Dork Diaries. She was a bankruptcy lawyer before she wrote a single diary entry. And Nikki? Named after her daughter, who now draws the books.", "cap": ["{g:Rachel Renée Russell}. Dork Diaries.", "She was a {o:bankruptcy lawyer}", "before she wrote a single diary entry.", "And Nikki? Named after her {g:daughter},", "who now draws the books."] },
+    { "id": "C07", "who": "narr", "say": "Aaron Blabey. The Bad Guys. Before the books, he spent over fifteen years as an actor, and won an Australian Film Institute award.", "cap": ["{g:Aaron Blabey}. The Bad Guys.", "Before the books, he spent over fifteen years", "as an {o:actor},", "and won an Australian Film Institute {o:award}."] },
+    { "id": "C06", "who": "narr", "say": "Jeff Kinney. Diary of a Wimpy Kid. He also created Poptropica. And he owns a bookstore in his small Massachusetts town.", "cap": ["{g:Jeff Kinney}. Diary of a Wimpy Kid.", "He also created {o:Poptropica}.", "And he owns a {o:bookstore}", "in his small Massachusetts town."] },
+    { "id": "C05", "who": "narr", "say": "Tui T. Sutherland. Wings of Fire. Before the dragons took over, she won on Jeopardy.", "cap": ["{g:Tui T. Sutherland}. Wings of Fire.", "Before the dragons took over,", "she won on {o:Jeopardy!}"] },
+    { "id": "C04", "who": "narr", "say": "Kazu Kibuishi. Amulet. Scholastic picked him to paint brand new covers for every Harry Potter paperback.", "cap": ["{g:Kazu Kibuishi}. Amulet.", "Scholastic picked him to paint brand new covers", "for every {o:Harry Potter} paperback."] },
+    { "id": "C03", "who": "narr", "say": "Dav Pilkey. Captain Underpants, and Dog Man. In second grade, he had ADHD and dyslexia, and his teacher kept sending him to the hallway. So he sat out there, and drew comics. Those comics became his books.", "cap": ["{g:Dav Pilkey}. Captain Underpants, and Dog Man.", "In second grade, he had {o:ADHD} and {o:dyslexia},", "and his teacher kept sending him to the {r:hallway}.", "So he sat out there, and {g:drew comics}.", "Those comics became his {g:books}."] },
+    { "id": "C02", "who": "narr", "say": "Raina Telgemeier. Smile, and the Baby-Sitters Club graphic novels. Smile is real. In sixth grade, she fell and knocked out her two front teeth.", "cap": ["{g:Raina Telgemeier}. Smile,", "and the Baby-Sitters Club graphic novels.", "Smile is {o:real}.", "In sixth grade, she fell", "and knocked out her {r:two front teeth}."] },
+    { "id": "C01", "who": "narr", "say": "And number one. Lincoln Peirce. Big Nate. Before the strip, he was a high school art teacher, and a baseball coach. That's why Big Nate's school feels so real.", "cap": ["And number one.", "{g:Lincoln Peirce}. Big Nate.", "Before the strip, he was a high school {o:art teacher},", "and a {o:baseball coach}.", "That's why Big Nate's school feels so {g:real}."] },
+    { "id": "C09", "who": "narr", "say": "Which one surprised you most?", "cap": ["Which one surprised you {o:most}?"] }
+  ]
+}

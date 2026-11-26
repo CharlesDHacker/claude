@@ -1,0 +1,19 @@
+{
+  "title": "BIG NATE vs WIMPY KID",
+  "subtitle": "which series is actually better",
+  "voices": { "narr": { "name": "Stray - Deep and Grounded", "voice_id": "DT7zBOa8kCzTWHNN60AC" } },
+  "takes": { "narr": "narr_a" },
+  "lines": [
+    { "id": "L01", "who": "narr", "say": "Big Nate, or Diary of a Wimpy Kid. Every kid who grew up reading picked a side. Most picked wrong.", "cap": ["{o:Big Nate}, or {o:Diary of a Wimpy Kid}.", "Every kid who grew up reading picked a side.", "Most picked {r:wrong}."] },
+    { "id": "L02", "who": "narr", "say": "Big Nate started in nineteen ninety-one, as a daily newspaper comic. Lincoln Peirce drew it every day for thirty-five years.", "cap": ["Big Nate started in {o:1991},", "as a daily newspaper comic.", "Lincoln Peirce drew it every day", "for {o:thirty-five years}."] },
+    { "id": "L03", "who": "narr", "say": "That's thousands of strips, each one built on a setup, a beat, and a punchline. You can feel that discipline in every novel.", "cap": ["That's {o:thousands of strips},", "each one built on a setup, a beat, and a punchline.", "You can feel that {g:discipline} in every novel."] },
+    { "id": "L04", "who": "narr", "say": "Wimpy Kid runs on irony. Greg tells you he's the good guy, and the drawings quietly prove he isn't.", "cap": ["Wimpy Kid runs on {o:irony}.", "Greg tells you he's the good guy,", "and the drawings quietly prove he {r:isn't}."] },
+    { "id": "L05", "who": "narr", "say": "It's clever. But it only works if you read Greg as the joke. And a lot of fans don't.", "cap": ["It's clever.", "But it only works if you read Greg as {o:the joke}.", "And a lot of fans {r:don't}."] },
+    { "id": "L06", "who": "narr", "say": "Then there's the world. Wimpy Kid orbits Greg. Big Nate is a whole school. Francis, Teddy, Gina, Mrs. Godfrey, each with their own rivalries.", "cap": ["Then there's the world.", "Wimpy Kid {o:orbits Greg}.", "Big Nate is a {g:whole school}.", "Francis, Teddy, Gina, Mrs. Godfrey,", "each with their own rivalries."] },
+    { "id": "L07", "who": "narr", "say": "And Nate fails constantly, but he cares. About his comics, his friends, proving people wrong. You root for him, not against him.", "cap": ["And Nate fails constantly, but he {g:cares}.", "About his comics, his friends, proving people wrong.", "You root {g:for} him, not {r:against} him."] },
+    { "id": "L08", "who": "narr", "say": "So why does Wimpy Kid keep winning the argument? Sales. Over three hundred million copies. But sales measure reach, not quality.", "cap": ["So why does Wimpy Kid keep winning the argument?", "Sales. Over {o:300 million} copies.", "But sales measure {o:reach}, not {g:quality}."] },
+    { "id": "L09", "who": "narr", "say": "Then nostalgia. For a lot of people, it was the first big book they finished on their own. And that memory does the arguing.", "cap": ["Then {o:nostalgia}.", "For a lot of people, it was the first big book", "they finished on their own.", "And that memory does the {r:arguing}."] },
+    { "id": "L10", "who": "narr", "say": "And most people read one Big Nate novel from the school library, and never touched the strips, which is where the series actually lives.", "cap": ["And most people read {r:one} Big Nate novel", "from the school library,", "and never touched the {o:strips},", "which is where the series actually lives."] },
+    { "id": "L11", "who": "narr", "say": "Wimpy Kid got a generation reading. Big Nate is the better series. Both can be true.", "cap": ["Wimpy Kid got a generation {g:reading}.", "{o:Big Nate} is the better series.", "Both can be true."] }
+  ]
+}

@@ -1,0 +1,323 @@
+{
+ "title": "GOLIATH HAD BROTHERS",
+ "subtitle": "the giants David couldn't fight alone",
+ "source": "1 Samuel 17:40, 49-50; 2 Samuel 21:15-22; 1 Chronicles 20:4-8",
+ "voices": {
+  "toby": {
+   "name": "Piku - Expressive Kid Character",
+   "voice_id": "EeQEodFZVtBkjtgK3HBc"
+  },
+  "selah": {
+   "name": "Imogen - Warm, Natural, and Expressive",
+   "voice_id": "jv41DhCf464zw0TI7I1w"
+  },
+  "abishai": {
+   "name": "Connery - Dramatic Mythology Storyteller",
+   "voice_id": "AyUH0Pu6NRwQV6bOdfNx"
+  }
+ },
+ "takes": {
+  "selah": "selah_a",
+  "toby": "toby_a",
+  "abishai": "abishai_a"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "toby",
+   "say": "[excited] One stone. One giant. [shouting] BOOM!",
+   "cap": [
+    "One stone. One giant. {pop:BOOM!}"
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "selah",
+   "say": "[amused] Then why did David pick up five?",
+   "cap": [
+    "Then why did David pick up {g:five}?"
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "toby",
+   "say": "[confused] ...Wait. Why FIVE?",
+   "cap": [
+    "...Wait. Why {o:FIVE}?"
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "selah",
+   "say": "[mischievously] [whispers] Maybe because Goliath... had brothers.",
+   "cap": [
+    "Maybe because Goliath...",
+    "had {r:brothers}."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "toby",
+   "say": "[shocked] [shouting] BROTHERS?!",
+   "cap": [
+    "{pop:BROTHERS?!}"
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "selah",
+   "say": "[storytelling] You know the story. A shepherd boy. A sling.",
+   "cap": [
+    "You know the story.",
+    "A shepherd boy. A {g:sling}."
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "selah",
+   "say": "[dramatically] One stone... and the giant fell.",
+   "cap": [
+    "One stone...",
+    "and the giant {g:fell}."
+   ]
+  },
+  {
+   "id": "L08",
+   "who": "selah",
+   "say": "[ominous] But he was NOT the last giant.",
+   "cap": [
+    "But he was {r:NOT} the last giant."
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "selah",
+   "say": "[softly] Years later, David was king. Older. Slower. Tired.",
+   "cap": [
+    "Years later, David was {g:king}.",
+    "Older. Slower. {o:Tired.}"
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "selah",
+   "say": "[ominous] And the Philistines came back... with a new giant.",
+   "cap": [
+    "And the Philistines came back...",
+    "with a {r:new giant}."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "selah",
+   "say": "/ˈɪʃbaɪ ˈbiːnɒb/.",
+   "cap": [
+    "{r:Ishbi-benob.}"
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "selah",
+   "say": "[intense] His spearhead alone weighed as much as a newborn baby. And he came to kill David.",
+   "cap": [
+    "His spearhead alone weighed as much as a {o:newborn baby}.",
+    "And he came to {r:kill David}."
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "toby",
+   "say": "[nervous laugh] It's fine. It's FINE. David's the giant killer!",
+   "cap": [
+    "It's fine. It's {o:FINE}.",
+    "David's the giant killer!"
+   ]
+  },
+  {
+   "id": "L14",
+   "who": "selah",
+   "say": "[sadly] He was. [pause] But in the middle of the battle... David grew faint.",
+   "cap": [
+    "He was.",
+    "But in the middle of the battle...",
+    "David grew {r:faint}."
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "selah",
+   "say": "[tense] [whispers] The giant raised his spear...",
+   "cap": [
+    "The giant raised his spear..."
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "toby",
+   "say": "[panicked] [shouting] NO NO NO NO!",
+   "cap": [
+    "{pop:NO NO NO!}"
+   ]
+  },
+  {
+   "id": "L17",
+   "who": "selah",
+   "say": "[excited] Then ABISHAI charged in... and struck the giant down!",
+   "cap": [
+    "Then {g:ABISHAI} charged in...",
+    "and struck the giant {g:down}!"
+   ]
+  },
+  {
+   "id": "L18",
+   "who": "selah",
+   "say": "[quietly] That day, David's men made him swear:",
+   "cap": [
+    "That day, David's men made him swear:"
+   ]
+  },
+  {
+   "id": "L19",
+   "who": "abishai",
+   "say": "[firmly] [emotional] You will never go out to battle with us again... so that the lamp of Israel is never put out.",
+   "cap": [
+    "“You will never go out to battle with us again...",
+    "so that the {g:lamp of Israel} is never put out.”"
+   ]
+  },
+  {
+   "id": "L20",
+   "who": "selah",
+   "say": "[building] But the giants kept coming.",
+   "cap": [
+    "But the giants kept {r:coming}."
+   ]
+  },
+  {
+   "id": "L21",
+   "who": "selah",
+   "say": "Saph. Taken down by /ˈsɪbəkaɪ/.",
+   "cap": [
+    "{r:Saph.} Taken down by {g:Sibbecai}."
+   ]
+  },
+  {
+   "id": "L22",
+   "who": "selah",
+   "say": "Goliath's own brother. Taken down by /ɛlˈheɪnən/.",
+   "cap": [
+    "Goliath's own {r:brother}.",
+    "Taken down by {g:Elhanan}."
+   ]
+  },
+  {
+   "id": "L23",
+   "who": "selah",
+   "say": "[ominous] And at Gath... the strangest giant of all.",
+   "cap": [
+    "And at Gath...",
+    "the strangest giant of all."
+   ]
+  },
+  {
+   "id": "L24",
+   "who": "selah",
+   "say": "[slowly] Six fingers on each hand. Six toes on each foot.",
+   "cap": [
+    "{o:Six fingers} on each hand.",
+    "{o:Six toes} on each foot."
+   ]
+  },
+  {
+   "id": "L25",
+   "who": "toby",
+   "say": "[counting, amazed] That's... TWENTY-FOUR?!",
+   "cap": [
+    "{pop:24?!}"
+   ]
+  },
+  {
+   "id": "L26",
+   "who": "selah",
+   "say": "[intense] He mocked Israel, just like Goliath had. And David's nephew Jonathan took him down.",
+   "cap": [
+    "He mocked Israel, just like Goliath had.",
+    "And David's nephew {g:Jonathan} took him down."
+   ]
+  },
+  {
+   "id": "L27",
+   "who": "selah",
+   "say": "[slowly] Four giants. All from the same family in Gath.",
+   "cap": [
+    "{r:Four giants.}",
+    "All from the same family in Gath."
+   ]
+  },
+  {
+   "id": "L28",
+   "who": "selah",
+   "say": "[warmly] And not one of them fell to David alone.",
+   "cap": [
+    "And not one of them fell to David {g:alone}."
+   ]
+  },
+  {
+   "id": "L29",
+   "who": "toby",
+   "say": "[softly] So the boy who beat a giant by himself...",
+   "cap": [
+    "So the boy who beat a giant by himself..."
+   ]
+  },
+  {
+   "id": "L30",
+   "who": "selah",
+   "say": "[warmly] ...grew into a king who needed his friends.",
+   "cap": [
+    "...grew into a king who needed his {g:friends}."
+   ]
+  },
+  {
+   "id": "L31",
+   "who": "toby",
+   "say": "[thinking] ...So who's MY Abishai?",
+   "cap": [
+    "...So who's {o:MY} Abishai?"
+   ]
+  },
+  {
+   "id": "L32",
+   "who": "selah",
+   "say": "[dryly] Who carried you all the way out here?",
+   "cap": [
+    "Who carried you all the way out here?"
+   ]
+  },
+  {
+   "id": "L33",
+   "who": "toby",
+   "say": "[giggles] You're the SLOWEST Abishai ever.",
+   "cap": [
+    "You're the {o:SLOWEST} Abishai ever."
+   ]
+  },
+  {
+   "id": "L34",
+   "who": "selah",
+   "say": "[warmly] [chuckles] Still here, though.",
+   "cap": [
+    "{g:Still here, though.}"
+   ]
+  },
+  {
+   "id": "L35",
+   "who": "toby",
+   "take": "toby_loop",
+   "say": "[mischievously] Okay... ONE more time!",
+   "cap": [
+    "Okay... {o:ONE} more time!"
+   ]
+  }
+ ]
+}

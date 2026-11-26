@@ -1,0 +1,971 @@
+{
+ "lead": 0.15,
+ "tail": 0.8,
+ "loop": true,
+ "title": {
+  "text": "BIG NATE vs WIMPY KID",
+  "sub": "which series is actually better",
+  "until": "L01"
+ },
+ "gaps": {
+  "L01": 0.3,
+  "L02": 0.3,
+  "L03": 0.3,
+  "L04": 0.2,
+  "L05": 0.35,
+  "L06": 0.3,
+  "L07": 0.35,
+  "L08": 0.3,
+  "L09": 0.3,
+  "L10": 0.35
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "room",
+   "cam": [
+    [
+     560,
+     1180,
+     1.3
+    ],
+    [
+     560,
+     1160,
+     1.4
+    ]
+   ],
+   "o": {
+    "kind": "study",
+    "actors": [
+     {
+      "type": "p",
+      "c": "host",
+      "x": 540,
+      "y": 2060,
+      "s": 1.12,
+      "who": "narr",
+      "pose": "explain",
+      "expr": "smile",
+      "look": [
+       0,
+       0
+      ]
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1560,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "lead": 0,
+   "grade": "warm",
+   "leak": false,
+   "music": "warm"
+  },
+  {
+   "at": "L01",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1350,
+     1.0
+    ],
+    [
+     540,
+     1330,
+     1.06
+    ]
+   ],
+   "o": {
+    "kind": "library",
+    "actors": [
+     {
+      "type": "p",
+      "c": "kid",
+      "x": 320,
+      "y": 1880,
+      "s": 1.05,
+      "pose": "hold",
+      "item": "book",
+      "itemCol": "#e8902a",
+      "expr": "smile",
+      "look": [
+       0.8,
+       0
+      ]
+     },
+     {
+      "type": "p",
+      "c": "kid2",
+      "x": 770,
+      "y": 1880,
+      "s": 1.05,
+      "pose": "hold",
+      "item": "book",
+      "itemCol": "#2a6ac8",
+      "expr": "skeptic",
+      "look": [
+       -0.8,
+       0
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "atc": "@L01.1",
+   "grade": "warm",
+   "leak": false
+  },
+  {
+   "at": "L01",
+   "scene": "room",
+   "cam": [
+    [
+     560,
+     1050,
+     1.45
+    ],
+    [
+     560,
+     1040,
+     1.55
+    ]
+   ],
+   "o": {
+    "kind": "study",
+    "actors": [
+     {
+      "type": "p",
+      "c": "host",
+      "x": 540,
+      "y": 2060,
+      "s": 1.12,
+      "who": "narr",
+      "pose": "cross",
+      "expr": "skeptic",
+      "look": [
+       0,
+       0
+      ]
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1560,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "atc": "@L01.2",
+   "grade": "warm",
+   "leak": false
+  },
+  {
+   "at": "L02",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1050,
+     1.12
+    ]
+   ],
+   "o": {
+    "kind": "study",
+    "actors": [
+     {
+      "type": "comicspage",
+      "x": 540,
+      "y": 1050,
+      "s": 1.1,
+      "rot": -0.03,
+      "t0": 0.2,
+      "step": 0.3
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "leak": false,
+   "sfx": [
+    [
+     "sparkle",
+     0.3
+    ]
+   ]
+  },
+  {
+   "at": "L02",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1050,
+     1.0
+    ],
+    [
+     540,
+     1050,
+     1.03
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "timeline",
+      "y": 1050,
+      "t0": 0.0,
+      "marks": [
+       [
+        1991,
+        "Big Nate\nstrip begins",
+        "#ffb04a",
+        true,
+        0.3
+       ],
+       [
+        2007,
+        "Wimpy Kid\nbook 1",
+        "#7ad2ff",
+        false,
+        0.9
+       ],
+       [
+        2010,
+        "Big Nate\nnovels",
+        "#ffb04a",
+        true,
+        1.3
+       ],
+       [
+        2026,
+        "35 years\nof dailies",
+        "#ffb04a",
+        false,
+        1.8
+       ]
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "atc": "@L02.2",
+   "grade": "cold",
+   "leak": false,
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "pop",
+     0.9
+    ],
+    [
+     "pop",
+     1.3
+    ],
+    [
+     "pop",
+     1.8
+    ]
+   ]
+  },
+  {
+   "at": "L03",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1050,
+     1.0
+    ],
+    [
+     540,
+     1040,
+     1.04
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "anatomy",
+      "y": 1000,
+      "t0": "@L03.1",
+      "step": 0.55
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "cold",
+   "leak": false,
+   "sfx": [
+    [
+     "pop",
+     "@L03.1"
+    ],
+    [
+     "pop",
+     "@L03.1+0.55"
+    ],
+    [
+     "pop",
+     "@L03.1+1.1"
+    ]
+   ]
+  },
+  {
+   "at": "L03",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1250,
+     1.15
+    ],
+    [
+     540,
+     1230,
+     1.25
+    ]
+   ],
+   "o": {
+    "kind": "library",
+    "actors": [
+     {
+      "type": "p",
+      "c": "kid",
+      "x": 540,
+      "y": 1900,
+      "s": 1.2,
+      "pose": "hold",
+      "item": "book",
+      "itemCol": "#e8902a",
+      "expr": "happy"
+     }
+    ]
+   },
+   "tr": "fade",
+   "atc": "@L03.2",
+   "grade": "warm",
+   "leak": false
+  },
+  {
+   "at": "L04",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.03
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "irony",
+      "y": 780,
+      "t0": "@L04.1",
+      "step": 1.4
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "cold",
+   "leak": false,
+   "music": "legend",
+   "sfx": [
+    [
+     "whoosh",
+     "@L04.1"
+    ],
+    [
+     "whoosh",
+     "@L04.2"
+    ]
+   ]
+  },
+  {
+   "at": "L05",
+   "scene": "room",
+   "cam": [
+    [
+     560,
+     1060,
+     1.4
+    ],
+    [
+     560,
+     1050,
+     1.5
+    ]
+   ],
+   "o": {
+    "kind": "study",
+    "actors": [
+     {
+      "type": "p",
+      "c": "host",
+      "x": 540,
+      "y": 2060,
+      "s": 1.12,
+      "who": "narr",
+      "pose": "cross",
+      "expr": "skeptic",
+      "look": [
+       0.3,
+       0
+      ]
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1560,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "leak": false
+  },
+  {
+   "at": "L06",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1050,
+     1.0
+    ],
+    [
+     540,
+     1050,
+     1.03
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "castmap",
+      "hub": true,
+      "x": 540,
+      "y": 1050,
+      "r": 300,
+      "t0": "@L06.1",
+      "d": 1.0,
+      "col": "#7ad2ff",
+      "title": "WIMPY KID",
+      "nodes": [
+       "GREG",
+       "ROWLEY",
+       "RODRICK",
+       "MANNY",
+       "MOM",
+       "DAD"
+      ],
+      "links": [
+       [
+        0,
+        1
+       ],
+       [
+        0,
+        2
+       ],
+       [
+        0,
+        3
+       ],
+       [
+        0,
+        4
+       ],
+       [
+        0,
+        5
+       ]
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "cold",
+   "leak": false
+  },
+  {
+   "at": "L06",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1050,
+     1.0
+    ],
+    [
+     540,
+     1050,
+     1.04
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "castmap",
+      "x": 540,
+      "y": 1050,
+      "r": 330,
+      "t0": 0.1,
+      "d": 2.6,
+      "col": "#ffb04a",
+      "title": "BIG NATE",
+      "star": "NATE",
+      "nodes": [
+       "NATE",
+       "FRANCIS",
+       "TEDDY",
+       "GINA",
+       "MRS. GODFREY",
+       "ARTUR",
+       "JENNY",
+       "PRINCIPAL",
+       "COACH JOHN",
+       "CHAD"
+      ],
+      "links": [
+       [
+        0,
+        1
+       ],
+       [
+        0,
+        2
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        0,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        0,
+        4
+       ],
+       [
+        0,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        0,
+        6
+       ],
+       [
+        3,
+        5
+       ],
+       [
+        1,
+        3
+       ],
+       [
+        7,
+        4
+       ],
+       [
+        0,
+        7
+       ],
+       [
+        8,
+        2
+       ],
+       [
+        8,
+        0
+       ],
+       [
+        9,
+        1
+       ],
+       [
+        9,
+        2
+       ],
+       [
+        6,
+        3
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        5,
+        9
+       ]
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "atc": "@L06.2",
+   "grade": "cold",
+   "leak": false,
+   "music": "hope"
+  },
+  {
+   "at": "L07",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1250,
+     1.0
+    ],
+    [
+     540,
+     1230,
+     1.08
+    ]
+   ],
+   "o": {
+    "kind": "bedroom",
+    "actors": [
+     {
+      "type": "p",
+      "c": "kid",
+      "x": 540,
+      "y": 1960,
+      "s": 1.2,
+      "pose": "write",
+      "item": "pencil",
+      "expr": "focus",
+      "look": [
+       0.2,
+       1
+      ]
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1660,
+      "s": 0.8
+     },
+     {
+      "type": "comicspage",
+      "x": 640,
+      "y": 1610,
+      "s": 0.22,
+      "rot": 0.05
+     },
+     {
+      "type": "crumples",
+      "x": 540,
+      "y": 1880,
+      "w": 700,
+      "n": 5,
+      "t0": 0.2,
+      "step": 0.6
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "night",
+   "leak": false,
+   "sfx": [
+    [
+     "pop",
+     0.6
+    ],
+    [
+     "pop",
+     1.2
+    ],
+    [
+     "pop",
+     1.8
+    ]
+   ]
+  },
+  {
+   "at": "L07",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1200,
+     1.1
+    ],
+    [
+     540,
+     1180,
+     1.18
+    ]
+   ],
+   "o": {
+    "kind": "bedroom",
+    "actors": [
+     {
+      "type": "p",
+      "c": "kid",
+      "x": 520,
+      "y": 1900,
+      "s": 1.2,
+      "pose": "raise",
+      "item": "page",
+      "k": {
+       "a": 0.2,
+       "b": 1,
+       "t0": 0,
+       "t1": 0.4,
+       "e": "o"
+      },
+      "expr": "happy"
+     }
+    ]
+   },
+   "tr": "fade",
+   "atc": "@L07.2",
+   "grade": "warm",
+   "leak": false,
+   "bloom": 0.4,
+   "sfx": [
+    [
+     "sparkle",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L08",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1000,
+     1.0
+    ],
+    [
+     540,
+     1000,
+     1.04
+    ]
+   ],
+   "o": {
+    "kind": "board",
+    "actors": [
+     {
+      "type": "counter",
+      "x": 540,
+      "y": 820,
+      "t0": "@L08.1",
+      "d": 1.4,
+      "to": 300,
+      "stamp": "@L08.2+0.3"
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "cold",
+   "leak": false,
+   "music": "legend",
+   "sfx": [
+    [
+     "riser",
+     "@L08.1"
+    ],
+    [
+     "hit",
+     "@L08.2+0.3"
+    ]
+   ]
+  },
+  {
+   "at": "L09",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1350,
+     1.1
+    ],
+    [
+     560,
+     1380,
+     1.25
+    ]
+   ],
+   "o": {
+    "vignette": 0.55,
+    "kind": "bedroom",
+    "actors": [
+     {
+      "type": "bed",
+      "x": 540,
+      "y": 1650,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "gold",
+   "leak": true,
+   "music": "warm"
+  },
+  {
+   "at": "L10",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1250,
+     1.05
+    ],
+    [
+     540,
+     1240,
+     1.12
+    ]
+   ],
+   "o": {
+    "kind": "library",
+    "actors": [
+     {
+      "type": "p",
+      "c": "kid2",
+      "x": 520,
+      "y": 1900,
+      "s": 1.15,
+      "pose": "hold",
+      "item": "book",
+      "itemCol": "#ffb02a",
+      "expr": "smile",
+      "look": [
+       0.4,
+       0
+      ]
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "leak": false
+  },
+  {
+   "at": "L10",
+   "scene": "room",
+   "cam": [
+    [
+     540,
+     1250,
+     1.0
+    ],
+    [
+     540,
+     1150,
+     1.05
+    ]
+   ],
+   "o": {
+    "kind": "library",
+    "actors": [
+     {
+      "type": "newsstack",
+      "x": 680,
+      "y": 1820,
+      "t0": 0.1,
+      "d": 1.8,
+      "n": 26
+     },
+     {
+      "type": "onebook",
+      "x": 260,
+      "y": 1700,
+      "s": 0.9,
+      "rot": -0.08
+     }
+    ]
+   },
+   "tr": "fade",
+   "atc": "@L10.2",
+   "grade": "warm",
+   "leak": false
+  },
+  {
+   "at": "L11",
+   "scene": "room",
+   "cam": [
+    [
+     560,
+     1160,
+     1.4
+    ],
+    [
+     560,
+     1180,
+     1.3
+    ]
+   ],
+   "o": {
+    "kind": "study",
+    "actors": [
+     {
+      "type": "p",
+      "c": "host",
+      "x": 540,
+      "y": 2060,
+      "s": 1.12,
+      "who": "narr",
+      "pose": "explain",
+      "expr": "smile",
+      "look": [
+       0,
+       0
+      ]
+     },
+     {
+      "type": "desk",
+      "x": 540,
+      "y": 1560,
+      "s": 1.0
+     }
+    ]
+   },
+   "tr": "fade",
+   "grade": "warm",
+   "leak": false,
+   "music": "hope"
+  }
+ ]
+}

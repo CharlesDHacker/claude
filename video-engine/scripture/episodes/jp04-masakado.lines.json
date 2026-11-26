@@ -1,0 +1,36 @@
+{
+  "title": "MASAKADO",
+  "subtitle": "the grave Tokyo is afraid to move",
+  "source": "Masakado-ki; Kubizuka, Otemachi, Tokyo (Ministry of Finance deaths 1920s, 1940 lightning fire, 2020 relocation)",
+  "voices": {
+    "mio": { "name": "Candy - Girly and Sweet", "voice_id": "Nggzl2QAXh3OijoXD116" },
+    "kon": { "name": "Callum - Husky Trickster (premade, dry)", "voice_id": "N2lVS1w4EtoT3dr4eOWO" },
+    "masakado": { "name": "Obsidian - deep gravelly warlord", "voice_id": "QjEdRoRdZC2i3ncmFpNy" }
+  },
+  "takes": { "mio": "mio_a", "kon": "kon_a", "masakado": "masakado_a" },
+  "lines": [
+    { "id": "L01", "who": "mio", "say": "[nervous] Kon... why is there a tiny grave in the middle of Tokyo?", "cap": ["Kon... why is there a {o:tiny grave}", "in the middle of {o:Tokyo}?"] },
+    { "id": "L02", "who": "kon", "say": "[sly] Because everyone who tried to move it... died.", "cap": ["Because everyone who tried to move it...", "{r:died}."] },
+    { "id": "L03", "who": "mio", "say": "[shocked] DIED?!", "cap": ["{pop:DIED?!}"] },
+    { "id": "L04", "who": "kon", "say": "[storytelling] A thousand years ago, a samurai named Taira no Masakado rebelled against the emperor. He even crowned himself the New Emperor.", "cap": ["A thousand years ago, a samurai named", "{g:Taira no Masakado}", "rebelled against the {r:emperor}.", "He even crowned himself the {o:New Emperor}."] },
+    { "id": "L05", "who": "kon", "say": "Legend says his body was hard as iron. Except one spot. His temple. In the year nine-forty, an arrow found it.", "cap": ["Legend says his body was {o:hard as iron}.", "Except one spot. His {r:temple}.", "In the year {o:940},", "an {r:arrow} found it."] },
+    { "id": "L06", "who": "kon", "say": "[ominous] They cut off his head, and put it on display in Kyoto. But it never rotted. Its eyes stayed open. And every night, it screamed.", "cap": ["They cut off his {r:head},", "and put it on display in {o:Kyoto}.", "But it never {r:rotted}.", "Its eyes stayed {r:open}.", "And every night, it {r:screamed}."] },
+    { "id": "L07", "who": "masakado", "say": "[furious] [shouting] WHERE IS MY BODY?! BRING IT HERE! I WILL FIGHT AGAIN!", "cap": ["{pop:WHERE IS MY BODY?!}"] },
+    { "id": "L08", "who": "kon", "say": "[intense] Then one night, the head rose into the sky, glowing, and flew east. All the way home.", "cap": ["Then one night, the head", "{o:rose into the sky}, glowing,", "and flew {o:east}.", "All the way {g:home}."] },
+    { "id": "L09", "who": "mio", "say": "[screaming] A FLYING HEAD?!", "cap": ["{pop:A FLYING HEAD?!}"] },
+    { "id": "L10", "who": "kon", "say": "It crashed down in a little village. Today, that village is the center of Tokyo. They buried it right where it fell.", "cap": ["It crashed down in a little village.", "Today, that village is the", "{o:center of Tokyo}.", "They buried it right where it fell."] },
+    { "id": "L11", "who": "kon", "say": "[darkly] After the great earthquake of nineteen twenty-three, the Ministry of Finance built offices right on top of it.", "cap": ["After the great earthquake of {o:1923},", "the {o:Ministry of Finance}", "built offices {r:right on top of it}."] },
+    { "id": "L12", "who": "kon", "say": "Within a few years, fourteen officials were dead. Including the Finance Minister himself.", "cap": ["Within a few years,", "{r:fourteen officials} were dead.", "Including the {r:Finance Minister} himself."] },
+    { "id": "L13", "who": "mio", "say": "[whispering] ...Coincidence?", "cap": ["...{o:Coincidence}?"] },
+    { "id": "L14", "who": "kon", "say": "[smug] In nineteen forty, exactly one thousand years after his death, lightning struck the Ministry. It burned to the ground.", "cap": ["In {o:1940},", "exactly {r:one thousand years} after his death,", "{r:lightning} struck the Ministry.", "It burned to the ground."] },
+    { "id": "L15", "who": "kon", "say": "After the war, soldiers tried to bulldoze the grave for a parking lot. The story goes, the bulldozer flipped. And the driver died.", "cap": ["After the war, soldiers tried to {o:bulldoze} the grave", "for a parking lot.", "The story goes, the bulldozer {r:flipped}.", "And the driver {r:died}."] },
+    { "id": "L16", "who": "kon", "say": "[whispering] Even today, some workers in those towers won't sit with their backs to it.", "cap": ["Even today, some workers in those towers", "won't sit with their {r:backs} to it."] },
+    { "id": "L17", "who": "mio", "say": "[nervous] Okay. So nobody EVER touches it.", "cap": ["Okay. So nobody {o:EVER} touches it."] },
+    { "id": "L18", "who": "kon", "say": "[casually] Well... in twenty twenty, they moved the stone for repairs.", "cap": ["Well... in {o:2020},", "they {r:moved the stone} for repairs."] },
+    { "id": "L19", "who": "mio", "say": "[nervous] ...And?", "cap": ["...And?"] },
+    { "id": "L20", "who": "kon", "say": "[ominous] That same week, an earthquake shook Ibaraki. Where his body is said to be buried.", "cap": ["That same week,", "an {r:earthquake} shook {o:Ibaraki}.", "Where his {r:body} is said to be buried."] },
+    { "id": "L21", "who": "mio", "say": "[panicking] NOPE. I'm leaving. Bye.", "cap": ["{pop:NOPE.} I'm leaving. Bye."] },
+    { "id": "L22", "who": "kon", "say": "[whispering] Mio... never turn your back on him.", "cap": ["Mio...", "never turn your {r:back} on him."] },
+    { "id": "L23", "who": "masakado", "say": "[whispering] [menacing] Where... is my body?", "cap": ["“Where... is my {r:body}?”"] }
+  ]
+}

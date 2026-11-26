@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:'Garamond';font-weight:500;src:url('../fonts/eb-garamond-latin-500-normal.woff2')}
+@font-face{font-family:'Nunito';font-weight:800;src:url('../fonts/nunito-latin-800-normal.woff2')}
+@font-face{font-family:'Nunito';font-weight:900;src:url('../fonts/nunito-latin-900-normal.woff2')}
+html,body{margin:0;background:#000}</style></head><body><canvas id="c" width="1080" height="1080"></canvas>
+<script src="../art/lib.js"></script><script src="../art/chars.js"></script><script src="../art/warriors.js"></script><script src="../art/figure.js"></script><script src="../art/heroes.js"></script><script src="../art/scenes.js"></script><script src="../art/stage.js"></script><script src="../art/sea.js"></script><script src="../art/village.js"></script><script src="../art/painter.js"></script><script src="../art/babylon.js"></script><script src="../art/midian.js"></script><script src="../art/brawl.js"></script><script src="../art/essay.js"></script><script src="../art/people.js"></script>
+<script>
+// Profile picture: the essay host (an original character) in a warm study, framed for TikTok's circular crop.
+const g = document.getElementById('c').getContext('2d'), WITH_TEXT = location.hash === '#text';
+Promise.all([document.fonts.load('900 40px Nunito'), document.fonts.load('800 40px Nunito')]).then(() => {
+  // backdrop: deep teal to warm lamp light
+  g.fillStyle = lg(g, 0, 0, 1080, 1080, [[0, '#123a40'], [.55, '#1f5a5a'], [1, '#e08a4a']]); g.fillRect(0, 0, 1080, 1080);
+  g.save(); g.globalAlpha = .45; spines(g, -60, 120, 330, 760, 4, 3, 0); spines(g, 810, 120, 330, 760, 4, 5, 0); g.restore();
+  glow(g, 760, 260, 700, 'rgba(255,190,110,1)', .55);
+  // glowing ring behind the head
+  g.save(); g.beginPath(); g.arc(540, 470, 330, 0, Math.PI * 2); g.lineWidth = 22; g.strokeStyle = 'rgba(255,200,110,.85)'; g.shadowColor = 'rgba(255,190,90,1)'; g.shadowBlur = 50; g.stroke(); g.restore();
+  // floating comic panels + a book, for the topic
+  const panel = (x, y, r, col, word) => { g.save(); g.translate(x, y); g.rotate(r); sh(g, 'M-80 -60 L80 -60 L80 60 L-80 60 Z', col, 6, '#141018'); txt(g, word, 0, 4, 46, '#fff', '#141018', 'Nunito', 900, -.1, 9); g.restore(); };
+  panel(190, 250, -.22, '#ff8a3a', 'HA!'); panel(890, 330, .18, '#3aa8e8', '!?'); panel(170, 640, .14, '#e84a7a', 'POW');
+  g.save(); g.translate(905, 660); g.rotate(-.2); sh(g, rrect(g, -70, -95, 140, 190, 8), '#f2b23c', 5); sh(g, 'M-70 -95 L-52 -95 L-52 95 L-70 95 Z', '#c8862a', 3); line(g, [-30, -50, 46, -50], 7, 'rgba(255,255,255,.7)', 'round', true); g.restore();
+  // the host, big and centred
+  person(g, { c: 'host', x: 540, y: 1930, s: 1.55, t: 0.3, pose: 'explain', expr: 'smile', look: [0, 0] });
+  if (WITH_TEXT) { g.fillStyle = lg(g, 0, 860, 0, 1080, [[0, 'rgba(10,20,24,0)'], [1, 'rgba(10,20,24,.85)']]); g.fillRect(0, 860, 1080, 220); txt(g, 'BOOK TALK', 540, 960, 96, '#ffd27a', '#141018', 'Nunito', 900, 0, 16); }
+  window.__done = true;
+});
+</script></body></html>

@@ -1,0 +1,340 @@
+{
+ "title": "BENKEI",
+ "subtitle": "the monk who wouldn't fall",
+ "source": "Gikeiki (Benkei and Ushiwakamaru; Sojobo of Kurama); Noh 'Ataka' / kabuki 'Kanjincho'; Battle of Koromogawa 1189, Benkei no tachi-ojo; idiom 'Benkei no nakidokoro' (the shin); Meiji-era Yoshitsune = Genghis Khan theory (Suematsu Kencho 1879)",
+ "voices": {
+  "mio": {
+   "name": "Candy - Girly and Sweet",
+   "voice_id": "Nggzl2QAXh3OijoXD116"
+  },
+  "kon": {
+   "name": "Callum - Husky Trickster (premade, dry)",
+   "voice_id": "N2lVS1w4EtoT3dr4eOWO"
+  },
+  "benkei": {
+   "name": "Obsidian - deep gravelly warlord",
+   "voice_id": "QjEdRoRdZC2i3ncmFpNy"
+  },
+  "tengu": {
+   "name": "Declan Graves - ancient raspy",
+   "voice_id": "1BfrkuYXmEwp8AWqSLWk"
+  }
+ },
+ "takes": {
+  "mio": "mio_a",
+  "kon": "kon_a",
+  "benkei": "benkei_a",
+  "tengu": "tengu_a"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "mio",
+   "say": "[nervous] Kon... why won't that whole army cross the bridge?",
+   "cap": [
+    "Kon... why won't that whole army",
+    "cross the {o:bridge}?"
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "kon",
+   "say": "[quiet] Because of him.",
+   "cap": [
+    "Because of {r:him}."
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "mio",
+   "say": "[incredulous] He's ONE guy!",
+   "cap": [
+    "He's {o:ONE} guy!"
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "kon",
+   "say": "[low, grave] He's been dead... for an hour.",
+   "cap": [
+    "He's been {r:dead}...",
+    "for an hour."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "mio",
+   "say": "[shocked] WHAT?!",
+   "cap": [
+    "{pop:WHAT?!}"
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "kon",
+   "say": "[storytelling] That's Benkei. To understand him, we go back to another bridge. In Kyoto.",
+   "cap": [
+    "That's {o:Benkei}.",
+    "To understand him,",
+    "we go back to another bridge.",
+    "In {o:Kyoto}."
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "kon",
+   "say": "A giant warrior monk. Seven weapons on his back.",
+   "cap": [
+    "A {o:giant} warrior monk.",
+    "{o:Seven weapons} on his back."
+   ]
+  },
+  {
+   "id": "L08",
+   "who": "kon",
+   "say": "He vowed to beat a thousand samurai on that bridge... and take every one of their swords.",
+   "cap": [
+    "He vowed to beat",
+    "a {r:thousand samurai}",
+    "on that bridge...",
+    "and take every one of their {o:swords}."
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "benkei",
+   "say": "[menacing] Your sword. Or your life.",
+   "cap": [
+    "“Your {o:sword}.",
+    "Or your {r:life}.”"
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "kon",
+   "say": "Night after night. Nine hundred and ninety-nine swords.",
+   "cap": [
+    "Night after night.",
+    "{o:Nine hundred and ninety-nine}",
+    "swords."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "kon",
+   "say": "[hushed] Then, on the last night... a boy walked onto the bridge. Playing a flute.",
+   "cap": [
+    "Then, on the {r:last} night...",
+    "a {o:boy} walked onto the bridge.",
+    "Playing a {o:flute}."
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "mio",
+   "say": "[worried] Oh no. Run, kid!",
+   "cap": [
+    "Oh no.",
+    "Run, kid!"
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "kon",
+   "say": "The boy didn't run. Up on Mount Kurama, he'd been trained... by the king of the tengu.",
+   "cap": [
+    "The boy didn't run.",
+    "Up on Mount {o:Kurama},",
+    "he'd been trained...",
+    "by the {r:king of the tengu}."
+   ]
+  },
+  {
+   "id": "L14",
+   "who": "tengu",
+   "say": "[raspy, fierce] Faster, boy. AGAIN!",
+   "cap": [
+    "“Faster, boy.",
+    "{r:AGAIN!}”"
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "kon",
+   "say": "[fast, intense] Benkei swung. The boy leapt onto the railing, flipped over his head, and knocked him flat. With a fan.",
+   "cap": [
+    "Benkei {r:swung}.",
+    "The boy leapt onto the railing,",
+    "{o:flipped} over his head,",
+    "and knocked him {r:flat}.",
+    "With a {o:fan}."
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "mio",
+   "say": "[disbelief] He lost to a KID?!",
+   "cap": [
+    "He lost to a {r:KID}?!"
+   ]
+  },
+  {
+   "id": "L17",
+   "who": "kon",
+   "say": "[softer] Benkei got up... and bowed. From that night on, he served the boy. For life.",
+   "cap": [
+    "Benkei got up...",
+    "and {o:bowed}.",
+    "From that night on,",
+    "he served the boy.",
+    "For {o:life}."
+   ]
+  },
+  {
+   "id": "L18",
+   "who": "kon",
+   "say": "That boy was Minamoto no Yoshitsune. He grew up to be the greatest general Japan had ever seen.",
+   "cap": [
+    "That boy was",
+    "{o:Minamoto no Yoshitsune}.",
+    "He grew up to be",
+    "the {o:greatest general}",
+    "Japan had ever seen."
+   ]
+  },
+  {
+   "id": "L19",
+   "who": "kon",
+   "say": "[building] He charged horses down a cliff. He crushed his enemies at sea. Benkei by his side, every time.",
+   "cap": [
+    "He charged horses",
+    "{r:down a cliff}.",
+    "He crushed his enemies {o:at sea}.",
+    "Benkei by his side,",
+    "every time."
+   ]
+  },
+  {
+   "id": "L20",
+   "who": "kon",
+   "say": "[dark] Then his own brother, the future shogun, got jealous... and ordered him hunted.",
+   "cap": [
+    "Then his own {r:brother},",
+    "the future {o:shogun},",
+    "got jealous...",
+    "and ordered him {r:hunted}."
+   ]
+  },
+  {
+   "id": "L21",
+   "who": "kon",
+   "say": "They ran. At one checkpoint, Benkei beat his own master with a stick... to prove he was just a servant.",
+   "cap": [
+    "They {o:ran}.",
+    "At one checkpoint,",
+    "Benkei {r:beat his own master}",
+    "with a stick...",
+    "to prove he was just a servant."
+   ]
+  },
+  {
+   "id": "L22",
+   "who": "mio",
+   "say": "[quiet] That's... so sad.",
+   "cap": [
+    "That's... so {o:sad}."
+   ]
+  },
+  {
+   "id": "L23",
+   "who": "kon",
+   "say": "[grave] Finally, they were trapped. Yoshitsune went inside, for the last time. Benkei stood on the bridge. Alone.",
+   "cap": [
+    "Finally, they were {r:trapped}.",
+    "Yoshitsune went inside,",
+    "for the {r:last time}.",
+    "Benkei stood on the bridge.",
+    "{o:Alone}."
+   ]
+  },
+  {
+   "id": "L24",
+   "who": "benkei",
+   "say": "[roaring] NO ONE CROSSES!",
+   "cap": [
+    "“{r:NO ONE CROSSES!}”"
+   ]
+  },
+  {
+   "id": "L25",
+   "who": "kon",
+   "say": "[intense] They sent wave after wave. He cut them all down. So they shot him. Again. And again.",
+   "cap": [
+    "They sent {o:wave after wave}.",
+    "He cut them {r:all} down.",
+    "So they {r:shot} him.",
+    "Again.",
+    "And again."
+   ]
+  },
+  {
+   "id": "L26",
+   "who": "kon",
+   "say": "[slow] Then it went quiet. He didn't fall. He didn't move. Nobody dared cross.",
+   "cap": [
+    "Then it went {o:quiet}.",
+    "He didn't fall.",
+    "He didn't move.",
+    "Nobody dared cross."
+   ]
+  },
+  {
+   "id": "L27",
+   "who": "kon",
+   "say": "[hushed] When one finally crept closer... Benkei toppled over. He'd died standing up.",
+   "cap": [
+    "When one finally crept closer...",
+    "Benkei {o:toppled} over.",
+    "He'd {r:died standing up}."
+   ]
+  },
+  {
+   "id": "L28",
+   "who": "mio",
+   "say": "[sniffling] Okay. I'm actually crying.",
+   "cap": [
+    "Okay.",
+    "I'm actually {o:crying}."
+   ]
+  },
+  {
+   "id": "L29",
+   "who": "kon",
+   "say": "[warm] Japan still calls your shin Benkei's crying spot. The one place that made even him cry.",
+   "cap": [
+    "Japan still calls your {o:shin}",
+    "“{r:Benkei's crying spot}.”",
+    "The one place",
+    "that made even {o:him} cry."
+   ]
+  },
+  {
+   "id": "L30",
+   "who": "kon",
+   "say": "[sly] And some people swear Yoshitsune escaped... and became Genghis Khan.",
+   "cap": [
+    "And some people swear",
+    "Yoshitsune {o:escaped}...",
+    "and became {r:Genghis Khan}."
+   ]
+  },
+  {
+   "id": "L31",
+   "who": "mio",
+   "say": "[screaming] WAIT, WHAT?!",
+   "cap": [
+    "{pop:WAIT, WHAT?!}"
+   ]
+  }
+ ]
+}

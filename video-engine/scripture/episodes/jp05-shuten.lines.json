@@ -1,0 +1,295 @@
+{
+  "title": "SHUTEN-DOJI",
+  "subtitle": "the demon king whose head bit back",
+  "source": "Otogi-zoshi 'Shuten-doji'; Heike monogatari Tsurugi no maki (Watanabe no Tsuna and Ibaraki-doji); Dojigiri Yasutsuna, Tokyo National Museum",
+  "voices": {
+    "mio": {
+      "name": "Candy - Girly and Sweet",
+      "voice_id": "Nggzl2QAXh3OijoXD116"
+    },
+    "kon": {
+      "name": "Callum - Husky Trickster (premade, dry)",
+      "voice_id": "N2lVS1w4EtoT3dr4eOWO"
+    },
+    "raiko": {
+      "name": "Gotham Boss - Powerful, Calm & Tough",
+      "voice_id": "M9UAxraM2w5tCjpOaIB0"
+    },
+    "shuten": {
+      "name": "Branok - Evil and Villainous",
+      "voice_id": "Vs5CmVCVJwW4odQS2pVf"
+    },
+    "aunt": {
+      "name": "Kristen - Cold Evil Queen Villain",
+      "voice_id": "Qbw4VpyUrHEG7NigKzty"
+    }
+  },
+  "takes": {
+    "mio": "mio_a",
+    "kon": "kon_a",
+    "raiko": "raiko_a",
+    "shuten": "shuten_a",
+    "aunt": "aunt_a"
+  },
+  "lines": [
+    {
+      "id": "L01",
+      "who": "mio",
+      "say": "[excited] Kon! This sword cut off a DEMON'S head?!",
+      "cap": [
+        "Kon! This sword cut off",
+        "a {r:DEMON'S head}?!"
+      ]
+    },
+    {
+      "id": "L02",
+      "who": "kon",
+      "say": "[sly] It did. And then the head bit back.",
+      "cap": [
+        "It did.",
+        "And then the head {r:bit back}."
+      ]
+    },
+    {
+      "id": "L03",
+      "who": "mio",
+      "say": "[shocked] BIT BACK?!",
+      "cap": [
+        "{pop:BIT BACK?!}"
+      ]
+    },
+    {
+      "id": "L04",
+      "who": "kon",
+      "say": "[ominous] A thousand years ago, people were vanishing from Kyoto. Dragged off in the night by oni.",
+      "cap": [
+        "A thousand years ago,",
+        "people were {r:vanishing} from Kyoto.",
+        "Dragged off in the night",
+        "by {r:oni}."
+      ]
+    },
+    {
+      "id": "L05",
+      "who": "kon",
+      "say": "Their king was Shuten-doji. A giant red demon who drank sake by the barrel... and ate people.",
+      "cap": [
+        "Their king was {r:Shuten-dōji}.",
+        "A giant red demon who drank",
+        "sake by the barrel...",
+        "and {r:ate people}."
+      ]
+    },
+    {
+      "id": "L06",
+      "who": "kon",
+      "say": "[intense] So the emperor sent the deadliest warrior alive. Minamoto no Raiko. And his four elite guards.",
+      "cap": [
+        "So the emperor sent",
+        "the {o:deadliest warrior alive}.",
+        "{g:Minamoto no Raikō}.",
+        "And his {o:four elite guards}."
+      ]
+    },
+    {
+      "id": "L07",
+      "who": "raiko",
+      "say": "[commanding] We climb that mountain tonight. And we don't come down without his head.",
+      "cap": [
+        "“We climb that mountain {o:tonight}.",
+        "And we don't come down",
+        "without his {r:head}.”"
+      ]
+    },
+    {
+      "id": "L08",
+      "who": "kon",
+      "say": "On the way, three old men gave them a gift. Sake. Harmless to humans. Poison to demons.",
+      "cap": [
+        "On the way, three old men",
+        "gave them a gift. {o:Sake}.",
+        "Harmless to humans.",
+        "{r:Poison to demons}."
+      ]
+    },
+    {
+      "id": "L09",
+      "who": "mio",
+      "say": "[annoyed] Sake AGAIN?! Japan's whole strategy is getting monsters drunk!",
+      "cap": [
+        "Sake {o:AGAIN}?!",
+        "Japan's whole strategy is",
+        "{pop:GETTING MONSTERS DRUNK!}"
+      ]
+    },
+    {
+      "id": "L10",
+      "who": "kon",
+      "say": "[amused] And it works every time. Disguised as monks, they walked straight into the demon fortress.",
+      "cap": [
+        "And it works {g:every time}.",
+        "Disguised as {o:monks},",
+        "they walked straight into",
+        "the {r:demon fortress}."
+      ]
+    },
+    {
+      "id": "L11",
+      "who": "shuten",
+      "say": "[booming] Holy men! Sit! Drink with us!",
+      "cap": [
+        "“Holy men! Sit!",
+        "{o:Drink with us!}”"
+      ]
+    },
+    {
+      "id": "L12",
+      "who": "kon",
+      "say": "[whispering] The demons drank. Their arms went heavy. Their eyes went dim. Then Raiko threw off his robe. Armor.",
+      "cap": [
+        "The demons drank.",
+        "Their arms went {o:heavy}.",
+        "Their eyes went {o:dim}.",
+        "Then Raikō threw off his robe.",
+        "{r:Armor}."
+      ]
+    },
+    {
+      "id": "L13",
+      "who": "raiko",
+      "say": "[roaring] NOW!",
+      "cap": [
+        "{pop:NOW!}"
+      ]
+    },
+    {
+      "id": "L14",
+      "who": "kon",
+      "say": "[excited] Swords out. The five of them tore through the fortress. Room by room. Demon by demon.",
+      "cap": [
+        "Swords out.",
+        "The five of them {r:tore through} the fortress.",
+        "Room by room.",
+        "{r:Demon by demon}."
+      ]
+    },
+    {
+      "id": "L15",
+      "who": "kon",
+      "say": "[intense] Shuten-doji roared, and his true form burst through the roof. Horns like spears. Eyes like fire.",
+      "cap": [
+        "Shuten-dōji roared,",
+        "and his {r:true form} burst through the roof.",
+        "Horns like {o:spears}.",
+        "Eyes like {r:fire}."
+      ]
+    },
+    {
+      "id": "L16",
+      "who": "mio",
+      "say": "[screaming] HE'S HUGE!",
+      "cap": [
+        "{pop:HE'S HUGE!}"
+      ]
+    },
+    {
+      "id": "L17",
+      "who": "kon",
+      "say": "But the poison had his legs. Raiko leapt... and took his head off. One swing.",
+      "cap": [
+        "But the {o:poison} had his legs.",
+        "Raikō leapt...",
+        "and took his {r:head} off.",
+        "{r:One swing}."
+      ]
+    },
+    {
+      "id": "L18",
+      "who": "kon",
+      "say": "[darkly] The head didn't fall. It flew. Straight at Raiko... and sank its teeth into his helmet.",
+      "cap": [
+        "The head didn't fall.",
+        "It {r:flew}.",
+        "Straight at Raikō...",
+        "and sank its {r:teeth} into his helmet."
+      ]
+    },
+    {
+      "id": "L19",
+      "who": "mio",
+      "say": "[screaming] THE HEAD BIT HIM?!",
+      "cap": [
+        "{pop:THE HEAD BIT HIM?!}"
+      ]
+    },
+    {
+      "id": "L20",
+      "who": "kon",
+      "say": "[smug] He lived. Because he'd stacked his men's helmets on top of his own.",
+      "cap": [
+        "He {g:lived}.",
+        "Because he'd stacked his men's helmets",
+        "{o:on top of his own}."
+      ]
+    },
+    {
+      "id": "L21",
+      "who": "kon",
+      "say": "That sword is real. Dojigiri. The Demon Cutter. A National Treasure, in Tokyo, right now.",
+      "cap": [
+        "That sword is {o:real}.",
+        "{g:Dōjigiri}. The {r:Demon Cutter}.",
+        "A {o:National Treasure},",
+        "in Tokyo, right now."
+      ]
+    },
+    {
+      "id": "L22",
+      "who": "kon",
+      "say": "[sly] But one demon escaped. Ibaraki-doji. Later, one of the guards sliced off its arm, and locked it in a box.",
+      "cap": [
+        "But one demon {r:escaped}.",
+        "{r:Ibaraki-dōji}.",
+        "Later, one of the guards sliced off its {r:arm},",
+        "and locked it in a {o:box}."
+      ]
+    },
+    {
+      "id": "L23",
+      "who": "kon",
+      "say": "[ominous] A few nights later, his old aunt came to visit. She asked to see the arm. He opened the box...",
+      "cap": [
+        "A few nights later,",
+        "his old {o:aunt} came to visit.",
+        "She asked to see the arm.",
+        "He opened the box..."
+      ]
+    },
+    {
+      "id": "L24",
+      "who": "aunt",
+      "say": "[sweetly] Oh, thank you, dear... [growling] THAT'S MINE!",
+      "cap": [
+        "“Oh, thank you, dear...",
+        "{pop:THAT'S MINE!}”"
+      ]
+    },
+    {
+      "id": "L25",
+      "who": "mio",
+      "say": "[nervous] ...My aunt is visiting tomorrow.",
+      "cap": [
+        "...My {o:aunt} is visiting tomorrow."
+      ]
+    },
+    {
+      "id": "L26",
+      "who": "kon",
+      "say": "[sly] Then don't show her anything in a box.",
+      "cap": [
+        "Then don't show her",
+        "anything in a {r:box}."
+      ]
+    }
+  ]
+}

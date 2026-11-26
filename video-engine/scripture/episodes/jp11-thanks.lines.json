@@ -1,0 +1,244 @@
+{
+ "title": "JAPAN'S THANKSGIVING",
+ "subtitle": "no turkey, all rice",
+ "source": "Niinamesai / Niiname-no-Matsuri (earliest record in the Nihon Shoki, 673; emperor offers new rice to the kami and partakes of it); renamed Labor Thanksgiving Day (Kinro Kansha no Hi) in 1948; children's thank-you drawings for police, firefighters, hospital staff; KFC 'Kentucky for Christmas' since 1974",
+ "voices": {
+  "mio": {
+   "name": "Candy - Girly and Sweet",
+   "voice_id": "Nggzl2QAXh3OijoXD116"
+  },
+  "kon": {
+   "name": "Callum - Husky Trickster (premade, dry)",
+   "voice_id": "N2lVS1w4EtoT3dr4eOWO"
+  }
+ },
+ "takes": {
+  "mio": "mio_a",
+  "kon": "kon_a"
+ },
+ "continuous": true,
+ "lines": [
+  {
+   "id": "L01",
+   "who": "mio",
+   "say": "[excited] Kon! Happy Thanksgiving! Where's the turkey?",
+   "cap": [
+    "Kon! Happy {o:Thanksgiving}!",
+    "Where's the {r:turkey}?"
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "kon",
+   "say": "[sly] Japan has a Thanksgiving too. No turkey.",
+   "cap": [
+    "Japan has a Thanksgiving too.",
+    "{r:No turkey}."
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "mio",
+   "say": "[gasps] NO TURKEY?!",
+   "cap": [
+    "{pop:NO TURKEY?!}"
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "kon",
+   "say": "It's on November twenty-third. And it's about something way older than turkey. Rice.",
+   "cap": [
+    "It's on {o:November twenty-third}.",
+    "And it's about something",
+    "way older than turkey.",
+    "{o:Rice}."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "kon",
+   "say": "The oldest record of it is from the year six seventy-three. It's called Niinamesai. The festival of new rice.",
+   "cap": [
+    "The oldest record of it",
+    "is from the year {o:673}.",
+    "It's called {o:Niinamesai}.",
+    "The festival of {r:new rice}."
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "kon",
+   "say": "And shrines all over Japan still offer the year's new rice to the gods.",
+   "cap": [
+    "And shrines all over Japan",
+    "still offer the year's {o:new rice}",
+    "to the {r:gods}."
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "kon",
+   "say": "[hushed] On that night, the emperor offers the first rice of the harvest to the gods... and then eats it with them.",
+   "cap": [
+    "On that night, the emperor",
+    "offers the {o:first rice} of the harvest",
+    "to the {r:gods}...",
+    "and then eats it {o:with them}."
+   ]
+  },
+  {
+   "id": "L08",
+   "who": "kon",
+   "say": "[hushed] It still happens every year, deep inside the palace, late into the night.",
+   "cap": [
+    "It still happens every year,",
+    "deep inside the {o:palace},",
+    "late into the {r:night}."
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "mio",
+   "say": "[impressed] So the gods get the first bite. Respect.",
+   "cap": [
+    "So the gods get",
+    "the {o:first bite}.",
+    "Respect."
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "kon",
+   "say": "After World War Two, the holiday got a new name. Labor Thanksgiving Day.",
+   "cap": [
+    "After World War Two,",
+    "the holiday got a new name.",
+    "{o:Labor Thanksgiving Day}."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "kon",
+   "say": "Now it's about thanking the people who work hard for everyone else.",
+   "cap": [
+    "Now it's about thanking",
+    "the people who {o:work hard}",
+    "for {r:everyone else}."
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "kon",
+   "say": "[warm] Kids draw thank-you cards for police officers, firefighters, and nurses.",
+   "cap": [
+    "Kids draw {o:thank-you cards}",
+    "for {o:police officers},",
+    "{r:firefighters}, and {o:nurses}."
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "kon",
+   "say": "Some kids walk their drawings right up to the little police box on their street.",
+   "cap": [
+    "Some kids walk their drawings",
+    "right up to the little",
+    "{o:police box} on their street."
+   ]
+  },
+  {
+   "id": "L14",
+   "who": "mio",
+   "say": "[sweet] Aww. Okay, but what do people EAT?",
+   "cap": [
+    "Aww.",
+    "Okay, but what do people {r:EAT}?"
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "kon",
+   "say": "[amused] Rice. Lots of rice.",
+   "cap": [
+    "Rice.",
+    "{o:Lots} of rice."
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "mio",
+   "say": "[deflated] ...No turkey at all?",
+   "cap": [
+    "...No turkey",
+    "{r:at all}?"
+   ]
+  },
+  {
+   "id": "L17",
+   "who": "kon",
+   "say": "[sly] Japan saves the bird for Christmas. Fried chicken. Kentucky Fried Chicken.",
+   "cap": [
+    "Japan saves the bird",
+    "for {o:Christmas}.",
+    "Fried chicken.",
+    "{r:Kentucky Fried Chicken}."
+   ]
+  },
+  {
+   "id": "L18",
+   "who": "mio",
+   "say": "[baffled] WHAT?!",
+   "cap": [
+    "{pop:WHAT?!}"
+   ]
+  },
+  {
+   "id": "L19",
+   "who": "kon",
+   "say": "Since nineteen seventy-four. Families order their buckets weeks ahead.",
+   "cap": [
+    "Since {o:1974}.",
+    "Families order their buckets",
+    "{r:weeks} ahead."
+   ]
+  },
+  {
+   "id": "L20",
+   "who": "kon",
+   "say": "[amused] Christmas Eve is their busiest day of the whole year.",
+   "cap": [
+    "Christmas Eve is their",
+    "{r:busiest day}",
+    "of the whole year."
+   ]
+  },
+  {
+   "id": "L21",
+   "who": "mio",
+   "say": "[warm] Okay. I'm thankful for rice, for firefighters... and for you, Kon.",
+   "cap": [
+    "Okay. I'm thankful for {o:rice},",
+    "for {o:firefighters}...",
+    "and for {r:you}, Kon."
+   ]
+  },
+  {
+   "id": "L22",
+   "who": "kon",
+   "say": "[soft, sly] I'm thankful for your grandma's sushi.",
+   "cap": [
+    "I'm thankful for",
+    "your grandma's {o:sushi}."
+   ]
+  },
+  {
+   "id": "L23",
+   "who": "mio",
+   "say": "[laughing] Kon!",
+   "cap": [
+    "{r:Kon}!"
+   ]
+  }
+ ]
+}
