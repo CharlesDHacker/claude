@@ -1,0 +1,80 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;background:#000}#w{position:relative;width:540px;height:960px;overflow:hidden}
+canvas{position:absolute;left:0;top:0;width:540px;height:960px}#g{mix-blend-mode:multiply}
+</style></head><body><div id="w"><canvas id="gl" width="1080" height="1920"></canvas><canvas id="g" width="1080" height="1920"></canvas><canvas id="c" width="1080" height="1920"></canvas></div>
+<script src="/art/lib.js"></script><script>function sakura(g, x, y, r, col, ink) { g.save(); g.translate(x, y); for (let i = 0; i < 5; i++) { g.rotate(Math.PI * 2 / 5); ell(g, 0, -r * .9, r * .55, r * .8, col, ink ? 2.4 : 0); } ell(g, 0, 0, r * .3, r * .3, "#f6e27a", 0); g.restore(); }</script><script src="/art/toon.js"></script><script src="/art/toon2.js"></script>
+<script type="module">
+import * as THREE from '/three/three.module.js';
+const R = new THREE.WebGLRenderer({ canvas: document.getElementById('gl'), antialias: true, preserveDrawingBuffer: true });
+R.setSize(1080, 1920, false); R.shadowMap.enabled = true; R.shadowMap.type = THREE.PCFSoftShadowMap; R.outputColorSpace = THREE.SRGBColorSpace;
+const S = new THREE.Scene();
+const sk = document.createElement('canvas'); sk.width = 4; sk.height = 512; { const x = sk.getContext('2d'), gr = x.createLinearGradient(0, 0, 0, 512);
+  [[0, '#24305a'], [.45, '#8e5a72'], [.75, '#f0a468'], [1, '#f8d8a0']].forEach(([o, c]) => gr.addColorStop(o, c)); x.fillStyle = gr; x.fillRect(0, 0, 4, 512); }
+const skyT = new THREE.CanvasTexture(sk); skyT.colorSpace = THREE.SRGBColorSpace; S.background = skyT; S.fog = new THREE.Fog(0xeaa880, 9, 44);
+const cam = new THREE.PerspectiveCamera(52, 1080 / 1920, .1, 200);
+const gm = new THREE.DataTexture(new Uint8Array([70, 70, 70, 255, 160, 160, 160, 255, 255, 255, 255, 255]), 3, 1); gm.needsUpdate = true; gm.minFilter = gm.magFilter = THREE.NearestFilter;
+const mat = c => new THREE.MeshToonMaterial({ color: c, gradientMap: gm }), ink = new THREE.MeshBasicMaterial({ color: 0x2a1812, side: THREE.BackSide });
+function add(geo, color, x, y, z, o = {}) { const m = new THREE.Mesh(geo, o.basic ? new THREE.MeshBasicMaterial({ color }) : mat(color)); m.position.set(x, y, z); if (o.ry) m.rotation.y = o.ry; if (o.rz) m.rotation.z = o.rz;
+  m.castShadow = !o.basic; m.receiveShadow = true; S.add(m); if (o.ink !== false) { const e = new THREE.Mesh(geo, ink); e.position.copy(m.position); e.rotation.copy(m.rotation); e.scale.setScalar(o.inkS || 1.05); S.add(e); } return m; }
+// light: warm low sun behind the tunnel, cool sky fill
+S.add(new THREE.HemisphereLight(0xffd8b4, 0x3a3a6a, 1.15)); const sun = new THREE.DirectionalLight(0xffb070, 2.2); sun.position.set(-7, 9, -18); sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -12, right: 12, top: 12, bottom: -12, near: 1, far: 70 }); S.add(sun);
+// ground, stone path with stepping slabs
+add(new THREE.PlaneGeometry(200, 200).rotateX(-Math.PI / 2), 0x7e7a52, 0, 0, 0, { ink: false });
+add(new THREE.BoxGeometry(2.2, .06, 40), 0xb4a890, 0, .03, 14, { ink: false });
+for (let z = -2; z < 34; z += .9) add(new THREE.BoxGeometry(.9 + Math.sin(z) * .15, .05, .7), 0xcabfa6, Math.sin(z * 1.7) * .2, .07, z, { ry: Math.sin(z) * .1, inkS: 1.02 });
+// senbon torii: vermilion gates receding down the path
+for (let i = 0; i < 12; i++) { const z = 2.6 + i * 2.3; [-1.25, 1.25].forEach(x => { add(new THREE.CylinderGeometry(.13, .15, 3.3, 14), 0xd6432a, x, 1.65, z); add(new THREE.CylinderGeometry(.18, .18, .25, 14), 0x1c1a20, x, .12, z); });
+  add(new THREE.BoxGeometry(3.4, .14, .22), 0xd6432a, 0, 2.55, z); add(new THREE.BoxGeometry(3.9, .22, .36), 0x1c1a20, 0, 3.33, z); add(new THREE.BoxGeometry(3.6, .14, .3), 0xd6432a, 0, 3.17, z); }
+// stone lanterns with glowing windows
+for (let z = 1; z < 30; z += 4.6) [-2.3, 2.3].forEach(x => { add(new THREE.CylinderGeometry(.12, .16, .7, 8), 0x9a968a, x, .35, z); add(new THREE.BoxGeometry(.46, .38, .46), 0xa8a496, x, .9, z);
+  add(new THREE.BoxGeometry(.3, .2, .48), 0xffc472, x, .9, z, { basic: true, ink: false }); add(new THREE.ConeGeometry(.42, .32, 4), 0x8a867a, x, 1.25, z, { ry: Math.PI / 4 }); });
+// cherry trees and dark hills
+const pinks = [0xf2a8bc, 0xf6c2cf, 0xe48ea6];
+for (let i = 0; i < 16; i++) { const side = i % 2 ? 1 : -1, x = side * (4 + (i * 1.3) % 3), z = -4 + i * 2.6; add(new THREE.CylinderGeometry(.12, .2, 2.4, 8), 0x4a2e26, x, 1.2, z);
+  for (let k = 0; k < 4; k++) add(new THREE.IcosahedronGeometry(.9 + (k % 2) * .3, 1), pinks[(i + k) % 3], x + Math.sin(k * 2.1) * .7, 2.7 + (k % 2) * .5, z + Math.cos(k * 1.7) * .6, { inkS: 1.03 }); }
+for (let i = 0; i < 7; i++) add(new THREE.ConeGeometry(8 + i % 3 * 3, 9 + i % 2 * 4, 6), 0x3a3a62, -30 + i * 10, 3.5, -38 - (i % 2) * 6, { ink: false });
+// falling petals
+const N = 500, pg = new THREE.BufferGeometry(), P0 = new Float32Array(N * 3); for (let i = 0; i < N; i++) { P0[i * 3] = (Math.random() - .5) * 12; P0[i * 3 + 1] = Math.random() * 6; P0[i * 3 + 2] = -3 + Math.random() * 32; }
+pg.setAttribute('position', new THREE.BufferAttribute(P0.slice(), 3)); S.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xf8bfd0, size: .06 })));
+// the hosts: our 2D characters, drawn live onto cards standing in the 3D path, with soft contact shadows
+function card(w, h, cw, ch) { const cv = document.createElement('canvas'); cv.width = cw; cv.height = ch; const tx = new THREE.CanvasTexture(cv); tx.colorSpace = THREE.SRGBColorSpace;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: tx, transparent: true, alphaTest: .04, fog: false })); S.add(m); return { cv, g: cv.getContext('2d'), tx, m }; }
+const mio = card(1.15, 1.7, 540, 800), kon = card(1.3, 1.1, 640, 540);
+[[-.5, .42], [.62, .5]].forEach(([x, r]) => { const s = new THREE.Mesh(new THREE.CircleGeometry(r, 24).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: 0x20140f, transparent: true, opacity: .35 })); s.position.set(x, .09, .05); S.add(s); });
+// overlays: washi grain (multiply), and the caption / kasumi layer
+const G = document.getElementById('g').getContext('2d'); { const im = G.createImageData(1080, 1920); for (let i = 0; i < im.data.length; i += 4) { const v = 215 + Math.random() * 40; im.data[i] = v; im.data[i + 1] = v * .97; im.data[i + 2] = v * .88; im.data[i + 3] = 255; } G.putImageData(im, 0, 0);
+  G.fillStyle = 'rgba(60,30,10,0)'; const vg = G.createRadialGradient(540, 900, 520, 540, 900, 1250); vg.addColorStop(0, 'rgba(255,255,255,0)'); vg.addColorStop(1, 'rgba(90,50,30,.55)'); G.fillStyle = vg; G.fillRect(0, 0, 1080, 1920); }
+const C = document.getElementById('c').getContext('2d');
+function kasumi(x, y, w, h) { C.save(); const gr = C.createLinearGradient(0, y - h, 0, y + h); gr.addColorStop(0, '#f6dc92'); gr.addColorStop(.6, '#d9b45a'); gr.addColorStop(1, '#b88e3c'); C.fillStyle = gr; C.globalAlpha = .93;
+  C.beginPath(); C.moveTo(x, y + h * .5); C.quadraticCurveTo(x - h * .6, y, x + h * .4, y - h * .3); const n = Math.max(2, Math.round(w / (h * 2.2)));
+  for (let k = 0; k < n; k++) { const a = x + h * .4 + (w - h * .8) * k / n, b = x + h * .4 + (w - h * .8) * (k + 1) / n; C.quadraticCurveTo((a + b) / 2, y - h * (1.1 + (k % 2) * .25), b, y - h * .3); }
+  C.quadraticCurveTo(x + w + h * .6, y, x + w, y + h * .5); C.closePath(); C.fill(); C.restore(); }
+const CAPS = [[.3, 1.6, 'She chased him', ''], [1.6, 3.0, 'across a', 'RIVER...'], [3.0, 4.0, 'and became a', ''], [4.0, 6.2, '', 'SERPENT.'], [6.4, 10, 'Kiyohime.', '']];
+function caption(t) { const L = CAPS.find(c => t >= c[0] && t < c[1]); if (!L) return; const k = Math.min(1, (t - L[0]) / .12), pop = 1 + (1 - k) * .35;
+  C.save(); C.translate(540, 1120); C.textAlign = 'center'; C.lineJoin = 'round';
+  if (L[2]) { C.save(); C.scale(pop, pop); C.font = "900 84px 'DejaVu Sans', sans-serif"; C.lineWidth = 16; C.strokeStyle = '#1a1010'; C.strokeText(L[2], 0, 0); C.fillStyle = '#fff8ec'; C.fillText(L[2], 0, 0); C.restore(); }
+  if (L[3]) { const big = L[3] === 'SERPENT.', sc = (big ? 1.9 : 1.1) * (1 + (1 - k) * .6); C.save(); C.translate(0, L[2] ? 110 : 40); C.rotate(big ? -.05 : 0); C.scale(sc, sc); C.font = "900 84px 'DejaVu Sans', sans-serif";
+    C.lineWidth = 18; C.strokeStyle = '#1a1010'; C.strokeText(L[3], 0, 0); C.fillStyle = big ? '#e8402a' : '#f2c94c'; C.fillText(L[3], 0, 0); C.restore(); }
+  C.restore(); }
+const eio = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2, cl = x => Math.max(0, Math.min(1, x));
+window.__frame = t => {
+  // camera: fly down the torii tunnel, slam-stop on the reveal, then a slow orbit around the hosts
+  let p, look = new THREE.Vector3(0, .95, 0);
+  if (t < 4) { const k = eio(cl(t / 4)); p = new THREE.Vector3(Math.sin(t * .8) * .25, 1.75 - k * .45, 29 - k * 23.9); }
+  else { const a = eio(cl((t - 4) / 6)) * .75, r = 5.1 - eio(cl((t - 4) / 6)) * .9; p = new THREE.Vector3(Math.sin(a) * r, 1.25 + a * .3, Math.cos(a) * r); }
+  if (t > 4 && t < 4.45) { const s = (4.45 - t) * .25; p.x += (Math.random() - .5) * s; p.y += (Math.random() - .5) * s; }
+  cam.position.copy(p); cam.lookAt(look);
+  const pos = pg.attributes.position.array; for (let i = 0; i < N; i++) { pos[i * 3 + 1] = ((P0[i * 3 + 1] - t * .55) % 6 + 6) % 6; pos[i * 3] = P0[i * 3] + Math.sin(t * 1.3 + i) * .25; } pg.attributes.position.needsUpdate = true;
+  // draw the hosts onto their cards; they face the camera
+  const talk = t > 6.4 ? .6 * Math.abs(Math.sin(t * 9)) : 0;
+  mio.g.clearRect(0, 0, 540, 800); toon(mio.g, { c: 'mio', x: 270, y: 780, s: 1.2, t, expr: t < 4 ? 'worry' : 'shock', hands: t < 4 ? 'chest' : 'cheeks', look: [1, -.2] }); mio.tx.needsUpdate = true;
+  kon.g.clearRect(0, 0, 640, 540); kitsune(kon.g, { x: 330, y: 520, s: 1.25, t, expr: t < 6.4 ? 'serious' : 'smug', talk, flip: true, look: [-1, -.3] }); kon.tx.needsUpdate = true;
+  mio.m.position.set(-.5, .85, 0); kon.m.position.set(.62, .55, .05); [mio.m, kon.m].forEach(m => { m.lookAt(cam.position.x, m.position.y, cam.position.z); });
+  R.render(S, cam);
+  C.clearRect(0, 0, 1080, 1920); [[-80, 150, 520, 46, .5], [560, 236, 600, 40, -.4], [-140, 1760, 640, 50, .35], [620, 1834, 560, 44, -.5]].forEach(([x, y, w, h, s]) => kasumi(x + t * 8 * s, y, w, h));
+  if (t > 4 && t < 4.12) { C.fillStyle = 'rgba(255,250,235,.85)'; C.fillRect(0, 0, 1080, 1920); }
+  caption(t);
+};
+window.__ready = true;
+</script></body></html>
