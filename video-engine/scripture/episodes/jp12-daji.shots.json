@@ -1,0 +1,1380 @@
+{
+ "lead": 0.08,
+ "tail": 0.3,
+ "start": 0.3,
+ "loop": true,
+ "title": {
+  "text": "SHE DESTROYED TWO KINGDOMS",
+  "sub": "before Japan",
+  "until": "L02"
+ },
+ "gaps": {
+  "L01": 0.22,
+  "L02": 0.3,
+  "L03": 0.22,
+  "L04": 0.22,
+  "L05": 0.22,
+  "L06": 0.35,
+  "L07": 0.22,
+  "L08": 0.22,
+  "L09": 0.3,
+  "L10": 0.22,
+  "L11": 0.22,
+  "L12": 0.35,
+  "L13": 0.22,
+  "L14": 0.22,
+  "L15": 0.3,
+  "L16": 0.22,
+  "L17": 0.22,
+  "L18": 0.35,
+  "L19": 0.22
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1500,
+     0.98
+    ],
+    [
+     600,
+     1440,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "stone",
+    "actors": [
+     {
+      "type": "killstone",
+      "x": 560,
+      "y": 1620,
+      "s": 0.78,
+      "k": 0.75,
+      "split": 1,
+      "glowA": {
+       "osc": [
+        0.45,
+        0.15,
+        0.6,
+        0
+       ]
+      }
+     },
+     {
+      "type": "sparkle",
+      "x": 560,
+      "y": 1400,
+      "t0": 3.2,
+      "d": 1.2,
+      "r": 360
+     }
+    ],
+    "front": [
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2090,
+      "s": 1.05,
+      "flip": true,
+      "expr": "serious",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "lead": 0,
+   "music": "kotodread",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1400,
+     1.0
+    ],
+    [
+     540,
+     1360,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "shang",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1300,
+      "r": 700,
+      "col": "rgba(255,80,40,1)",
+      "a": 0.5
+     },
+     {
+      "type": "toon",
+      "c": "daji",
+      "x": 540,
+      "y": 1960,
+      "s": 1.0,
+      "foxTails": 1,
+      "foxEars": 1,
+      "expr": "smug",
+      "arms": "clasp",
+      "sil": 0.12
+     }
+    ]
+   },
+   "camEase": "lin",
+   "atc": "@L01.2",
+   "tr": "flash",
+   "kicks": [
+    0.05
+   ],
+   "shakeAt": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "boom",
+     0.05
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L02",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "stone",
+    "actors": [
+     {
+      "type": "killstone",
+      "x": 560,
+      "y": 1620,
+      "s": 0.78,
+      "k": 0.75,
+      "split": 1
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "shock",
+      "hands": "cheeks",
+      "hop": {
+       "osc": [
+        0.3,
+        0.3,
+        1.4,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "kicks": [
+    0.04
+   ],
+   "pops": {
+    "L02": [
+     540,
+     1440,
+     -0.04,
+     170
+    ]
+   },
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L03",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1500,
+     1.0
+    ],
+    [
+     640,
+     1440,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "shang",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "kingZhou",
+      "x": 300,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "happy",
+      "arms": "open",
+      "look": [
+       1,
+       0
+      ]
+     },
+     {
+      "type": "toon",
+      "c": "daji",
+      "x": {
+       "a": 1250,
+       "b": 720,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "walk": 1,
+      "walkRate": 3,
+      "sideWalk": true,
+      "expr": "smile",
+      "arms": "clasp"
+     },
+     {
+      "type": "sparkle",
+      "x": 720,
+      "y": 1450,
+      "t0": 2.3,
+      "d": 1.0,
+      "r": 360
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "taiko",
+   "label": "DAJI \u00b7 1000s BC",
+   "labelY": 600,
+   "labelAt": 0.4,
+   "sfx": [
+    [
+     "bell",
+     0.2
+    ]
+   ]
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1560,
+     1.15
+    ],
+    [
+     540,
+     1460,
+     0.98
+    ]
+   ],
+   "o": {
+    "set": "shang",
+    "actors": [
+     {
+      "type": "meatTrees",
+      "x": 540,
+      "y": 1600,
+      "s": 0.9
+     },
+     {
+      "type": "winePool",
+      "x": 540,
+      "y": 1820,
+      "s": 1.0
+     },
+     {
+      "type": "toon",
+      "c": "kingZhou",
+      "x": 220,
+      "y": 1960,
+      "s": 0.82,
+      "expr": "happy",
+      "arms": "raise",
+      "hold": "sak\u00e9"
+     },
+     {
+      "type": "toon",
+      "c": "daji",
+      "x": 860,
+      "y": 1960,
+      "s": 0.8,
+      "flip": true,
+      "expr": "smug",
+      "arms": "clasp"
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "sfx": [
+    [
+     "splash",
+     0.4
+    ]
+   ]
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     520,
+     1620,
+     1.12
+    ],
+    [
+     560,
+     1580,
+     1.26
+    ]
+   ],
+   "o": {
+    "set": "shang",
+    "actors": [
+     {
+      "type": "hotPillar",
+      "x": 540,
+      "y": 1760,
+      "s": 1.0
+     },
+     {
+      "type": "toon",
+      "c": "daji",
+      "x": 760,
+      "y": 1900,
+      "s": 0.74,
+      "flip": true,
+      "expr": "smug",
+      "arms": "clasp",
+      "look": [
+       -1,
+       0.2
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "kotodread",
+   "kicks": [
+    0.1
+   ],
+   "sfx": [
+    [
+     "riser",
+     0.2
+    ]
+   ],
+   "bloom": 0.4
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1400,
+     1.0
+    ],
+    [
+     540,
+     1360,
+     1.16
+    ]
+   ],
+   "o": {
+    "set": "shang",
+    "actors": [
+     {
+      "type": "crowd",
+      "x0": -100,
+      "x1": 1100,
+      "y": 1900,
+      "n": 9,
+      "s": 1.25,
+      "torches": true,
+      "spears": true,
+      "col": "#1a0e10"
+     },
+     {
+      "type": "toon",
+      "c": "daji",
+      "x": 540,
+      "y": 1600,
+      "s": 0.6,
+      "foxTails": 1,
+      "foxEars": 1,
+      "alpha": {
+       "a": 1,
+       "b": 0,
+       "t0": "@L06.3-0.3",
+       "t1": "@L06.3+0.6",
+       "e": "io"
+      },
+      "expr": "smug",
+      "arms": "clasp"
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "sfx": [
+    [
+     "march",
+     0.0
+    ],
+    [
+     "whoosh",
+     "@L06.3"
+    ]
+   ],
+   "shakeAt": [
+    "@L06.1"
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L07",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "stone",
+    "actors": [
+     {
+      "type": "killstone",
+      "x": 560,
+      "y": 1620,
+      "s": 0.78,
+      "k": 0.75,
+      "split": 1
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "worry",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.2
+      ],
+      "lean": {
+       "osc": [
+        0,
+        0.04,
+        0.7,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     480,
+     1500,
+     1.0
+    ],
+    [
+     600,
+     1460,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "india",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "hanzoku",
+      "x": {
+       "a": 240,
+       "b": 300,
+       "t0": 0,
+       "t1": 3,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "expr": "neutral",
+      "arms": "down",
+      "look": [
+       1,
+       0
+      ]
+     },
+     {
+      "type": "toon",
+      "c": "kayo",
+      "x": 720,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "smug",
+      "arms": "clasp",
+      "look": [
+       -1,
+       0
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "kotohope",
+   "label": "LADY KAY\u014c \u00b7 INDIA",
+   "labelY": 600,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "bell",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1560,
+     1.2
+    ],
+    [
+     520,
+     1520,
+     1.32
+    ]
+   ],
+   "o": {
+    "set": "india",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "hanzoku",
+      "x": 380,
+      "y": 1880,
+      "s": 0.84,
+      "expr": "angry",
+      "arms": "raise",
+      "hold": "tsurugi",
+      "holdRot": -0.4
+     },
+     {
+      "type": "toon",
+      "c": "kayo",
+      "x": 800,
+      "y": 1880,
+      "s": 0.78,
+      "flip": true,
+      "expr": "smug",
+      "arms": "clasp"
+     }
+    ]
+   },
+   "camEase": "lin",
+   "atc": "@L08.4",
+   "tr": "flash",
+   "music": "kotodread",
+   "kicks": [
+    0.05
+   ],
+   "shakeAt": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "clash",
+     0.05
+    ]
+   ],
+   "grade": "night"
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1700,
+     1.25
+    ],
+    [
+     540,
+     1620,
+     1.5
+    ]
+   ],
+   "o": {
+    "set": "stone",
+    "actors": [
+     {
+      "type": "killstone",
+      "x": 560,
+      "y": 1620,
+      "s": 0.78,
+      "k": 0.75,
+      "split": 1,
+      "glowA": {
+       "osc": [
+        0.5,
+        0.2,
+        1.0,
+        0
+       ]
+      }
+     }
+    ],
+    "front": [
+     {
+      "type": "fox",
+      "x": 560,
+      "y": 2180,
+      "s": 1.5,
+      "flip": false,
+      "expr": "smug",
+      "look": [
+       1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "kicks": [
+    0.04
+   ],
+   "shakeAt": [
+    0.04
+   ],
+   "sfx": [
+    [
+     "boom",
+     0.04
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1480,
+     1.0
+    ],
+    [
+     600,
+     1440,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "beacon",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "kingYou",
+      "x": 280,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "happy",
+      "arms": "gesture",
+      "look": [
+       1,
+       0
+      ]
+     },
+     {
+      "type": "toon",
+      "c": "baosi",
+      "x": 760,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "neutral",
+      "arms": "clasp"
+     }
+    ],
+    "lit": {
+     "a": 0,
+     "b": 1,
+     "t0": "@L10.2",
+     "t1": "@L10.3",
+     "e": "io"
+    }
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "hush",
+   "label": "BAO SI \u00b7 700s BC",
+   "labelY": 600,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "whoosh",
+     "@L10.2"
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1480,
+     1.06
+    ],
+    [
+     560,
+     1440,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "beacon",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "baosi",
+      "x": 640,
+      "y": 1880,
+      "s": 0.78,
+      "flip": true,
+      "expr": "happy",
+      "arms": "clasp",
+      "hop": {
+       "osc": [
+        0,
+        0.15,
+        1.2,
+        0
+       ]
+      }
+     },
+     {
+      "type": "toon",
+      "c": "kingYou",
+      "x": 300,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "happy",
+      "arms": "open"
+     }
+    ],
+    "lit": {
+     "k": [
+      [
+       0,
+       1
+      ],
+      [
+       1.5,
+       0.3
+      ],
+      [
+       2.4,
+       1
+      ],
+      [
+       3.4,
+       1
+      ]
+     ],
+     "e": "io"
+    }
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1440,
+     1.0
+    ],
+    [
+     540,
+     1380,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "beacon",
+    "actors": [
+     {
+      "type": "crowd",
+      "x0": {
+       "a": -600,
+       "b": 100,
+       "t0": 0,
+       "t1": 4,
+       "e": "lin"
+      },
+      "x1": {
+       "a": 400,
+       "b": 1100,
+       "t0": 0,
+       "t1": 4,
+       "e": "lin"
+      },
+      "y": 1900,
+      "n": 10,
+      "s": 1.25,
+      "spears": true,
+      "col": "#0e0a12"
+     }
+    ],
+    "lit": {
+     "a": 1,
+     "b": 0.2,
+     "t0": 0.4,
+     "t1": 2.4,
+     "e": "io"
+    }
+   },
+   "camEase": "lin",
+   "atc": "@L11.2",
+   "tr": "whip",
+   "music": "taiko",
+   "sfx": [
+    [
+     "march",
+     0.0
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "stone",
+    "actors": [
+     {
+      "type": "killstone",
+      "x": 560,
+      "y": 1620,
+      "s": 0.78,
+      "k": 0.75,
+      "split": 1
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "sad",
+      "hands": "mouth",
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.6,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "hush",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L13",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1460,
+     1.0
+    ],
+    [
+     600,
+     1420,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "sea",
+    "actors": [
+     {
+      "type": "boat",
+      "x": {
+       "a": 380,
+       "b": 700,
+       "t0": 0,
+       "t1": 4,
+       "e": "lin"
+      },
+      "y": 1700,
+      "s": 1.1,
+      "crew": 2,
+      "flag": "#f2ecde"
+     },
+     {
+      "type": "toon",
+      "c": "wakamo",
+      "x": {
+       "a": 240,
+       "b": 560,
+       "t0": 0,
+       "t1": 4,
+       "e": "lin"
+      },
+      "y": 1636,
+      "s": 0.42,
+      "expr": "smile",
+      "arms": "clasp"
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "kotohope",
+   "label": "753 AD",
+   "labelY": 600,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "wind",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.0
+    ],
+    [
+     620,
+     1440,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "toba",
+      "x": 300,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "happy",
+      "look": [
+       1,
+       0
+      ]
+     },
+     {
+      "type": "toon",
+      "c": "tamamo",
+      "x": {
+       "a": 1250,
+       "b": 720,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "smile",
+      "walk": 1,
+      "walkRate": 3,
+      "sideWalk": true,
+      "arms": "clasp"
+     },
+     {
+      "type": "sparkle",
+      "x": 720,
+      "y": 1450,
+      "t0": 2.3,
+      "d": 1.0,
+      "r": 380
+     }
+    ],
+    "petals": true
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "label": "TAMAMO-NO-MAE",
+   "labelY": 600,
+   "labelAt": 0.3,
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.04
+    ],
+    [
+     620,
+     1450,
+     1.16
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "yasunari",
+      "x": 280,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "fierce",
+      "arms": "offer",
+      "hold": "mirror"
+     },
+     {
+      "type": "toon",
+      "c": "tamamo",
+      "x": 760,
+      "y": 1880,
+      "s": 0.8,
+      "foxTails": 1,
+      "foxEars": 1,
+      "flip": true,
+      "expr": "shock",
+      "arms": "clasp",
+      "foxEyes": 1
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "kotodread",
+   "kicks": [
+    "@L15.2"
+   ],
+   "shakeAt": [
+    "@L15.2"
+   ],
+   "sfx": [
+    [
+     "boom",
+     "@L15.2"
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1540,
+     1.1
+    ],
+    [
+     540,
+     1500,
+     1.18
+    ]
+   ],
+   "o": {
+    "set": "stone",
+    "actors": [
+     {
+      "type": "killstone",
+      "x": 560,
+      "y": 1620,
+      "s": 0.78,
+      "k": 0.75,
+      "split": 1
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 260,
+      "y": 2110,
+      "s": 1.15,
+      "expr": "worry",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 780,
+      "y": 2090,
+      "s": 1.0,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "koto",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1500,
+     1.0
+    ],
+    [
+     560,
+     1440,
+     1.2
+    ]
+   ],
+   "o": {
+    "set": "stone",
+    "actors": [
+     {
+      "type": "killstone",
+      "x": 560,
+      "y": 1620,
+      "s": 0.78,
+      "k": 0.75,
+      "split": 1,
+      "glowA": {
+       "osc": [
+        0.4,
+        0.2,
+        0.8,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "label": "MARCH 2022",
+   "labelY": 600,
+   "labelAt": 0.4,
+   "sfx": [
+    [
+     "crack",
+     0.2
+    ]
+   ],
+   "kicks": [
+    0.2
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "stone",
+    "actors": [
+     {
+      "type": "killstone",
+      "x": 560,
+      "y": 1620,
+      "s": 0.78,
+      "k": 0.75,
+      "split": 1
+     }
+    ],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "scared",
+      "hands": "cheeks",
+      "shake": 0.4,
+      "look": [
+       1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L19",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1440,
+     1.12
+    ],
+    [
+     600,
+     1500,
+     0.98
+    ]
+   ],
+   "o": {
+    "set": "stone",
+    "actors": [
+     {
+      "type": "killstone",
+      "x": 560,
+      "y": 1620,
+      "s": 0.78,
+      "k": 0.75,
+      "split": 1,
+      "glowA": {
+       "osc": [
+        0.45,
+        0.15,
+        0.6,
+        0
+       ]
+      }
+     }
+    ],
+    "front": [
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2090,
+      "s": 1.05,
+      "flip": true,
+      "expr": "serious",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "kotodread",
+   "grade": "night",
+   "leak": false
+  }
+ ]
+}

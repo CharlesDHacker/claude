@@ -1,0 +1,1268 @@
+{
+ "lead": 0.08,
+ "tail": 0.3,
+ "start": 0.3,
+ "loop": true,
+ "title": {
+  "text": "JAPAN'S GREATEST SORCERER",
+  "sub": "was half fox",
+  "until": "L02"
+ },
+ "gaps": {
+  "L01": 0.22,
+  "L02": 0.3,
+  "L03": 0.22,
+  "L04": 0.22,
+  "L05": 0.22,
+  "L06": 0.3,
+  "L07": 0.22,
+  "L08": 0.22,
+  "L09": 0.3,
+  "L10": 0.35,
+  "L11": 0.22,
+  "L12": 0.35,
+  "L13": 0.4,
+  "L14": 0.22,
+  "L15": 0.22,
+  "L16": 0.3,
+  "L17": 0.22,
+  "L18": 0.22,
+  "L19": 0.22
+ },
+ "shots": [
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     0.98
+    ],
+    [
+     540,
+     1450,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [],
+    "tod": "night",
+    "front": [
+     {
+      "type": "mio",
+      "x": 320,
+      "y": 2120,
+      "s": 1.1,
+      "expr": "happy",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2090,
+      "s": 1.05,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "lead": 0,
+   "music": "kotodread",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L01",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1300,
+     1.3
+    ],
+    [
+     540,
+     1260,
+     1.42
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1250,
+      "r": 700,
+      "col": "rgba(150,200,255,1)",
+      "a": 0.5
+     },
+     {
+      "type": "toon",
+      "c": "seimei",
+      "x": 540,
+      "y": 2080,
+      "s": 1.2,
+      "expr": "neutral",
+      "arms": "clasp",
+      "foxTails": {
+       "a": 0,
+       "b": 1,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "o"
+      },
+      "foxEars": {
+       "a": 0,
+       "b": 1,
+       "t0": 0,
+       "t1": 0.8,
+       "e": "o"
+      },
+      "foxEyes": 1
+     }
+    ]
+   },
+   "camEase": "lin",
+   "atc": "@L01.2",
+   "tr": "flash",
+   "kicks": [
+    0.05
+   ],
+   "shakeAt": [
+    0.05
+   ],
+   "sfx": [
+    [
+     "boom",
+     0.05
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L02",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [],
+    "tod": "night",
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "shock",
+      "hands": "cheeks",
+      "hop": {
+       "osc": [
+        0.3,
+        0.3,
+        1.4,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "kicks": [
+    0.04
+   ],
+   "pops": {
+    "L02": [
+     540,
+     1440,
+     -0.04,
+     170
+    ]
+   },
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L03",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1500,
+     1.0
+    ],
+    [
+     560,
+     1460,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "yasuna",
+      "x": {
+       "a": -150,
+       "b": 380,
+       "t0": 0,
+       "t1": 2.6,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "walk": 1,
+      "walkRate": 3,
+      "sideWalk": true,
+      "expr": "smile",
+      "arms": "down"
+     }
+    ],
+    "tod": "day"
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "kotohope",
+   "label": "SHINODA FOREST \u00b7 IZUMI",
+   "labelY": 600,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "wind",
+     0.0
+    ]
+   ]
+  },
+  {
+   "at": "L03",
+   "scene": "jp",
+   "cam": [
+    [
+     640,
+     1480,
+     1.0
+    ],
+    [
+     600,
+     1460,
+     1.08
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [
+     {
+      "type": "whiteFox",
+      "x": {
+       "a": 1300,
+       "b": 560,
+       "t0": 0,
+       "t1": 1.4,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.55,
+      "flip": true,
+      "expr": "calm",
+      "mute": true,
+      "walk": 1,
+      "walkRate": 10
+     },
+     {
+      "type": "toon",
+      "c": "hunterA",
+      "x": {
+       "a": 1500,
+       "b": 900,
+       "t0": 0,
+       "t1": 2.4,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "walk": 1,
+      "walkRate": 6,
+      "view": "side",
+      "expr": "angry",
+      "hold": "bow"
+     },
+     {
+      "type": "toon",
+      "c": "hunterB",
+      "x": {
+       "a": 1700,
+       "b": 1100,
+       "t0": 0,
+       "t1": 2.6,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "walk": 1,
+      "walkRate": 6,
+      "view": "side",
+      "expr": "shout"
+     },
+     {
+      "type": "toon",
+      "c": "yasuna",
+      "x": 380,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "shock",
+      "arms": "open"
+     }
+    ],
+    "tod": "day"
+   },
+   "camEase": "lin",
+   "atc": "@L03.3",
+   "tr": "whip",
+   "music": "taiko",
+   "sfx": [
+    [
+     "horn",
+     0.1
+    ]
+   ]
+  },
+  {
+   "at": "L04",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1480,
+     1.05
+    ],
+    [
+     600,
+     1440,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [
+     {
+      "type": "whiteFox",
+      "x": {
+       "a": 330,
+       "b": 1400,
+       "t0": "@L04.2",
+       "t1": "@L04.2+1.4",
+       "e": "i"
+      },
+      "y": 1900,
+      "s": 0.55,
+      "flip": false,
+      "expr": "calm",
+      "mute": true,
+      "walk": 1,
+      "walkRate": 10
+     },
+     {
+      "type": "toon",
+      "c": "yasuna",
+      "x": 420,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "fierce",
+      "arms": "open",
+      "shake": {
+       "a": 0,
+       "b": 0.6,
+       "t0": "@L04.1",
+       "t1": "@L04.1+0.1",
+       "e": "io"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "hunterA",
+      "x": 720,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "angry",
+      "arms": "raise",
+      "hold": "bow"
+     },
+     {
+      "type": "toon",
+      "c": "hunterB",
+      "x": 920,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "angry",
+      "arms": "point"
+     }
+    ],
+    "tod": "day"
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "kicks": [
+    "@L04.1"
+   ],
+   "shakeAt": [
+    "@L04.1"
+   ],
+   "sfx": [
+    [
+     "hit",
+     "@L04.1"
+    ],
+    [
+     "whoosh",
+     "@L04.2"
+    ]
+   ]
+  },
+  {
+   "at": "L05",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1500,
+     1.0
+    ],
+    [
+     600,
+     1460,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "yasuna",
+      "x": 330,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "sad",
+      "arms": "chest",
+      "lean": 0.08
+     },
+     {
+      "type": "toon",
+      "c": "kuzunoha",
+      "x": {
+       "a": 1250,
+       "b": 700,
+       "t0": 0,
+       "t1": 2.4,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "walk": 1,
+      "walkRate": 2.6,
+      "sideWalk": true,
+      "expr": "worry",
+      "arms": "clasp"
+     }
+    ],
+    "tod": "night"
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "hush",
+   "label": "KUZUNOHA",
+   "labelY": 600,
+   "labelAt": "@L05.2",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L06",
+   "scene": "jp",
+   "cam": [
+    [
+     480,
+     1500,
+     1.0
+    ],
+    [
+     600,
+     1460,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "room",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "yasuna",
+      "x": 330,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "happy",
+      "arms": "down"
+     },
+     {
+      "type": "toon",
+      "c": "kuzunoha",
+      "x": 640,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "smile",
+      "arms": "offer"
+     },
+     {
+      "type": "toon",
+      "c": "seimeiKid",
+      "x": 860,
+      "y": 1880,
+      "s": 0.6,
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L06.3",
+       "t1": "@L06.3+0.6",
+       "e": "io"
+      },
+      "expr": "happy",
+      "hands": "up"
+     },
+     {
+      "type": "sparkle",
+      "x": 860,
+      "y": 1500,
+      "t0": "@L06.3",
+      "d": 1.0,
+      "r": 300
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "music": "kotohope",
+   "sfx": [
+    [
+     "sparkle",
+     "@L06.3"
+    ]
+   ]
+  },
+  {
+   "at": "L07",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1520,
+     1.0
+    ],
+    [
+     540,
+     1470,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "room",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "yasuna",
+      "x": 300,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "happy",
+      "arms": "open"
+     },
+     {
+      "type": "toon",
+      "c": "kuzunoha",
+      "x": 760,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "happy",
+      "arms": "clasp"
+     },
+     {
+      "type": "toon",
+      "c": "seimeiKid",
+      "x": 530,
+      "y": 1880,
+      "s": 0.6,
+      "expr": "happy",
+      "hands": "up",
+      "hop": 0.5
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "label": "6 YEARS",
+   "labelY": 600,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "sparkle",
+     0.3
+    ]
+   ]
+  },
+  {
+   "at": "L08",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [],
+    "tod": "day",
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "happy",
+      "hands": "cheeks",
+      "tilt": {
+       "osc": [
+        0,
+        0.06,
+        0.6,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip"
+  },
+  {
+   "at": "L09",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1700,
+     1.25
+    ],
+    [
+     540,
+     1620,
+     1.5
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [],
+    "tod": "night",
+    "front": [
+     {
+      "type": "fox",
+      "x": 560,
+      "y": 2180,
+      "s": 1.5,
+      "flip": false,
+      "expr": "serious",
+      "look": [
+       1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "kotodread",
+   "kicks": [
+    0.04
+   ],
+   "shakeAt": [
+    0.04
+   ],
+   "sfx": [
+    [
+     "boom",
+     0.04
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L10",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1520,
+     1.06
+    ],
+    [
+     640,
+     1480,
+     1.2
+    ]
+   ],
+   "o": {
+    "set": "room",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "kuzunoha",
+      "x": 720,
+      "y": 1880,
+      "s": 0.8,
+      "flip": true,
+      "expr": "neutral",
+      "arms": "clasp",
+      "foxTails": {
+       "a": 0,
+       "b": 0.7,
+       "t0": "@L10.2",
+       "t1": "@L10.2+0.5",
+       "e": "o"
+      },
+      "foxEars": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L10.2",
+       "t1": "@L10.2+0.5",
+       "e": "o"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "seimeiKid",
+      "x": 330,
+      "y": 1880,
+      "s": 0.6,
+      "expr": "shock",
+      "hands": "down",
+      "look": [
+       1,
+       -0.4
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "kicks": [
+    "@L10.2"
+   ],
+   "sfx": [
+    [
+     "heartbeat",
+     0.4
+    ],
+    [
+     "boom",
+     "@L10.2"
+    ]
+   ],
+   "grade": "cold"
+  },
+  {
+   "at": "L11",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "room",
+    "actors": [],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "scared",
+      "hands": "mouth",
+      "shake": 0.3
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "grade": "cold"
+  },
+  {
+   "at": "L12",
+   "scene": "jp",
+   "cam": [
+    [
+     600,
+     1480,
+     1.0
+    ],
+    [
+     680,
+     1440,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "room",
+    "actors": [
+     {
+      "type": "poemDoor",
+      "x": 760,
+      "y": 1880,
+      "s": 0.9,
+      "k": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L12.3",
+       "t1": "@L12.3+2.4",
+       "e": "lin"
+      }
+     },
+     {
+      "type": "toon",
+      "c": "kuzunoha",
+      "x": 460,
+      "y": 1880,
+      "s": 0.8,
+      "expr": "cry",
+      "arms": "offer",
+      "foxTails": 0.7,
+      "foxEars": 1
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "sorrow"
+  },
+  {
+   "at": "L13",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1420,
+     1.0
+    ],
+    [
+     540,
+     1380,
+     1.12
+    ]
+   ],
+   "o": {
+    "set": "room",
+    "actors": [
+     {
+      "type": "poemDoor",
+      "x": 540,
+      "y": 1880,
+      "s": 1.25,
+      "k": 1
+     },
+     {
+      "type": "leafFall",
+      "n": 10,
+      "seed": 31
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade"
+  },
+  {
+   "at": "L14",
+   "scene": "jp",
+   "cam": [
+    [
+     440,
+     1560,
+     1.3
+    ],
+    [
+     440,
+     1540,
+     1.38
+    ]
+   ],
+   "o": {
+    "set": "room",
+    "actors": [],
+    "front": [
+     {
+      "type": "mio",
+      "x": 280,
+      "y": 2110,
+      "s": 1.3,
+      "expr": "cry",
+      "hands": "chest",
+      "lean": {
+       "osc": [
+        0,
+        0.03,
+        0.6,
+        0
+       ]
+      }
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip"
+  },
+  {
+   "at": "L15",
+   "scene": "jp",
+   "cam": [
+    [
+     560,
+     1500,
+     1.0
+    ],
+    [
+     620,
+     1460,
+     1.1
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "yasuna",
+      "x": {
+       "a": -200,
+       "b": 300,
+       "t0": 0,
+       "t1": 2.2,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.8,
+      "walk": 1,
+      "walkRate": 3,
+      "sideWalk": true,
+      "expr": "worry",
+      "arms": "down"
+     },
+     {
+      "type": "toon",
+      "c": "seimeiKid",
+      "x": {
+       "a": -300,
+       "b": 480,
+       "t0": 0,
+       "t1": 2.4,
+       "e": "o"
+      },
+      "y": 1880,
+      "s": 0.6,
+      "walk": 1,
+      "expr": "worry",
+      "hands": "down",
+      "hold": null
+     },
+     {
+      "type": "whiteFox",
+      "x": 800,
+      "y": 1880,
+      "s": 0.55,
+      "flip": true,
+      "expr": "calm",
+      "mute": true,
+      "alpha": {
+       "a": 0,
+       "b": 1,
+       "t0": "@L15.1",
+       "t1": "@L15.1+1.0",
+       "e": "io"
+      },
+      "glowA": 0.7
+     },
+     {
+      "type": "sparkle",
+      "x": 560,
+      "y": 1600,
+      "t0": "@L15.3",
+      "d": 1.2,
+      "r": 300
+     }
+    ],
+    "tod": "night"
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "kotohope",
+   "sfx": [
+    [
+     "choir",
+     "@L15.1"
+    ],
+    [
+     "sparkle",
+     "@L15.3"
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L16",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1560,
+     1.2
+    ],
+    [
+     540,
+     1500,
+     1.32
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [
+     {
+      "type": "toon",
+      "c": "seimeiKid",
+      "x": 540,
+      "y": 1900,
+      "s": 0.62,
+      "expr": "wide",
+      "hands": "up",
+      "hold": "orb"
+     },
+     {
+      "type": "foxfire",
+      "x0": -200,
+      "x1": 1300,
+      "y0": 1100,
+      "y1": 1000,
+      "n": 10,
+      "spread": 500,
+      "s": 0.8
+     }
+    ],
+    "tod": "night"
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "bloom": 0.5,
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L17",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1480,
+     1.0
+    ],
+    [
+     540,
+     1420,
+     1.14
+    ]
+   ],
+   "o": {
+    "set": "heian",
+    "actors": [
+     {
+      "type": "glow",
+      "x": 540,
+      "y": 1300,
+      "r": 600,
+      "col": "rgba(170,140,255,1)",
+      "a": 0.4
+     },
+     {
+      "type": "toon",
+      "c": "seimei",
+      "x": 540,
+      "y": 1880,
+      "s": 0.86,
+      "expr": "smile",
+      "arms": "offer",
+      "hold": "orb"
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "flash",
+   "music": "kotoglory",
+   "label": "ABE NO SEIMEI \u00b7 921\u20131005",
+   "labelY": 600,
+   "labelAt": 0.3,
+   "sfx": [
+    [
+     "choir",
+     0.1
+    ]
+   ],
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L18",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1520,
+     1.12
+    ],
+    [
+     540,
+     1500,
+     1.2
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [],
+    "tod": "night",
+    "front": [
+     {
+      "type": "mio",
+      "x": 320,
+      "y": 2120,
+      "s": 1.1,
+      "expr": "worry",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2090,
+      "s": 1.05,
+      "flip": true,
+      "expr": "calm",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "whip",
+   "music": "koto",
+   "grade": "night",
+   "leak": false
+  },
+  {
+   "at": "L19",
+   "scene": "jp",
+   "cam": [
+    [
+     540,
+     1450,
+     1.1
+    ],
+    [
+     540,
+     1500,
+     0.98
+    ]
+   ],
+   "o": {
+    "set": "shinoda",
+    "actors": [],
+    "tod": "night",
+    "front": [
+     {
+      "type": "mio",
+      "x": 320,
+      "y": 2120,
+      "s": 1.1,
+      "expr": "happy",
+      "hands": "chest",
+      "look": [
+       1,
+       -0.3
+      ]
+     },
+     {
+      "type": "fox",
+      "x": 760,
+      "y": 2090,
+      "s": 1.05,
+      "flip": true,
+      "expr": "smug",
+      "look": [
+       -1,
+       -0.3
+      ]
+     }
+    ]
+   },
+   "camEase": "lin",
+   "tr": "fade",
+   "grade": "night",
+   "leak": false
+  }
+ ]
+}
