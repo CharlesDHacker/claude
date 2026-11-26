@@ -32,12 +32,14 @@ const TOON = {
   kami1: { kind: 'adult', trimCol: '#6a4a7a', trimDot: '#e8b84a', skin: '#e2a878', skinD: '#c4875a', hair: '#2a1e18', hairHi: '#5a4a3a', hairStyle: 'mizura', top: '#f2ecde', topD: '#d8d0bc', pat: 'diamond', patCol: 'rgba(200,160,80,.4)', collar: '#e8b84a', sleeve: 'kinu', bottom: 'hakama', hakama: '#6a4a7a', hakamaD: '#523a5e', cord: '#e8b84a', belt: '#e8b84a', feet: 'straw', eyes: 'adult', iris: '#3a2418', brow: 6, beard: 'short', jaw: 'round', magatama: '#2fa888', h: 1.0 },
   kami2: { kind: 'adult', trimCol: '#7a3a3a', trimDot: '#e8b84a', skin: '#d0946a', skinD: '#b07a50', hair: '#2a1e18', hairHi: '#5a4a3a', hairStyle: 'mizura', top: '#e8e2d4', topD: '#cec6b4', pat: 'dots', patCol: 'rgba(160,60,60,.4)', collar: '#c8302a', sleeve: 'kinu', bottom: 'hakama', hakama: '#7a3a3a', hakamaD: '#5e2c2c', cord: '#e8b84a', belt: '#e8b84a', feet: 'straw', eyes: 'adult', iris: '#3a2418', brow: 7, beard: 'stubble', jaw: 'square', h: 1.02 },
 };
+const EYES = { almond: { w: 1, h: 1, tilt: 0 }, round: { w: .9, h: 1.5, tilt: 0 }, narrow: { w: 1.06, h: .6, tilt: -2, lid: 6 }, droopy: { w: 1, h: 1.05, tilt: 7 }, upturned: { w: 1.02, h: .88, tilt: -9 }, big: { w: 1.12, h: 1.4, tilt: -2 } };
 function toon(g, o) {
   let L = typeof o.c === 'string' ? TOON[o.c] : o.c; if (o.pale) L = Object.assign({}, L, { skin: mix(L.skin, '#e6e2dc', o.pale), skinD: mix(L.skinD, '#c8c2bc', o.pale) });
+  if (o.view === 'side' && L.kind !== 'kid' && typeof toonSide === 'function') return toonSide(g, o, L);
   const t = o.t || 0, ph = o.ph || 0, ex = o.expr || 'neutral', talk = o.talk || 0, kid = L.kind === 'kid';
   // proportions
   const bk = L.bulk || 1; const G = kid ? { head: [0, -440], hr: [124, 120], shY: -296, sw: 82, waist: -206, hip: -186, hand: 1.25, armU: 86, armF: 90, legW: 34 }
-                : { head: [0, -772], hr: [76 * (L.headW || 1), 90], shY: -650, sw: 84 * bk, waist: -470, hip: -440, hand: 1.3 * Math.sqrt(bk), armU: 134, armF: 128, legW: 44 };
+                : { head: [0, -772], hr: [76 * (L.headW || 1), 90 * (L.headH || 1)], shY: -650, sw: 84 * bk, waist: -470, hip: -440, hand: 1.3 * Math.sqrt(bk), armU: 134, armF: 128, legW: 44 };
   const br = Math.sin(t * 1.9 + ph), breath = 1 + .01 * br;
   const walk = o.walk ? t * (o.walkRate || 7) : null, bob = walk != null ? -Math.abs(Math.sin(walk)) * 10 : 0, hop = o.hop ? -Math.abs(Math.sin(t * 9)) * 22 * o.hop : 0, shake = o.shake ? Math.sin(t * 40) * 6 * o.shake : 0;
   g.save(); g.translate(o.x + shake, o.y); g.scale((o.flip ? -1 : 1) * (o.s || 1) , (o.s || 1) * (L.h || 1));
@@ -49,7 +51,7 @@ function toon(g, o) {
   const A = kid ? { down: [[-100, -128], [100, -128]], up: [[-150, -470], [150, -470]], ears: [[-128, -440], [128, -440]], cheeks: [[-96, -380], [96, -380]], mouth: [[-46, -360], [46, -360]], hips: [[-110, -200], [110, -200]],
       point: [[-92, -150], [200, -330]], shrug: [[-150, -250], [150, -250]], chest: [[-40, -250], [40, -250]], fists: [[-60, -260], [60, -260]], chin: [[-92, -150], [24, -330]], proud: [[-110, -200], [110, -200]] }
     : { down: [[-104, -396], [104, -396]], hips: [[-150, -470], [150, -470]], gesture: [[-104, -396], [150, -530]], point: [[-104, -396], [320, -640]], raise: [[-104, -396], [140, -940]], chest: [[-50, -560], [50, -560]],
-      clasp: [[-30, -540], [30, -540]], open: [[-200, -520], [200, -520]], up: [[-190, -900], [190, -900]], hold: [[-60, -520], [60, -520]], offer: [[-60, -540], [170, -560]], cane: [[-104, -396], [126, -420]], weep: [[-40, -600], [40, -600]], sword2: [[-20, -1000], [30, -1010]], slash: [[-200, -600], [-150, -640]] };
+      clasp: [[-30, -540], [30, -540]], open: [[-222, -452], [222, -452]], relaxed: [[-92, -418], [92, -418]], wave: [[-104, -396], [178, -846]], behind: [[-46, -470], [46, -470]], pocket: [[-112, -430], [112, -430]], salute: [[-104, -396], [96, -812]], up: [[-190, -900], [190, -900]], hold: [[-60, -520], [60, -520]], offer: [[-60, -540], [170, -560]], cane: [[-104, -396], [126, -420]], weep: [[-40, -600], [40, -600]], sword2: [[-20, -1000], [30, -1010]], slash: [[-200, -600], [-150, -640]] };
   const armsK = o.arms || o.hands; let [hl, hr] = typeof armsK === 'object' && armsK ? armsK : (A[armsK || (L.cane ? 'cane' : 'down')] || A.down);
   if (o.arms2 && o.mix != null) { const B2 = A[o.arms2] || A.down, m = eio(o.mix); hl = [lerp(hl[0], B2[0][0], m), lerp(hl[1], B2[0][1], m)]; hr = [lerp(hr[0], B2[1][0], m), lerp(hr[1], B2[1][1], m)]; }
   const sway = Math.sin(t * 1.6 + ph) * 4; hl = [hl[0] - sway * .5, hl[1] + Math.abs(sway) * .2]; hr = [hr[0] + sway * .5, hr[1] + Math.abs(sway) * .2];
@@ -63,7 +65,7 @@ function toon(g, o) {
   lowerT(g, L, G, t, walk);
   // arm helper (elbow bends outward-down), wide or narrow sleeves
   const armT = (s0, h, side, front) => { const dx = h[0] - s0[0], dy = h[1] - s0[1], d = Math.min(Math.hypot(dx, dy), G.armU + G.armF - 1), a2 = (G.armU * G.armU - G.armF * G.armF + d * d) / (2 * d), hh = Math.sqrt(Math.max(0, G.armU * G.armU - a2 * a2)), D = Math.hypot(dx, dy) || 1;
-    const px = s0[0] + a2 * dx / D, py = s0[1] + a2 * dy / D; let c1 = [px - hh * dy / D, py + hh * dx / D], c2 = [px + hh * dy / D, py - hh * dx / D]; const el = (c1[0] * side > c2[0] * side) ? c1 : c2;
+    const soft = h[1] > s0[1] - 10 ? (armsK === 'hips' ? .78 : .5) : 1; const hh2 = hh * soft; const px = s0[0] + a2 * dx / D, py = s0[1] + a2 * dy / D; let c1 = [px - hh2 * dy / D, py + hh2 * dx / D], c2 = [px + hh2 * dy / D, py - hh2 * dx / D]; const el = (c1[0] * side > c2[0] * side) ? c1 : c2;
     const skin = L.skin, sw = kid ? 50 : 50, cuff = kid ? 36 : 34, col = side < 0 ? L.topD : L.top;
     ttube(g, s0[0], s0[1], el[0], el[1], sw, sw * .92, col, 5);
     const fdx = h[0] - el[0], fdy = h[1] - el[1], fl = Math.hypot(fdx, fdy) || 1, ux = fdx / fl, uy = fdy / fl; let nx = -uy, ny = ux; if (ny < 0) { nx = -nx; ny = -ny; }
@@ -77,6 +79,7 @@ function toon(g, o) {
       else { ttube(g, el[0], el[1], ex2, ey2, sw * .9, cuff * 1.15, col, 5); tln(g, [ex2 - nx * cuff * .6, ey2 - ny * cuff * .6, ex2 + nx * cuff * .6, ey2 + ny * cuff * .6], 6, L.cord || L.belt || OUT); } }
     const hArgs = [h[0], h[1], Math.atan2(h[1] - el[1], h[0] - el[0]), G.hand, skin, front && ['gesture', 'point', 'open', 'up', 'offer', 'ears', 'cheeks', 'shrug'].includes(armsK)];
     mitten(g, ...hArgs); if (h[1] < G.shY + 30) raisedHands.push(hArgs); };   // hands up by the face get drawn again over the head
+  if (armsK === 'behind') { armT(sh0, hl, -1, false); armT(sh1, hr, 1, false); }   // hands clasped behind the back, hidden by the torso
   // torso garment
   const tw = kid ? 92 : 98 * bk, ww = kid ? 86 : 84 * bk, top = `M${-tw} ${G.shY - 4} C${-tw - 8} ${G.shY + 80} ${-ww - 6} ${G.waist - 60} ${-ww} ${G.waist + (kid ? 150 : 50)} L${ww} ${G.waist + (kid ? 150 : 50)} C${ww + 6} ${G.waist - 60} ${tw + 8} ${G.shY + 80} ${tw} ${G.shY - 4} Q0 ${G.shY - 22} ${-tw} ${G.shY - 4} Z`;
   g.save(); g.translate(0, G.waist); g.scale(1, breath); g.translate(0, -G.waist);
@@ -113,8 +116,11 @@ function toon(g, o) {
   g.restore();
   const raisedHands = [];
   // arms (viewer-left first), held props
-  armT(sh0, hl, -1, false); if (!(o.noArmR > .5)) armT(sh1, hr, 1, true);   // noArmR: the right arm has been cut off
-  if (o.hold && THOLD[o.hold] && !(o.noArmR > .5)) THOLD[o.hold](g, hr, o, t, L);
+  const overHead = h => h[1] < G.shY - 40 && (Math.abs(h[0] - G.head[0]) > G.hr[0] * .85 || h[1] < G.head[1] - G.hr[1] * .6);
+  const lateL = overHead(hl), lateR = overHead(hr) && !(o.noArmR > .5), holdR = () => { if (o.hold && THOLD[o.hold] && !(o.noArmR > .5)) THOLD[o.hold](g, hr, o, t, L); };
+  if (armsK === 'behind') { /* hands tucked behind the back: drawn before the torso */ }
+  if (!lateL && armsK !== 'behind') armT(sh0, hl, -1, false); if (!lateR && !(o.noArmR > .5) && armsK !== 'behind') armT(sh1, hr, 1, true);   // noArmR: the right arm has been cut off
+  if (!lateR) holdR();
   if (L.cane) { tln(g, [hr[0] + 6, hr[1] - 20, hr[0] + 24, 0], 14, '#5a3a22'); tln(g, [hr[0] + 6, hr[1] - 20, hr[0] + 24, 0], 7, '#8a6040'); }
   // head
   const nod = talk * (.06 * Math.sin(t * 8.6 + ph) + .02) + .025 * Math.sin(t * .7 + ph * 2.3) + (o.headDown || 0);
@@ -123,6 +129,7 @@ function toon(g, o) {
   else ttube(g, 0, G.hr[1] * .7, 0, G.hr[1] * 1.08, 52, 56, L.skinD, 5);
   faceT(g, L, G, o, t, ph, ex, talk);
   g.restore();
+  if (lateL || lateR) { raisedHands.length = 0; if (lateL) armT(sh0, hl, -1, false); if (lateR) { armT(sh1, hr, 1, true); holdR(); } }   // raised arms go in front of the head
   raisedHands.forEach(a => mitten(g, ...a));   // never behind the head
   if (L.frontX) L.frontX(g, L, G, o, t);
   if (o.arrows) arrowsStuck(g, G, o.arrows, o.arrowSeed || 3, kid);
@@ -177,7 +184,10 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
   if (!o.noEars) [-1, 1].forEach(s => { tell(g, s * rx * .98, ry * .05, rx * .17, ry * .22, L.skin, 5); tln(g, [s * rx * .98, -ry * .04, s * rx * 1.04, ry * .08], 2.4, L.skinD); });
   const face = kid ? `M${-rx} -10 C${-rx} -${ry * 1.05} ${rx} -${ry * 1.05} ${rx} -10 C${rx} ${ry * .7} ${rx * .5} ${ry * .98} 0 ${ry * .98} C${-rx * .5} ${ry * .98} ${-rx} ${ry * .7} ${-rx} -10 Z`
                    : L.jaw === 'square' ? `M${-rx} -20 C${-rx} -${ry * 1.1} ${rx} -${ry * 1.1} ${rx} -20 L${rx * .92} ${ry * .55} Q${rx * .6} ${ry * .96} 0 ${ry} Q${-rx * .6} ${ry * .96} ${-rx * .92} ${ry * .55} Z`
+                   : L.jaw === 'pointed' ? `M${-rx} -20 C${-rx} -${ry * 1.1} ${rx} -${ry * 1.1} ${rx} -20 C${rx} ${ry * .42} ${rx * .32} ${ry * .94} 0 ${ry * 1.04} C${-rx * .32} ${ry * .94} ${-rx} ${ry * .42} ${-rx} -20 Z`
+                   : L.jaw === 'wide' ? `M${-rx} -20 C${-rx} -${ry * 1.1} ${rx} -${ry * 1.1} ${rx} -20 C${rx * 1.04} ${ry * .62} ${rx * .7} ${ry * .96} 0 ${ry * .96} C${-rx * .7} ${ry * .96} ${-rx * 1.04} ${ry * .62} ${-rx} -20 Z`
                    : `M${-rx} -20 C${-rx} -${ry * 1.1} ${rx} -${ry * 1.1} ${rx} -20 C${rx} ${ry * .5} ${rx * .5} ${ry} 0 ${ry} C${-rx * .5} ${ry} ${-rx} ${ry * .5} ${-rx} -20 Z`;
+  const age = L.age ?? (L.kind === 'elder' ? 1 : .3);
   tsh(g, face, L.skin, 6); g.save(); g.clip(path(face)); g.fillStyle = 'rgba(160,80,60,.12)'; g.beginPath(); g.ellipse(rx * .9, ry * .2, rx * .5, ry * 1.2, 0, 0, 7); g.fill(); g.restore(); tsh(g, face, null, 6);
   if (L.paint) { [-1, 1].forEach(sd => { tln(g, [sd * rx * .3, ry * .12, sd * rx * .86, ry * .02], 7, L.paint); tln(g, [sd * rx * .36, ry * .3, sd * rx * .84, ry * .22], 7, L.paint); }); tln(g, [-rx * .18, -ry * .5, rx * .18, -ry * .5], 6, L.paint); }
   if (L.blush || kid) { tell(g, -rx * .58, ry * .38, rx * .2, ry * .1, L.blush || 'rgba(240,120,110,.35)', 0); tell(g, rx * .58, ry * .38, rx * .2, ry * .1, L.blush || 'rgba(240,120,110,.35)', 0); }
@@ -187,12 +197,21 @@ function faceT(g, L, G, o, t, ph, ex, talk) { const kid = L.kind === 'kid', [rx,
     if (closed) { if (ex === 'cry') { tln(g, [cx - 22, ey - 2, cx, ey + 8, cx + 22, ey - 2], kid ? 6 : 5); } else if (ex === 'sleep') tln(g, [cx - 20, ey + 4, cx, ey + 10, cx + 20, ey + 4], 5); else tln(g, [cx - (kid ? 26 : 18), ey + 4, cx, ey - (ex === 'happy' ? 14 : 2), cx + (kid ? 26 : 18), ey + 4], kid ? 6 : 5); return; }
     if (kid) { const ry2 = ex === 'shock' || ex === 'wide' || ex === 'scared' ? 40 : 34, rx2 = 30; tell(g, cx, ey, rx2, ry2, '#fffdf8', 6); const pr = ex === 'shock' || ex === 'scared' ? 7 : 11; tell(g, cx + lx * 12, ey + 4 + ly * 12, pr, pr * 1.08, '#1c1418', 0);
       if (ex === 'sad' || ex === 'annoyed' || ex === 'worry' || ex === 'smug') { const lid = ex === 'annoyed' || ex === 'smug' ? .45 : .3; tsh(g, `M${cx - rx2 - 3} ${ey - ry2 * .2} Q${cx} ${ey - ry2 - 6} ${cx + rx2 + 3} ${ey - ry2 * .2} L${cx + rx2 + 3} ${ey - ry2 * (1 - lid * 2) } L${cx - rx2 - 3} ${ey - ry2 * (1 - lid * 2)} Z`, L.skin, 0); tln(g, [cx - rx2, ey - ry2 * (1 - lid * 2) + (ex === 'sad' ? s * 4 : 0), cx + rx2, ey - ry2 * (1 - lid * 2) - (ex === 'sad' ? s * 4 : 0)], 6); } }
-    else { const op = ex === 'shock' || ex === 'scared' ? 1.25 : ex === 'angry' || ex === 'fierce' ? .75 : 1, w2 = rx * .29, h2 = ry * .125 * op;
-      tsh(g, `M${cx - w2} ${ey} Q${cx} ${ey - h2 * 1.9} ${cx + w2} ${ey} Q${cx} ${ey + h2 * 1.3} ${cx - w2} ${ey} Z`, '#fffdf8', 3.4); const ix = cx + lx * w2 * .35, iy = ey - 1 + ly * 3;
+    else { const op = ex === 'shock' || ex === 'scared' ? 1.25 : ex === 'angry' || ex === 'fierce' ? .75 : 1, ES = EYES[L.eyeShape || 'almond'] || EYES.almond, w2 = rx * .29 * ES.w * (L.eyeS || 1), h2 = ry * .125 * op * ES.h * (L.eyeS || 1), xi = cx - s * w2, xo = cx + s * w2, oy = ES.tilt;
+      tsh(g, `M${xi} ${ey} Q${cx} ${ey - h2 * 1.9} ${xo} ${ey + oy} Q${cx} ${ey + h2 * 1.3} ${xi} ${ey} Z`, '#fffdf8', 3.4); const ix = cx + lx * w2 * .35, iy = ey - 1 + ly * 3;
       if (o.foxEyes) { glow(g, ix, iy, 60, 'rgba(255,190,60,1)', o.foxEyes * .8); tell(g, ix, iy, w2 * .48, h2 * 1.25, '#ffc23a', 0); tell(g, ix, iy, w2 * .08, h2 * 1.0, '#140c08', 0); } else { tell(g, ix, iy, w2 * .44, h2 * 1.2, L.iris || '#3a2418', 0); tell(g, ix, iy, w2 * .2, h2 * .62, '#140c08', 0); } tell(g, ix + 3, iy - 3, 2.4, 2.4, '#fff', 0);
-      tln(g, [cx - w2 - 2, ey + 1, cx, ey - h2 * 1.9, cx + w2 + 2, ey + 1], 5.4); tln(g, [cx - w2 * .6, ey + h2 * 1.5, cx + w2 * .6, ey + h2 * 1.5], 2, 'rgba(120,60,40,.45)'); if (L.lashes) tln(g, [cx + s * w2, ey - 1, cx + s * (w2 + 9), ey - 9], 4); } });
+      tln(g, [xi - s * 2, ey + 1, cx, ey - h2 * 1.9, xo + s * 2, ey + oy + 1], ES.lid || 5.4); if (age >= .6) tln(g, [cx - w2 * .6, ey + h2 * 1.5, cx + w2 * .6, ey + h2 * 1.5], 2, 'rgba(120,60,40,.45)');
+      if (age >= .75) [-6, 4].forEach(dy => tln(g, [xo + s * 6, ey + dy * .3, xo + s * 18, ey + dy], 2, 'rgba(120,60,40,.45)')); if (L.lashes) tln(g, [cx + s * w2, ey - 1, cx + s * (w2 + 9), ey - 9], 4); } });
   // nose
-  if (kid) tln(g, [-4, 30, 4, 36, -2, 40], 4.4); else { tsh(g, `M2 ${-ry * .02} L-8 ${ry * .3} Q0 ${ry * .36} 8 ${ry * .32} Z`, 'rgba(150,80,50,.22)', 0); tln(g, [2, -ry * .02, -6, ry * .3, 4, ry * .34], 4); tln(g, [-rx * .62, ry * .24, -rx * .5, ry * .44], 2.4, 'rgba(150,80,50,.35)'); tln(g, [rx * .62, ry * .24, rx * .5, ry * .44], 2.4, 'rgba(150,80,50,.35)'); }
+  if (kid) tln(g, [-4, 30, 4, 36, -2, 40], 4.4); else { const nz = L.nose || 'line';
+    if (nz === 'button') { tln(g, [-9, ry * .26, 0, ry * .32, 9, ry * .26], 4); tell(g, 0, ry * .2, 8, 6, 'rgba(150,80,50,.18)', 0); }
+    else if (nz === 'broad') { tln(g, [0, ry * .02, -4, ry * .24], 3.4, 'rgba(90,50,30,.6)'); tln(g, [-16, ry * .26, -8, ry * .34, 0, ry * .3, 8, ry * .34, 16, ry * .26], 4); }
+    else if (nz === 'long') { tsh(g, `M2 ${-ry * .1} L-9 ${ry * .36} Q0 ${ry * .42} 9 ${ry * .38} Z`, 'rgba(150,80,50,.22)', 0); tln(g, [2, -ry * .1, -8, ry * .36, 5, ry * .4], 4); }
+    else { tsh(g, `M2 ${-ry * .02} L-8 ${ry * .3} Q0 ${ry * .36} 8 ${ry * .32} Z`, 'rgba(150,80,50,.22)', 0); tln(g, [2, -ry * .02, -6, ry * .3, 4, ry * .34], 4); }
+    if (age >= .45) { tln(g, [-rx * .62, ry * .24, -rx * .5, ry * .44], 2.4, 'rgba(150,80,50,.35)'); tln(g, [rx * .62, ry * .24, rx * .5, ry * .44], 2.4, 'rgba(150,80,50,.35)'); }
+    if (age >= .8) [-.62, -.52].forEach(q => tln(g, [-rx * .36, ry * q, 0, ry * (q - .04), rx * .36, ry * q], 2, 'rgba(130,70,45,.35)'));
+    if (L.freckles) { const r = rng(L.freckles); for (let i = 0; i < 14; i++) { const sd = i % 2 ? 1 : -1; tell(g, sd * rx * (.36 + r() * .3), ry * (.16 + r() * .2), 2.2, 2.2, 'rgba(150,80,50,.5)', 0); } }
+    if (L.mole) tell(g, L.mole[0] * rx, L.mole[1] * ry, 3.4, 3.4, 'rgba(60,30,20,.75)', 0); }
   if (kid) [[-62, 36], [-74, 46], [-56, 52], [62, 36], [74, 46], [56, 52]].forEach(([x, y]) => tell(g, x, y, 2.6, 2.6, 'rgba(170,90,60,.7)', 0));
   // beard under the mouth
   if (L.beard === 'longWhite') { tsh(g, `M${-rx * .8} ${ry * .3} C${-rx * .7} ${ry * 1.2} ${-rx * .3} ${ry * 1.8} 0 ${ry * 2.1} C${rx * .3} ${ry * 1.8} ${rx * .7} ${ry * 1.2} ${rx * .8} ${ry * .3} Q0 ${ry * .7} ${-rx * .8} ${ry * .3} Z`, L.hair, 5);

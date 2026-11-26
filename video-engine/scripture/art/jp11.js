@@ -15,24 +15,28 @@ const reflect = (g, L, G) => { [G.waist - 40, G.waist + 120].forEach(y => tsh(g,
 const badge = (g, L, G) => { tell(g, -40, G.shY + 90, 12, 14, '#e8c040', 3); };
 Object.assign(TOON, {
   // the ancient emperor at the rite: pure white silk, a tall black cap, a long dark beard
-  tennoRite: { kind: 'adult', skin: '#ecc8a4', skinD: '#d0a682', hair: '#15121a', hairHi: '#3a3040', hairStyle: 'heian', top: '#fbf8f0', topD: '#e8e2d4', pat: 'diamond', patCol: 'rgba(200,190,170,.25)', collar: '#fbf8f0',
+  tennoRite: { kind: 'adult', age: .55, eyeShape: 'narrow', nose: 'long', bulk: 1.1, skin: '#ecc8a4', skinD: '#d0a682', hair: '#15121a', hairHi: '#3a3040', hairStyle: 'heian', top: '#fbf8f0', topD: '#e8e2d4', pat: 'diamond', patCol: 'rgba(200,190,170,.25)', collar: '#fbf8f0',
     trimCol: '#e8e2d4', trimDot: '#fbf8f0', sleeve: 'wide', bottom: 'hakama', hakama: '#fbf8f0', hakamaD: '#e4dece', belt: '#e8e2d4', feet: 'straw', wraps: '#fbf8f0', eyes: 'adult', iris: '#140c08', brow: 7, beard: 'longWhite', jaw: 'square', kanmuri: true, h: 1.04 },
   // a country shrine priest in white and pale blue
-  kannushi: { kind: 'adult', skin: '#d8a880', skinD: '#b8885e', hair: '#2a2024', hairHi: '#5a4a52', hairStyle: 'side', top: '#fbf8f0', topD: '#e8e2d4', pat: null, collar: '#fbf8f0', trimCol: '#9ac0d8', trimDot: '#fbf8f0',
+  kannushi: { kind: 'adult', age: .9, eyeShape: 'narrow', nose: 'long', bulk: .95, stoop: .03, skin: '#d8a880', skinD: '#b8885e', hair: '#2a2024', hairHi: '#5a4a52', hairStyle: 'side', top: '#fbf8f0', topD: '#e8e2d4', pat: null, collar: '#fbf8f0', trimCol: '#9ac0d8', trimDot: '#fbf8f0',
     sleeve: 'wide', bottom: 'hakama', hakama: '#8ab4d0', hakamaD: '#6e98b4', belt: '#fbf8f0', feet: 'straw', wraps: '#fbf8f0', eyes: 'adult', iris: '#2a1810', brow: 6, jaw: 'round', eboshi: true, glasses: true, h: .98 },
   // a rice farmer: indigo work clothes, a twisted towel tied round the head, ruddy from the sun
-  farmerKen: { kind: 'adult', skin: '#c8865a', skinD: '#a86a40', hair: '#2a2024', hairHi: '#5a4a52', hairStyle: 'side', top: '#2e4a78', topD: '#223a60', pat: 'diamond', patCol: 'rgba(220,230,250,.25)', collar: '#e8e2d2', trimCol: '#1e2e4a', trimDot: '#e8e2d2',
+  farmerKen: { kind: 'adult', age: .7, eyeShape: 'droopy', nose: 'broad', bulk: 1.25, skin: '#c8865a', skinD: '#a86a40', hair: '#2a2024', hairHi: '#5a4a52', hairStyle: 'side', top: '#2e4a78', topD: '#223a60', pat: 'diamond', patCol: 'rgba(220,230,250,.25)', collar: '#e8e2d2', trimCol: '#1e2e4a', trimDot: '#e8e2d2',
     sleeve: 'kinu', bottom: 'hakama', hakama: '#3a4a5a', hakamaD: '#2e3c4a', belt: '#8a6a3a', feet: 'straw', wraps: '#e8e2d2', eyes: 'adult', iris: '#2a1810', brow: 9, beard: 'stubble', jaw: 'square', h: .98, headX: farmerTowel },
-  firefighter: { kind: 'adult', skin: '#e2b088', skinD: '#c48e66', hair: '#15121a', hairHi: '#3a3040', hairStyle: 'side', top: '#2a3a5a', topD: '#1e2c46', pat: null, collar: '#2a3a5a', suit: true, tie: '#2a3a5a', sleeve: 'kinu', cord: '#e8e060',
-    bottom: 'pants', pants: '#2a3a5a', shoes: '#1a1414', eyes: 'adult', iris: '#2a1810', brow: 8, jaw: 'square', h: 1.04, bulk: 1.15, headX: fireHelmet, frontX: reflect },
-  policeOfficer: { kind: 'adult', female: true, skin: '#f0caa6', skinD: '#d6a682', hair: '#2a1e18', hairHi: '#5a4a3a', hairStyle: 'lowtie', top: '#1e2a4e', topD: '#141e3a', pat: null, collar: '#dce4f0', suit: true, tie: '#141e3a', sleeve: 'kinu', cord: '#dce4f0',
+  firefighter: { kind: 'adult', age: .15, hairStyle: 'short', eyeShape: 'upturned', nose: 'line', skin: '#e2b088', skinD: '#c48e66', hair: '#15121a', hairHi: '#3a3040', hairStyle: 'side', top: '#2a3a5a', topD: '#1e2c46', pat: null, collar: '#2a3a5a', suit: true, tie: '#2a3a5a', sleeve: 'kinu', cord: '#e8e060',
+    bottom: 'pants', pants: '#2a3a5a', shoes: '#1a1414', eyes: 'adult', iris: '#2a1810', brow: 8, jaw: 'square', h: 1.06, bulk: 1.32, headX: fireHelmet, frontX: reflect },
+  policeOfficer: { kind: 'adult', age: .35, hairStyle: 'ponytail', tie: '#141e3a', eyeShape: 'almond', nose: 'button', jaw: 'pointed', bulk: 1.05, female: true, skin: '#f0caa6', skinD: '#d6a682', hair: '#2a1e18', hairHi: '#5a4a3a', hairStyle: 'lowtie', top: '#1e2a4e', topD: '#141e3a', pat: null, collar: '#dce4f0', suit: true, tie: '#141e3a', sleeve: 'kinu', cord: '#dce4f0',
     bottom: 'pants', pants: '#1e2a4e', shoes: '#14141c', eyes: 'adult', iris: '#2a1810', lashes: true, brow: 5, lips: '#c06070', h: .98, headX: policeCap, frontX: badge },
-  nurse: { kind: 'adult', female: true, skin: '#e8b890', skinD: '#cc9a72', hair: '#3a2418', hairHi: '#6a4a34', hairStyle: 'lowtie', top: '#fbfaf6', topD: '#e6e4de', pat: null, collar: '#9ad0e8', suit: true, tie: '#9ad0e8', sleeve: 'kinu', cord: '#9ad0e8',
+  nurse: { kind: 'adult', age: .65, hairStyle: 'bun', eyeShape: 'round', nose: 'button', jaw: 'wide', bulk: 1.18, female: true, skin: '#e8b890', skinD: '#cc9a72', hair: '#3a2418', hairHi: '#6a4a34', hairStyle: 'lowtie', top: '#fbfaf6', topD: '#e6e4de', pat: null, collar: '#9ad0e8', suit: true, tie: '#9ad0e8', sleeve: 'kinu', cord: '#9ad0e8',
     bottom: 'pants', pants: '#fbfaf6', shoes: '#e6e4de', eyes: 'adult', iris: '#2a1810', lashes: true, brow: 5, lips: '#c87080', h: .96, headX: nurseCap },
-  xmasDad: { kind: 'adult', skin: '#e8be98', skinD: '#cca07a', hair: '#2a1e18', hairHi: '#5a4a3a', hairStyle: 'side', top: '#6a3a2a', topD: '#542c20', pat: null, collar: '#e8e2d2', suit: true, tie: '#c8302a', sleeve: 'kinu', cord: '#e8e2d2',
+  queueA: { kind: 'adult', female: true, age: .2, hairStyle: 'long', eyeShape: 'big', nose: 'button', jaw: 'pointed', skin: '#f2cca8', skinD: '#d8a884', hair: '#4a2a1e', hairHi: '#7a5038', top: '#c8a060', topD: '#a88448', pat: null, collar: '#f2ece0', suit: true, tie: '#c8302a', sleeve: 'kinu', bottom: 'skirt', skirt: '#3a2a3a', skirtD: '#2a1e2a', eyes: 'adult', iris: '#2a1810', lashes: true, brow: 4, lips: '#c06070', h: .95, bulk: 1.0 },
+  queueB: { kind: 'adult', age: .95, hairStyle: 'bald', hair: '#d8d4cc', hairHi: '#ffffff', eyeShape: 'narrow', nose: 'broad', jaw: 'round', skin: '#dca880', skinD: '#c08a62', top: '#4a5a3a', topD: '#3a4a2e', pat: null, collar: '#e8e2d2', suit: true, tie: '#8a3a2a', sleeve: 'kinu', bottom: 'pants', pants: '#5a4a3a', shoes: '#2a1e16', eyes: 'adult', iris: '#2a1810', brow: 6, browCol: '#e8e4dc', h: .9, bulk: 1.1, stoop: .06 },
+  queueC: { kind: 'adult', age: .05, hairStyle: 'spiky', hair: '#1a1418', hairHi: '#4a4050', eyeShape: 'upturned', nose: 'line', jaw: 'pointed', skin: '#e8b890', skinD: '#cc9a72', top: '#2a6a9a', topD: '#1e5078', pat: null, collar: '#2a6a9a', suit: true, tie: '#2a6a9a', sleeve: 'kinu', bottom: 'pants', pants: '#2a2a34', shoes: '#e8e4dc', eyes: 'adult', iris: '#2a1810', brow: 7, h: .88, bulk: .92 },
+  xmasDad: { kind: 'adult', age: .5, hairStyle: 'parted', eyeShape: 'droopy', nose: 'long', bulk: 1.22, skin: '#e8be98', skinD: '#cca07a', hair: '#2a1e18', hairHi: '#5a4a3a', hairStyle: 'side', top: '#6a3a2a', topD: '#542c20', pat: null, collar: '#e8e2d2', suit: true, tie: '#c8302a', sleeve: 'kinu', cord: '#e8e2d2',
     bottom: 'pants', pants: '#3a3a44', shoes: '#1a1414', eyes: 'adult', iris: '#2a1810', brow: 7, jaw: 'round', glasses: true, h: 1.02 },
 });
 Object.assign(THOLD, {
+  bucket: (g, h, o, t) => { g.save(); g.translate(h[0] + 10, h[1] + 96); JPA.chickenBucket(g, { x: 0, y: 0, s: .34 }, { T: t }); tln(g, [-36, -90, -10, -110, 36, -92], 4); g.restore(); },
   sanbo: (g, h, o, t) => { g.save(); g.translate(h[0] - 70, h[1] - 20); tsh(g, 'M-90 0 L90 0 L70 60 L-70 60 Z', '#e8d8b0', 4); tsh(g, 'M-100 -14 L100 -14 L100 0 L-100 0 Z', '#d8c498', 4);
     tsh(g, 'M-60 -14 C-60 -70 60 -70 60 -14 Z', '#fbfaf2', 4); for (let k = -3; k <= 3; k++) tell(g, k * 14, -40 - Math.abs(k) * -2, 5, 8, '#f6f2e6', 1.4); glow(g, 0, -40, 160, 'rgba(255,250,220,1)', .4 + .1 * Math.sin(t * 2)); g.restore(); },
   sickle: (g, h, o, t) => { g.save(); g.translate(h[0], h[1]); g.rotate(o.holdRot ?? -.3); tln(g, [0, 20, 0, -120], 12, '#6a4a2a'); tsh(g, 'M0 -120 Q70 -150 110 -100 Q60 -128 4 -104 Z', '#c8d0da', 3); g.restore(); },
@@ -102,3 +106,19 @@ JPA.riceBowls = (g, A, c) => { const T = c.T; g.save(); g.translate(A.x, A.y); g
     tsh(g, 'M-60 -20 L60 -20 Q56 40 0 44 Q-56 40 -60 -20 Z', i % 2 ? '#2a3a6a' : '#a8342a', 4); tln(g, [-50, 0, 50, 0], 3, '#e8c050');
     tsh(g, 'M-58 -20 C-50 -66 50 -66 58 -20 Z', '#fbfaf2', 4); for (let k = -2; k <= 2; k++) tell(g, k * 16, -40 + Math.abs(k) * 6, 5, 7, '#f2eee2', 1.2); g.restore(); });
   g.restore(); };
+
+// a fried-chicken shop front for the Christmas queue: striped awning, warm window, counter, no brand anywhere
+JPA.shopFront = (g, A, c) => { const T = c.T; g.save(); g.translate(A.x, A.y); g.scale(A.s || 1, A.s || 1);
+  tsh(g, 'M-300 0 L300 0 L300 -900 L-300 -900 Z', '#e8dccc', 5); tsh(g, 'M-250 -120 L250 -120 L250 -560 L-250 -560 Z', rg(g, 0, -340, 40, 400, [[0, '#fff2c8'], [1, '#f2b860']]), 5);
+  glow(g, 0, -340, 520, 'rgba(255,200,120,1)', .35 + .05 * Math.sin(T * 2)); tsh(g, 'M-260 -120 L260 -120 L260 -60 L-260 -60 Z', '#8a5a3a', 5);
+  for (let i = 0; i < 8; i++) { const x0 = -320 + i * 80; tsh(g, `M${x0} -600 L${x0 + 80} -600 L${x0 + 80} -680 L${x0} -680 Z`, i % 2 ? '#fbf6ee' : '#c8302a', 3); tsh(g, `M${x0} -600 Q${x0 + 40} -560 ${x0 + 80} -600 Z`, i % 2 ? '#fbf6ee' : '#c8302a', 3); }
+  for (let k = 0; k < 6; k++) { const x = -200 + k * 80 + Math.sin(T + k) * 2; g.save(); g.translate(x, -120); JPA.chickenBucket(g, { x: 0, y: 0, s: .26 }, c); g.restore(); }
+  g.restore(); };
+// distinct looks (applied after the base definitions so they win): age, eyes, nose, jaw, hair, build differ for every person
+Object.assign(TOON.tennoRite, { age: .55, eyeShape: 'narrow', nose: 'long', bulk: 1.1 });
+Object.assign(TOON.kannushi, { age: .9, eyeShape: 'narrow', nose: 'long', bulk: .95, stoop: .03, jaw: 'long' });
+Object.assign(TOON.farmerKen, { age: .7, eyeShape: 'droopy', nose: 'broad', bulk: 1.25 });
+Object.assign(TOON.firefighter, { age: .15, hairStyle: 'short', eyeShape: 'upturned', nose: 'line', bulk: 1.32, h: 1.06 });
+Object.assign(TOON.policeOfficer, { age: .35, hairStyle: 'ponytail', eyeShape: 'almond', nose: 'button', jaw: 'pointed', bulk: 1.05 });
+Object.assign(TOON.nurse, { age: .65, hairStyle: 'bun', eyeShape: 'round', nose: 'button', jaw: 'wide', bulk: 1.18, h: .93 });
+Object.assign(TOON.xmasDad, { age: .5, hairStyle: 'parted', eyeShape: 'droopy', nose: 'long', jaw: 'wide', bulk: 1.22 });

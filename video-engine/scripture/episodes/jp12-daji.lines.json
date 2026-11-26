@@ -1,0 +1,211 @@
+{
+ "title": "SHE DESTROYED TWO KINGDOMS",
+ "subtitle": "the nine-tailed fox, before Japan",
+ "source": "Edo-period legend of the nine-tailed fox (Takai Ranzan & Hokusai, Ehon Sankoku Yofuden, 1803-05; earlier Tamamo-no-Mae tales): Daji of Shang (Fengshen Yanyi / Shiji), Lady Kayo of India, Bao Si of Zhou (Shiji beacon-fire story), voyage to Japan on Kibi no Makibi's envoy ship (753), Tamamo-no-Mae at Emperor Toba's court, Sessho-seki at Nasu (split March 2022).",
+ "voices": {
+  "mio": {
+   "name": "Candy - Girly and Sweet",
+   "voice_id": "Nggzl2QAXh3OijoXD116"
+  },
+  "kon": {
+   "name": "Callum - Husky Trickster (premade, dry)",
+   "voice_id": "N2lVS1w4EtoT3dr4eOWO"
+  }
+ },
+ "takes": {
+  "mio": "mio_a",
+  "kon": "kon_a"
+ },
+ "lines": [
+  {
+   "id": "L01",
+   "who": "kon",
+   "say": "[ominous] Before this fox was sealed inside a killing stone in Japan... she had already destroyed two kingdoms.",
+   "cap": [
+    "Before this fox was {r:sealed in stone}",
+    "in Japan...",
+    "she had already destroyed",
+    "{r:two kingdoms}."
+   ]
+  },
+  {
+   "id": "L02",
+   "who": "mio",
+   "say": "[shocked] Wait. TWO?",
+   "cap": [
+    "Wait.",
+    "{o:TWO?}"
+   ]
+  },
+  {
+   "id": "L03",
+   "who": "kon",
+   "say": "[storytelling] Three thousand years ago in China, she became Daji, the queen of King Zhou.",
+   "cap": [
+    "{o:3,000 years ago} in China,",
+    "she became {o:Daji},",
+    "queen of King Zhou."
+   ]
+  },
+  {
+   "id": "L04",
+   "who": "kon",
+   "say": "She filled a pool with wine, hung meat from the trees, and threw a party that never ended.",
+   "cap": [
+    "She filled a {o:pool with wine},",
+    "hung {o:meat} from the trees,",
+    "and threw a party",
+    "that {r:never ended}."
+   ]
+  },
+  {
+   "id": "L05",
+   "who": "kon",
+   "say": "[darker] Anyone who complained was forced to walk across a red-hot bronze pillar.",
+   "cap": [
+    "Anyone who complained",
+    "had to walk a {r:red-hot pillar}."
+   ]
+  },
+  {
+   "id": "L06",
+   "who": "kon",
+   "say": "The people rebelled. The dynasty fell. And the queen... vanished.",
+   "cap": [
+    "The people {o:rebelled}.",
+    "The dynasty {r:fell}.",
+    "And the queen...",
+    "{r:vanished}."
+   ]
+  },
+  {
+   "id": "L07",
+   "who": "mio",
+   "say": "[nervous] Vanished where?",
+   "cap": [
+    "Vanished {o:where?}"
+   ]
+  },
+  {
+   "id": "L08",
+   "who": "kon",
+   "say": "[sly] India. As Lady Kayo, a prince's wife. She made him behead a thousand men.",
+   "cap": [
+    "{o:India}.",
+    "As {o:Lady Kayō},",
+    "a prince's wife.",
+    "She made him behead",
+    "{r:a thousand men}."
+   ]
+  },
+  {
+   "id": "L09",
+   "who": "kon",
+   "say": "[beat] But here's where it gets weird. She went back to China.",
+   "cap": [
+    "But here's where",
+    "it gets {r:weird}.",
+    "She went {o:back to China}."
+   ]
+  },
+  {
+   "id": "L10",
+   "who": "kon",
+   "say": "As Bao Si, a queen who never smiled. So the king lit the war beacons, just to make her laugh.",
+   "cap": [
+    "As {o:Bao Si},",
+    "a queen who {r:never smiled}.",
+    "So the king lit the {r:war beacons}",
+    "just to make her {o:laugh}."
+   ]
+  },
+  {
+   "id": "L11",
+   "who": "kon",
+   "say": "[quiet] She laughed. So he did it again, and again. Then a real army came... and nobody answered the fires.",
+   "cap": [
+    "She laughed.",
+    "So he did it {o:again}... and again.",
+    "Then a {r:real army} came...",
+    "and {r:nobody} answered the fires."
+   ]
+  },
+  {
+   "id": "L12",
+   "who": "mio",
+   "say": "[whisper] Two kingdoms.",
+   "cap": [
+    "{r:Two kingdoms.}"
+   ]
+  },
+  {
+   "id": "L13",
+   "who": "kon",
+   "say": "Then she became a young girl, and slipped aboard a ship to Japan.",
+   "cap": [
+    "Then she became a {o:young girl}",
+    "and slipped aboard",
+    "a ship to {o:Japan}."
+   ]
+  },
+  {
+   "id": "L14",
+   "who": "kon",
+   "say": "[storytelling] Four hundred years later, she was Tamamo-no-Mae, the most beautiful woman at court.",
+   "cap": [
+    "400 years later,",
+    "she was {o:Tamamo-no-Mae},",
+    "the most beautiful woman",
+    "at {o:court}."
+   ]
+  },
+  {
+   "id": "L15",
+   "who": "kon",
+   "say": "Until a court diviner saw her shadow. Nine tails.",
+   "cap": [
+    "Until a diviner",
+    "saw her {o:shadow}.",
+    "{r:Nine tails}."
+   ]
+  },
+  {
+   "id": "L16",
+   "who": "mio",
+   "say": "[worried] And that's how she ended up in the rock.",
+   "cap": [
+    "And that's how she",
+    "ended up in the {o:rock}."
+   ]
+  },
+  {
+   "id": "L17",
+   "who": "kon",
+   "say": "[sly] The rock that split in half in twenty twenty-two.",
+   "cap": [
+    "The rock that",
+    "{r:split in half}",
+    "in {o:2022}."
+   ]
+  },
+  {
+   "id": "L18",
+   "who": "mio",
+   "say": "[nervous] Kon... where is she now?",
+   "cap": [
+    "Kon...",
+    "where is she {r:now?}"
+   ]
+  },
+  {
+   "id": "L19",
+   "who": "kon",
+   "say": "[ominous, quiet] Nobody knows. But I know where she started.",
+   "cap": [
+    "{r:Nobody knows}.",
+    "But I know",
+    "where she {o:started}."
+   ]
+  }
+ ]
+}

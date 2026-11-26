@@ -220,19 +220,12 @@
       "y": 1880,
       "s": 0.82,
       "expr": "smile",
-      "arms": "raise",
-      "arms2": "slash",
-      "mix": {
-       "osc": [
-        0.5,
-        0.5,
-        0.8,
-        0
-       ]
-      },
+      "arms": "hold",
       "hold": "sickle",
+      "holdRot": 0.5,
       "walk": 1,
-      "walkRate": 3
+      "walkRate": 3,
+      "sideWalk": true
      }
     ]
    },
@@ -638,7 +631,8 @@
       "walk": 1,
       "walkRate": 3.5,
       "expr": "smile",
-      "arms": "down"
+      "arms": "down",
+      "sideWalk": true
      },
      {
       "type": "toon",
@@ -656,7 +650,8 @@
       "walkRate": 3.5,
       "expr": "smile",
       "arms": "down",
-      "flip": true
+      "flip": true,
+      "sideWalk": true
      },
      {
       "type": "toon",
@@ -674,7 +669,8 @@
       "walkRate": 3.5,
       "expr": "smile",
       "arms": "down",
-      "flip": true
+      "flip": true,
+      "sideWalk": true
      }
     ]
    },
@@ -730,7 +726,7 @@
       "y": 1880,
       "s": 0.8,
       "expr": "smile",
-      "arms": "clasp"
+      "arms": "wave"
      },
      {
       "type": "toon",
@@ -740,7 +736,7 @@
       "s": 0.78,
       "flip": true,
       "expr": "happy",
-      "arms": "open"
+      "arms": "clasp"
      },
      {
       "type": "sparkle",
@@ -882,9 +878,9 @@
     "actors": [
      {
       "type": "kobanBox",
-      "x": 760,
-      "y": 1880,
-      "s": 0.8
+      "x": 700,
+      "y": 1720,
+      "s": 1.9
      },
      {
       "type": "toon",
@@ -902,13 +898,13 @@
       "type": "mio",
       "x": {
        "a": -100,
-       "b": 420,
+       "b": 400,
        "t0": 0,
        "t1": 2.2,
        "e": "lin"
       },
-      "y": 2000,
-      "s": 1.0,
+      "y": 1890,
+      "s": 0.78,
       "expr": "happy",
       "walk": 1,
       "hold": "drawing",
@@ -1079,17 +1075,11 @@
       "n": 70
      },
      {
-      "type": "chickenBucket",
-      "x": 640,
-      "y": 1880,
-      "s": 0.8
-     },
-     {
       "type": "toon",
       "c": "xmasDad",
       "x": {
        "a": 1250,
-       "b": 820,
+       "b": 700,
        "t0": 0,
        "t1": 2.0,
        "e": "o"
@@ -1099,8 +1089,10 @@
       "flip": true,
       "walk": 1,
       "walkRate": 3,
+      "sideWalk": true,
       "expr": "happy",
-      "arms": "open"
+      "arms": "hold",
+      "hold": "bucket"
      }
     ],
     "tod": "xmas"
@@ -1207,31 +1199,75 @@
     "set": "street",
     "actors": [
      {
-      "type": "crowd",
-      "x0": {
-       "a": -300,
-       "b": -100,
-       "t0": 0,
-       "t1": 3.0,
-       "e": "lin"
-      },
-      "x1": {
-       "a": 700,
-       "b": 900,
-       "t0": 0,
-       "t1": 3.0,
-       "e": "lin"
-      },
-      "y": 1900,
-      "n": 8,
-      "s": 0.6,
-      "col": "#1a1428"
+      "type": "snowFall",
+      "n": 60
      },
      {
-      "type": "chickenBucket",
-      "x": 880,
+      "type": "shopFront",
+      "x": 860,
+      "y": 1720,
+      "s": 1.0
+     },
+     {
+      "type": "toon",
+      "c": "queueC",
+      "x": {
+       "a": 60,
+       "b": 160,
+       "t0": 0,
+       "t1": 3.0,
+       "e": "lin"
+      },
       "y": 1880,
-      "s": 0.7
+      "s": 0.78,
+      "view": "side",
+      "walk": 1,
+      "walkRate": 2,
+      "ph": 2
+     },
+     {
+      "type": "toon",
+      "c": "queueA",
+      "x": {
+       "a": 260,
+       "b": 360,
+       "t0": 0,
+       "t1": 3.0,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.78,
+      "view": "side",
+      "walk": 1,
+      "walkRate": 2,
+      "ph": 1
+     },
+     {
+      "type": "toon",
+      "c": "queueB",
+      "x": {
+       "a": 460,
+       "b": 560,
+       "t0": 0,
+       "t1": 3.0,
+       "e": "lin"
+      },
+      "y": 1880,
+      "s": 0.78,
+      "view": "side",
+      "walk": 1,
+      "walkRate": 2
+     },
+     {
+      "type": "toon",
+      "c": "xmasDad",
+      "x": 960,
+      "y": 1900,
+      "s": 0.8,
+      "flip": true,
+      "expr": "happy",
+      "arms": "hold",
+      "hold": "bucket"
      }
     ],
     "tod": "xmas"
