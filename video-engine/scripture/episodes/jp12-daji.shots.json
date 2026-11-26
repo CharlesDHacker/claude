@@ -477,22 +477,17 @@
     "set": "shang",
     "actors": [
      {
-      "type": "crowd",
-      "x0": -100,
-      "x1": 1100,
-      "y": 1900,
-      "n": 9,
-      "s": 1.25,
-      "torches": true,
-      "spears": true,
-      "col": "#1a0e10"
+      "type": "dais",
+      "x": 540,
+      "y": 1560,
+      "s": 0.9
      },
      {
       "type": "toon",
       "c": "daji",
       "x": 540,
-      "y": 1600,
-      "s": 0.6,
+      "y": 1560,
+      "s": 0.62,
       "foxTails": 1,
       "foxEars": 1,
       "alpha": {
@@ -504,6 +499,17 @@
       },
       "expr": "smug",
       "arms": "clasp"
+     },
+     {
+      "type": "crowd",
+      "x0": -100,
+      "x1": 1100,
+      "y": 2090,
+      "n": 9,
+      "s": 1.0,
+      "torches": true,
+      "spears": true,
+      "col": "#1a0e10"
      }
     ],
     "front": [

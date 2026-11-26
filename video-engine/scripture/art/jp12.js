@@ -77,3 +77,7 @@ JPA.motes = (g, A, c) => { const T = c.T, r = rng(A.seed || 61), dir = A.dir || 
     const x = ((ox + sw + (dir === 'drift' ? T * sp * .6 : T * 14)) % 1300) - 110, y = dir === 'up' ? 2000 - ((oy + T * sp) % 2100) : dir === 'down' ? ((oy + T * sp) % 2100) - 100 : (oy + Math.sin(T * .7 + k) * 60) % 2000;
     g.globalAlpha = (A.a ?? .85) * (.55 + .45 * Math.sin(T * 2.3 + k * 1.7)); g.fillStyle = rg(g, x, y, 0, R, [[0, A.col || 'rgba(255,160,80,1)'], [1, 'rgba(0,0,0,0)']]); g.beginPath(); g.arc(x, y, R, 0, 7); g.fill(); }
   g.restore(); };
+// a raised throne dais (top surface at A.y) so a figure above a crowd stands on something
+JPA.dais = (g, A, c) => { g.save(); g.translate(A.x, A.y); g.scale(A.s || 1, A.s || 1); const w = A.w || 300;
+  for (let k = 3; k >= 0; k--) { const y0 = k * 70, ww = w + k * 70; tsh(g, `M${-ww} ${y0} L${ww} ${y0} L${ww} ${y0 + 70} L${-ww} ${y0 + 70} Z`, k % 2 ? '#7a3a26' : '#8e4630', 5); tln(g, [-ww, y0 + 6, ww, y0 + 6], 5, '#e0b850'); }
+  tsh(g, `M${-w} -16 L${w} -16 L${w} 4 L${-w} 4 Z`, '#8a1a1a', 4); g.restore(); };

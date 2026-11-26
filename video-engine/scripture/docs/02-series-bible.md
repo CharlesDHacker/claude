@@ -144,3 +144,9 @@ Applied to every character rig from EP07 on (`art/figure.js`, `art/heroes.js`, `
 - **Family resemblance and age read at a glance:** relatives share features (Grandma has Mio's buns, kimono pattern, sash and hairpin); a child
   is clearly smaller than the adults around her.
 - **Nothing overlaps wrongly:** hands raised to the face are drawn over the head; props sit in front of or behind bodies as they would in life.
+
+
+## Staging: everyone stands on something
+- Every character's feet touch a visible surface: the ground line, a step, a dais, a deck, a floor. A figure placed higher in the frame than the crowd must have a platform (stairs, dais, rampart, cliff) drawn under them; never leave someone hovering above or among other figures.
+- Background figures sit higher on screen and smaller only when the floor between them and the camera is visible; otherwise lift them onto a platform.
+- Check every QA sheet for floating feet, cut-off figures at the frame edge, and characters covered by others before rendering.
